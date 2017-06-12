@@ -1,0 +1,155 @@
+%% High Frequency Component Enhancement
+%  Image Edge Enhancement Using High Frequency Component Enhancement
+%% Experiment Description:
+% This experiment enhance image edges Using High Frequency Component
+% Enhancement method.
+%
+%% Tasks:
+% 
+% 12.3.1 
+%
+% Generate several versions of unsharp masking and synthesize and
+% observe artificial color image preparations (program coldispl.m).
+%
+% Compare the results with standardization by mean and standard deviation.
+%% Instruction:
+% Use the 'Set Mean of Test Image' and 'Set Variance of Test Image' slider to set the input image mean and variance.
+% 
+% Use the  'Load Auxiliary Image' icon on the tool bar to change the
+% auxiliary image used for the histogram matching.
+% auxiliary image used.
+%% Theoretical Background & algorithm:
+% *Mean and variance calibration -*
+%
+% A method of adjusting image appearance by changing the image global mean
+% and variance values to desired values.
+%
+% $$mean_{global} =\frac{1}{height*width}\sum_{y=0}^{height-1}\sum_{x=0}^{width-1}{Image(x,y)} $$
+% 
+% $$var_{global} =\frac{1}{height*width}\sum_{y=0}^{height-1}\sum_{x=0}^{width-1}(Image(x,y) - mean_{global})^2$$
+%
+% $$ Image_{res}(x,y)= \frac{\sqrt{var_{desired}}(Image(x,y) - mean_{global})}{\sqrt{var_{global}}} + mean_{desired} $$
+%
+% *Histogram match -* 
+%
+% A method in image processing for color adjustment of two images using the image histograms.
+%
+% It can be used to normalize two images, when the images were acquired at
+% the same local illumination (such as shadows) over the same location, but by different sensors, atmospheric conditions or global illumination.
+%
+% Given two images with $$ 2^n $$ gray levels:
+%
+% 1. Calculate the images histograms and the cumulative sum of the
+% histograms:
+%
+% $$histogram_{Im1}(k) = \left( \#pixels \in Im1 \mid pixel_{val} = k\right) $$
+%
+% $$cum\_sum\_hist_{Im1}(l) = \sum_{k=0}^{k=l}{histogram_{Im1}(k)} $$
+%
+% $$histogram_{Im2}(k) = \left( \#pixels \in Im2 \mid pixel_{val} = k\right) $$
+%
+% $$cum\_sum\_hist_{Im2}(l) = \sum_{k=0}^{k=l}{histogram_{Im2}(k)} $$
+%
+% 2. Define a lut such that each lut(p) is the number of cases for which
+% the cum_sum_hist of Im2 is smaller or equal to cum_sum_hist Im1.
+%
+% $$\delta (t) = \left\{\begin{array}{cc} 1 & t=True \\ 0 & t=False\end{array}\right. $$
+%
+% $$lut(p) = \sum_{l=0}^{l=2^n}\delta(cum\_sum\_hist_{Im2}(l)<cum\_sum\_hist_{Im1}(p))$$
+%
+% $$Image_{res}(x,y) = lut(Im1(x,y))$$
+%%
+
+function HighFrequencyComponentAmplification = HighFrequencyComponentAmplification_mb( handles )
+    %HighFrequencyComponentAmplification_mb Summary of this function goes here
+    %   Detailed explanation goes here
+       k=1;
+axes_hor = 2;
+       axes_ver = 1;
+       button_pos = get(handles.pushbutton12, 'position');
+       bottom =button_pos(2);
+       left = button_pos(1)+button_pos(3);
+            HighFrequencyComponentAmplification = DeployAxes( handles.figure1, ...
+                [axes_hor, ...
+                axes_ver], ...
+                bottom, ...
+                left, ...
+                0.9, ...
+                0.9);
+            
+            
+%%
+			HighFrequencyComponentAmplification.im_1 = HandleFileList('load' , HandleFileList('get' , handles.image_index));
+			HighFrequencyComponentAmplification.g2 = 2;
+			HighFrequencyComponentAmplification.g1 = 1;
+			HighFrequencyComponentAmplification.L = 5;
+%
+	k=1;
+	interface_params(k).style = 'pushbutton';
+	interface_params(k).title = 'Run Experiment';
+	interface_params(k).callback = @(a,b)run_process_image(a);
+	k=k+1;
+			interface_params =  SetSliderParams('Set spread Of LPF', 17, 1, HighFrequencyComponentAmplification.L, 2, @(a,b)SetParam(a,b,k,(handles.current_experiment_name), 'L',@update_sliders), interface_params, k);
+%
+k=k+1;
+			interface_params =  SetSliderParams('Set Gain Factor g1', 2, 0, HighFrequencyComponentAmplification.g1, 1/10, @(a,b)SetParam(a,b,k,(handles.current_experiment_name), 'g1',@update_sliders), interface_params, k);
+%
+k=k+1;
+			interface_params =  SetSliderParams('Set Gain Factor g2', 2, 0, HighFrequencyComponentAmplification.g2, 1/10, @(a,b)SetParam(a,b,k,(handles.current_experiment_name), 'g2',@update_sliders), interface_params, k);
+%
+
+            HighFrequencyComponentAmplification.buttongroup_handle = SetInteractiveInterface(handles, interface_params); 
+                             
+        process_image( HighFrequencyComponentAmplification.im_1, ...
+            HighFrequencyComponentAmplification.L, ...
+            HighFrequencyComponentAmplification.g1, ...
+            HighFrequencyComponentAmplification.g2, ...
+            HighFrequencyComponentAmplification.axes_1, ...
+            HighFrequencyComponentAmplification.axes_2);
+
+
+
+end
+
+
+function update_sliders(handles)
+	if ( ~isstruct(handles))
+		handles = guidata(handles);
+	end
+	if ( strcmpi(handles.interactive, 'on'))
+		run_process_image(handles);
+	end
+	guidata(handles.figure1,handles );
+end
+
+function run_process_image(handles)
+    if ( ~isstruct(handles))
+        handles = guidata(handles);
+    end
+
+
+        HighFrequencyComponentAmplification = handles.(handles.current_experiment_name);
+        process_image( HighFrequencyComponentAmplification.im_1, ...
+            round(HighFrequencyComponentAmplification.L), ...
+            HighFrequencyComponentAmplification.g1, ...
+            HighFrequencyComponentAmplification.g2, ...
+            HighFrequencyComponentAmplification.axes_1, ...
+            HighFrequencyComponentAmplification.axes_2);
+end
+
+
+function process_image( im_1, L, g1, g2, axes_1, axes_2)
+im_1 = double(im_1);
+lpf = ones(L,L)/(L^2);
+out_im = g1*im_1 + g2*(im_1 - conv2(im_1, lpf, 'same'));
+
+
+imshow( im_1, [0 255], 'parent', axes_1);
+DisplayAxesTitle( axes_1, ['Test image'],   'BM'); 
+imshow( out_im, [0 255], 'parent', axes_2);
+% DisplayAxesTitle( axes_2, {['High frequencies enhanced'], ['im_{res} = ' num2str(g1) '\cdot im_1 +' num2str(g2) '\cdot ( im_1 - im_{1}^{lpf} )']},   'BM'); 
+DisplayAxesTitle( axes_2, {['High frequencies enhanced'], ['im_{res} = g1\cdot im_1 +g2\cdot ( im_1 - im_{1}^{lpf} )']},   'BM'); 
+
+
+
+end

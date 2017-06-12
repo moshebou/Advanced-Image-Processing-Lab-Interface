@@ -1,0 +1,1 @@
+function OUTIMG=uquan256_mb(INPIMG)% Uniform quantization of a signal into a range [0-255];% Call OUTIMG=uquan256(INPIMG);mn=min(min(INPIMG));mx=max(max(INPIMG));OUTIMG=round(255*(INPIMG-mn)/(mx-mn));

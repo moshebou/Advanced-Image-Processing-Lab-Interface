@@ -1,0 +1,1807 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>Advanced Image Processing lab</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-21.6pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:28.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-28.8pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-36.0pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:43.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-43.2pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{mso-style-link:"Heading 5 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:50.4pt;
+	margin-bottom:.0001pt;
+	text-indent:-50.4pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-weight:normal;}
+h6
+	{mso-style-link:"Heading 6 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:57.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-57.6pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Heading 7 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:64.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-64.8pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"Heading 8 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:72.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-72.0pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"Heading 9 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:79.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-79.2pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:44.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:55.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:66.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:77.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Footnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-indent:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoEndnoteReference
+	{vertical-align:super;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"Endnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
+	{mso-style-link:"Macro Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:9.0pt;
+	font-family:"Courier New";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-name:"Title\,ttl";
+	mso-style-link:"Title Char\,ttl Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpFirst, li.MsoBodyTextIndentCxSpFirst, div.MsoBodyTextIndentCxSpFirst
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpMiddle, li.MsoBodyTextIndentCxSpMiddle, div.MsoBodyTextIndentCxSpMiddle
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpLast, li.MsoBodyTextIndentCxSpLast, div.MsoBodyTextIndentCxSpLast
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"Subtitle Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:15.0pt;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"Body Text 2 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Body Text 3 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-link:"Document Map Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.0pt;
+	line-height:200%;
+	background:navy;
+	font-size:12.0pt;
+	font-family:"Tahoma",sans-serif;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"Plain Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;}
+span.MsoPlaceholderText
+	{color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.MsoSubtleReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	text-decoration:underline;}
+span.MsoIntenseReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+p.MsoBibliography, li.MsoBibliography, div.MsoBibliography
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:right;
+	page-break-after:avoid;
+	direction:rtl;
+	unicode-bidi:embed;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-link:"Heading 4";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading5Char
+	{mso-style-name:"Heading 5 Char";
+	mso-style-link:"Heading 5";
+	font-family:"Cambria",serif;
+	color:#243F60;}
+span.Heading6Char
+	{mso-style-name:"Heading 6 Char";
+	mso-style-link:"Heading 6";
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-style:italic;}
+span.Heading7Char
+	{mso-style-name:"Heading 7 Char";
+	mso-style-link:"Heading 7";
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+span.Heading8Char
+	{mso-style-name:"Heading 8 Char";
+	mso-style-link:"Heading 8";
+	font-family:"Cambria",serif;
+	color:#404040;}
+span.Heading9Char
+	{mso-style-name:"Heading 9 Char";
+	mso-style-link:"Heading 9";
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.StyleFirstline0cmLinespacingDouble, li.StyleFirstline0cmLinespacingDouble, div.StyleFirstline0cmLinespacingDouble
+	{mso-style-name:"Style First line\:  0 cm Line spacing\:  Double";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EquationChar
+	{mso-style-name:"Equation Char";
+	mso-style-link:Equation;
+	color:#4F81BD;
+	font-weight:bold;}
+p.Equation, li.Equation, div.Equation
+	{mso-style-name:Equation;
+	mso-style-link:"Equation Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma",sans-serif;}
+span.EndnoteTextChar
+	{mso-style-name:"Endnote Text Char";
+	mso-style-link:"Endnote Text";}
+span.FootnoteTextChar
+	{mso-style-name:"Footnote Text Char";
+	mso-style-link:"Footnote Text";}
+p.HeadingMath, li.HeadingMath, div.HeadingMath
+	{mso-style-name:HeadingMath;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-variant:small-caps;}
+p.Figure, li.Figure, div.Figure
+	{mso-style-name:Figure;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Table, li.Table, div.Table
+	{mso-style-name:Table;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.HeadingOther, li.HeadingOther, div.HeadingOther
+	{mso-style-name:HeadingOther;
+	margin-top:26.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:45.0pt;
+	text-indent:-45.0pt;
+	line-height:15.0pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.References, li.References, div.References
+	{mso-style-name:References;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.9pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.9pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.capLabel
+	{mso-style-name:capLabel;
+	font-style:italic;
+	vertical-align:baseline;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman",serif;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman",serif;}
+p.Author, li.Author, div.Author
+	{mso-style-name:Author;
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.SubtitleChar
+	{mso-style-name:"Subtitle Char";
+	mso-style-link:Subtitle;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;
+	font-family:"Times New Roman",serif;}
+p.CN, li.CN, div.CN
+	{mso-style-name:CN;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;}
+p.ChapterNo, li.ChapterNo, div.ChapterNo
+	{mso-style-name:ChapterNo;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;}
+p.small, li.small, div.small
+	{mso-style-name:small;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.li, li.li, div.li
+	{mso-style-name:li;
+	margin-top:3.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:17.85pt;
+	text-indent:-17.85pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Book Antiqua",serif;}
+p.Affiliation, li.Affiliation, div.Affiliation
+	{mso-style-name:Affiliation;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:26.0pt;
+	margin-left:0cm;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+p.Abstract, li.Abstract, div.Abstract
+	{mso-style-name:Abstract;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.TitleChar
+	{mso-style-name:"Title Char\,ttl Char";
+	mso-style-link:"Title\,ttl";
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.BlockQuote, li.BlockQuote, div.BlockQuote
+	{mso-style-name:BlockQuote;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:7.0pt;
+	margin-left:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTnum, li.LISTnum, div.LISTnum
+	{mso-style-name:LISTnum;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTalph, li.LISTalph, div.LISTalph
+	{mso-style-name:LISTalph;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTdash, li.LISTdash, div.LISTdash
+	{mso-style-name:LISTdash;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Motto, li.Motto, div.Motto
+	{mso-style-name:Motto;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.Appendix, li.Appendix, div.Appendix
+	{mso-style-name:Appendix;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.Notes, li.Notes, div.Notes
+	{mso-style-name:Notes;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.MacroTextChar
+	{mso-style-name:"Macro Text Char";
+	mso-style-link:"Macro Text";
+	font-family:"Courier New";}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-link:"Plain Text";
+	font-family:"Courier New";}
+span.DocumentMapChar
+	{mso-style-name:"Document Map Char";
+	mso-style-link:"Document Map";
+	font-family:"Tahoma",sans-serif;
+	background:navy;}
+span.BodyText2Char
+	{mso-style-name:"Body Text 2 Char";
+	mso-style-link:"Body Text 2";
+	font-family:"Times New Roman",serif;}
+span.BodyText3Char
+	{mso-style-name:"Body Text 3 Char";
+	mso-style-link:"Body Text 3";
+	font-family:"Times New Roman",serif;}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Style11, li.Style11, div.Style11
+	{mso-style-name:Style11;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.FigureCaption, li.FigureCaption, div.FigureCaption
+	{mso-style-name:"Figure Caption";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.currencyconvertertext
+	{mso-style-name:currency_converter_text;}
+span.currencyconverterlink
+	{mso-style-name:currency_converter_link;}
+span.BodyTextIndentChar
+	{mso-style-name:"Body Text Indent Char";
+	mso-style-link:"Body Text Indent";
+	font-family:"Times New Roman",serif;}
+span.st
+	{mso-style-name:st;}
+span.fplc
+	{mso-style-name:fplc;}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:21.0cm 841.95pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoToc1><a name="_Ref409520465"></a><a name="_Ref409520484"></a><a href="#_Toc410737132">8<span style='font-size:11.0pt;font-family:"Calibri",sans-serif;
+color:windowtext;text-transform:none;font-weight:normal;text-decoration:none'>      </span>Image
+resampling<span style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410737133"><i>8.1</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Signals Zoom<span style='color:windowtext;
+display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410737134"><i>8.2</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Image Zoom<span style='color:windowtext;
+display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>10</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410737135"><i>8.3</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Image Rotation<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410737136"><i>8.4</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Image Coordinate Transform<span
+style='color:windowtext;display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410737137"><i>8.5</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Image Profile<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc410737138">Bibliography<span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>18</span></a></p>
+
+<p class=MsoNormal><br clear=all style='page-break-before:always'>
+ &nbsp;</p>
+
+<h1><a name="_Toc410737132"></a><a name="_Toc410119751"></a><a
+name="_Toc410119460">8<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image resampling</a></h1>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>8.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410737133"></a><a name="_Toc410119752"></a><a
+name="_Toc410119461">Signals Zoom</a></h2>
+
+<h3><a name="_Ref410493586"></a><a name="_Toc410119462">8.1.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Theoretical background</a> [1]</h3>
+
+<p class=MsoNormal><a name="OLE_LINK92"></a><a name="OLE_LINK91">Image
+re-sampling assumes reconstruction of a continuous approximation of the
+original non-sampled image by means of interpolation of available image samples
+to obtain samples “in-between” the available ones. The most feasible is
+interpolation by means of digital filtering implemented as digital convolution.
+A number of convolutional interpolation methods are known, beginning from the
+simplest and the least accurate nearest neighbor and linear (bilinear, for 2D
+case) interpolations to more accurate cubic (bicubic, for 2D case) and higher
+order spline methods.</a></p>
+
+<p class=MsoNormal>Discrete sinc-interpolation is the gold standard for
+re-sampling sampled data.</p>
+
+<h4>8.1.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Nearest neighbor interpolation  </h4>
+
+<p class=MsoNormal>The nearest neighbor algorithm selects the value of the
+nearest point and does not consider the values of neighboring points at all,
+yielding a piecewise-constant interpolant. The point spread function of the
+nearest neighbor interpolation (in 1D):</p>
+
+<p class=MsoNormal>  <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:8.5pt'><img width=141 height=41 src="Image%20resampling_files/image001.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;1</p>
+
+<p class=MsoNormal>is illustrated at Figure <span lang=AR-SA>&#8206;</span>8&#8209;1.</p>
+
+<p class=MsoNormal><img width=311 height=234 id="&#1514;&#1502;&#1493;&#1504;&#1492; 22"
+src="Image%20resampling_files/image002.png"></p>
+
+<p class=MsoCaption><a name="_Ref410144854"></a><a name="_Ref410144860">Figure <b><span
+lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;1</a> Nearest
+Neighbor interpolation kernel</p>
+
+<p class=MsoNormal>The nearest neighbor interpolation can be computed by:</p>
+
+<p class=MsoNormal> <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.5pt'><img width=227 height=30 src="Image%20resampling_files/image003.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;2</p>
+
+<p class=MsoNormal>Where:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=11 height=27 src="Image%20resampling_files/image004.png"></span>is
+the input signal; <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=121 height=27 src="Image%20resampling_files/image005.png"></span> a
+discrete delta function with length of L;  <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=33 height=27 src="Image%20resampling_files/image006.png"></span> –
+is the convolution operation; <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=54 height=27 src="Image%20resampling_files/image007.png"></span> –
+is a signal with L coefficients, all equal to 1; <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=32 height=27 src="Image%20resampling_files/image008.png"></span> is
+the Kronecker product.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4>8.1.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Linear interpolation </h4>
+
+<p class=MsoNormal>The linear interpolation algorithm uses the two nearest
+neighbors of the current point to calculate it value by multiplying each of
+those points with weights inverse proportionate to their distance from the
+current point.  An example for linear interpolation is given at Figure <span lang=AR-SA>&#8206;</span>8&#8209;2. The value of y at point x is
+calculated as a weighted sum of its nearest neighbors: </p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:8.5pt'><img width=149 height=36 src="Image%20resampling_files/image009.png"></span> </p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;3</p>
+
+<p class=MsoNormal>Linear interpolation is special case of polynomial
+interpolation with n&nbsp;=&nbsp;1.</p>
+
+<p class=MsoNormal><img width=300 height=300 id="&#1514;&#1502;&#1493;&#1504;&#1492; 24"
+src="Image%20resampling_files/image010.png"
+alt="http://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/LinearInterpolation.svg/300px-LinearInterpolation.svg.png"></p>
+
+<p class=MsoCaption><a name="_Ref410160796">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;2</a>: Linear interpulation
+example. The value of y at point x is calculated as a weighted sum of <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=31 height=24 src="Image%20resampling_files/image011.png"></span>, 
+where the weights are poportional to the distance of <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=31 height=24 src="Image%20resampling_files/image012.png"></span> from
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:
+relative;top:2.5pt'><img width=8 height=24
+src="Image%20resampling_files/image013.png"></span>.</p>
+
+<p class=MsoNormal>The point spread function of the nearest neighbor
+interpolation (in 1D) </p>
+
+<p class=MsoNormal> <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:8.5pt'><img width=160 height=41 src="Image%20resampling_files/image014.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;4</p>
+
+<p class=MsoNormal>is illustrated at Figure <span lang=AR-SA>&#8206;</span>8&#8209;3:</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img width=374 height=281 id="&#1514;&#1502;&#1493;&#1504;&#1492; 32"
+src="Image%20resampling_files/image015.png"></p>
+
+<p class=MsoCaption><a name="_Ref410160759">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;3</a>: Linear interpolation
+kernel</p>
+
+<p class=MsoNormal>Linear interpolation is special case of polynomial
+interpolation with n&nbsp;=&nbsp;1.</p>
+
+<p class=MsoNormal>The linear interpolation can be computed by:</p>
+
+<p class=MsoNormal> <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:7.0pt'><img width=338 height=37 src="Image%20resampling_files/image016.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;5</p>
+
+<p class=MsoNormal>Where:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=11 height=27 src="Image%20resampling_files/image004.png"></span>is
+the input signal; <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=121 height=27 src="Image%20resampling_files/image005.png"></span> a
+discrete delta function with length of L;  <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=33 height=27 src="Image%20resampling_files/image006.png"></span> –
+is the convolution operation; <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=54 height=27 src="Image%20resampling_files/image007.png"></span> –
+is a signal with L coefficients, all equal to 1; <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=32 height=27 src="Image%20resampling_files/image008.png"></span> is
+the Kronecker product.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4>8.1.1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Bi-cubic interpolation </h4>
+
+<p class=MsoNormal>The Bi-cubic interpolation (aka cubic Hermite spline) is
+composed of piecewise cubic polynomials defined on the subintervals<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=179 height=27 src="Image%20resampling_files/image017.png"></span>.</p>
+
+<p class=MsoNormal>Outside this interval, the interpolation kernel <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=9 height=27 src="Image%20resampling_files/image018.png"></span> is
+zero. As a consequence of this condition, the number of data samples used to
+evaluate the interposition function is 4. This condition, along with the
+continuous and continuous first derivative demand, the requirement of the
+kernel <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=9 height=27 src="Image%20resampling_files/image018.png"></span> to
+be symmetric, and the conditions<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=183 height=27 src="Image%20resampling_files/image019.png"></span>,
+result in a kernel on form:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif'><img width=339
+height=69 src="Image%20resampling_files/image020.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;6</p>
+
+<p class=MsoNormal>Where <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=5 height=27 src="Image%20resampling_files/image021.png"></span> is
+the distance of the current calculated sample form its nearest neighbors.</p>
+
+<p class=MsoNormal>If the interpolation function g(x) is to agree with the
+first three terms of the Taylor series expansion for <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=26 height=27 src="Image%20resampling_files/image022.png"></span> (where
+<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=26 height=27 src="Image%20resampling_files/image022.png"></span> is
+the continues function which we wish to estimate its values from a sampled
+version of) then the parameter <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=8 height=27 src="Image%20resampling_files/image023.png"></span> must
+be equal to -0.5.</p>
+
+<p class=MsoNormal>This leads to one of the point spread function (suggested by
+Keys [2]) of the bi-cubic interpolation (in 1D)    is illustrated at Figure <span lang=AR-SA>&#8206;</span>8&#8209;4 </p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif'><img width=324
+height=103 src="Image%20resampling_files/image024.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;7</p>
+
+<p class=MsoNormal><img width=344 height=258 id="&#1514;&#1502;&#1493;&#1504;&#1492; 175"
+src="Image%20resampling_files/image025.png"></p>
+
+<p class=MsoCaption><a name="_Ref410145328">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;4</a> Cubic interpolation kernel</p>
+
+<p class=MsoNormal>Cubic interpolation is special case of polynomial
+interpolation with n&nbsp;=&nbsp;2.</p>
+
+<p class=MsoNormal>The Cubic interpolation can be computed by:</p>
+
+<p class=MsoNormal> <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:9.0pt'><img width=455 height=42 src="Image%20resampling_files/image026.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;8</p>
+
+<p class=MsoNormal>Where:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=11 height=27 src="Image%20resampling_files/image004.png"></span>is
+the input signal; <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=121 height=27 src="Image%20resampling_files/image005.png"></span> a
+discrete delta function with length of L;  <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=33 height=27 src="Image%20resampling_files/image006.png"></span> –
+is the convolution operation; <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=54 height=27 src="Image%20resampling_files/image007.png"></span> –
+is a signal with L coefficients, all equal to 1; <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=32 height=27 src="Image%20resampling_files/image008.png"></span> is
+the Kronecker product.</p>
+
+<h4>8.1.1.4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Sinc interpolation</h4>
+
+<p class=MsoNormal>Sinc subsampling interpolation relays on the discrete
+frequency response of perfect shifting filter.</p>
+
+<p class=MsoNormal>For zoom factor L, signal/image zooming can be implemented
+through generating subsequently computed L-1 signal/image copies shifted by
+corresponding multiple of 1/L shifts:</p>
+
+<p class=MsoNormal><img width=279 height=48
+src="Image%20resampling_files/image027.png">, <span style='position:relative;
+top:5.0pt'><img width=85 height=20 src="Image%20resampling_files/image028.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;9</p>
+
+<p class=MsoNormal>Where <span style='position:relative;top:3.0pt'><img
+width=20 height=20 src="Image%20resampling_files/image029.png"></span> is the
+signal sampling interval , <span style='position:relative;top:6.0pt'><img
+width=41 height=22 src="Image%20resampling_files/image030.png"></span> and  <span
+style='position:relative;top:6.0pt'><img width=41 height=22
+src="Image%20resampling_files/image031.png"></span> are direct and inverse <span
+style='position:relative;top:3.0pt'><img width=22 height=22
+src="Image%20resampling_files/image032.png"></span>-point Fast Fourier
+transforms, <img width=11 height=11 src="Image%20resampling_files/image033.png"> symbolizes
+component-wise (Hadamard) matrix product elements of two arrays and <img
+width=56 height=22 src="Image%20resampling_files/image034.png"> is the discrete
+frequency response coefficients of the perfect <span style='position:relative;
+top:3.0pt'><img width=20 height=20 src="Image%20resampling_files/image035.png"></span>-shifting
+filter which is defined by:</p>
+
+<p class=MsoNormal>For odd number of signal samples<span style='position:relative;
+top:3.0pt'><img width=20 height=20 src="Image%20resampling_files/image036.png"></span>:</p>
+
+<p class=MsoNormal><img width=326 height=76
+src="Image%20resampling_files/image037.png"></p>
+
+<p class=MsoCaption><a name="_Ref410514762">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;10</a></p>
+
+<p class=MsoNormal>And for even number of signal samples<span style='position:
+relative;top:3.0pt'><img width=20 height=20
+src="Image%20resampling_files/image036.png"></span>:</p>
+
+<p class=MsoNormal><img width=316 height=135
+src="Image%20resampling_files/image038.png"></p>
+
+<p class=MsoCaption><a name="_Ref410514736">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;11</a></p>
+
+<p class=MsoNormal>Where <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=13 height=27 src="Image%20resampling_files/image039.png"></span> can
+be: <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=46 height=27 src="Image%20resampling_files/image040.png"></span>,
+<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=46 height=27 src="Image%20resampling_files/image041.png"></span>,
+<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=46 height=27 src="Image%20resampling_files/image042.png"></span>,
+each defining a different interpolation kernel.</p>
+
+<p class=MsoNormal>Applying to Equation <span lang=AR-SA>&#8206;</span>8&#8209;10
+and Equation <span lang=AR-SA>&#8206;</span>8&#8209;11 inverse discrete Fourier
+transform one can obtain that, for odd <span style='position:relative;
+top:3.0pt'><img width=19 height=21 src="Image%20resampling_files/image043.png"></span> ,
+point spread function of the perfect shifting filter defined by Equation <span lang=AR-SA>&#8206;</span>8&#8209;10 is:</p>
+
+<p class=MsoNormal><img width=222 height=22
+src="Image%20resampling_files/image044.png"></p>
+
+<p class=MsoCaption><b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8.1.1Equation
+<b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;12</p>
+
+<p class=MsoNormal>and for even <span style='position:relative;top:3.0pt'><img
+width=20 height=20 src="Image%20resampling_files/image036.png"></span>, Case 0
+and Case 2, perfect shifting filter  point spread functions are</p>
+
+<p class=MsoNormal><img width=268 height=25
+src="Image%20resampling_files/image045.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;13</p>
+
+<p class=MsoNormal>and </p>
+
+<p class=MsoNormal><img width=268 height=23
+src="Image%20resampling_files/image046.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;14</p>
+
+<p class=MsoNormal>correspondingly.</p>
+
+<p class=MsoNormal>Where:  </p>
+
+<p class=MsoNormal><span style='position:relative;top:5.0pt'><img width=76
+height=20 src="Image%20resampling_files/image047.png"></span> is the discrete
+sinc-function: <span style='position:relative;top:15.0pt'><img width=162
+height=48 src="Image%20resampling_files/image048.png"></span>, </p>
+
+<p class=MsoNormal><span style='position:relative;top:5.0pt'><img width=66
+height=22 src="Image%20resampling_files/image049.png"></span> is the general
+discrete sinc-function: <span style='position:relative;top:30.0pt'><img
+width=192 height=87 src="Image%20resampling_files/image050.png"></span> </p>
+
+<p class=MsoNormal>Case_1/2 is a combination of Case_0 and Case_2:</p>
+
+<p class=MsoNormal><img width=432 height=25
+src="Image%20resampling_files/image051.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;15</p>
+
+<p class=MsoNormal><img width=250 height=25
+src="Image%20resampling_files/image052.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;16</p>
+
+<p class=MsoNormal>Numerical interpolation using discrete sinc-functions
+(sincd-functions) given by the equations above as the interpolation kernel is called
+discrete sinc-interpolation. </p>
+
+<p class=MsoNormal>The sinc interpolation PSF is illustrated at Figure <span lang=AR-SA>&#8206;</span>8&#8209;5 and Figure <span lang=AR-SA>&#8206;</span>8&#8209;6.</p>
+
+<p class=MsoNormal><img width=369 height=216 id="&#1514;&#1502;&#1493;&#1504;&#1492; 30"
+src="Image%20resampling_files/image053.png"></p>
+
+<p class=MsoCaption><a name="_Ref410146125">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;5</a>: Sinc interpolation
+kernel</p>
+
+<p class=MsoNormal><img width=516 height=302 id="&#1514;&#1502;&#1493;&#1504;&#1492; 31"
+src="Image%20resampling_files/image054.png"></p>
+
+<p class=MsoCaption><a name="_Ref410146134"></a><a name="_Ref410146138">Figure <b><span
+lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;6</a>: Sinc interpolation
+kernel in the range of [-0.5:0.5]</p>
+
+<h4>8.1.1.5<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Frequency response comparison of the different interpolation
+kernels</h4>
+
+<p class=MsoNormal><img width=463 height=154 id="&#1514;&#1502;&#1493;&#1504;&#1492; 23"
+src="Image%20resampling_files/image055.jpg"
+alt="Description: FreqResp_Interpolators"></p>
+
+<p class=MsoCaption><a name="_Ref410145931">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;7</a> Frequency response
+comparison of nearest neighbor (FR_NN), linear (FR_lin), cubic (FR_spl), and
+sinc (FR_scincd) interpulations kernels.</p>
+
+<p class=MsoBodyText>Plots of frequency responses of the methods clearly reveal
+major drawback of the traditional interpolation methods: they tend to
+substantially attenuate high frequency signal components within the signal base
+band (frequency interval <span style='position:relative;top:5.0pt'><img
+width=76 height=20 src="Image%20resampling_files/image056.png"></span> in Figure <span lang=AR-SA>&#8206;</span>8&#8209;7 and introduce substantial aliasing
+frequency components outside this interval (in the case of signal
+sub-sampling). In imaging, this tendency results in image blurring that can
+heavily worsen visual image quality and its applicability for further analysis,
+for instance object recognition, target location and alike.</p>
+
+<h3><a name="_Toc410119463">8.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoBodyText>The “signal zoom” experiment compare 6 different
+interpolation methods applied on a 1D signal.</p>
+
+<p class=MsoBodyText>The methods compared are nearest neighbor, bilinear,
+bi-cubic, 3 variants of sinc interpolation.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119464">8.1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal><img width=623 height=513 id="Picture 33"
+src="Image%20resampling_files/image057.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410493430">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;8</a>: &quot;Signal
+Zoom&quot;. Top plot is the input signal (<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=8 height=24 src="Image%20resampling_files/image058.png"></span> 
+function). The black arrow illustrates the section of the signal to zoom.
+Second from the top is the nearest neighbor interpolation of the signal. Third
+from the top is the linear interpolation of the signal. Fourth from the top is
+the cubic interpolation of the signal. Fifth from the top is the discrete sinc
+interpolation of the signal using<span style='font-size:12.0pt;font-family:
+"Times New Roman",serif;position:relative;top:2.5pt'><img width=33 height=24
+src="Image%20resampling_files/image059.png"></span>. Sixth from the top is the
+discrete sinc interpolation of the signal using<span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;top:2.5pt'><img
+width=33 height=24 src="Image%20resampling_files/image060.png"></span>. Seventh
+from the top is the discrete sinc interpolation of the signal using<span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;top:2.5pt'><img
+width=36 height=24 src="Image%20resampling_files/image061.png"></span>. Window
+size is 29, zoom factor is 10. </p>
+
+<p class=MsoNormal>The example shown at Figure <span lang=AR-SA>&#8206;</span>8&#8209;8
+is the impulse response of the convolution interpolation kernels. It can be
+seen that the kernels are similar to kernel images presented at 9.1.1.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img width=623 height=514 id="Picture 34"
+src="Image%20resampling_files/image062.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410493661">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;9</a>: &quot;Signal
+Zoom&quot; result number 2. Top plot is the input signal. The black arrow
+illustrates the section of the signal to zoom. Second from the top is the
+nearest neighbor interpolation of the signal. Third from the top is the linear
+interpolation of the signal. Fourth from the top is the cubic interpolation of
+the signal. Fifth from the top is the discrete sinc interpolation of the signal
+using<span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+position:relative;top:2.5pt'><img width=36 height=24
+src="Image%20resampling_files/image063.png"></span>. Sixth from the top is the
+discrete sinc interpolation of the signal using<span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;top:2.5pt'><img
+width=36 height=24 src="Image%20resampling_files/image064.png"></span>. Seventh
+from the top is the discrete sinc interpolation of the signal using<span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;top:2.5pt'><img
+width=36 height=24 src="Image%20resampling_files/image061.png"></span>. Window
+size is 46, zoom factor is 3. </p>
+
+<p class=MsoNormal>Figure <span lang=AR-SA>&#8206;</span>8&#8209;9 illustrates
+the disadvantages of the nearest neighbor interpolation kernel – the originally
+smooth signal interpreted as a stairs function for the nearest neighbor
+interpolation, while all the other interpolation kernels seem to give similar
+results. </p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>8.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410737134"></a><a name="_Toc410119753"></a><a
+name="_Toc410119465">Image Zoom</a></h2>
+
+<h3><a name="_Toc410119466">8.2.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoNormal>The 2D Nearest neighbor interpolation, which Like its 1D
+counterpart, selects the value of the nearest point and does not consider the
+values of neighboring points at all, yielding a piecewise-constant interpolant.
+</p>
+
+<p class=MsoNormal>The bilinear interpolation, which is the 2D counterpart of
+the 1D linear-interpolation. It calculates the current pixel value as a
+weighted sum of its 4 nearest neighbors, and can be calculated as a 2 passes of
+1D linear interpolation – one along the y axis, and the other along the x axis
+of the result.</p>
+
+<p class=MsoNormal>The bi-cubic interpolation, which is the 2D counterpart of
+the 1D cubic-interpolation. It calculates the current pixel value as a weighted
+sum of its 16 nearest neighbors, and can be calculated as a 2 passes of 1D
+cubic interpolation – one along the y axis, and the other along the x axis of
+the result.</p>
+
+<p class=MsoNormal>And the 2D sinc interpolation, which is the 2D counterpart
+of the 1D sinc interpolation. It can be calculated as a 2 passes of 1D sinc
+interpolation – one along the y axis, and the other along the x axis of the
+result.</p>
+
+<p class=MsoNormal>All of those kernels point spread function can be
+represented as multiplication of 1D version of the point spread functions.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119467">8.2.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoNormal>Image zoom experiment compares 4 different 2D resampling
+algorithms which are 2D variants of the 1D interpolation algorithms introduced
+at signal zoom. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119468">8.2.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal><img width=624 height=433 id="Picture 369"
+src="Image%20resampling_files/image065.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410494095">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;10</a>: &quot;Image
+Zoom&quot; result number 2. Top plot is the input signal. The black arrow
+illustrates the section of the signal to zoom. Second from the top is the
+nearest neighbor interpolation of the signal. Third from the top is the linear
+interpolation of the signal. Fourth from the top is the cubic interpolation of
+the signal. Fifth from the top is the discrete sinc interpolation of the signal
+using<span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+position:relative;top:2.5pt'><img width=33 height=24
+src="Image%20resampling_files/image059.png"></span>. Sixth from the top is the
+discrete sinc interpolation of the signal using<span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;top:2.5pt'><img
+width=33 height=24 src="Image%20resampling_files/image060.png"></span>. Seventh
+from the top is the discrete sinc interpolation of the signal using<span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;top:2.5pt'><img
+width=36 height=24 src="Image%20resampling_files/image061.png"></span>. Window
+size is 46, zoom factor is 3. </p>
+
+<p class=MsoNormal>Figure <span lang=AR-SA>&#8206;</span>8&#8209;10 is another
+illustration of the disadvantages of the nearest neighbor interpolation kernel
+in comparison to other acceptable results.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>8.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410737135"></a><a name="_Toc410119754"></a><a
+name="_Toc410119469">Image Rotation</a></h2>
+
+<h3><a name="_Toc410119470">8.3.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a></h3>
+
+<h4>8.3.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Image rotation</h4>
+
+<p class=MsoNormal>Rotation of a 2D coordinate system by an angle<span
+style='position:relative;top:3.0pt'><img width=15 height=22
+src="Image%20resampling_files/image066.png"></span> as a geometrical
+transformation of signal co-ordinates can be described as a multiplication of
+signal coordinate vector<span style='position:relative;top:5.0pt'><img
+width=39 height=20 src="Image%20resampling_files/image067.png"></span> by a
+rotation matrix<span style='position:relative;top:6.0pt'><img width=43
+height=23 src="Image%20resampling_files/image068.png"></span>:</p>
+
+<p class=MsoNormal><img width=222 height=48
+src="Image%20resampling_files/image069.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;17</p>
+
+<p class=MsoNormal>In computers, physical coordinates <span style='font-size:
+10.0pt'><span style='position:relative;top:5.0pt'><img width=39 height=20
+src="Image%20resampling_files/image070.png"></span></span> are represented,
+given sampling intervals <span style='position:relative;top:5.0pt'><img
+width=48 height=20 src="Image%20resampling_files/image071.png"></span>, by
+integer indices of pixels <span style='position:relative;top:5.0pt'><img
+width=30 height=20 src="Image%20resampling_files/image072.png"></span>:</p>
+
+<p class=MsoNormal><img width=85 height=48
+src="Image%20resampling_files/image073.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;18</p>
+
+<p class=MsoNormal>and the rotation matrix is applied to the vector of indices:</p>
+
+<p class=MsoNormal><img width=212 height=48
+src="Image%20resampling_files/image074.png"></p>
+
+<p class=MsoCaption><a name="_Ref410154093">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;19</a></p>
+
+<p class=MsoNormal>Equation <span lang=AR-SA>&#8206;</span>8&#8209;19 describes
+the resampling rule that should be applied to input image pixel indices to
+generate indices of its rotated copy. </p>
+
+<p class=MsoNormal>In practice, the calculation of pixel values of the rotated
+image is calculated in using backward mapping, i.e. for each pixel coordinate
+(k,l) in the rotated image, its location in the original image is calculated by
+the inverse of rotation matrix:</p>
+
+<p class=MsoNormal><img width=212 height=57
+src="Image%20resampling_files/image075.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;20</p>
+
+<p class=MsoNormal>And then the neighboring pixels are used for calculation of
+the pixel value according to the interpolation kernel.</p>
+
+<h4>8.3.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Three-pass rotation algorithm</h4>
+
+<p class=MsoNormal>The three pass rotation algorithm uses factorization of the
+rotation matrix in order to reduce the computational complexity of the rotation
+transform. The rotation matrix can be factorized into a product of three
+matrices each of which modifies only one co-ordinate:  </p>
+
+<p class=MsoNormal><img width=450 height=48
+src="Image%20resampling_files/image076.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;21</p>
+
+<p class=MsoNormal>It carries out, on each of three passes, only shifts along
+one of the co-ordinates: along rows on the first pass, along columns on the
+second pass and again along rows on the third pass as it is illustrated in Figure <span lang=AR-SA>&#8206;</span>8&#8209;11. </p>
+
+<p class=MsoNormal><img width=356 height=383 id="&#1514;&#1502;&#1493;&#1504;&#1492; 176"
+src="Image%20resampling_files/image077.jpg" alt="Description: Fig7-7b"></p>
+
+<p class=MsoCaption><a name="_Ref410052038"></a><a name="_Ref410052044">Figure <b><span
+lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;11</a>
+illustration of three pass rotation</p>
+
+<p class=MsoNormal>Specifically, in rotation of an image of <span
+style='position:relative;top:7.0pt'><img width=52 height=22
+src="Image%20resampling_files/image078.png"></span> pixels (<span
+style='position:relative;top:6.0pt'><img width=90 height=22
+src="Image%20resampling_files/image079.png"></span>, <span style='position:
+relative;top:7.0pt'><img width=82 height=22
+src="Image%20resampling_files/image080.png"></span>) around point (<span
+style='position:relative;top:6.0pt'><img width=79 height=22
+src="Image%20resampling_files/image081.png"></span><span style='position:relative;
+top:7.0pt'><img width=70 height=22 src="Image%20resampling_files/image082.png"></span>)
+on the first pass <span style='position:relative;top:3.0pt'><img width=20
+height=20 src="Image%20resampling_files/image083.png"></span>-th row is shifted
+by  <span style='position:relative;top:6.0pt'><img width=183 height=22
+src="Image%20resampling_files/image084.png"></span>, on the second pass <span
+style='position:relative;top:3.0pt'><img width=11 height=20
+src="Image%20resampling_files/image085.png"></span>-th column is shifted by  <span
+style='position:relative;top:6.0pt'><img width=108 height=22
+src="Image%20resampling_files/image086.png"></span> and on the third pass again
+<span style='position:relative;top:3.0pt'><img width=20 height=22
+src="Image%20resampling_files/image087.png"></span>-th row is shifted by  <span
+style='position:relative;top:6.0pt'><img width=194 height=22
+src="Image%20resampling_files/image088.png"></span>. Above described DFT or DCT
+based signal fractional shift algorithms are ideally suited for performing
+these shifts. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119471">8.3.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoNormal>The “image Rotation” experiment compares 4 methods of
+rotations. Backward mapping using nearest neighbor interpolation, backward
+mapping using nearest neighbor interpolation, Backward mapping using nearest
+neighbor interpolation, and three pass rotation uses sinc interpolation.</p>
+
+<p class=MsoNormal>The image is rotated <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:8.5pt'><img width=83 height=37 src="Image%20resampling_files/image089.png"></span>times,
+where RotationAngle is a given parameter, to complete full 360 degree rotation.
+It does so for <span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+position:relative;top:3.0pt'><img width=201 height=27
+src="Image%20resampling_files/image090.png"></span> times, which is another
+given parameter.</p>
+
+<h3><a name="_Toc410119472">8.3.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal style='page-break-after:avoid'><img width=623 height=422
+id="Picture 25" src="Image%20resampling_files/image091.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410494410">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>8&#8209;12</a>: &quot;Image
+Rotation&quot;. Top left is the test image. Top middle is nearest neighbor
+interpolation result of the rotation. Top right is the bilinear interpolation
+result of the rotation. Bottom middle is the bi-cubic interpolation result of
+the rotation. Bottom right is the sinc interpolation result of the rotation.
+Rotation angle is <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=19 height=24 src="Image%20resampling_files/image092.png"></span>,
+and  <span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+position:relative;top:2.5pt'><img width=167 height=24
+src="Image%20resampling_files/image093.png"></span> is 1 (which means each
+image rotated in <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=19 height=24 src="Image%20resampling_files/image092.png"></span> for
+20 times).</p>
+
+<p class=MsoNormal>Figure <span lang=AR-SA>&#8206;</span>8&#8209;12 illustrates
+the huge advantage of the 3-step rotation algorithm in comparison of the
+standard coordinate transform and then interpolation. While all of the other (nearest
+neighbor, bilinear, bicubic) have a strong degradation effect on the
+interpolated image, 1D sinc-shift with each cycle, preserve almost perfectly
+the original image, and if comes a need to interpolate again the result, it can
+be done with similar result as if the second interpolation was performed on the
+original image.</p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>8.4<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410737136"></a><a name="_Toc410119755"></a><a
+name="_Toc410119473">Image Coordinate Transform</a></h2>
+
+<h3><a name="_Toc410119474">8.4.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a></h3>
+
+<h3><a name="_Toc410119475">8.4.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoNormal>The “Image Coordinate Transform” experiment is an open
+experiment which allows warping the image according to any linear coordinate
+transform desired. The result of the coordinate transform in interpolated using
+4 interpolation method for comparison: nearest neighbor, bi-linear, bi-cubic
+and sinc interpolations. The equations for coordinate transform are controlled
+by the user, and the center reference point is determined by clicking at the
+point in the test image.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119476">8.4.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal><img width=623 height=442 id="Picture 255"
+src="Image%20resampling_files/image094.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;13:
+&quot;Image Coordinate Transform&quot;. Top left is the test image. Top middle
+is nearest neighbor interpolation result of the coordinate transform. Top right
+is the bilinear interpolation result of the coordinate transform. Bottom middle
+is the bi-cubic interpolation result of the coordinate transform. Bottom right
+is the sinc interpolation result of the coordinate transform. Coordinate
+transformed according to</p>
+
+<p class=MsoCaption> <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.0pt'><img width=196 height=25 src="Image%20resampling_files/image095.png"></span> and
+<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.0pt'><img width=196 height=25 src="Image%20resampling_files/image096.png"></span>.</p>
+
+<p class=MsoCaption>   <a name="_Toc410119756"></a><a name="_Toc410119477"></a></p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<h2><a name="_Toc410737137"><i><span style='font-size:16.0pt;font-weight:normal'>8.5<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>Image Profile</a></h2>
+
+<h3><a name="_Toc410119479">8.5.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoNormal>The “Image Profile” experiment is an open experiment which
+allows examining different image profiles along a straight line. The result
+profile is interpolated using 4 interpolation method for comparison: nearest
+neighbor, bi-linear, bi-cubic and sinc interpolations.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119480">8.5.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal><img width=624 height=490 id="Picture 380"
+src="Image%20resampling_files/image097.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>8&#8209;14:
+&quot;Image Profile&quot;. Left is the test image. interpulated profile is
+marked by a red line. Top right plot is the nearest neighbor interpulation of
+the profile. Second from the top right plot is the bilinear interpulation of
+the profile. Third from the top right plot is the bi-cubic interpulation of the
+profile. Fourth from the top right plot is the discrete sinc interpulation of
+the profile. All interpulations results are 1024 length, and initial profile
+was from point (173, 46) to (146, 58).</p>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc410119568"></a><a name="_Toc410119784"></a><a
+name="_Toc410737138">Bibliography</a></h1>
+
+<p class=MsoNormal></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="100%"
+ style='width:100.0%'>
+ <tr>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[1] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;PERFECT RESAMPLING
+  FILTER,&quot; in <i>Theoretical Foundations of Digital Imaging Using MATLAB</i>,
+  CRC Press, 2012, pp. 294-310.</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[2] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>R. Keys, &quot;Cubic convolution interpolation for
+  digital image processing,&quot; <i>IEEE Transactions on Acoustics, Speech, and
+  Signal Processing , </i>vol. 6, pp. 1153-1160, 1981. </p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=AR-SA dir=RTL>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

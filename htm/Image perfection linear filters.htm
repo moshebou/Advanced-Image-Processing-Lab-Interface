@@ -1,0 +1,1843 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<title>Advanced Image Processing lab</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+h1
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 1 \05EA\05D5";
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.3in;
+	margin-bottom:.0001pt;
+	text-indent:-.3in;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+h2
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 2 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.4in;
+	margin-bottom:.0001pt;
+	text-indent:-.4in;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+h3
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 3 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-.5in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+h4
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 4 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.6in;
+	margin-bottom:.0001pt;
+	text-indent:-.6in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 5 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.7in;
+	margin-bottom:.0001pt;
+	text-indent:-.7in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	color:#243F60;
+	font-weight:normal;}
+h6
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 6 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.8in;
+	margin-bottom:.0001pt;
+	text-indent:-.8in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	color:#243F60;
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 7 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.9in;
+	margin-bottom:.0001pt;
+	text-indent:-.9in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	color:#404040;
+	font-style:italic;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 8 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:-1.0in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria","serif";
+	color:#404040;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 9 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.1in;
+	margin-bottom:.0001pt;
+	text-indent:-1.1in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria","serif";
+	color:#404040;
+	font-style:italic;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:.25in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:44.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:55.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:66.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:77.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E9\05D5\05DC\05D9\05D9\05DD \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05E2\05DC\05D9\05D5\05E0\05D4 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05EA\05D7\05EA\05D5\05E0\05D4 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-indent:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	color:#4F81BD;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoEndnoteReference
+	{vertical-align:super;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E1\05D9\05D5\05DD \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
+	{mso-style-link:"\05D8\05E7\05E1\05D8 \05DE\05D0\05E7\05E8\05D5 \05EA\05D5";
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:9.0pt;
+	font-family:"Courier New";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA \05D8\05E7\05E1\05D8\,ttl";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05D8\05E7\05E1\05D8 \05EA\05D5\,ttl \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman","serif";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndentCxSpFirst, li.MsoBodyTextIndentCxSpFirst, div.MsoBodyTextIndentCxSpFirst
+	{mso-style-link:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndentCxSpMiddle, li.MsoBodyTextIndentCxSpMiddle, div.MsoBodyTextIndentCxSpMiddle
+	{mso-style-link:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndentCxSpLast, li.MsoBodyTextIndentCxSpLast, div.MsoBodyTextIndentCxSpLast
+	{mso-style-link:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05DE\05E9\05E0\05D4 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:15.0pt;
+	font-size:13.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 2 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 3 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-link:"\05DE\05E4\05EA \05DE\05E1\05DE\05DA \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-indent:15.0pt;
+	line-height:200%;
+	background:navy;
+	font-size:12.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"\05D8\05E7\05E1\05D8 \05E8\05D2\05D9\05DC \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"\05D8\05E7\05E1\05D8 \05D1\05DC\05D5\05E0\05D9\05DD \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.MsoPlaceholderText
+	{color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"\05DC\05DC\05D0 \05DE\05E8\05D5\05D5\05D7 \05EA\05D5";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.MsoSubtleReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	text-decoration:underline;}
+span.MsoIntenseReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+p.MsoBibliography, li.MsoBibliography, div.MsoBibliography
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	page-break-after:avoid;
+	direction:rtl;
+	unicode-bidi:embed;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.1
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 1 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 1";
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.2
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 2 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 2";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+span.3
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 3 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 3";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+span.4
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 4 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 4";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.5
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 5 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 5";
+	font-family:"Cambria","serif";
+	color:#243F60;}
+span.6
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 6 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 6";
+	font-family:"Cambria","serif";
+	color:#243F60;
+	font-style:italic;}
+span.7
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 7 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 7";
+	font-family:"Cambria","serif";
+	color:#404040;
+	font-style:italic;}
+span.8
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 8 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 8";
+	font-family:"Cambria","serif";
+	color:#404040;}
+span.9
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 9 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 9";
+	font-family:"Cambria","serif";
+	color:#404040;
+	font-style:italic;}
+p.StyleFirstline0cmLinespacingDouble, li.StyleFirstline0cmLinespacingDouble, div.StyleFirstline0cmLinespacingDouble
+	{mso-style-name:"Style First line\:  0 cm Line spacing\:  Double";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.EquationChar
+	{mso-style-name:"Equation Char";
+	mso-style-link:Equation;
+	color:#4F81BD;
+	font-weight:bold;}
+p.Equation, li.Equation, div.Equation
+	{mso-style-name:Equation;
+	mso-style-link:"Equation Char";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	color:#4F81BD;}
+span.a
+	{mso-style-name:"\05D8\05E7\05E1\05D8 \05D1\05DC\05D5\05E0\05D9\05DD \05EA\05D5";
+	mso-style-link:"\05D8\05E7\05E1\05D8 \05D1\05DC\05D5\05E0\05D9\05DD";
+	font-family:"Tahoma","sans-serif";}
+span.a0
+	{mso-style-name:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E1\05D9\05D5\05DD \05EA\05D5";
+	mso-style-link:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E1\05D9\05D5\05DD";}
+span.a1
+	{mso-style-name:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E9\05D5\05DC\05D9\05D9\05DD \05EA\05D5";
+	mso-style-link:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E9\05D5\05DC\05D9\05D9\05DD";}
+p.HeadingMath, li.HeadingMath, div.HeadingMath
+	{mso-style-name:HeadingMath;
+	margin-top:13.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	font-variant:small-caps;}
+p.Figure, li.Figure, div.Figure
+	{mso-style-name:Figure;
+	margin-top:13.0pt;
+	margin-right:0in;
+	margin-bottom:13.0pt;
+	margin-left:0in;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.Table, li.Table, div.Table
+	{mso-style-name:Table;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.HeadingOther, li.HeadingOther, div.HeadingOther
+	{mso-style-name:HeadingOther;
+	margin-top:26.0pt;
+	margin-right:0in;
+	margin-bottom:13.0pt;
+	margin-left:45.0pt;
+	text-indent:-45.0pt;
+	line-height:15.0pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Times New Roman","serif";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.References, li.References, div.References
+	{mso-style-name:References;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.9pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.9pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+span.capLabel
+	{mso-style-name:capLabel;
+	font-style:italic;
+	vertical-align:baseline;}
+span.a2
+	{mso-style-name:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8";
+	font-family:"Times New Roman","serif";}
+span.a3
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA \05E2\05DC\05D9\05D5\05E0\05D4 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05E2\05DC\05D9\05D5\05E0\05D4";
+	font-family:"Times New Roman","serif";}
+p.Author, li.Author, div.Author
+	{mso-style-name:Author;
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.a4
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA \05DE\05E9\05E0\05D4 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05DE\05E9\05E0\05D4";
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+span.a5
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA \05EA\05D7\05EA\05D5\05E0\05D4 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05EA\05D7\05EA\05D5\05E0\05D4";
+	font-family:"Times New Roman","serif";}
+p.CN, li.CN, div.CN
+	{mso-style-name:CN;
+	margin-top:57.0pt;
+	margin-right:0in;
+	margin-bottom:13.0pt;
+	margin-left:0in;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman","serif";}
+p.ChapterNo, li.ChapterNo, div.ChapterNo
+	{mso-style-name:ChapterNo;
+	margin-top:57.0pt;
+	margin-right:0in;
+	margin-bottom:13.0pt;
+	margin-left:0in;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman","serif";}
+p.small, li.small, div.small
+	{mso-style-name:small;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.li, li.li, div.li
+	{mso-style-name:li;
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:17.85pt;
+	text-indent:-17.85pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.Affiliation, li.Affiliation, div.Affiliation
+	{mso-style-name:Affiliation;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:26.0pt;
+	margin-left:0in;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+p.Abstract, li.Abstract, div.Abstract
+	{mso-style-name:Abstract;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+span.a6
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA \05D8\05E7\05E1\05D8 \05EA\05D5\,ttl \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05D8\05E7\05E1\05D8\,ttl";
+	font-family:"Times New Roman","serif";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.BlockQuote, li.BlockQuote, div.BlockQuote
+	{mso-style-name:BlockQuote;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:7.0pt;
+	margin-left:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.LISTnum, li.LISTnum, div.LISTnum
+	{mso-style-name:LISTnum;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.LISTalph, li.LISTalph, div.LISTalph
+	{mso-style-name:LISTalph;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.LISTdash, li.LISTdash, div.LISTdash
+	{mso-style-name:LISTdash;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.Motto, li.Motto, div.Motto
+	{mso-style-name:Motto;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.Appendix, li.Appendix, div.Appendix
+	{mso-style-name:Appendix;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.Notes, li.Notes, div.Notes
+	{mso-style-name:Notes;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+span.a7
+	{mso-style-name:"\05D8\05E7\05E1\05D8 \05DE\05D0\05E7\05E8\05D5 \05EA\05D5";
+	mso-style-link:"\05D8\05E7\05E1\05D8 \05DE\05D0\05E7\05E8\05D5";
+	font-family:"Courier New";}
+span.a8
+	{mso-style-name:"\05D8\05E7\05E1\05D8 \05E8\05D2\05D9\05DC \05EA\05D5";
+	mso-style-link:"\05D8\05E7\05E1\05D8 \05E8\05D2\05D9\05DC";
+	font-family:"Courier New";}
+span.a9
+	{mso-style-name:"\05DE\05E4\05EA \05DE\05E1\05DE\05DA \05EA\05D5";
+	mso-style-link:"\05DE\05E4\05EA \05DE\05E1\05DE\05DA";
+	font-family:"Tahoma","sans-serif";
+	background:navy;}
+span.20
+	{mso-style-name:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 2 \05EA\05D5";
+	mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 2";
+	font-family:"Times New Roman","serif";}
+span.30
+	{mso-style-name:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 3 \05EA\05D5";
+	mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 3";
+	font-family:"Times New Roman","serif";}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.Style11, li.Style11, div.Style11
+	{mso-style-name:Style11;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.FigureCaption, li.FigureCaption, div.FigureCaption
+	{mso-style-name:"Figure Caption";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.currencyconvertertext
+	{mso-style-name:currency_converter_text;}
+span.currencyconverterlink
+	{mso-style-name:currency_converter_link;}
+span.aa
+	{mso-style-name:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	mso-style-link:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8";
+	font-family:"Times New Roman","serif";}
+span.st
+	{mso-style-name:st;}
+span.fplc
+	{mso-style-name:fplc;}
+span.ab
+	{mso-style-name:"\05DC\05DC\05D0 \05DE\05E8\05D5\05D5\05D7 \05EA\05D5";
+	mso-style-link:"\05DC\05DC\05D0 \05DE\05E8\05D5\05D5\05D7";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.35pt 841.95pt;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoToc1><a name="_Ref409520465"></a><a name="_Ref409520484"></a><a href="#_Toc411983199">10<span style='font-size:11.0pt;font-family:"Calibri","sans-serif";
+color:windowtext;text-transform:none;font-weight:normal;text-decoration:none'>        </span>Image
+perfection: linear filters<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc411983200"><i>10.1</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>       </span>Inverse Filtering<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc411983201"><i>10.2</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>       </span>Wiener Filtering<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc411983202"><i>10.3</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>       </span>Local Adaptive Filtering: 1D<span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc411983203"><i>10.4</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>       </span>Local Adaptive Filtering: 2D<span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc411983204">Bibliography<span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></p>
+
+<p class=MsoNormal><br clear=all style='page-break-before:always'>
+ &nbsp;</p>
+
+<h1><a name="_Toc411983199"></a><a name="_Toc410119763"></a><a
+name="_Toc410119505">10<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image perfection: linear filters</a></h1>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>10.1<span
+style='font:7.0pt "Times New Roman"'> </span></span></i><span dir=LTR></span>   <a
+name="_Toc411983200"></a><a name="_Toc410119768"></a><a name="_Toc410119510">Inverse
+</a>Filtering</h2>
+
+<h3><a name="_Ref410244255"></a><a name="_Toc410119511">10.1.1<span dir=LTR></span>Theoretical
+background</a> [1]</h3>
+
+<h4><a name="_Toc410119764"></a><a name="_Toc410119506">10.1.1.1<span
+style='font:7.0pt "Times New Roman"'> </span><span dir=LTR></span>Problem
+formulation</a></h4>
+
+<p class=MsoNormal>Let <span style='position:relative;top:7.0pt'><img width=33
+height=25 src="Image%20perfection%20linear%20filters.files/image001.png"></span>,
+(<span style='position:relative;top:6.0pt'><img width=107 height=24
+src="Image%20perfection%20linear%20filters.files/image002.png"></span>, <span
+style='position:relative;top:7.0pt'><img width=104 height=25
+src="Image%20perfection%20linear%20filters.files/image003.png"></span>), be
+samples of a distorted image, which are in a certain way, defined by the
+imaging system model, determined by samples <span style='position:relative;
+top:7.0pt'><img width=35 height=25
+src="Image%20perfection%20linear%20filters.files/image004.png"></span> of the
+“true” image to be restored from <span style='position:relative;top:7.0pt'><img
+width=33 height=25
+src="Image%20perfection%20linear%20filters.files/image001.png"></span>, and let
+<span style='position:relative;top:7.0pt'><img width=35 height=25
+src="Image%20perfection%20linear%20filters.files/image005.png"></span> be
+samples of the restored image.  Consider an imaging system model that describes
+image blur and contamination by additive signal independent noise zero mean
+Gaussian noise. For such a model,</p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span style='position:relative;
+top:7.0pt'><img width=125 height=25
+src="Image%20perfection%20linear%20filters.files/image006.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;1</p>
+
+<p class=MsoNormal>where <span style='position:relative;top:7.0pt'><img
+width=35 height=25
+src="Image%20perfection%20linear%20filters.files/image007.png"></span> are
+samples of noise, <span style='position:relative;top:7.0pt'><img width=55
+height=25 src="Image%20perfection%20linear%20filters.files/image008.png"></span> are
+samples of digital convolution of samples <span style='position:relative;
+top:7.0pt'><img width=35 height=25
+src="Image%20perfection%20linear%20filters.files/image004.png"></span> of the
+“true” image with imaging system point spread function <span style='position:
+relative;top:7.0pt'><img width=33 height=25
+src="Image%20perfection%20linear%20filters.files/image009.png"></span>, which
+specifies linear transformation responsible for image blur. Our goal is to find
+an optimal, in a certain sense that we are going to specify, image restoration
+algorithm, i.e. mapping <span style='position:relative;top:7.0pt'><img
+width=85 height=25
+src="Image%20perfection%20linear%20filters.files/image010.png"></span> . </p>
+
+<p class=MsoNormal>An immediate option for solving this problem is to consider
+the task of image restoration as a parameter estimation task, i.e. a task of
+estimating the set of image samples <span style='position:relative;top:7.0pt'><img
+width=36 height=25
+src="Image%20perfection%20linear%20filters.files/image011.png"></span> from the
+observed set of samples <span style='position:relative;top:7.0pt'><img
+width=35 height=25
+src="Image%20perfection%20linear%20filters.files/image012.png"></span> of the
+input image.</p>
+
+<p class=MsoNormal>The statistically optimal estimates <span style='position:
+relative;top:7.0pt'><img width=36 height=25
+src="Image%20perfection%20linear%20filters.files/image013.png"></span> of <span
+style='position:relative;top:7.0pt'><img width=36 height=25
+src="Image%20perfection%20linear%20filters.files/image014.png"></span> are
+maximum likelihood (ML) and maximum a posteriori (MAP) estimates:</p>
+
+<p class=MsoNormal><img width=272 height=49
+src="Image%20perfection%20linear%20filters.files/image015.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;2</p>
+
+<p class=MsoNormal><img width=405 height=53
+src="Image%20perfection%20linear%20filters.files/image016.png"></p>
+
+<p class=MsoCaption><a name="_Ref409887452">Equation </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;3</p>
+
+<p class=MsoNormal>where <span style='position:relative;top:6.0pt'><img
+width=21 height=25
+src="Image%20perfection%20linear%20filters.files/image017.png"></span> is noise
+variance and <span style='position:relative;top:7.0pt'><img width=55 height=25
+src="Image%20perfection%20linear%20filters.files/image018.png"></span> is a
+priori probability of the set <span style='position:relative;top:7.0pt'><img
+width=35 height=25
+src="Image%20perfection%20linear%20filters.files/image005.png"></span> of image
+samples. </p>
+
+<p class=MsoNormal>The main problem with it is the extremely high, even for
+moderate image sizes <span style='position:relative;top:7.0pt'><img width=51
+height=25 src="Image%20perfection%20linear%20filters.files/image019.png"></span>,
+dimensionality of the minimization task, which leads to prohibitively high
+computational expenses.</p>
+
+<p class=MsoNormal>Reformulate Equation <span lang=AR-SA>&#8206;</span>10&#8209;3
+in terms of constrained optimization: </p>
+
+<p class=MsoNormal><span style='position:relative;top:15.0pt'><img width=175
+height=39 src="Image%20perfection%20linear%20filters.files/image020.png"></span> 
+subject to <span style='position:relative;top:16.0pt'><img width=220 height=51
+src="Image%20perfection%20linear%20filters.files/image021.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;4</p>
+
+<p class=MsoNormal>or, using Lagrange multiplier <span style='position:relative;
+top:3.0pt'><img width=15 height=19
+src="Image%20perfection%20linear%20filters.files/image022.png"></span>,</p>
+
+<p class=MsoNormal><img width=353 height=53
+src="Image%20perfection%20linear%20filters.files/image023.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;5</p>
+
+<p class=MsoNormal>Where <span style='position:relative;top:7.0pt'><img
+width=56 height=25
+src="Image%20perfection%20linear%20filters.files/image024.png"></span> is a
+functional of images, replaces the a-priori probability distribution of input
+images (term<span style='position:relative;top:7.0pt'><img width=116 height=27
+src="Image%20perfection%20linear%20filters.files/image025.png"></span>) in Equation <span lang=AR-SA>&#8206;</span>10&#8209;3, that characterizes the “desirability”
+of the solution <span style='position:relative;top:7.0pt'><img width=35
+height=25 src="Image%20perfection%20linear%20filters.files/image005.png"></span>  (the
+more desirable the solution, the smaller <span style='position:relative;
+top:7.0pt'><img width=56 height=25
+src="Image%20perfection%20linear%20filters.files/image024.png"></span> must be)</p>
+
+<p class=MsoNormal><span class=fplc>This approach to solving inverse problem is
+called <b><i>regularization</i></b></span><span
+class=fplc>.</span></p>
+
+<p class=MsoNormal>Linear filtering that minimizes MSE restoration error is
+also called <b><i>Wiener filtering</i></b>. In terms of the general parameter estimation approach, MMSAE-approach is aimed at minimization of the second moment of the a
+posteriori probability of the estimate.</p>
+
+<p class=MsoNormal>The estimate of <span style='position:relative;top:7.0pt'><img
+width=35 height=25
+src="Image%20perfection%20linear%20filters.files/image005.png"></span> with
+minimal mean squared error is given by:</p>
+
+<p class=MsoNormal><img width=320 height=56
+src="Image%20perfection%20linear%20filters.files/image026.png"></p>
+
+<p class=MsoCaption><a name="_Ref410514860">Equation </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;6</p>
+
+<p class=MsoNormal>Where <span style='position:relative;top:7.0pt'><img
+width=40 height=25
+src="Image%20perfection%20linear%20filters.files/image027.png"></span>is an
+averaging operation over the signal ensemble<span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:3.0pt'><img width=22 height=27
+src="Image%20perfection%20linear%20filters.files/image028.png"></span>, <span
+style='position:relative;top:7.0pt'><img width=41 height=25
+src="Image%20perfection%20linear%20filters.files/image029.png"></span>is an
+averaging operation over the noise ensemble<span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:3.0pt'><img width=24 height=27
+src="Image%20perfection%20linear%20filters.files/image030.png"></span>, </p>
+
+<h4><a name="_Toc410119765"></a><a name="_Toc410119507">10.1.1.2<span
+style='font:7.0pt "Times New Roman"'> </span><span dir=LTR></span>“Scalar”
+filtering approach</a></h4>
+
+<p class=MsoNormal>To solve MMSAE minimization problem, a <b><i>“scalar”
+filtering </i></b>approach is taken:</p>
+
+<p class=MsoNormal>Scalar filtering is described (in 1D, by application to 2D
+is straightforward) by the equation:</p>
+
+<p class=MsoNormal><img width=120 height=27
+src="Image%20perfection%20linear%20filters.files/image031.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;7</p>
+
+<p class=MsoNormal>where, <span style='position:relative;top:2.0pt'><img
+width=16 height=17
+src="Image%20perfection%20linear%20filters.files/image032.png"></span>and <span
+style='position:relative;top:2.0pt'><img width=27 height=20
+src="Image%20perfection%20linear%20filters.files/image033.png"></span> are,
+correspondingly,  direct and inverse orthogonal transforms, <span
+style='position:relative;top:5.0pt'><img width=88 height=23
+src="Image%20perfection%20linear%20filters.files/image034.png"></span>, (<span
+style='position:relative;top:5.0pt'><img width=101 height=21
+src="Image%20perfection%20linear%20filters.files/image035.png"></span>) is a
+diagonal filter matrix. Such a scalar filtering implies the following relationship between transform coefficients <span style='position:relative;top:5.0pt'><img
+width=79 height=25
+src="Image%20perfection%20linear%20filters.files/image036.png"></span> and <span
+style='position:relative;top:5.0pt'><img width=76 height=23
+src="Image%20perfection%20linear%20filters.files/image037.png"></span> of
+filter output and input signal samples<span style='position:relative;
+top:5.0pt'><img width=68 height=23
+src="Image%20perfection%20linear%20filters.files/image038.png"></span>.</p>
+
+<p class=MsoNormal>In the assumption of orthogonality of the transform <span
+style='position:relative;top:2.0pt'><img width=16 height=17
+src="Image%20perfection%20linear%20filters.files/image032.png"></span>, one
+can, by virtue of the Parseval relationship reformulate the filter optimality
+condition defined by Equation <span lang=AR-SA>&#8206;</span>10&#8209;6 in
+terms of signal transform coefficients:</p>
+
+<p class=MsoNormal><img width=540 height=51
+src="Image%20perfection%20linear%20filters.files/image039.png">         </p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;8</p>
+
+<p class=MsoNormal>The MSE-optimal scalar filter coefficients <span
+style='position:relative;top:5.0pt'><img width=29 height=23
+src="Image%20perfection%20linear%20filters.files/image040.png"></span> are
+normalized cross-correlation coefficients between spectral coefficients <span
+style='position:relative;top:5.0pt'><img width=20 height=23
+src="Image%20perfection%20linear%20filters.files/image041.png"></span> and <span
+style='position:relative;top:5.0pt'><img width=20 height=23
+src="Image%20perfection%20linear%20filters.files/image042.png"></span>of the
+filter input and ‘true” signals: </p>
+
+<p class=MsoNormal><img width=176 height=63
+src="Image%20perfection%20linear%20filters.files/image043.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;9</p>
+
+<p class=MsoNormal>And in 2D:</p>
+
+<p class=MsoNormal><img width=183 height=63
+src="Image%20perfection%20linear%20filters.files/image044.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;10</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4><a name="_Toc410119766"></a><a name="_Toc410119508">10.1.1.3<span
+style='font:7.0pt "Times New Roman"'> </span><span dir=LTR></span>Scalar Wiener
+filters</a></h4>
+
+<p class=MsoNormal>Consider now an imaging system model, which the following
+relationship holds for transform domain spectra <span style='position:relative;
+top:7.0pt'><img width=37 height=25
+src="Image%20perfection%20linear%20filters.files/image045.png"></span><span
+style='position:relative;top:5.0pt'>, </span><span style='position:relative;
+top:7.0pt'><img width=37 height=25
+src="Image%20perfection%20linear%20filters.files/image046.png"></span>, and <span
+style='position:relative;top:7.0pt'><img width=35 height=25
+src="Image%20perfection%20linear%20filters.files/image047.png"></span> of input
+signal, ideal signal and noise:</p>
+
+<p class=MsoNormal><img width=121 height=25
+src="Image%20perfection%20linear%20filters.files/image048.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;11</p>
+
+<p class=MsoNormal>Coefficients <span style='position:relative;top:5.0pt'><img
+width=31 height=23
+src="Image%20perfection%20linear%20filters.files/image049.png"></span> are
+samples of the imaging system frequency response. In ideal imaging systems,
+they should all be equal to unity. In reality, they usually decay with the
+frequency index <span style='position:relative;top:2.0pt'><img width=12
+height=13 src="Image%20perfection%20linear%20filters.files/image050.png"></span>,
+which results, in particular, in image blur. Processing aimed at correcting
+this type of distortions is frequently referred to as <b><i>image deblurring</i></b>.</p>
+
+<p class=MsoNormal>  For this model, terms involved in the general equation
+8.3.6 for MMSE-optimal scalar Wiener filters are:</p>
+
+<p class=MsoNormal><img width=464 height=32
+src="Image%20perfection%20linear%20filters.files/image051.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;12</p>
+
+<p class=MsoNormal>and</p>
+
+<p class=MsoNormal><img width=621 height=33
+src="Image%20perfection%20linear%20filters.files/image052.png"></p>
+
+<p class=MsoCaption><a name="_Ref409900809">Equation </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;13</p>
+
+<p class=MsoNormal>because for zero mean noise <span style='position:relative;
+top:7.0pt'><img width=165 height=27
+src="Image%20perfection%20linear%20filters.files/image053.png"></span>.
+Therefore coefficients <span style='position:relative;top:5.0pt'><img width=45
+height=24 src="Image%20perfection%20linear%20filters.files/image054.png"></span> of<span
+style='position:relative;top:5.0pt'> </span>scalar Wiener filter for
+restoration of blurred and noisy image are defined as</p>
+
+<p class=MsoNormal><img width=356 height=60
+src="Image%20perfection%20linear%20filters.files/image055.png"></p>
+
+<p class=MsoCaption><a name="_Ref410248461">Equation </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;14</p>
+
+<p class=MsoNormal>where <span style='position:relative;top:3.0pt'><img
+width=35 height=19
+src="Image%20perfection%20linear%20filters.files/image056.png"></span> is
+signal-to-noise ratio at the output of the linear filter unit of the imaging
+system model:</p>
+
+<p class=MsoNormal><img width=183 height=61
+src="Image%20perfection%20linear%20filters.files/image057.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;15</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4><a name="_Toc410119767"></a><a name="_Toc410119509">10.1.1.4<span
+style='font:7.0pt "Times New Roman"'> </span><span dir=LTR></span>Empirical
+Wiener filter</a></h4>
+
+<p class=MsoNormal>In order to implement the scalar Wiener filter one has to
+know power spectra <span style='position:relative;top:8.0pt'><img width=92
+height=22 src="Image%20perfection%20linear%20filters.files/image058.png"></span> and
+<span style='position:relative;top:8.0pt'><img width=89 height=26
+src="Image%20perfection%20linear%20filters.files/image059.png"></span> of the ‘true”
+image and of noise in the selected transform domain. Noise power spectrum <span
+style='position:relative;top:8.0pt'><img width=89 height=26
+src="Image%20perfection%20linear%20filters.files/image059.png"></span><span
+style='position:relative;top:7.0pt'> </span>might be known from the
+specification certificate of the imaging device. Otherwise it can be measured
+empirically directly in noisy input images using various methods. Denote noise
+power spectrum estimate by <span style='position:relative;top:8.0pt'><img
+width=41 height=29
+src="Image%20perfection%20linear%20filters.files/image060.png"></span>.</p>
+
+<p class=MsoNormal>As for the “true” image power spectrum<span
+style='position:relative;top:8.0pt'><img width=92 height=26
+src="Image%20perfection%20linear%20filters.files/image061.png"></span>, it is
+almost never known. However one can attempt to estimate it using Equation <span lang=AR-SA>&#8206;</span>10&#8209;13 and an estimate <span
+style='position:relative;top:8.0pt'><img width=43 height=25
+src="Image%20perfection%20linear%20filters.files/image062.png"></span>of the
+power spectrum <span style='position:relative;top:8.0pt'><img width=129
+height=29 src="Image%20perfection%20linear%20filters.files/image063.png"></span> of
+the input noisy image, which can be obtained by means of one or another
+averaging of the image spectrum <span style='position:relative;top:8.0pt'><img
+width=40 height=29
+src="Image%20perfection%20linear%20filters.files/image064.png"></span>.With
+such empirical estimates <span style='position:relative;top:8.0pt'><img
+width=43 height=29
+src="Image%20perfection%20linear%20filters.files/image065.png"></span> and<span
+style='position:relative;top:8.0pt'><img width=41 height=29
+src="Image%20perfection%20linear%20filters.files/image060.png"></span>, an
+estimate <span style='position:relative;top:8.0pt'><img width=41 height=27
+src="Image%20perfection%20linear%20filters.files/image066.png"></span> of the
+true image power spectrum <span style='position:relative;top:8.0pt'><img
+width=91 height=27
+src="Image%20perfection%20linear%20filters.files/image067.png"></span> can be
+obtained as:<span style='position:relative;top:7.0pt'> </span> </p>
+
+<p class=MsoNormal><img width=148 height=56
+src="Image%20perfection%20linear%20filters.files/image068.png"></p>
+
+<p class=MsoCaption><a name="_Ref409901522">Equation </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;16</p>
+
+<p class=MsoNormal>Because empirical estimates of image and noise spectra may
+deviate from accurate statistical ones, for which infinitely large number of
+noise realizations are required, Equation <span lang=AR-SA>&#8206;</span>10&#8209;16
+might give negative values for some estimates of <span style='position:relative;
+top:8.0pt'><img width=44 height=29
+src="Image%20perfection%20linear%20filters.files/image069.png"></span>, which
+contradicts the property of power spectra to be non-negative. In order to
+prevent this, the following modified spectrum estimation can be used:</p>
+
+<p class=MsoNormal><img width=221 height=65
+src="Image%20perfection%20linear%20filters.files/image070.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;17</p>
+
+<p class=MsoNormal>A filter which uses such estimation for the true image power
+spectrum <span style='position:relative;top:8.0pt'><img width=89 height=32
+src="Image%20perfection%20linear%20filters.files/image071.png"></span> is
+referred as the <b><i>empirical Wiener filter</i></b>. </p>
+
+<p class=MsoNormal>Correspondingly, the general deblurring empirical Wiener
+filter, deblurring empirical Wiener filter (for which the noise variance <span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:3.0pt'><img width=18 height=27
+src="Image%20perfection%20linear%20filters.files/image072.png"></span> is
+known) and the rejecting filter for the case of white noise will be defined as
+follows:</p>
+
+<p class=MsoNormal><span style='position:relative;top:23.0pt'><img width=258
+height=69 src="Image%20perfection%20linear%20filters.files/image073.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;18</p>
+
+<p class=MsoNormal><img width=203 height=69
+src="Image%20perfection%20linear%20filters.files/image074.png"></p>
+
+<p class=MsoCaption><a name="_Ref410248597">Equation </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;19</p>
+
+<p class=MsoNormal>and</p>
+
+<p class=MsoNormal><img width=163 height=67
+src="Image%20perfection%20linear%20filters.files/image075.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;20</p>
+
+<p class=MsoNormal>All these filters can be treated as two filters in cascade:
+the filter with coefficients </p>
+
+<p class=MsoNormal><img width=61 height=45
+src="Image%20perfection%20linear%20filters.files/image076.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>10&#8209;21</p>
+
+<p class=MsoNormal>called the <b><i>inverse filter</i></b> and signal denoising filters.  Inverse filter compensates distortions of signal frequency components in
+the imaging system while the denoising filter prevents from excessive
+amplification of noise and performs sort of “<b><i>regularization</i></b>” of the inverse filter. </p>
+
+<h3><a name="_Toc410119512">10.1.2<span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoNormal>The “Inverse Filtering” experiment correct aperture blur by
+applying the inverse filer described at <span
+lang=AR-SA>&#8206;</span>10.1.1.</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>The test image <span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+position:relative;top:3.0pt'><img width=7 height=27
+src="Image%20perfection%20linear%20filters.files/image077.png"></span> is blurred
+and noise is added to it. </p>
+
+<p class=MsoListParagraphCxSpMiddle><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:3.0pt'><img width=248 height=27
+src="Image%20perfection%20linear%20filters.files/image078.png"></span> </p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>The blur kernel is then used to calculate the inverse filter. To
+avoid zeroing of frequencies, <span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:3.0pt'><img width=40 height=27
+src="Image%20perfection%20linear%20filters.files/image079.png"></span>threshold
+is used,</p>
+
+<p class=MsoListParagraphCxSpMiddle>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:10.5pt'><img width=112 height=41
+src="Image%20perfection%20linear%20filters.files/image080.png"></span> </p>
+
+<p class=MsoListParagraphCxSpMiddle>where <span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:4.0pt'><img width=24 height=28
+src="Image%20perfection%20linear%20filters.files/image081.png"></span>is the
+DFT transform of <span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+position:relative;top:3.0pt'><img width=47 height=27
+src="Image%20perfection%20linear%20filters.files/image082.png"></span>.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>The filter is applies on the blurred with noise image in the
+spectrum domain:</p>
+
+<p class=MsoListParagraphCxSpMiddle><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:4.0pt'><img width=146 height=28
+src="Image%20perfection%20linear%20filters.files/image083.png"></span> </p>
+
+<p class=MsoListParagraphCxSpMiddle>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>The result transformed to the signal domain</p>
+
+<p class=MsoListParagraphCxSpMiddle><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:4.5pt'><img width=203 height=30
+src="Image%20perfection%20linear%20filters.files/image084.png"></span> </p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>A threshold is used the suppress large differences </p>
+
+<p class=MsoListParagraphCxSpMiddle><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:10.5pt'><img width=452 height=46
+src="Image%20perfection%20linear%20filters.files/image085.png"></span> </p>
+
+<p class=MsoListParagraphCxSpMiddle>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpMiddle>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpLast>&nbsp;</p>
+
+<h3><a name="_Toc410119513">10.1.3<span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=624
+height=643 id="Picture 219"
+src="Image%20perfection%20linear%20filters.files/image086.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410501698">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;1: &quot;Inverse Filtering&quot;.
+Top left is the input image. Top right is the input image blurred and with
+noise. Bottom left is the inverse filter result. Noise standard deviation is<span style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;top:2.5pt'><img
+width=36 height=24
+src="Image%20perfection%20linear%20filters.files/image087.png"></span>, PSF is
+averaging kernel size 5x5, <span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+position:relative;top:2.5pt'><img width=87 height=24
+src="Image%20perfection%20linear%20filters.files/image088.png"></span>, <span style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;top:2.5pt'><img
+width=70 height=24
+src="Image%20perfection%20linear%20filters.files/image089.png"></span></p>
+
+<p class=MsoNormal>Figure <span lang=AR-SA>&#8206;</span>10&#8209;1 shows the
+restoration capabilities of the inverse filter. While the blurred noisy image
+was unreadable, the text in the corrected is readable for the most part.</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>10.2<span
+style='font:7.0pt "Times New Roman"'> </span></span></i><span dir=LTR></span>   <a
+name="_Toc411983201"></a><a name="_Toc410119769"></a><a name="_Toc410119514">Wiener
+Filtering</a></h2>
+
+<h3><a name="_Ref410506845"></a><a name="_Toc410119516">10.2.1<span dir=LTR></span>Experiment
+Description</a></h3>
+
+<p class=MsoNormal>The “Wiener Filtering” experiment compares Wiener filter and
+empirical Wiener filter.</p>
+
+<p class=MsoNormal>The Wiener filter experiment description:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>The test image <span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+position:relative;top:3.0pt'><img width=7 height=27
+src="Image%20perfection%20linear%20filters.files/image077.png"></span> is
+blurred and noise is added to it. </p>
+
+<p class=MsoListParagraphCxSpLast><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:3.0pt'><img width=248 height=27
+src="Image%20perfection%20linear%20filters.files/image078.png"></span> </p>
+
+<p class=MsoNormal style='margin-top:0in;text-indent:.5in;text-autospace:none'>Where
+<span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:3.0pt'><img width=129 height=39
+src="Image%20perfection%20linear%20filters.files/image090.png"></span>where <span style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;top:3.0pt'><img
+width=11 height=27
+src="Image%20perfection%20linear%20filters.files/image091.png"></span> is
+provided by the user.</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:"Courier New"'>2.<span
+style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span>The
+Wiener filter is calculated according to Equation <span lang=AR-SA>&#8206;</span>10&#8209;14.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:"Courier New"'>3.<span
+style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span>The
+image is corrected using Wiener filter.</p>
+
+<p class=MsoNormal>The Empirical Wiener filter experiment description:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>The test image <span style='font-size:12.0pt;font-family:"Times New Roman","serif";
+position:relative;top:3.0pt'><img width=7 height=27
+src="Image%20perfection%20linear%20filters.files/image077.png"></span> is
+blurred and noise is added to it. </p>
+
+<p class=MsoListParagraphCxSpLast><span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:3.0pt'><img width=248 height=27
+src="Image%20perfection%20linear%20filters.files/image078.png"></span> </p>
+
+<p class=MsoNormal style='margin-top:0in;text-indent:.5in;text-autospace:none'>Where
+<span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:3.0pt'><img width=129 height=39
+src="Image%20perfection%20linear%20filters.files/image090.png"></span>where <span style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;top:3.0pt'><img
+width=11 height=27
+src="Image%20perfection%20linear%20filters.files/image091.png"></span> is
+provided by the user.</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:"Courier New"'>2.<span
+style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span>The
+Empirical Wiener filter is calculated according to Equation <span lang=AR-SA>&#8206;</span>10&#8209;19,
+only for noise variance estimate, another multiplicative parameter is added,
+so:</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;page-break-after:
+avoid;text-autospace:none'><span style='position:relative;top:8.0pt'><img
+width=272 height=32
+src="Image%20perfection%20linear%20filters.files/image092.png"></span><span
+style='font-family:"Courier New"'> </span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:"Courier New"'>3.<span
+style='font:7.0pt "Times New Roman"'> </span></span><span dir=LTR></span>The
+image is corrected using Empirical Wiener filter.</p>
+
+<h3><a name="_Toc410119517">10.2.2<span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=629 id="Picture 371"
+src="Image%20perfection%20linear%20filters.files/image093.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410501828">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;2: &quot;Wiener
+Filtering&quot;. Top left is the input image. Top right is the input image
+blurred and with noise. Bottom left is the ideal Wiener filter. Bottom right is
+the empirical wiener result. Noise <span style='font-size:12.0pt;font-family:
+"Times New Roman","serif";position:relative;top:2.5pt'><img width=33 height=24
+src="Image%20perfection%20linear%20filters.files/image094.png"></span>, R = 40960000,
+<span style='font-size:12.0pt;font-family:"Times New Roman","serif";position:
+relative;top:2.5pt'><img width=110 height=24
+src="Image%20perfection%20linear%20filters.files/image095.png"></span>.</p>
+
+<p class=MsoBodyText>Figure <span lang=AR-SA>&#8206;</span>10&#8209;2
+illustrated the capabilities of empirical wiener filter in comparison to the
+ideal wiener. Although the empirical wiener filter is not as good as the ideal
+one, is performs almost as well, and without the knowledge of the true image
+power spectrum. Despite the good performance of the empirical filter, it is
+highly depended on the <span style='position:relative;top:5.0pt'><img width=92
+height=21 src="Image%20perfection%20linear%20filters.files/image096.png"></span> described
+at <span lang=AR-SA>&#8206;</span><i><u>10.2.1</u></i>. That is because that
+some of the noise component may still remain after the subtraction of its
+spectrum estimation. </p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>10.3<span
+style='font:7.0pt "Times New Roman"'> </span></span></i><span dir=LTR></span>   <a
+name="_Toc411983202"></a><a name="_Toc410909034"></a><a name="_Ref410251954"></a><a
+name="_Ref410251946"></a><a name="_Toc410119770"></a><a name="_Toc410119518">Local
+Adaptive Filtering: 1D</a></h2>
+
+<h3><a name="_Toc410119519">10.3.1<span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoNormal>As described in<i><u> Local Adaptive Filtering </u></i>chapter,
+to overcome inhomogeneity of images, a local filtering approach is needed. </p>
+
+<p class=MsoBodyText>Another consideration should be the transform domain which
+is used (DCT, DFT, Haar, etc).</p>
+
+<p class=MsoBodyText>Noise suppressing capability of scalar empirical Wiener
+filters depends on appropriate selection of transform domain, where image and
+noise spectra would be separated to the highest possible degree.  For highly
+correlated noise, a transform in which noise spectrum is concentrated in a few
+components should be selected. For uncorrelated (white) noise this separation
+is much less possible as spectrum of uncorrelated noise in any transform
+remains to be uniform, and certain separation signal and noise is only possible
+due energy compaction property of the transform with respect to image signals.
+As we mentioned, DCT transform is one of the most promising in this respect.
+Another option is using wavelet transforms that also exhibit good energy
+compaction property. </p>
+
+<p class=MsoBodyText>Version of the empirical Wiener, rejecting and spectrum
+preservation filters that are implemented with wavelet transform image
+decomposition are known as <b><i>wavelet shrinkage</i></b> filtering by hard and soft thresholding, correspondingly. </p>
+
+<p class=MsoBodyText>Figure <span lang=AR-SA>&#8206;</span>10&#8209;3 shows a flow
+diagram of signal denoising by means of the wavelet shrinkage.</p>
+
+<p class=Figure style='text-align:justify;line-height:200%'>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=16 height=21></td>
+  <td width=576></td>
+ </tr>
+ <tr>
+  <td height=460></td>
+  <td align=left valign=top><img width=576 height=460
+  src="Image%20perfection%20linear%20filters.files/image097.png"></td>
+ </tr>
+ <tr>
+  <td height=6></td>
+ </tr>
+ <tr>
+  <td height=42></td>
+  <td align=left valign=top><img width=576 height=42
+  src="Image%20perfection%20linear%20filters.files/image098.png"
+  alt="Figure &#8206;10 3: Wavelet shrinkage: signal denoising in wavelet transform domain. Units “soft/hard” thresholding implement signal spectrum preservation and rejecting filters "></td>
+ </tr>
+</table>
+
+<span style='line-height:200%'>&nbsp;</span></p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<br clear=ALL>
+
+<h3><a name="_Toc410119520">10.3.2<span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoBodyText>The “Local Adaptive Filtering: 1D” experiment illustrated
+the local adaptive wiener filter de-noising capabilities (i.e. no blurring
+kernel is used) while preserving edges. Two transform domains are compared –
+DCT and Haar.</p>
+
+<p class=MsoBodyText>Given an input signal, noise is added to it, and the local
+DCT \Haar transforms are calculated.</p>
+
+<p class=MsoBodyText>A wavelate shrinkage is performed on the spectral
+coefficients, as described in the schema at Figure <span lang=AR-SA>&#8206;</span>10&#8209;3.</p>
+
+<h3><a name="_Toc410119521">10.3.3<span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal>Local filtering using Haar transform and DCT transform are
+illustrated in Figure <span lang=AR-SA>&#8206;</span>10&#8209;4 and Figure <span lang=AR-SA>&#8206;</span>10&#8209;5 respectively.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=623
+height=498 id="Picture 183"
+src="Image%20perfection%20linear%20filters.files/image099.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410509902">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;4: &quot;Local Adaptive
+filtering 1D&quot;. Top is the input signal. Second from the top is the input
+signal with noise. Third from the top is the noisy signal local Haar spectra.
+Fourth from the top is the local Haar spectra after filtration. Fifth from the
+top is the reconstructed filtered signal. Window size is 8, filtering threshold
+is 82, and noise standard deviation is<span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:4.0pt'><img width=100 height=25
+src="Image%20perfection%20linear%20filters.files/image100.png"></span>.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=499 id="Picture 184"
+src="Image%20perfection%20linear%20filters.files/image101.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410509897">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;5: &quot;Local Adaptive
+filtering 1D&quot;. Top is the input signal. Second from the top is the input
+signal with noise. Third from the top is the noisy signal local DCT spectra.
+Fourth from the top is the local DCT spectra after filtration. Fifth from the
+top is the reconstructed filtered signal. Window size is 8, filtering threshold
+is 82, and noise standard deviation is<span
+style='font-size:12.0pt;font-family:"Times New Roman","serif";position:relative;
+top:4.0pt'><img width=100 height=25
+src="Image%20perfection%20linear%20filters.files/image100.png"></span>.</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>10.4<span
+style='font:7.0pt "Times New Roman"'> </span></span></i><span dir=LTR></span>   <a
+name="_Toc411983203"></a><a name="_Toc410909035"></a><a name="_Toc410119771"></a><a
+name="_Toc410119522">Local Adaptive Filtering: 2D</a></h2>
+
+<h3><a name="_Toc410119524">10.4.1<span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoBodyText>Similar to “<span lang=AR-SA>&#8206;</span>10.3 Local Adaptive Filtering: 1D”, the “Local Adaptive Filtering: 2D” experiment
+illustrates the de noising capabilities of local Wiener filter in 2D. Given an
+input image, noise is added to it, and the local DCT transforms are calculated.</p>
+
+<p class=MsoBodyText>Using rejecting wiener filter, the signal is de-noised,
+while its edges are mostly preserved. The DCT\Haar mask is also calculates. It
+represents the degree of filtering one, i.e. the bigger the value in the mask,
+the more of the original signal is preserved (less filtered).</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119525">10.4.2<span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=605 height=624 id="Picture 448"
+src="Image%20perfection%20linear%20filters.files/image102.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410509808">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>10&#8209;6: &quot;Local Adaptive
+Filtering: 2D&quot;. Top is the input image. Top right is the input image with
+noise. Bottom left is the filtered result. Bottom right is the filtered mask.
+Window size is 7x7, comparison threshold is 33, spectral coefficients
+amplification is 2 and power spectral coefficients is 1.</p>
+
+<p class=MsoNormal>It can be seen form the result displayed at Figure <span lang=AR-SA>&#8206;</span>10&#8209;6, and from its 1D counterpart
+displayed at Figure <span lang=AR-SA>&#8206;</span>10&#8209;4 and Figure <span lang=AR-SA>&#8206;</span>10&#8209;5, the edge preserving abilities of
+the local adaptive filter.</p>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman","serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc411983204"></a><a name="_Toc410119784"></a><a
+name="_Toc410119568">Bibliography</a></h1>
+
+<p class=MsoNormal></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="100%"
+ style='width:100.0%'>
+ <tr>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[1] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;Image Perfecting,&quot; in <i>Theoretical
+  Foundations of Digital Imaging Using MATLAB</i>, CRC Press, 2012, p. 395.</p>
+  </td>
+ </tr>
+ <tr xmlns="">
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[2] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;Image restoration and
+  enhancement:Nonlinear filters,&quot; [Online]. Available:
+  http://www.eng.tau.ac.il/~yaro/lectnotes/pdf/AdvImProc_4.pdf.</p>
+  </td>
+ </tr>
+ <tr xmlns="">
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[3] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;Local adaptive
+  filtering,&quot; in <i>Theoretical Foundations of Digital Imaging Using
+  MATLAB</i>, CRC Press, 2012, pp. 420-425.</p>
+  </td>
+ </tr>
+ <tr xmlns="">
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[4] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;DISCRETE SLIDING WINDOW
+  TRANSFORMS AND ''TIME-FREQUENCY'' SIGNAL REPRESENTATION,&quot; in <i>Theoretical
+  Foundations of Digital Imaging Using MATLAB</i>, CRC Press, 2012, pp.
+  192-197.</p>
+  </td>
+ </tr>
+ <tr xmlns="">
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[5] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky<span dir=RTL></span><span
+  lang=AR-SA dir=RTL><span dir=RTL></span>&#8207;</span><span dir=LTR></span><span
+  dir=LTR></span>, &quot;Empirical Wiener filters for image deblurring,&quot;
+  in <i>Theoretical Foundations of Digital Imaging Using MATLAB</i>, CRC Press,
+  2012, p. 411.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=AR-SA dir=RTL>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

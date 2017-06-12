@@ -1,0 +1,1 @@
+function []=dispspec(INPSPEC,P)% Display absolute value of 2-D DFT spectrum rised to a power P % Call dispspec(INPSPEC,P)img=fftshift(abs(INPSPEC));Min=min(min(img)); Max=max(max(img));if Max-Min==0, img=zeros(size(img)); else img=(img-Min)/(Max-Min); endcolormap(gray(256));image(255*img.^P);axis image;axis off;title(['dispspec.m: Spectrum, P=',num2str(P)])

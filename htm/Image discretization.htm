@@ -1,0 +1,2476 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>Advanced Image Processing lab</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-21.6pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:28.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-28.8pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-36.0pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:43.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-43.2pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{mso-style-link:"Heading 5 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:50.4pt;
+	margin-bottom:.0001pt;
+	text-indent:-50.4pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-weight:normal;}
+h6
+	{mso-style-link:"Heading 6 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:57.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-57.6pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Heading 7 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:64.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-64.8pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"Heading 8 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:72.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-72.0pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"Heading 9 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:79.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-79.2pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:44.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:55.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:66.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:77.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Footnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-indent:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoEndnoteReference
+	{vertical-align:super;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"Endnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
+	{mso-style-link:"Macro Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:9.0pt;
+	font-family:"Courier New";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-name:"Title\,ttl";
+	mso-style-link:"Title Char\,ttl Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpFirst, li.MsoBodyTextIndentCxSpFirst, div.MsoBodyTextIndentCxSpFirst
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpMiddle, li.MsoBodyTextIndentCxSpMiddle, div.MsoBodyTextIndentCxSpMiddle
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpLast, li.MsoBodyTextIndentCxSpLast, div.MsoBodyTextIndentCxSpLast
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"Subtitle Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:15.0pt;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"Body Text 2 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Body Text 3 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-link:"Document Map Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.0pt;
+	line-height:200%;
+	background:navy;
+	font-size:12.0pt;
+	font-family:"Tahoma",sans-serif;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"Plain Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;}
+span.MsoPlaceholderText
+	{color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.MsoSubtleReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	text-decoration:underline;}
+span.MsoIntenseReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+p.MsoBibliography, li.MsoBibliography, div.MsoBibliography
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:right;
+	page-break-after:avoid;
+	direction:rtl;
+	unicode-bidi:embed;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-link:"Heading 4";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading5Char
+	{mso-style-name:"Heading 5 Char";
+	mso-style-link:"Heading 5";
+	font-family:"Cambria",serif;
+	color:#243F60;}
+span.Heading6Char
+	{mso-style-name:"Heading 6 Char";
+	mso-style-link:"Heading 6";
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-style:italic;}
+span.Heading7Char
+	{mso-style-name:"Heading 7 Char";
+	mso-style-link:"Heading 7";
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+span.Heading8Char
+	{mso-style-name:"Heading 8 Char";
+	mso-style-link:"Heading 8";
+	font-family:"Cambria",serif;
+	color:#404040;}
+span.Heading9Char
+	{mso-style-name:"Heading 9 Char";
+	mso-style-link:"Heading 9";
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.StyleFirstline0cmLinespacingDouble, li.StyleFirstline0cmLinespacingDouble, div.StyleFirstline0cmLinespacingDouble
+	{mso-style-name:"Style First line\:  0 cm Line spacing\:  Double";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EquationChar
+	{mso-style-name:"Equation Char";
+	mso-style-link:Equation;
+	color:#4F81BD;
+	font-weight:bold;}
+p.Equation, li.Equation, div.Equation
+	{mso-style-name:Equation;
+	mso-style-link:"Equation Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma",sans-serif;}
+span.EndnoteTextChar
+	{mso-style-name:"Endnote Text Char";
+	mso-style-link:"Endnote Text";}
+span.FootnoteTextChar
+	{mso-style-name:"Footnote Text Char";
+	mso-style-link:"Footnote Text";}
+p.HeadingMath, li.HeadingMath, div.HeadingMath
+	{mso-style-name:HeadingMath;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-variant:small-caps;}
+p.Figure, li.Figure, div.Figure
+	{mso-style-name:Figure;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Table, li.Table, div.Table
+	{mso-style-name:Table;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.HeadingOther, li.HeadingOther, div.HeadingOther
+	{mso-style-name:HeadingOther;
+	margin-top:26.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:45.0pt;
+	text-indent:-45.0pt;
+	line-height:15.0pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.References, li.References, div.References
+	{mso-style-name:References;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.9pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.9pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.capLabel
+	{mso-style-name:capLabel;
+	font-style:italic;
+	vertical-align:baseline;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman",serif;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman",serif;}
+p.Author, li.Author, div.Author
+	{mso-style-name:Author;
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.SubtitleChar
+	{mso-style-name:"Subtitle Char";
+	mso-style-link:Subtitle;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;
+	font-family:"Times New Roman",serif;}
+p.CN, li.CN, div.CN
+	{mso-style-name:CN;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;}
+p.ChapterNo, li.ChapterNo, div.ChapterNo
+	{mso-style-name:ChapterNo;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;}
+p.small, li.small, div.small
+	{mso-style-name:small;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.li, li.li, div.li
+	{mso-style-name:li;
+	margin-top:3.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:17.85pt;
+	text-indent:-17.85pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Book Antiqua",serif;}
+p.Affiliation, li.Affiliation, div.Affiliation
+	{mso-style-name:Affiliation;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:26.0pt;
+	margin-left:0cm;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+p.Abstract, li.Abstract, div.Abstract
+	{mso-style-name:Abstract;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.TitleChar
+	{mso-style-name:"Title Char\,ttl Char";
+	mso-style-link:"Title\,ttl";
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.BlockQuote, li.BlockQuote, div.BlockQuote
+	{mso-style-name:BlockQuote;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:7.0pt;
+	margin-left:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTnum, li.LISTnum, div.LISTnum
+	{mso-style-name:LISTnum;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTalph, li.LISTalph, div.LISTalph
+	{mso-style-name:LISTalph;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTdash, li.LISTdash, div.LISTdash
+	{mso-style-name:LISTdash;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Motto, li.Motto, div.Motto
+	{mso-style-name:Motto;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.Appendix, li.Appendix, div.Appendix
+	{mso-style-name:Appendix;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.Notes, li.Notes, div.Notes
+	{mso-style-name:Notes;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.MacroTextChar
+	{mso-style-name:"Macro Text Char";
+	mso-style-link:"Macro Text";
+	font-family:"Courier New";}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-link:"Plain Text";
+	font-family:"Courier New";}
+span.DocumentMapChar
+	{mso-style-name:"Document Map Char";
+	mso-style-link:"Document Map";
+	font-family:"Tahoma",sans-serif;
+	background:navy;}
+span.BodyText2Char
+	{mso-style-name:"Body Text 2 Char";
+	mso-style-link:"Body Text 2";
+	font-family:"Times New Roman",serif;}
+span.BodyText3Char
+	{mso-style-name:"Body Text 3 Char";
+	mso-style-link:"Body Text 3";
+	font-family:"Times New Roman",serif;}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Style11, li.Style11, div.Style11
+	{mso-style-name:Style11;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.FigureCaption, li.FigureCaption, div.FigureCaption
+	{mso-style-name:"Figure Caption";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.currencyconvertertext
+	{mso-style-name:currency_converter_text;}
+span.currencyconverterlink
+	{mso-style-name:currency_converter_link;}
+span.BodyTextIndentChar
+	{mso-style-name:"Body Text Indent Char";
+	mso-style-link:"Body Text Indent";
+	font-family:"Times New Roman",serif;}
+span.st
+	{mso-style-name:st;}
+span.fplc
+	{mso-style-name:fplc;}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:21.0cm 841.95pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoToc1><a name="_Ref409520465"></a><a name="_Ref409520484"></a><a href="#_Toc410740090">1<span style='font-size:11.0pt;font-family:"Calibri",sans-serif;
+color:windowtext;text-transform:none;font-weight:normal;text-decoration:none'>      </span>Image
+discretization<span style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410740091"><i>1.1</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Discrete Representation<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410740092"><i>1.2</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Image Sampling<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410740093"><i>1.3</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Aliasing 1D<span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410740094"><i>1.4</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Image LPF<span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc410740095"><span dir=RTL></span><span
+lang=AR-SA dir=RTL style='font-family:"Times New Roman",serif'><span dir=RTL></span>2</span><span
+style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:windowtext;
+text-transform:none;font-weight:normal;text-decoration:none'>       </span>Bibliography<span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<span style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;line-height:115%'>&nbsp;</p>
+
+<h1><a name="_Toc410740090"></a><a name="_Toc410119719"></a><a
+name="_Toc410119355">1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image discretization</a></h1>
+
+<h2><a name="_Toc410740091"></a><a name="_Toc410119720"></a><a
+name="_Toc410119356"></a><a name="_Ref410081501"></a><a name="_Ref410081494"><i><span
+style='font-size:16.0pt;font-weight:normal'>1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><span dir=LTR></span>Discrete Representation</a></h2>
+
+<h3><a name="_Toc410119357"></a><a name="_Ref410067352">1.1.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Theoretical background</a></h3>
+
+<h4>1.1.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Discretization</h4>
+
+<p class=MsoBodyText>Signal digitization is carried out in two steps:
+discretization and element-wise quantization.</p>
+
+<p class=MsoBodyText>At the first step of the digitization, called signal
+discretization, continuous signals are converted into a set of real numbers
+that form signal discrete representation. At the second stage, called scalar
+(element wise) quantization, this set of numbers is, number by number,
+converted into a set of quantized numbers, which finally results in a digital
+signal that corresponds to the initial continuous one.</p>
+
+<p class=MsoBodyText>The conversion of continuous signals into discrete ones
+can be modeled as computing coefficients that represent signals in their
+expansion over a set of basis functions.</p>
+
+<p class=MsoBodyText>Let <span style='position:relative;top:6.0pt'><img
+width=56 height=25 src="Image%20discretization_files/image001.png"></span> be a
+set of basis functions used for signal discretization.
+Then coefficients <span style='position:relative;top:6.0pt'><img width=32
+height=24 src="Image%20discretization_files/image002.png"></span> of signal
+discrete representations are computed as </p>
+
+<p class=MsoCaption><a name="_Ref409704012"></a><a name="_Ref409704022"><img
+width=133 height=39 src="Image%20discretization_files/image003.png"></a></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;1</p>
+
+<p class=MsoBodyText>This equation is a mathematical formulation of operations
+performed by signal sensors. Functions <span style='position:relative;
+top:6.0pt'><img width=56 height=25
+src="Image%20discretization_files/image001.png"></span> describe spatial
+sensitivity of sensors, i.e. sensor point spread function,
+or sensor aperture.</p>
+
+<p class=MsoBodyText>Signal discretization with discretization basis <span
+style='position:relative;top:6.0pt'><img width=56 height=25
+src="Image%20discretization_files/image001.png"></span> assumes that a
+reciprocal set of reconstructing basis functions<span style='position:relative;
+top:6.0pt'><img width=55 height=25
+src="Image%20discretization_files/image004.png"></span> is defined, with which
+signal can be reconstructed from its discrete representation coefficients <span
+style='position:relative;top:6.0pt'><img width=32 height=24
+src="Image%20discretization_files/image002.png"></span> as following:</p>
+
+<p class=MsoCaption><a name="_Ref409703880"></a><a name="_Ref409703876"></a><a
+name="_Ref409704026"><img width=124 height=45
+src="Image%20discretization_files/image005.png"></a></p>
+
+<p class=MsoCaption><a name="_Ref410052025">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;2</a></p>
+
+<p class=MsoBodyText>where approximation symbol <img width=15 height=13
+src="Image%20discretization_files/image006.png"> in <i><u>Equation
+<span lang=AR-SA>&#8206;</span>2&#8209;2</u></i>. indicates that signal
+reconstructed from its discrete representation is, generally, not a precise
+copy of the initial signal, <span style='position:relative;top:3.0pt'><img
+width=19 height=19 src="Image%20discretization_files/image007.png"></span> is a
+number of representation coefficients needed for signal reconstruction with a
+desired accuracy and functions <span style='position:relative;top:6.0pt'><img
+width=55 height=25 src="Image%20discretization_files/image004.png"></span> are
+point spread functions of signal reconstruction devices (such as, for instance,
+computer display), or their reconstruction aperture functions.
+</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h4>1.1.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>“mother” function  </h4>
+
+<p class=MsoNormal>The sampling and reconstruction functions (<span
+style='position:relative;top:6.0pt'><img width=55 height=25
+src="Image%20discretization_files/image004.png"></span>, <span
+style='position:relative;top:6.0pt'><img width=56 height=25
+src="Image%20discretization_files/image001.png"></span>)are usually produced
+from a single <b><i>“mother” function</i></b>  by
+means of its modification with one or another method. Typical basis functions
+can be: </p>
+
+<p class=MsoNormal><span class=Heading5Char>Shift (convolutional) basis
+functions –</span> each function is a shifted version of the “mother function”:</p>
+
+<p class=MsoNormal><span style='position:relative;top:6.0pt'><img width=141
+height=25 src="Image%20discretization_files/image008.png"></span> ; <span
+style='position:relative;top:6.0pt'><img width=141 height=25
+src="Image%20discretization_files/image009.png"></span>. An example for such a
+function is the impulse rect-functions:</p>
+
+<p class=MsoCaption><img width=173 height=45
+src="Image%20discretization_files/image010.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;3</p>
+
+<p class=MsoNormal><span class=Heading5Char>Scale (multiplicative) basis
+functions-</span><b><i> </i></b>method for generating basis functions from one
+mother function <span style='position:relative;top:5.0pt'><img width=43
+height=23 src="Image%20discretization_files/image011.png"></span> is scaling
+the argument of functions:</p>
+
+<p class=MsoCaption><img width=99 height=24
+src="Image%20discretization_files/image012.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;4</p>
+
+<p class=MsoNormal>Examples for such functions are the Fourier series, DCT, and
+Walsh.</p>
+
+<p class=MsoNormal><a name="_Toc288852595"></a><a name="_Toc296334070"></a><a
+name="_Toc297720428"></a><a name="_Toc297720791"></a><a name="_Toc297998501"><span
+class=Heading5Char>Wavelets</span></a><span class=Heading5Char> -</span>
+wavelet basis functions built using a combination of shift and scaling of a
+mother function. An example of such function is the Haar functions.</p>
+
+<h4>1.1.1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Fourier Transforms (DFT):</h4>
+
+<p class=MsoNormal>Fourier series expansion over a finite interval is an
+example of signal expansion over <b><i>scaling basis functions</i></b> )
+[1]:</p>
+
+<p class=MsoCaption><img width=176 height=45
+src="Image%20discretization_files/image013.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;5                                                                                                                                                        </p>
+
+<p class=MsoBodyText>where <span style='position:relative;top:2.0pt'><img
+width=19 height=17 src="Image%20discretization_files/image014.png"></span>is
+the interval within which signal is approximated by the Fourier series and
+coefficients <span style='position:relative;top:6.0pt'><img width=32 height=24
+src="Image%20discretization_files/image002.png"></span> are complex numbers
+computed as:</p>
+
+<p class=MsoCaption><img width=223 height=51
+src="Image%20discretization_files/image015.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;6</p>
+
+<p class=MsoBodyText>They can be regarded as (<span style='position:relative;
+top:3.0pt'><img width=34 height=19
+src="Image%20discretization_files/image016.png"></span>)-normalized samples of
+the signal Fourier transform spectrum taken at frequencies<span
+style='position:relative;top:5.0pt'><img width=47 height=23
+src="Image%20discretization_files/image017.png"></span>. The fundamental
+property of Fourier series signal expansion is that, while it converges to the
+signal within interval of expansion<span style='position:relative;top:2.0pt'><img
+width=19 height=17 src="Image%20discretization_files/image014.png"></span>,
+outside this interval Fourier series, owing to periodicity of basis functions<span
+style='position:relative;top:5.0pt'><img width=105 height=23
+src="Image%20discretization_files/image018.png"></span>, converges to a
+periodical function with a period<span style='position:relative;top:2.0pt'><img
+width=19 height=17 src="Image%20discretization_files/image014.png"></span>. </p>
+
+<p class=MsoBodyText>The discrete Fourier transform and its inverse are given
+by:</p>
+
+<p class=MsoCaption><img width=212 height=48
+src="Image%20discretization_files/image019.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;7</p>
+
+<p class=MsoCaption><img width=222 height=48
+src="Image%20discretization_files/image020.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;8</p>
+
+<p class=MsoBodyText>Correspondingly, canonical direct and inverse 2-D DFTs are
+defined as: </p>
+
+<p class=MsoCaption><img width=288 height=57
+src="Image%20discretization_files/image021.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;9</p>
+
+<p class=MsoCaption><img width=308 height=57
+src="Image%20discretization_files/image022.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;10</p>
+
+<p class=MsoCaption>                                                                                                                                                                </p>
+
+<h4><a name="_Ref410081742">1.1.1.4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Discrete Cosine Transform:</a></h4>
+
+<p class=MsoNormal>The Discrete Cosine Transform defined for signal <span
+style='position:relative;top:6.0pt'><img width=28 height=30
+src="Image%20discretization_files/image023.png"></span> of <span
+style='position:relative;top:3.0pt'><img width=19 height=22
+src="Image%20discretization_files/image024.png"></span> samples as [2]:</p>
+
+<p class=MsoCaption><img width=240 height=48
+src="Image%20discretization_files/image025.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;11</p>
+
+<p class=MsoNormal>The inverse DCT is defined as</p>
+
+<p class=MsoNormal><img width=308 height=48
+src="Image%20discretization_files/image026.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;12</p>
+
+<p class=MsoNormal><img width=159 height=48
+src="Image%20discretization_files/image027.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;13</p>
+
+<p class=MsoBodyText>Discrete Cosine Transform exhibits the best energy
+compaction capability. In fact, DCT has the edge over other known transforms in
+the most of image processing applications.</p>
+
+<h4><a name="_Ref410081745"></a><a name="_Toc280208194">1.1.1.5<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Hadamard and Walsh transforms</a>  </h4>
+
+<p class=MsoBodyText>Walsh functions are binary functions that assume only two
+values; either 1, or -1. Walsh functions are generated by multiplication </p>
+
+<p class=MsoCaption><img width=195 height=45
+src="Image%20discretization_files/image028.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;14</p>
+
+<p class=MsoBodyText>of clipped sinusoidal functions called the <b><i>Rademacher
+functions</i></b>:                                           </p>
+
+<p class=MsoCaption><img width=315 height=51
+src="Image%20discretization_files/image029.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;15</p>
+
+<p class=MsoBodyText>where <span style='position:relative;top:2.0pt'><img
+width=19 height=17 src="Image%20discretization_files/image030.png"></span>is
+interval on which functions are defined and <span style='position:relative;
+top:6.0pt'><img width=28 height=25
+src="Image%20discretization_files/image031.png"></span> is the <span
+style='position:relative;top:3.0pt'><img width=17 height=15
+src="Image%20discretization_files/image032.png"></span>-th digit of the
+so-called <b><i>Gray code</i></b> of index <span style='position:relative;
+top:3.0pt'><img width=15 height=19
+src="Image%20discretization_files/image033.png"></span>. Gray code digits are
+generated from digits <span style='position:relative;top:6.0pt'><img width=31
+height=24 src="Image%20discretization_files/image034.png"></span> of ordinary
+binary representation of the number</p>
+
+<p class=MsoCaption><img width=153 height=45
+src="Image%20discretization_files/image035.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;16</p>
+
+<p class=MsoBodyText>according to the following rule:</p>
+
+<p class=MsoCaption><img width=104 height=25
+src="Image%20discretization_files/image036.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;17</p>
+
+<p class=MsoBodyText>where <span style='position:relative;top:3.0pt'><img
+width=17 height=19 src="Image%20discretization_files/image037.png"></span> stands
+for <b><i>modulo 2 addition</i></b>,
+according to which <span style='position:relative;top:5.0pt'><img width=203
+height=21 src="Image%20discretization_files/image038.png"></span>. </p>
+
+<p class=MsoBodyText>Hadamard Transform  </p>
+
+<p class=MsoBodyText>The Hadamard Transform  is
+defined as:</p>
+
+<p class=MsoCaption> <img width=235 height=48
+src="Image%20discretization_files/image039.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;18</p>
+
+<p class=MsoBodyText>Where:</p>
+
+<p class=MsoBodyText>The number of signal samples <span style='position:relative;
+top:2.0pt'><img width=20 height=17
+src="Image%20discretization_files/image040.png"></span> be an integer power  <span
+style='position:relative;top:3.0pt'><img width=13 height=15
+src="Image%20discretization_files/image041.png"></span> of 2: <span
+style='position:relative;top:3.0pt'><img width=49 height=21
+src="Image%20discretization_files/image042.png"></span>. </p>
+
+<p class=MsoBodyText><span style='position:relative;top:3.0pt'><img width=15
+height=19 src="Image%20discretization_files/image033.png"></span> and <span
+style='position:relative;top:2.0pt'><img width=12 height=13
+src="Image%20discretization_files/image043.png"></span> represent signal and
+transform domain indices on the base 2 through their binary digits <span
+style='position:relative;top:6.0pt'><img width=31 height=24
+src="Image%20discretization_files/image034.png"></span> and<span
+style='position:relative;top:6.0pt'><img width=28 height=24
+src="Image%20discretization_files/image044.png"></span>,<span style='position:
+relative;top:5.0pt'><img width=99 height=21
+src="Image%20discretization_files/image045.png"></span>:</p>
+
+<p class=MsoCaption><img width=83 height=45
+src="Image%20discretization_files/image046.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;19</p>
+
+<p class=MsoBodyText>The 1D Hadamard transform is a <span style='position:relative;
+top:3.0pt'><img width=13 height=15
+src="Image%20discretization_files/image041.png"></span>-dimensional DFT over
+two samples in each dimension. (see appendix) . From this it follows that
+inverse Hadamard Transform is identical to the direct one.</p>
+
+<p class=MsoBodyText>The basis functions of Hadamard transform</p>
+
+<p class=MsoCaption><img width=196 height=45
+src="Image%20discretization_files/image047.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;20</p>
+
+<p class=MsoBodyText>are ordered in the same way as exponential basis functions
+of DFT  are: according to the natural ascending order of their index.  </p>
+
+<p class=MsoBodyText>We call better corresponds to the principle of ordering
+according to transform coefficients’ energy. The transform with such ordering
+of the basis functions, called <b><i>Walsh Transform</i></b> or <b><i>Walsh-Hadamard
+Transform</i></b> , </p>
+
+<p class=MsoCaption><img width=241 height=48
+src="Image%20discretization_files/image048.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;21</p>
+
+<p class=MsoBodyText>can also be computed using Fast Hadamard Transform
+algorithm, though it must be complemented with permutation of transform
+coefficients according to their Gray code ordering. Similarly to Hadamard
+Transform, Inverse Walsh Transform is identical to the direct one. </p>
+
+<h4><a name="_Toc280208195"></a><a name="_Toc295332325"></a><a
+name="_Toc295405019"></a><a name="_Toc295405159"></a><a name="_Toc295405431"></a><a
+name="_Toc296333397"></a><a name="_Toc318314643">1.1.1.6<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Haar Transform</a></h4>
+
+<p class=MsoBodyText>Haar functions defined on interval <span style='position:
+relative;top:2.0pt'><img width=19 height=17
+src="Image%20discretization_files/image014.png"></span> are generated from
+shifted rectangular impulse functions <span style='position:relative;
+top:5.0pt'><img width=124 height=23
+src="Image%20discretization_files/image049.png"></span> and Rademacher
+functions <span style='position:relative;top:6.0pt'><img width=175 height=25
+src="Image%20discretization_files/image050.png"></span> in the following way: </p>
+
+<p class=MsoCaption><img width=319 height=25
+src="Image%20discretization_files/image051.png">                <span
+style='position:relative;top:5.0pt'><img width=79 height=23
+src="Image%20discretization_files/image052.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;22</p>
+
+<p class=MsoBodyText>where <span style='position:relative;top:3.0pt'><img
+width=31 height=19 src="Image%20discretization_files/image053.png"></span> is
+index of the most significant non-zero digit (bit) in binary representation of <span
+style='position:relative;top:3.0pt'><img width=13 height=19
+src="Image%20discretization_files/image054.png"></span> and <span
+style='position:relative;top:5.0pt'><img width=77 height=24
+src="Image%20discretization_files/image055.png"></span>is a residual from
+division of  <span style='position:relative;top:3.0pt'><img width=13 height=19
+src="Image%20discretization_files/image054.png"></span> by <span
+style='position:relative;top:2.0pt'><img width=29 height=20
+src="Image%20discretization_files/image056.png"></span>. </p>
+
+<p class=MsoBodyText>Haar functions are orthogonal on the interval <span
+style='position:relative;top:5.0pt'><img width=40 height=23
+src="Image%20discretization_files/image057.png"></span>. Graphs of first eight
+Haar functions are shown in Figure <span lang=AR-SA>&#8206;</span>2&#8209;1.</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse'>
+ <tr>
+  <td width=590 valign=top style='width:442.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=Figure><img width=466 height=313 id="&#1514;&#1502;&#1493;&#1504;&#1492; 29"
+  src="Image%20discretization_files/image058.jpg" alt="Fig3-8_HaarBasFuncts"></p>
+  <p class=MsoCaption><a name="_Ref409902638">Figure <b><span lang=AR-SA
+  style='font-size:12.0pt'>&#8206;</span></b>2&#8209;1</a> First eight Haar
+  functions. Boxes unify Haar functions of the same scale.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoPlainText>&nbsp;</p>
+
+<p class=MsoBodyText>The figure clearly reveals the way in which Haar functions are built. One can see from the figure, that Haar functions form groups
+according to the scale indexed by symbol <img width=31 height=19
+src="Image%20discretization_files/image053.png"> (outlined by boxes in Figure <span lang=AR-SA>&#8206;</span>2&#8209;1) and that functions within each group
+are generated by shift in coordinates by multiple of<span style='position:relative;
+top:5.0pt'><img width=49 height=25
+src="Image%20discretization_files/image059.png"></span>. One can also see that
+signals reconstructed from their discrete representation over Haar basis
+functions belong to the same family of piece-wise constant functions as signals
+reconstructed in the base of rectangular impulse basis functions and Walsh
+functions.</p>
+
+<p class=MsoBodyText>Numerical values of Haar functions can
+be found at each point by expressing Haar functions, as in the case of Walsh
+functions, via a binary code of the argument:</p>
+
+<p class=MsoCaption><img width=284 height=27
+src="Image%20discretization_files/image060.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;23</p>
+
+<p class=MsoNormal>A formal definition of discrete Haar basis functions:</p>
+
+<p class=MsoCaption><img width=316 height=48
+src="Image%20discretization_files/image061.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;24</p>
+
+<p class=MsoNormal>with <span style='position:relative;top:3.0pt'><img
+width=31 height=19 src="Image%20discretization_files/image053.png"></span> as
+index of the most significant non-zero digit (bit) in binary representation of <span
+style='position:relative;top:2.0pt'><img width=12 height=13
+src="Image%20discretization_files/image062.png"></span>,  <span
+style='position:relative;top:5.0pt'><img width=79 height=24
+src="Image%20discretization_files/image063.png"></span> being modulo <span
+style='position:relative;top:2.0pt'><img width=29 height=20
+src="Image%20discretization_files/image056.png"></span> value of <span
+style='position:relative;top:2.0pt'><img width=12 height=13
+src="Image%20discretization_files/image043.png"></span>, a residual from
+division of  <span style='position:relative;top:2.0pt'><img width=12 height=13
+src="Image%20discretization_files/image062.png"></span> by <span
+style='position:relative;top:2.0pt'><img width=29 height=20
+src="Image%20discretization_files/image056.png"></span> and <span
+style='position:relative;top:6.0pt'><img width=67 height=25
+src="Image%20discretization_files/image064.png"></span> being an integer part
+of <span style='position:relative;top:5.0pt'><img width=57 height=24
+src="Image%20discretization_files/image065.png"></span>.  Table 4.2 provides
+examples of  <span style='position:relative;top:3.0pt'><img width=31 height=19
+src="Image%20discretization_files/image053.png"></span>, <span
+style='position:relative;top:5.0pt'><img width=79 height=24
+src="Image%20discretization_files/image063.png"></span> and <span
+style='position:relative;top:5.0pt'><img width=56 height=24
+src="Image%20discretization_files/image066.png"></span> for these functions. </p>
+
+<p class=MsoCaption>Table <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;1
+Examples of<span style='position:relative;top:3.0pt'><img width=31 height=19
+src="Image%20discretization_files/image053.png"></span>, <span
+style='position:relative;top:5.0pt'><img width=79 height=24
+src="Image%20discretization_files/image063.png"></span> and <span
+style='position:relative;top:5.0pt'><img width=56 height=24
+src="Image%20discretization_files/image067.png"></span> in binary
+representation of numbers</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:5.4pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=135 valign=top style='width:101.2pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><img width=15 height=19
+  src="Image%20discretization_files/image033.png"></p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>0</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>2</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>3</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>4</p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>5</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>6</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>7</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=135 valign=top style='width:101.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>Binary code</p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>000</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>001</p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>010</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>011</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>100</p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>101</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>110</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>111</p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid'>
+  <td width=135 valign=top style='width:101.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><img width=32 height=19
+  src="Image%20discretization_files/image068.png"></p>
+  </td>
+  <td width=110 colspan=2 valign=top style='width:82.35pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>0</p>
+  </td>
+  <td width=110 colspan=2 valign=top style='width:82.35pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>0</p>
+  </td>
+  <td width=110 colspan=2 valign=top style='width:82.35pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td width=110 colspan=2 valign=top style='width:82.4pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>2</p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid'>
+  <td width=135 valign=top style='width:101.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><img width=81 height=24
+  src="Image%20discretization_files/image069.png"></p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>-</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>-</p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>0 </p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>00  </p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>01</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>10</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>11</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=135 valign=top style='width:101.2pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><img width=60 height=24
+  src="Image%20discretization_files/image070.png">;<span style='position:relative;
+  top:3.0pt'><img width=55 height=19
+  src="Image%20discretization_files/image071.png"></span></p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>0</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>0</p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>0</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>0</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>1</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=135 valign=top style='width:101.2pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><img width=60 height=24
+  src="Image%20discretization_files/image070.png">;<span style='position:relative;
+  top:3.0pt'><img width=56 height=19
+  src="Image%20discretization_files/image072.png"></span></p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>00</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>00</p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>01</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>01</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>10</p>
+  </td>
+  <td width=55 valign=top style='width:41.15pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>10</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>11</p>
+  </td>
+  <td width=55 valign=top style='width:41.2pt;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>11</p>
+  </td>
+ </tr>
+</table>
+
+<h3><a name="_Toc410119358">1.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment description</a></h3>
+
+<p class=MsoBodyText>The “Discrete Representation” experiment compares the <b><i>energy
+compaction capability</i></b> of four digital transforms – DFT, DCT, Haar and
+Walsh, as described at <span lang=AR-SA>&#8206;</span>2.1.1.</p>
+
+<p class=MsoBodyText><b><i>Energy compaction capability</i></b> is<b><i> </i></b>the
+capability of transforms to concentrate signal energy in few signal
+decomposition coefficients.</p>
+
+<p class=MsoBodyText>This experiment also gives a good comparison between the
+visual effects cause by zeroing smallest absolute value coefficients of each
+transform.</p>
+
+<p class=MsoBodyText>The experiment procedure is:</p>
+
+<p class=MsoBodyText>The test image is transformed using four different
+transforms.</p>
+
+<p class=MsoBodyText>The absolute values of the transforms are sorted in
+descending order.</p>
+
+<p class=MsoBodyText>The coefficients of the smallest absolute value are zeroed
+until the total energy of the transform reaches to a threshold defined by the user</p>
+
+<p class=MsoBodyText>The image is restored from the result transform
+coefficients.</p>
+
+<h3><a name="_Toc410119359">1.1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=623
+height=447 id="&#1514;&#1502;&#1493;&#1504;&#1492; 372"
+src="Image%20discretization_files/image073.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;2:
+“Discrete Representation”. Top left image is the test image. Bottom left plot
+is the fraction of spectrum energy as a function of ordered spectral
+coefficient. Center top image is the DFT restored image after zeroing smallest
+coefficients to achieve 98% energy. Center bottom image is the Haar restored
+image after zeroing smallest coefficients to achieve 98% energy. Top right
+image is the DCT restored image after zeroing smallest coefficients to achieve
+98% energy. Bottom right image is the Walsh restored image after zeroing
+smallest coefficients to achieve 98% energy.</p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<p class=MsoBodyText>DCT and Haar displays better energy compaction capability
+with respect to minimum absolute value of the coefficient form all the other
+transform.  Haar, however, create un-natural artifacts to the restored image.
+This reason, along with other, makes the DCT a natural choice for image
+discretization.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=623
+height=452 id="&#1514;&#1502;&#1493;&#1504;&#1492; 373"
+src="Image%20discretization_files/image074.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;3:
+“Discrete Representation”– spectrum of previous images. Top left image is the
+test image. Bottom left plot is the fraction of spectrum energy as a function
+of ordered spectral coefficient. Center top image is the DFT spectrum after
+zeroing smallest coefficients to achieve 98% energy. Center bottom image is the
+Haar spectrum after zeroing smallest coefficients to achieve 98% energy. Top
+right image is the DCT spectrum after zeroing smallest coefficients to achieve
+98% energy. Bottom right image is the Walsh spectrum after zeroing smallest
+coefficients to achieve 98% energy.</p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<h2><a name="_Toc410740092"></a><a name="_Toc410119721"></a><a
+name="_Toc410119360"><i><span style='font-size:16.0pt;font-weight:normal'>1.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>Image Sampling</a></h2>
+
+<h3><a name="_Ref410142863"></a><a name="_Toc410119361">1.2.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoNormal>Then discrete representation coefficients <span
+style='position:relative;top:6.0pt'><img width=32 height=24
+src="Image%20discretization_files/image002.png"></span> of a signal <span
+style='position:relative;top:5.0pt'><img width=31 height=23
+src="Image%20discretization_files/image075.png"></span> are:</p>
+
+<p class=MsoCaption><img width=163 height=49
+src="Image%20discretization_files/image076.png"></p>
+
+<p class=MsoCaption><a name="_Ref410071305">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;25</a></p>
+
+<p class=MsoNormal>and its reconstructed version  is</p>
+
+<p class=MsoCaption><img width=175 height=36
+src="Image%20discretization_files/image077.png"></p>
+
+<p class=MsoCaption><a name="_Ref410071250">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;26</a></p>
+
+<p class=MsoBodyText>where <span style='position:relative;top:5.0pt'><img
+width=45 height=24 src="Image%20discretization_files/image078.png"></span> is
+the point spread function (PSF) of  signal/image reconstruction/display device,
+<span style='position:relative;top:5.0pt'><img width=45 height=24
+src="Image%20discretization_files/image079.png"></span> is the PSF of  signal
+sampling device and <span style='position:relative;top:3.0pt'><img width=23
+height=19 src="Image%20discretization_files/image080.png"></span> is signal
+sampling interval.</p>
+
+<p class=MsoNormal>Integration over <b><i>x</i></b> in Equation <span
+lang=AR-SA>&#8206;</span>2&#8209;25 and summation over <b><i>k</i></b> in Equation <span lang=AR-SA>&#8206;</span>2&#8209;26 are performed within signal
+boundaries. </p>
+
+<p class=MsoNormal>Without violating the generality one can, in order to
+simplify further mathematical analysis, rewrite integration in Equation <span lang=AR-SA>&#8206;</span>2&#8209;25 and summation in Equation <span lang=AR-SA>&#8206;</span>2&#8209;26 in infinite limits: </p>
+
+<p class=MsoCaption><img width=172 height=49
+src="Image%20discretization_files/image081.png"></p>
+
+<p class=MsoCaption><a name="_Ref410071261">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;27</a></p>
+
+<p class=MsoCaption><img width=177 height=45
+src="Image%20discretization_files/image082.png"></p>
+
+<p class=MsoCaption><a name="_Ref410071355">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;28</a></p>
+
+<p class=MsoNormal>assuming that signal <span style='position:relative;
+top:5.0pt'><img width=31 height=23
+src="Image%20discretization_files/image075.png"></span>and its samples  <span
+style='position:relative;top:6.0pt'><img width=32 height=24
+src="Image%20discretization_files/image002.png"></span> are equal to zero
+outside the real intervals of support. Modify now Equation <span lang=AR-SA>&#8206;</span>2&#8209;27
+and Equation <span lang=AR-SA>&#8206;</span>2&#8209;28 in the following way:</p>
+
+<p class=MsoCaption><img width=624 height=52
+src="Image%20discretization_files/image083.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;29</p>
+
+<p class=MsoCaption><img width=420 height=49
+src="Image%20discretization_files/image084.png"><img width=383 height=49
+src="Image%20discretization_files/image085.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;30</p>
+
+<p class=MsoBodyText>which introduces “virtual” signals</p>
+
+<p class=MsoCaption><img width=181 height=49
+src="Image%20discretization_files/image086.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;31</p>
+
+<p class=MsoBodyText>and </p>
+
+<p class=MsoCaption><img width=205 height=45
+src="Image%20discretization_files/image087.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;32</p>
+
+<p class=MsoBodyText>Further analysis of signal sampling is much simplified in
+Fourier Transform domain. Compute Fourier spectra of virtual signals <span
+style='position:relative;top:5.0pt'><img width=44 height=24
+src="Image%20discretization_files/image088.png"></span> and<span
+style='position:relative;top:5.0pt'><img width=45 height=24
+src="Image%20discretization_files/image089.png"></span>. Spectrum <span
+style='position:relative;top:5.0pt'><img width=49 height=24
+src="Image%20discretization_files/image090.png"></span> of signal<span
+style='position:relative;top:5.0pt'><img width=44 height=24
+src="Image%20discretization_files/image088.png"></span>, whose instantaneous
+values  <span style='position:relative;top:5.0pt'><img width=69 height=24
+src="Image%20discretization_files/image091.png"></span> form sampled
+representation of signal<span style='position:relative;top:5.0pt'><img
+width=31 height=23 src="Image%20discretization_files/image075.png"></span>, is,
+by the convolution theorem, a product</p>
+
+<p class=MsoCaption><img width=152 height=24
+src="Image%20discretization_files/image092.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;33</p>
+
+<p class=MsoNormal>of spectrum <span style='position:relative;top:5.0pt'><img
+width=36 height=23 src="Image%20discretization_files/image093.png"></span> of
+the signal <span style='position:relative;top:5.0pt'><img width=31 height=23
+src="Image%20discretization_files/image075.png"></span> and the frequency
+response <span style='position:relative;top:5.0pt'><img width=59 height=24
+src="Image%20discretization_files/image094.png"></span> of the sampling device,
+Fourier Transform of its PSF <span style='position:relative;top:5.0pt'><img
+width=45 height=24 src="Image%20discretization_files/image095.png"></span>:</p>
+
+<p class=MsoCaption><img width=211 height=49
+src="Image%20discretization_files/image096.png"></p>
+
+<p class=MsoCaption><a name="_Ref410071502">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;34</a></p>
+
+<p class=MsoBodyText>Fourier spectrum of the virtual signal <span
+style='position:relative;top:5.0pt'><img width=45 height=24
+src="Image%20discretization_files/image089.png"></span> involved in
+reconstruction of signal <span style='position:relative;top:5.0pt'><img
+width=31 height=23 src="Image%20discretization_files/image075.png"></span> from
+its sampled representation <span style='position:relative;top:5.0pt'><img
+width=69 height=24 src="Image%20discretization_files/image091.png"></span> can
+be found as (see Appendix) </p>
+
+<p class=MsoCaption><img width=483 height=49
+src="Image%20discretization_files/image097.png">  <img width=317 height=49
+src="Image%20discretization_files/image098.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;35</p>
+
+<p class=MsoNormal>The sum in the latter expression can be regarded as a
+Fourier series expansion on interval <span style='position:relative;top:5.0pt'><img
+width=33 height=23 src="Image%20discretization_files/image099.png"></span> of a
+function with expansion coefficients, equal to 1, i.e. Dirac delta. Therefore
+this series converges to a periodical replication of delta-function with a period<span
+style='position:relative;top:5.0pt'><img width=33 height=23
+src="Image%20discretization_files/image099.png"></span>. In this way we arrive
+at the identity</p>
+
+<p class=MsoCaption><img width=305 height=45
+src="Image%20discretization_files/image100.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;36</p>
+
+<p class=MsoNormal>called the Poisson summation formula.
+</p>
+
+<p class=MsoNormal>Inserting this formula into Equation <span lang=AR-SA>&#8206;</span>2&#8209;34,
+obtain that spectrum of the virtual signal <span style='position:relative;
+top:5.0pt'><img width=51 height=24
+src="Image%20discretization_files/image101.png"></span> is composed of
+periodical replicas of the spectrum <span style='position:relative;top:5.0pt'><img
+width=49 height=24 src="Image%20discretization_files/image090.png"></span> </p>
+
+<p class=MsoCaption><img width=404 height=45
+src="Image%20discretization_files/image102.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;37</p>
+
+<p class=MsoNormal>This analysis reveals that </p>
+
+<p class=MsoBodyText>Coefficients <span style='position:relative;top:6.0pt'><img
+width=32 height=24 src="Image%20discretization_files/image002.png"></span> of
+discrete representation of signal <span style='position:relative;top:5.0pt'><img
+width=31 height=23 src="Image%20discretization_files/image075.png"></span> over
+shift basis functions  <span style='position:relative;top:5.0pt'><img
+width=181 height=24 src="Image%20discretization_files/image103.png"></span> are
+instantaneous vales <span style='position:relative;top:6.0pt'><img width=63
+height=24 src="Image%20discretization_files/image104.png"></span>  of a signal <span
+style='position:relative;top:5.0pt'><img width=44 height=24
+src="Image%20discretization_files/image088.png"></span> obtained from the
+signal <span style='position:relative;top:5.0pt'><img width=31 height=23
+src="Image%20discretization_files/image075.png"></span> by its “pre-filtering”
+in the sampling device (and not those of the signal<span style='position:relative;
+top:5.0pt'><img width=31 height=23
+src="Image%20discretization_files/image075.png"></span>). </p>
+
+<p class=MsoBodyText>Signal sampling can be interpreted as converting
+pre-filtered input signal <span style='position:relative;top:5.0pt'><img
+width=44 height=24 src="Image%20discretization_files/image088.png"></span> into
+a virtual signal <span style='position:relative;top:5.0pt'><img width=45
+height=24 src="Image%20discretization_files/image089.png"></span> whose Fourier
+spectrum is composed of periodically repeated replicas of initial signal
+spectrum modified by the frequency response of signal sampling device ;the
+replication period <span style='position:relative;top:5.0pt'><img width=69
+height=23 src="Image%20discretization_files/image105.png"></span> is defined by
+the sampling interval and forms what is called signal “<b><i>baseband</i></b>”.</p>
+
+<p class=MsoBodyText>- Signal reconstruction from its sampled representation
+can be treated as a “post-filtering” of the virtual discrete signal <span
+style='position:relative;top:5.0pt'><img width=45 height=24
+src="Image%20discretization_files/image089.png"></span>  in the reconstruction
+device:</p>
+
+<p class=MsoCaption><img width=185 height=49
+src="Image%20discretization_files/image106.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;38</p>
+
+<p class=MsoBodyText>This “post-filtering” can be described in Fourier
+Transform domain as multiplication </p>
+
+<p class=MsoCaption><img width=165 height=24
+src="Image%20discretization_files/image107.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;39</p>
+
+<p class=MsoBodyText>of spectrum <span style='position:relative;top:5.0pt'><img
+width=51 height=24 src="Image%20discretization_files/image101.png"></span> of
+the virtual signal <span style='position:relative;top:5.0pt'><img width=39
+height=24 src="Image%20discretization_files/image108.png"></span> by frequency
+response  <span style='position:relative;top:5.0pt'><img width=53 height=24
+src="Image%20discretization_files/image109.png"></span> of the signal
+reconstruction device:</p>
+
+<p class=MsoCaption><img width=204 height=49
+src="Image%20discretization_files/image110.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;40</p>
+
+<p class=MsoBodyText>The described interpretation of signal sampling and signal
+reconstruction from its samples is illustrated by flow diagrams in Figure <span lang=AR-SA>&#8206;</span>2&#8209;4 and Figure <span lang=AR-SA>&#8206;</span>2&#8209;5
+and by plots in Figure <span lang=AR-SA>&#8206;</span>2&#8209;6.</p>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=19 height=16></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=557 height=134 src="Image%20discretization_files/image111.png"></td>
+ </tr>
+</table>
+
+ &nbsp;</p>
+
+<p class=Figure>&nbsp;</p>
+
+<p class=Figure>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<br clear=ALL>
+
+<p class=MsoCaption><a name="_Ref410325303">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;4</a>: Flow diagram of the
+sampling device</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span style='position:relative;z-index:251651072;left:-4px;
+top:2px;width:596px;height:136px'><img width=596 height=134
+src="Image%20discretization_files/image112.png"></span>&nbsp;</p>
+
+<p class=Figure>&nbsp;</p>
+
+<p class=MsoCaption><span class=capLabel>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<br clear=ALL>
+
+<p class=MsoCaption><a name="_Ref410325310">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;5</a>: Mathematical model of
+the device for restoring continuous signals from their samples</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse'>
+ <tr>
+  <td width=590 valign=top style='width:442.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><img width=576 height=349 id="&#1514;&#1502;&#1493;&#1504;&#1492; 225"
+  src="Image%20discretization_files/image113.jpg" alt=OriginsSamplArtifacts></p>
+  <p class=MsoCaption><a name="_Ref410325364">Figure <b><span lang=AR-SA
+  style='font-size:12.0pt'>&#8206;</span></b>2&#8209;6</a>: Fourier domain
+  representation of signal sampling and reconstruction: upper plot – initial
+  signal spectrum, its spectrum after “pre-filtering” in the sampling device
+  and frequency responses of the sampling device and of the ideal low-pass
+  filter that defines the signal base band; lower plot – periodical replicas 
+  of sampled signal spectrum and frequency responses of the signal
+  reconstruction device and of the ideal low-pass reconstruction filter  </p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoBodyText>Now one can easily see that distortions of the reconstructed
+signal compared to the initial non-sampled signal are due to the following
+reasons:</p>
+
+<p class=MsoBodyText>Modifications of the signal spectrum by  its pre-filtering
+in the sampling device;</p>
+
+<p class=MsoBodyText>Penetrating tails of the pre-filtered signal spectrum
+periodical replicas inside the signal baseband, which causes spectra <b><i>aliasing</i></b>;</p>
+
+<p class=MsoBodyText>Remains of the signal spectrum periodical replicas outside
+the signal baseband not perfectly filtered out by the “post-filtering” in the
+reconstruction device.</p>
+
+<p class=MsoBodyText>For signals, whose spectral energy does not grow with
+frequency, signal distortions due to sampling can be minimized in terms of
+signal reconstruction mean square error, if signal pre-filtering and post-filtering
+are performed by the ideal low-pass filters with frequency response</p>
+
+<p class=MsoCaption><img width=205 height=24
+src="Image%20discretization_files/image114.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;41</p>
+
+<p class=MsoNormal>Thus, with the ideal low-pass pre- and post- filters, signal
+samples are obtained as</p>
+
+<p class=MsoCaption><img width=289 height=49
+src="Image%20discretization_files/image115.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;42</p>
+
+<p class=MsoBodyText>and signal reconstruction from its samples is performed as
+</p>
+
+<p class=MsoCaption><img width=243 height=45
+src="Image%20discretization_files/image116.png"></p>
+
+<p class=MsoCaption><a name="_Ref409983667">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;43</a></p>
+
+<p class=MsoBodyText>Reconstruction of a continuous signal from its samples
+according to Equation <span lang=AR-SA>&#8206;</span>2&#8209;43 is called <b>sinc-interpolation</b>. </p>
+
+<p class=MsoBodyText>Ideal low-pass filters do not distort signal spectrum
+within the baseband and remove all spectral components outside the baseband thus
+preventing signal spectrum from aliasing. Signal pre-filtering with the ideal
+low-pass filter makes the signal band-limited. </p>
+
+<p class=MsoNormal>In a special case of band-limited signals, the result of
+sampling are samples <span style='position:relative;top:5.0pt'><img width=57
+height=23 src="Image%20discretization_files/image117.png"></span> of signals
+themselves and signals are perfectly (distortion less) reconstructed from the
+result of sampling:</p>
+
+<p class=MsoCaption><img width=216 height=45
+src="Image%20discretization_files/image118.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;44</p>
+
+<p class=MsoNormal>Sampling theorem allows
+also evaluating the volume of signal discrete representation, i.e. the number
+of signal samples <b><i>N</i></b> needed to represent signals of length <b><i>X</i></b>
+and bandwidth <b><i>F</i></b>:</p>
+
+<p class=MsoCaption><img width=133 height=45
+src="Image%20discretization_files/image119.png"></p>
+
+<p class=MsoCaption><a name="_Ref409983662">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;45</a></p>
+
+<p class=MsoNormal><b><i>Signal space-bandwidth product</i></b> <span style='position:relative;top:2.0pt'><img width=28 height=17
+src="Image%20discretization_files/image120.png"></span> is a fundamental
+parameter that defines signal degrees of freedom<span style='position:relative;
+top:2.0pt'><img width=20 height=17
+src="Image%20discretization_files/image040.png"></span>. </p>
+
+<h3><a name="_Toc410119362">1.2.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment description</a></h3>
+
+<p class=MsoNormal>The “Image Sampling” experiment compares image sampling
+using pre and post-filters and with no pre-post filtering.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119363">1.2.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=623
+height=419 id="Picture 248" src="Image%20discretization_files/image121.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;7:
+“Image Sampling”. Top left image is the test image, bottom left image is the
+DFT transform of the test image. Top middle image is unfiltered subsampled
+version of the test image with subsample factor of 3. Bottom middle image is
+the unfiltered subsampled</p>
+
+<h2><a name="_Toc410740093"></a><a name="_Toc410119722"></a><a
+name="_Toc410119364"><i><span style='font-size:16.0pt;font-weight:normal'>1.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>Aliasing 1D</a></h2>
+
+<h3><a name="_Toc410119365">1.3.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoNormal>As described in <span lang=AR-SA>&#8206;</span>2.2.1, <b><i>aliasing</i></b>
+is caused by penetrating tails of the pre-filtered signal spectrum periodical
+replicas inside the signal baseband, if not ideal pre and post filters are
+used.</p>
+
+<p class=MsoNormal>The aliasing problem can be explained using 1D signal in the
+time domain, using <i><u>Figure <span lang=AR-SA>&#8206;</span>2&#8209;8</u></i><i><u>.</u></i></p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=581 height=194 id="&#1514;&#1502;&#1493;&#1504;&#1492; 28"
+src="Image%20discretization_files/image122.png"
+alt="http://upload.wikimedia.org/wikipedia/commons/thumb/2/28/AliasingSines.svg/675px-AliasingSines.svg.png"></p>
+
+<p class=MsoCaption><a name="_Ref410469381">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;8</a>: Aliasing 1D time
+domain example. There are two different sinusoids that fit the same set of
+samples.</p>
+
+<p class=MsoNormal><i><u>Figure <span lang=AR-SA>&#8206;</span>2&#8209;8</u></i>
+represent two signals – first (red) is a high frequency signal, and the other
+(blue) with small frequency.  Any sampling of the high frequency signal with
+smaller than Nyquist sampling rate, will cause any restoration of the signal to
+be ambiguous, and an interpreter of the sampled data can restore the blue
+signal instead of the red.</p>
+
+<h3><a name="_Toc410119366">1.3.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment description</a></h3>
+
+<p class=MsoNormal>The “Aliasing 1D” experiment illustrates aliasing affect in
+1D sampling. Using a general structure of a 1D signal<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:7.0pt'><img width=163 height=37
+src="Image%20discretization_files/image123.png"></span>, where K is an
+increasing constant, and t is the sampling interval; the aliasing can be
+illustrated when the signal frequency is higher than the sampling rate.</p>
+
+<p class=MsoNormal>This general structure of the signal, which is composed of a
+cosine part and a DC part, is useful to examine, since this signal structure in
+the Fourier transform is comprised out of 3 delta functions – one in the zero
+frequency, and two others in a frequency determined by the argument of the
+cosine.</p>
+
+<p class=MsoNormal>The experiment uses the mentioned signal structure with an
+increasing parameter K, a displays the signal, its Fourier transform relative
+to the unstamped Fourier transform with sampling rate indicator, and Fourier
+image of current and previous signals Fourier transforms.</p>
+
+<p class=MsoNormal>Once the K value is big enough so the frequency of the
+signal is higher than the sampling rate, aliasing occurs.</p>
+
+<h3><a name="_Toc410119367">1.3.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=530 id="&#1514;&#1502;&#1493;&#1504;&#1492; 402"
+src="Image%20discretization_files/image124.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410469779">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;9</a>: “Aliasing 1D”. Top
+plot is the signal<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:6.0pt'><img width=141 height=32
+src="Image%20discretization_files/image125.png"></span>. Second from the top
+plot is the signal DFT after sampling (green), signal DFT before sampling
+(blue), and sampling rate mark (red). Bottom image is an “upper” view signal
+spectra for<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=37 height=24
+src="Image%20discretization_files/image126.png"></span>.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=624
+height=527 id="&#1514;&#1502;&#1493;&#1504;&#1492; 406"
+src="Image%20discretization_files/image127.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410469788">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;10</a>: “Aliasing 1D”. Top
+plot is the signal<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:6.0pt'><img width=141 height=32
+src="Image%20discretization_files/image128.png"></span>. Second from the top
+plot is the signal DFT after sampling (green), signal DFT before sampling
+(blue), and sampling rate mark (red). Bottom image is an “upper” view signal
+spectra for<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=37 height=24
+src="Image%20discretization_files/image126.png"></span>.</p>
+
+<p class=MsoNormal>It can be seen from Figure <span lang=AR-SA>&#8206;</span>2&#8209;9
+and Figure <span lang=AR-SA>&#8206;</span>2&#8209;10 that while both of the
+signals (<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:7.0pt'><img width=169 height=37
+src="Image%20discretization_files/image129.png"></span> and <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:7.0pt'><img width=169 height=37
+src="Image%20discretization_files/image130.png"></span>  have different
+frequency, the aliasing artifact cause their reconstruction to appear the same.
+The explanation for that is that the high frequencies of the <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:7.0pt'><img width=169 height=37
+src="Image%20discretization_files/image130.png"></span>  signal are interpreted
+as low frequencies, which makes the high frequency signal to appear with low
+frequency.</p>
+
+<h2><a name="_Toc410740094"></a><a name="_Toc410119723"></a><a
+name="_Toc410119368"><i><span style='font-size:16.0pt;font-weight:normal'>1.4<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>Image LPF</a></h2>
+
+<h3><a name="_Toc410119369">1.4.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoBodyText>As mentioned at <u><span
+lang=AR-SA>&#8206;</span>2.1</u><u> </u><u>Discrete
+Representation</u> the capability of transforms to concentrate signal energy in
+few signal decomposition coefficients is called <b>energy compaction capability</b>.  This property was examined at <u><span lang=AR-SA>&#8206;</span>2.1</u><u> </u><u>Discrete Representation</u> with regards to the absolute value of the coefficients. 
+Another aspect of energy compaction capability is with regards to coefficient
+energy, i.e., the more energy a transform have in lower frequencies, the better
+the transform is. </p>
+
+<p class=MsoBodyText>Theoretically, Karhunen-Loeve transforms and related
+Hottelling and SVD transform have the best energy compaction capability among
+linear transforms (Karhunen-Loeve transforms, Hottelling and SVD transform are
+covered at appendix…). However in practice of image processing they remain to
+be a theoretical bench mark because of implementation problems and other
+transforms are used, such as Discrete Fourier, Discrete Cosine, Discrete Walsh
+and Discrete Haar transforms.</p>
+
+<p class=MsoBodyText>Among those transforms, the DCT ,
+introduced by N. Ahmed, T. Natarajan and K.R. Rao, proved to have a very good
+energy compaction capability and is very frequently considered as an
+approximation to Karhunen-Loeve transform. </p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h3><a name="_Toc410119370">1.4.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment description</a></h3>
+
+<p class=MsoNormal>The “Image LPF” experiment illustrates four transforms (DFT,
+DCT, Haar, Walsh) energy compaction capability by applying an ideal low pass
+filter in the transform.  Two low pass filter representation are used –
+rectangular and circular.</p>
+
+<h4>1.4.2.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Rectangular low pass filter</h4>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:8.5pt'><img width=253 height=41
+src="Image%20discretization_files/image131.png"></span> </p>
+
+<p class=MsoNormal>Where <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:5.5pt'><img width=44 height=31
+src="Image%20discretization_files/image132.png"></span> it the rectangular low
+pass filter in the Fourier domain.</p>
+
+<p class=MsoNormal>The rectangular low pass filter in the special domain is:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.5pt'><img width=271 height=29
+src="Image%20discretization_files/image133.png"></span> </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><img width=302 height=307 id="&#1514;&#1502;&#1493;&#1504;&#1492; 410"
+src="Image%20discretization_files/image134.png"><img width=298 height=303
+id="&#1514;&#1502;&#1493;&#1504;&#1492; 409"
+src="Image%20discretization_files/image135.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;11:
+Rectangular low pass filter. Right image is the rectangular low pass filter in
+the frequency domain. Left image is the rectangular low pass filter in the
+special domain.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4>1.4.2.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Circular low pass filter</h4>
+
+<p class=MsoNormal>Circular low pass filter is defined as:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:10.5pt'><img width=215 height=47
+src="Image%20discretization_files/image136.png"></span> </p>
+
+<p class=MsoNormal>Where <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:5.5pt'><img width=44 height=31
+src="Image%20discretization_files/image132.png"></span> it the circular low
+pass filter in the Fourier domain.</p>
+
+<p class=MsoNormal>The circular low pass filter in the special domain is:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:8.5pt'><img width=410 height=37
+src="Image%20discretization_files/image137.png"></span> </p>
+
+<p class=MsoNormal>where <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=38 height=27
+src="Image%20discretization_files/image138.png"></span> is  the first order
+Bessel function of the first kind.</p>
+
+<p class=MsoNormal>This function is also known as Mexican hat.</p>
+
+<p class=MsoNormal><img width=281 height=286 id="&#1514;&#1502;&#1493;&#1504;&#1492; 408"
+src="Image%20discretization_files/image139.jpg"><img width=277 height=284
+id="&#1514;&#1502;&#1493;&#1504;&#1492; 407"
+src="Image%20discretization_files/image140.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;12:
+Circular low pass filter. Right image is the circular low pass filter in the
+frequency domain. Left image is the circular low pass filter in the special
+domain.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119371">1.4.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=623
+height=346 id="&#1514;&#1502;&#1493;&#1504;&#1492; 1"
+src="Image%20discretization_files/image141.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410470482">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;13</a>: &quot;Image
+LPF&quot;. Top left is the test image. Bottom left is a fraction of signal
+energy as function of bandwidth plot for all four transforms (DCT-black,
+DFT-blue, Walsh-red, Haar-dark blue). Second from the left top is the DFT
+restored image after LPF. Third from the left top is the DCT restored image
+after LPF. Second from the left bottom is the Haar restored image after LPF.
+Third from the left bottom is the Walsh restored image after LPF. Top right is
+the DFT LPF mask. Bottom right is the DCT, Haar and Walsh LPF mask. The cutoff
+frequency was set to 0.5.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=346 id="&#1514;&#1502;&#1493;&#1504;&#1492; 250"
+src="Image%20discretization_files/image142.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410470492">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;14</a>: &quot;Image
+LPF&quot;. Top left is the test image. Bottom left is a fraction of signal
+energy as function of bandwidth plot for all four transforms (DCT-black,
+DFT-blue, Walsh-red, Haar-dark blue). Second from the left top is the DFT
+restored image after LPF. Third from the left top is the DCT restored image
+after LPF. Second from the left bottom is the Haar restored image after LPF.
+Third from the left bottom is the Walsh restored image after LPF. Top right is
+the DFT LPF mask. Bottom right is the DCT, Haar and Walsh LPF mask. The cutoff
+frequency was set to 0.7.</p>
+
+<p class=MsoNormal>It can be seen from the Figure <span lang=AR-SA>&#8206;</span>2&#8209;13
+and Figure <span lang=AR-SA>&#8206;</span>2&#8209;14 that DCT and DFT displays
+the best comparison, energy compaction capability with regards to coefficient
+frequency, with a small advantage for the DCT. This small advantage is
+consistent for many natural images. In fact, DCT has the edge over other known
+transforms in most image processing applications.</p>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc410740095"></a><a name="_Toc410119784"></a><a
+name="_Toc410119568">2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Bibliography</a></h1>
+
+<p class=MsoNormal></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="100%"
+ style='width:100.0%'>
+ <tr>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[1] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;Discrete Fourier
+  Transforms,&quot; in <i>Theoretical Foundations of Digital Imaging Using
+  MATLAB</i>, CRC Press, 2012, pp. 142, 147.</p>
+  </td>
+ </tr>
+ <tr xmlns="">
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[2] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;Discrete Cosine and Sine
+  Transforms,&quot; in <i>Theoretical Foundations of Digital Imaging Using
+  MATLAB</i>, CRC press, 2012, p. 161.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=AR-SA dir=RTL>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1471 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>Advanced Image Processing lab</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-21.6pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:28.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-28.8pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-36.0pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:43.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-43.2pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{mso-style-link:"Heading 5 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:50.4pt;
+	margin-bottom:.0001pt;
+	text-indent:-50.4pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-weight:normal;}
+h6
+	{mso-style-link:"Heading 6 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:57.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-57.6pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Heading 7 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:64.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-64.8pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"Heading 8 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:72.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-72.0pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"Heading 9 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:79.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-79.2pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:44.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:55.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:66.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:77.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Footnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-indent:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoEndnoteReference
+	{vertical-align:super;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"Endnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
+	{mso-style-link:"Macro Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:9.0pt;
+	font-family:"Courier New";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-name:"Title\,ttl";
+	mso-style-link:"Title Char\,ttl Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpFirst, li.MsoBodyTextIndentCxSpFirst, div.MsoBodyTextIndentCxSpFirst
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpMiddle, li.MsoBodyTextIndentCxSpMiddle, div.MsoBodyTextIndentCxSpMiddle
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpLast, li.MsoBodyTextIndentCxSpLast, div.MsoBodyTextIndentCxSpLast
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"Subtitle Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:15.0pt;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"Body Text 2 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Body Text 3 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-link:"Document Map Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.0pt;
+	line-height:200%;
+	background:navy;
+	font-size:12.0pt;
+	font-family:"Tahoma",sans-serif;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"Plain Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;}
+span.MsoPlaceholderText
+	{color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.MsoSubtleReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	text-decoration:underline;}
+span.MsoIntenseReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+p.MsoBibliography, li.MsoBibliography, div.MsoBibliography
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:right;
+	page-break-after:avoid;
+	direction:rtl;
+	unicode-bidi:embed;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-link:"Heading 4";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading5Char
+	{mso-style-name:"Heading 5 Char";
+	mso-style-link:"Heading 5";
+	font-family:"Cambria",serif;
+	color:#243F60;}
+span.Heading6Char
+	{mso-style-name:"Heading 6 Char";
+	mso-style-link:"Heading 6";
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-style:italic;}
+span.Heading7Char
+	{mso-style-name:"Heading 7 Char";
+	mso-style-link:"Heading 7";
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+span.Heading8Char
+	{mso-style-name:"Heading 8 Char";
+	mso-style-link:"Heading 8";
+	font-family:"Cambria",serif;
+	color:#404040;}
+span.Heading9Char
+	{mso-style-name:"Heading 9 Char";
+	mso-style-link:"Heading 9";
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.StyleFirstline0cmLinespacingDouble, li.StyleFirstline0cmLinespacingDouble, div.StyleFirstline0cmLinespacingDouble
+	{mso-style-name:"Style First line\:  0 cm Line spacing\:  Double";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EquationChar
+	{mso-style-name:"Equation Char";
+	mso-style-link:Equation;
+	color:#4F81BD;
+	font-weight:bold;}
+p.Equation, li.Equation, div.Equation
+	{mso-style-name:Equation;
+	mso-style-link:"Equation Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma",sans-serif;}
+span.EndnoteTextChar
+	{mso-style-name:"Endnote Text Char";
+	mso-style-link:"Endnote Text";}
+span.FootnoteTextChar
+	{mso-style-name:"Footnote Text Char";
+	mso-style-link:"Footnote Text";}
+p.HeadingMath, li.HeadingMath, div.HeadingMath
+	{mso-style-name:HeadingMath;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-variant:small-caps;}
+p.Figure, li.Figure, div.Figure
+	{mso-style-name:Figure;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Table, li.Table, div.Table
+	{mso-style-name:Table;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.HeadingOther, li.HeadingOther, div.HeadingOther
+	{mso-style-name:HeadingOther;
+	margin-top:26.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:45.0pt;
+	text-indent:-45.0pt;
+	line-height:15.0pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.References, li.References, div.References
+	{mso-style-name:References;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.9pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.9pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.capLabel
+	{mso-style-name:capLabel;
+	font-style:italic;
+	vertical-align:baseline;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman",serif;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman",serif;}
+p.Author, li.Author, div.Author
+	{mso-style-name:Author;
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.SubtitleChar
+	{mso-style-name:"Subtitle Char";
+	mso-style-link:Subtitle;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;
+	font-family:"Times New Roman",serif;}
+p.CN, li.CN, div.CN
+	{mso-style-name:CN;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;}
+p.ChapterNo, li.ChapterNo, div.ChapterNo
+	{mso-style-name:ChapterNo;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;}
+p.small, li.small, div.small
+	{mso-style-name:small;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.li, li.li, div.li
+	{mso-style-name:li;
+	margin-top:3.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:17.85pt;
+	text-indent:-17.85pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Book Antiqua",serif;}
+p.Affiliation, li.Affiliation, div.Affiliation
+	{mso-style-name:Affiliation;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:26.0pt;
+	margin-left:0cm;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+p.Abstract, li.Abstract, div.Abstract
+	{mso-style-name:Abstract;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.TitleChar
+	{mso-style-name:"Title Char\,ttl Char";
+	mso-style-link:"Title\,ttl";
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.BlockQuote, li.BlockQuote, div.BlockQuote
+	{mso-style-name:BlockQuote;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:7.0pt;
+	margin-left:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTnum, li.LISTnum, div.LISTnum
+	{mso-style-name:LISTnum;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTalph, li.LISTalph, div.LISTalph
+	{mso-style-name:LISTalph;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTdash, li.LISTdash, div.LISTdash
+	{mso-style-name:LISTdash;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Motto, li.Motto, div.Motto
+	{mso-style-name:Motto;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.Appendix, li.Appendix, div.Appendix
+	{mso-style-name:Appendix;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.Notes, li.Notes, div.Notes
+	{mso-style-name:Notes;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.MacroTextChar
+	{mso-style-name:"Macro Text Char";
+	mso-style-link:"Macro Text";
+	font-family:"Courier New";}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-link:"Plain Text";
+	font-family:"Courier New";}
+span.DocumentMapChar
+	{mso-style-name:"Document Map Char";
+	mso-style-link:"Document Map";
+	font-family:"Tahoma",sans-serif;
+	background:navy;}
+span.BodyText2Char
+	{mso-style-name:"Body Text 2 Char";
+	mso-style-link:"Body Text 2";
+	font-family:"Times New Roman",serif;}
+span.BodyText3Char
+	{mso-style-name:"Body Text 3 Char";
+	mso-style-link:"Body Text 3";
+	font-family:"Times New Roman",serif;}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Style11, li.Style11, div.Style11
+	{mso-style-name:Style11;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.FigureCaption, li.FigureCaption, div.FigureCaption
+	{mso-style-name:"Figure Caption";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.currencyconvertertext
+	{mso-style-name:currency_converter_text;}
+span.currencyconverterlink
+	{mso-style-name:currency_converter_link;}
+span.BodyTextIndentChar
+	{mso-style-name:"Body Text Indent Char";
+	mso-style-link:"Body Text Indent";
+	font-family:"Times New Roman",serif;}
+span.st
+	{mso-style-name:st;}
+span.fplc
+	{mso-style-name:fplc;}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:21.0cm 841.95pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoToc1><a name="_Ref409520484"></a><a name="_Ref409520465"></a><a href="#_Toc410732535">11<span style='font-size:11.0pt;font-family:"Calibri",sans-serif;
+color:windowtext;text-transform:none;font-weight:normal;text-decoration:none'>        </span>Image
+perfection: rank filters<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410732536"><i>11.1</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>       </span>Pixel Neighborhoods<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410732537"><i>11.2</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>       </span>Filtering Additive Noise<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410732538"><i>11.3</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>       </span>Filtering Impulse Noise<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410732539"><i>11.4</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>       </span>Image Segmentation<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc410732540"><span dir=RTL></span><span
+lang=AR-SA dir=RTL style='font-family:"Times New Roman",serif'><span dir=RTL></span>12</span><span
+style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:windowtext;
+text-transform:none;font-weight:normal;text-decoration:none'>         </span>Bibliography<span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<span style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;line-height:115%'>&nbsp;</p>
+
+<h1><a name="_Toc410732535"></a><a name="_Toc410119772"></a><a
+name="_Toc410119526">11<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image perfection: rank filters</a></h1>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>11.1<span
+style='font:7.0pt "Times New Roman"'> </span></span></i><span dir=LTR></span>   <a
+name="_Toc410732536"></a><a name="_Toc410119773"></a><a name="_Toc410119527">Pixel
+Neighborhoods</a></h2>
+
+<h3><a name="_Toc410119528">11.1.1<span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoNormal>Pixel neighborhoods and estimation operation are key words
+in classification of nonlinear filters. <span style='layout-grid-mode:line'>Such
+an approach enables unified treatment and comparison of nonlinear filters and
+their structuring that can be directly translated into algorithmic
+implementations of the filters.</span></p>
+
+<p class=MsoNormal>The pixel neighborhood is formed on the base of <b><i>attributes</i></b><b><i> </i></b>of pixels involved in the filtering. Obviously, primary pixel
+attributes that determine filtering operations are pixel gray values and their
+co-ordinates (indices). It turns out, however, that a number of attributes
+other than only these primary ones are essential for nonlinear filtering.</p>
+
+<p class=MsoNormal>Pixel neighborhoods are formed as subsets of filter window
+pixels selected according to their certain attributes. Formation of pixel
+neighborhoods can be interpreted as segmentation of image fragment within the
+filter window for separating pixels that will be involved in generating filter
+output from those, which are irrelevant for this. The primary neighborhood is
+the set of all pixels of the filter window. [1]</p>
+
+<p class=MsoNormal>The Pixel Neighborhoods types illustrated in experiment
+“Pixel Neighborhoods “defined at Table <span lang=AR-SA>&#8206;</span>11&#8209;1.</p>
+
+<p class=MsoNormal>More Pixel Neighborhoods types can be found at [1].
+</p>
+
+<p class=MsoCaption><a name="_Ref408352234">Table </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>11&#8209;1: Pixel Neighborhoods
+shown in “Pixel Neighborhoods” experiment</p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <thead>
+  <tr style='page-break-inside:avoid'>
+   <td width=594 colspan=2 valign=top style='width:445.5pt;border:solid windowtext 1.5pt;
+   border-bottom:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+   <p class=MsoNormal><i>V-</i>neighborhoods: pixel gray level as attributes</p>
+   </td>
+  </tr>
+  <tr style='height:38.25pt'>
+   <td width=204 valign=top style='width:153.0pt;border-top:none;border-left:
+   solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+   solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:38.25pt'>
+   <p class=MsoNormal>“Epsilon-V”-neighborhood of  pixel <span
+   style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+   top:3.0pt'><img width=21 height=27
+   src="Image%20perfection%20rank%20filters_files/image001.png"></span>  <span
+   style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+   top:4.0pt'><img width=130 height=28
+   src="Image%20perfection%20rank%20filters_files/image002.png"></span> </p>
+   </td>
+   <td width=390 valign=top style='width:292.5pt;border-top:none;border-left:
+   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+   padding:0cm 5.4pt 0cm 5.4pt;height:38.25pt'>
+   <p class=MsoNormal>A subset of filter window pixels with values <span
+   style='position:relative;top:5.0pt'><img width=28 height=20
+   src="Image%20perfection%20rank%20filters_files/image003.png"></span> that
+   satisfy the inequality:<b><i> </i></b><span style='position:relative;
+   top:7.0pt'><img width=148 height=30
+   src="Image%20perfection%20rank%20filters_files/image004.png"></span>.</p>
+   </td>
+  </tr>
+  <tr style='height:38.25pt'>
+   <td width=204 valign=top style='width:153.0pt;border-top:none;border-left:
+   solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+   solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:38.25pt'>
+   <p class=MsoBodyText>“K nearest- by-value”-neighborhood of  pixel <span
+   style='position:relative;top:7.0pt'><img width=28 height=30
+   src="Image%20perfection%20rank%20filters_files/image005.png"></span> <span
+   style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+   top:4.0pt'><img width=114 height=28
+   src="Image%20perfection%20rank%20filters_files/image006.png"></span></p>
+   </td>
+   <td width=390 valign=top style='width:292.5pt;border-top:none;border-left:
+   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+   padding:0cm 5.4pt 0cm 5.4pt;height:38.25pt'>
+   <p class=MsoNormal>Subsets of K filter window pixels with gray levels
+   closest to that of pixel<span style='position:relative;top:7.0pt'><img
+   width=28 height=30
+   src="Image%20perfection%20rank%20filters_files/image005.png"></span>. </p>
+   </td>
+  </tr>
+ </thead>
+</table>
+
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='page-break-inside:avoid;height:14.35pt'>
+  <td width=594 colspan=2 valign=top style='width:445.5pt;border:solid windowtext 1.5pt;
+  border-bottom:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.35pt'>
+  <p class=MsoNormal><b><i>R</i>-neighborhoods: </b>pixel ranks as attributes</p>
+  </td>
+ </tr>
+ <tr style='height:32.0pt'>
+  <td width=198 valign=top style='width:148.5pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:32.0pt'>
+  <p class=MsoNormal>“Epsilon-R”- neighborhood<b> </b></p>
+  <p class=MsoNormal><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'><img width=129
+  height=28 src="Image%20perfection%20rank%20filters_files/image007.png"></span></p>
+  </td>
+  <td width=396 valign=top style='width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:32.0pt'>
+  <p class=MsoNormal>A subset of filter window pixels with ranks <span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+  top:4.5pt'><img width=68 height=30
+  src="Image%20perfection%20rank%20filters_files/image008.png"></span> that
+  satisfy inequality:<i>  </i><span style='position:relative;top:7.0pt'><img
+  width=222 height=30
+  src="Image%20perfection%20rank%20filters_files/image009.png"></span>.</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=198 valign=top style='width:148.5pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>Quantil-neighborhood </p>
+  <p class=MsoNormal>&nbsp;</p>
+  <p class=MsoNormal><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'><img width=170
+  height=29 src="Image%20perfection%20rank%20filters_files/image010.png"></span></p>
+  </td>
+  <td width=396 valign=top style='width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>Filter window order statistics <span style='position:relative;
+  top:5.0pt'><img width=38 height=28
+  src="Image%20perfection%20rank%20filters_files/image011.png"></span>, whose
+  ranks <span style='position:relative;top:6.0pt'><img width=29 height=30
+  src="Image%20perfection%20rank%20filters_files/image012.png"></span>satisfy
+  inequality <span style='position:relative;top:7.0pt'><img width=111
+  height=23 src="Image%20perfection%20rank%20filters_files/image013.png"></span></p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<div align=center>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='page-break-inside:avoid'>
+  <td width=594 colspan=2 valign=top style='width:445.5pt;border:solid windowtext 1.5pt;
+  border-bottom:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><i>G</i>-neighborhoods: </b>Geometrical attributes</p>
+  </td>
+ </tr>
+ <tr style='height:67.2pt'>
+  <td width=204 valign=top style='width:153.0pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:67.2pt'>
+  <p class=MsoNormal>“Flat”-neighborhoods </p>
+  <p class=MsoNormal><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'><img width=121
+  height=28 src="Image%20perfection%20rank%20filters_files/image014.png"></span></p>
+  <p class=MsoNormal><span
+  style='font-size:12.0pt;font-family:"Times New Roman",serif'><img width=122
+  height=28 src="Image%20perfection%20rank%20filters_files/image015.png"></span></p>
+  </td>
+  <td width=390 valign=top style='width:292.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:67.2pt'>
+  <p class=MsoNormal>Filter window pixels with values of absolute value of
+  Laplacian (or module of gradient) lower than a certain threshold</p>
+  </td>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119529">11.1.2<span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoNormal>The “Pixel Neighborhood” experiment display 5 different
+types of neighborhoods – epsilon V neighborhood, “KNV” neighborhood, “Flat”-neighborhoods,
+ </p>
+
+<h3><a name="_Toc410119530">11.1.3<span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=626 height=341 id="&#1514;&#1502;&#1493;&#1504;&#1492; 375"
+src="Image%20perfection%20rank%20filters_files/image016.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410550957">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>11&#8209;1: &quot;Pixel Neighborhood&quot;.
+Top left is the test image, with selected fragment marked by a black square.
+Second from the left top is the selected window fragment. Third from the left
+top is the selected window histogram. Top right is the flat neighborhood
+result, with gradient threshold of 3.5. Bottom left is the EV neighborhood
+result, with <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=85 height=24
+src="Image%20perfection%20rank%20filters_files/image017.png"></span>, <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.0pt'><img width=69 height=25
+src="Image%20perfection%20rank%20filters_files/image018.png"></span>. Second
+from the left bottom is the KNV neighborhood result. Third from the left bottom
+is the ER neighborhood result. Right bottom is the KNR neighborhood result. 
+Window size is 45x45, gradient threshold </p>
+
+<p class=MsoBodyText>From Figure <span lang=AR-SA>&#8206;</span>11&#8209;1 it
+can be seen the different behavior of each neighborhood. The flat neighborhood
+emphasis the edges in the image whereas KNR and EV neighborhoods seems more of
+a segmentation mask. The ER and KNV appears similar, and are more restricted.</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>11.2<span
+style='font:7.0pt "Times New Roman"'> </span></span></i><span dir=LTR></span>   <a
+name="_Toc410732537"></a><a name="_Toc410119774"></a><a name="_Toc410119531">Filtering
+Additive Noise</a></h2>
+
+<h3><a name="_Toc410119532">11.2.1<span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoBodyText>Estimation operations performed on pixel neighborhood can
+be used as nonlinear filters for data smoothing operations, and operations that
+evaluate data spread in the neighborhood. </p>
+
+<h3><a name="_Toc410119533">11.2.2<span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoBodyText>Two such nonlinear filters aimed for additive noise
+filtering are illustrated at “Filtering Additive Noise” experiment:</p>
+
+<p class=MsoBodyText>Iterative mean over “Epsilon-V”-neighborhood (aka “Sigma
+filter”) - </p>
+
+<p class=MsoBodyText>This filter repeated #of_iteartion times the operation of
+assigning each pixel the calculated mean value of “Epsilon-V”-neighborhood in
+its surrounding window. </p>
+
+<p class=MsoBodyText>Iterative median over “Epsilon-V”-neighborhood – </p>
+
+<p class=MsoBodyText>This filter repeated #of_iteartion times the operation of
+assigning each pixel the calculated median value of “Epsilon-V”-neighborhood in
+its surrounding window.</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h3><a name="_Toc410119534">11.2.3<span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=575
+height=592 id="&#1514;&#1502;&#1493;&#1504;&#1492; 2"
+src="Image%20perfection%20rank%20filters_files/image019.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410551363">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>11&#8209;2: “Filtering Additive
+Noise”. Top left image is the original test image. Top right image is the test
+image with additive noise. Bottom left image is the filtering result using mean
+over EV neighborhood filter. Bottom right image is the filtering resut is the
+filtering result using median over EV neighborhood filter.</p>
+
+<p class=MsoNormal>The comparison shown in Figure <span lang=AR-SA>&#8206;</span>11&#8209;2
+illustrates the advantages and disadvantages of each filters. While the median
+filter has better edge preserving capabilities (see comparison of edges near
+the top right of the filtered images), the mean filter filters better the noise
+(see comparison of remaining noise near the top bottom of the filtered images).</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>11.3<span
+style='font:7.0pt "Times New Roman"'> </span></span></i><span dir=LTR></span>   <a
+name="_Toc410732538"></a><a name="_Toc410119775"></a><a name="_Toc410119535">Filtering
+Impulse Noise</a></h2>
+
+<h3><a name="_Toc410119536">11.3.1<span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoNormal>In cases when a model of impulse noise is more appropriate
+for noise contaminations, noise cleaning filters should be built as two stages:
+(i) contamination detection and (ii) smoothing.</p>
+
+<p class=MsoNormal>This principle is described by equations</p>
+
+<p class=MsoNormal><img width=292 height=23
+src="Image%20perfection%20rank%20filters_files/image020.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>11&#8209;1                                                                                                                                                                                      </p>
+
+<p class=MsoNormal>Where <span style='position:relative;top:3.0pt'><img
+width=20 height=11 src="Image%20perfection%20rank%20filters_files/image021.png"></span> is
+a binary switch variable</p>
+
+<p class=MsoNormal><img width=249 height=48
+src="Image%20perfection%20rank%20filters_files/image022.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>11&#8209;2</p>
+
+<p class=MsoNormal>where <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=73 height=27
+src="Image%20perfection%20rank%20filters_files/image023.png"></span> and <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=75 height=27
+src="Image%20perfection%20rank%20filters_files/image024.png"></span> are,
+correspondingly, estimation and detection smoothing operations, for which one
+of smoothing filters such as median filter of mean filter can be used, and <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:7.0pt'><img width=170 height=37
+src="Image%20perfection%20rank%20filters_files/image025.png"></span> is a “detection”
+neighborhood formed around <span style='position:relative;top:5.0pt'><img
+width=30 height=20 src="Image%20perfection%20rank%20filters_files/image026.png"></span> -th
+pixel smoothed by the detection smoothing operation. [1]</p>
+
+<h3><a name="_Toc410119537">11.3.2<span dir=LTR></span>Experiment description</a></h3>
+
+<p class=MsoBodyText>“Filtering Impulse Noise” experiment compares two iterative
+algorithms for impulse noise removal:</p>
+
+<p class=MsoBodyText>Iterative Local median filter – each pixel is assigned
+with the calculated median value of it surrounding window, repeated
+iteratively. For this case, <span style='position:relative;top:3.0pt'><img
+width=47 height=20 src="Image%20perfection%20rank%20filters_files/image027.png"></span>for
+all pixels, and <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=73 height=27
+src="Image%20perfection%20rank%20filters_files/image023.png"></span> is a
+median operation over the whole window.</p>
+
+<p class=MsoBodyText>Iterative Rank filter – composed of two stages,
+contamination detection and smoothing. Each pixels rank (i.e. pixel positions
+in variational row ) is tested to be in a predefined range. If the pixels rank
+is within the defined range, the pixel id untouched. If the pixels rank is
+within the defined range, the pixel is assigned with the calculated median of
+its surrounding window. </p>
+
+<p class=MsoBodyText>In this case, </p>
+
+<p class=MsoBodyText><img width=222 height=48
+src="Image%20perfection%20rank%20filters_files/image028.png"></p>
+
+<p class=MsoBodyText>And </p>
+
+<p class=MsoBodyText><span style='position:relative;top:7.0pt'><img width=288
+height=23 src="Image%20perfection%20rank%20filters_files/image029.png"></span> Where
+<span style='position:relative;top:3.0pt'><img width=39 height=17
+src="Image%20perfection%20rank%20filters_files/image030.png"></span>is Window
+neighborhood of the pixel.</p>
+
+<h3><a name="_Toc410119538">11.3.3<span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=464 id="&#1514;&#1502;&#1493;&#1504;&#1492; 3"
+src="Image%20perfection%20rank%20filters_files/image031.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410505705">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>11&#8209;3:” Filtering Impulse Noise”.
+Top left is test image. Bottom left is test image tempered with impulse noise.
+Top middle is the iterative Local median filter result. Bottom middle is the iterative
+local median filter result residual error. Top right is the iterative local rank-filter
+result. Bottom middle is the iterative local rank-filter result residual error. 
+Impulse noise probability is 0.15, window size is 3x3, number of iteration is
+3, lowest rank for noise detection is 1, and the highest rank for noise
+detection is 8.</p>
+
+<p class=MsoNormal>The comparison between the two impulse noise filters
+displayed at Figure <span lang=AR-SA>&#8206;</span>11&#8209;3 is non conclusive,
+but with small advantage to the rank filter. Although the rank filter did not
+suppress all of the impulse noise, its ability to preserve edges, especially in
+comparison to the median filter, is very important. </p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>11.4<span
+style='font:7.0pt "Times New Roman"'> </span></span></i><span dir=LTR></span>   <a
+name="_Toc410732539"></a><a name="_Toc410119776"></a><a name="_Toc410119539">Image
+Segmentation</a></h2>
+
+<h3><a name="_Toc410119540">11.4.1<span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoNormal>Image segmentation can usually be interpreted as generating
+from input image its piece wise constant model.</p>
+
+<p class=MsoNormal>In image segmentation, one can regard image tiny and low
+contrast details that have to be eliminated in the process of segmentation as “noise”. [2]</p>
+
+<p class=MsoNormal>Noise smoothing rank filters described in the “Filtering
+Additive Noise” experiment is very well suited for such a processing:</p>
+
+<p class=MsoNormal><img width=303 height=27 id="&#1514;&#1502;&#1493;&#1504;&#1492; 21"
+src="Image%20perfection%20rank%20filters_files/image032.png"
+alt="$$ \tilde{I}(x,y)^t = Smooth \left( neighborhood \left( I \left( x,y&#10;\right)^{t-1} \right) \right) $$"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>11&#8209;3</p>
+
+<p class=MsoNormal>Where <img width=51 height=11 id="&#1514;&#1502;&#1493;&#1504;&#1492; 20"
+src="Image%20perfection%20rank%20filters_files/image033.png" alt="$Smooth$">is
+one of smoothing operations such as <img width=51 height=11 id="&#1514;&#1502;&#1493;&#1504;&#1492; 19"
+src="Image%20perfection%20rank%20filters_files/image034.png" alt="$MEAN$">, <img
+width=39 height=11 id="&#1514;&#1502;&#1493;&#1504;&#1492; 18"
+src="Image%20perfection%20rank%20filters_files/image035.png" alt="$MED$">, <img
+width=32 height=11 id="&#1514;&#1502;&#1493;&#1504;&#1492; 17"
+src="Image%20perfection%20rank%20filters_files/image036.png" alt="$ROS$">, <img
+width=51 height=11 id="&#1514;&#1502;&#1493;&#1504;&#1492; 16"
+src="Image%20perfection%20rank%20filters_files/image037.png" alt="$MODE$">or <img
+width=47 height=11 id="&#1514;&#1502;&#1493;&#1504;&#1492; 15"
+src="Image%20perfection%20rank%20filters_files/image038.png" alt="$RAND$">.</p>
+
+<p class=MsoNormal><img width=87 height=15 id="&#1514;&#1502;&#1493;&#1504;&#1492; 14"
+src="Image%20perfection%20rank%20filters_files/image039.png"
+alt="$neighborhood$">is a neighborhood operation such as <img width=17
+height=11 id="&#1514;&#1502;&#1493;&#1504;&#1492; 13"
+src="Image%20perfection%20rank%20filters_files/image040.png" alt="$\epsilon V$">neighborhood,
+<img width=17 height=11 id="&#1514;&#1502;&#1493;&#1504;&#1492; 12"
+src="Image%20perfection%20rank%20filters_files/image041.png" alt="$\epsilon R$">neighborhood,
+etc.</p>
+
+<p class=MsoNormal>This experiment will focus on <img width=51 height=11
+id="&#1514;&#1502;&#1493;&#1504;&#1492; 11"
+src="Image%20perfection%20rank%20filters_files/image034.png" alt="$MEAN$">smoothing
+operation over <img width=17 height=11 id="&#1514;&#1502;&#1493;&#1504;&#1492; 7"
+src="Image%20perfection%20rank%20filters_files/image040.png" alt="$\epsilon V$">neighborhood.</p>
+
+<h3><a name="_Toc410119541">11.4.2<span dir=LTR></span>Experiment description</a></h3>
+
+<p class=MsoNormal>The “Image Segmentation” experiment illustrated the use of Iterative
+mean over “Epsilon-V”-neighborhood (aka “Sigma filter”) as image segmentation
+operation.</p>
+
+<h3><a name="_Toc410119542">11.4.3<span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=623
+height=326 id="&#1514;&#1502;&#1493;&#1504;&#1492; 4"
+src="Image%20perfection%20rank%20filters_files/image042.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410551691">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>11&#8209;4: “Image segmentation
+using &quot;Sigma Filter&quot;”. Left image is the test image. Right image is
+the segmentation result, after 3 iteration of the sigma filter, with window
+size of 5x5, and EVminus = 5, EVplus = 5.</p>
+
+<p class=MsoNormal>Figure <span lang=AR-SA>&#8206;</span>11&#8209;4 illustrates
+the sigma filter capabilities of segmentation and revels a connection between
+noise filtering task while preserving edges and image segmentation – intense
+repetitive edge preserving noise filtering results in segmentation appearance
+of the image.</p>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc410732540"></a><a name="_Toc410119568"></a><a
+name="_Toc410119784">Bibliography</a></h1>
+
+<p class=MsoNormal></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="100%"
+ style='width:100.0%'>
+ <tr>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[1] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;Pixel Neighborhoods,&quot;
+  in <i>Theoretical Foundations of Digital Imaging Using MATLAB</i>, CRC Press,
+  2012, p. 444.</p>
+  </td>
+ </tr>
+ <tr xmlns="">
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[2] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;Image restoration and
+  enhancement:Nonlinear filters,&quot; [Online]. Available:
+  http://www.eng.tau.ac.il/~yaro/lectnotes/pdf/AdvImProc_4.pdf.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=AR-SA dir=RTL>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

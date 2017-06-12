@@ -1,0 +1,2940 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<title>Advanced Image Processing lab</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+h1
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 1 \05EA\05D5";
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.3in;
+	margin-bottom:.0001pt;
+	text-indent:-.3in;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+h2
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 2 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.4in;
+	margin-bottom:.0001pt;
+	text-indent:-.4in;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+h3
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 3 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	text-indent:-.5in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+h4
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 4 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.6in;
+	margin-bottom:.0001pt;
+	text-indent:-.6in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 5 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.7in;
+	margin-bottom:.0001pt;
+	text-indent:-.7in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	color:#243F60;
+	font-weight:normal;}
+h6
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 6 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.8in;
+	margin-bottom:.0001pt;
+	text-indent:-.8in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	color:#243F60;
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 7 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.9in;
+	margin-bottom:.0001pt;
+	text-indent:-.9in;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	color:#404040;
+	font-style:italic;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 8 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	margin-bottom:.0001pt;
+	text-indent:-1.0in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria","serif";
+	color:#404040;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA 9 \05EA\05D5";
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.1in;
+	margin-bottom:.0001pt;
+	text-indent:-1.1in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria","serif";
+	color:#404040;
+	font-style:italic;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:.25in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Cambria","serif";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:44.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:55.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:66.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:77.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E9\05D5\05DC\05D9\05D9\05DD \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05E2\05DC\05D9\05D5\05E0\05D4 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05EA\05D7\05EA\05D5\05E0\05D4 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-indent:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	color:#4F81BD;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoEndnoteReference
+	{vertical-align:super;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E1\05D9\05D5\05DD \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
+	{mso-style-link:"\05D8\05E7\05E1\05D8 \05DE\05D0\05E7\05E8\05D5 \05EA\05D5";
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:9.0pt;
+	font-family:"Courier New";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA \05D8\05E7\05E1\05D8\,ttl";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05D8\05E7\05E1\05D8 \05EA\05D5\,ttl \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman","serif";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndentCxSpFirst, li.MsoBodyTextIndentCxSpFirst, div.MsoBodyTextIndentCxSpFirst
+	{mso-style-link:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndentCxSpMiddle, li.MsoBodyTextIndentCxSpMiddle, div.MsoBodyTextIndentCxSpMiddle
+	{mso-style-link:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyTextIndentCxSpLast, li.MsoBodyTextIndentCxSpLast, div.MsoBodyTextIndentCxSpLast
+	{mso-style-link:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05DE\05E9\05E0\05D4 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:15.0pt;
+	font-size:13.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 2 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 3 \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-link:"\05DE\05E4\05EA \05DE\05E1\05DE\05DA \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-indent:15.0pt;
+	line-height:200%;
+	background:navy;
+	font-size:12.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"\05D8\05E7\05E1\05D8 \05E8\05D2\05D9\05DC \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"\05D8\05E7\05E1\05D8 \05D1\05DC\05D5\05E0\05D9\05DD \05EA\05D5";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.MsoPlaceholderText
+	{color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"\05DC\05DC\05D0 \05DE\05E8\05D5\05D5\05D7 \05EA\05D5";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.MsoSubtleReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	text-decoration:underline;}
+span.MsoIntenseReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+p.MsoBibliography, li.MsoBibliography, div.MsoBibliography
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	page-break-after:avoid;
+	direction:rtl;
+	unicode-bidi:embed;
+	font-size:14.0pt;
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.1
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 1 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 1";
+	font-family:"Cambria","serif";
+	color:#365F91;
+	font-weight:bold;}
+span.2
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 2 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 2";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+span.3
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 3 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 3";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;}
+span.4
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 4 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 4";
+	font-family:"Cambria","serif";
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.5
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 5 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 5";
+	font-family:"Cambria","serif";
+	color:#243F60;}
+span.6
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 6 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 6";
+	font-family:"Cambria","serif";
+	color:#243F60;
+	font-style:italic;}
+span.7
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 7 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 7";
+	font-family:"Cambria","serif";
+	color:#404040;
+	font-style:italic;}
+span.8
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 8 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 8";
+	font-family:"Cambria","serif";
+	color:#404040;}
+span.9
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA 9 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA 9";
+	font-family:"Cambria","serif";
+	color:#404040;
+	font-style:italic;}
+p.StyleFirstline0cmLinespacingDouble, li.StyleFirstline0cmLinespacingDouble, div.StyleFirstline0cmLinespacingDouble
+	{mso-style-name:"Style First line\:  0 cm Line spacing\:  Double";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.EquationChar
+	{mso-style-name:"Equation Char";
+	mso-style-link:Equation;
+	color:#4F81BD;
+	font-weight:bold;}
+p.Equation, li.Equation, div.Equation
+	{mso-style-name:Equation;
+	mso-style-link:"Equation Char";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";
+	color:#4F81BD;}
+span.a
+	{mso-style-name:"\05D8\05E7\05E1\05D8 \05D1\05DC\05D5\05E0\05D9\05DD \05EA\05D5";
+	mso-style-link:"\05D8\05E7\05E1\05D8 \05D1\05DC\05D5\05E0\05D9\05DD";
+	font-family:"Tahoma","sans-serif";}
+span.a0
+	{mso-style-name:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E1\05D9\05D5\05DD \05EA\05D5";
+	mso-style-link:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E1\05D9\05D5\05DD";}
+span.a1
+	{mso-style-name:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E9\05D5\05DC\05D9\05D9\05DD \05EA\05D5";
+	mso-style-link:"\05D8\05E7\05E1\05D8 \05D4\05E2\05E8\05EA \05E9\05D5\05DC\05D9\05D9\05DD";}
+p.HeadingMath, li.HeadingMath, div.HeadingMath
+	{mso-style-name:HeadingMath;
+	margin-top:13.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	font-variant:small-caps;}
+p.Figure, li.Figure, div.Figure
+	{mso-style-name:Figure;
+	margin-top:13.0pt;
+	margin-right:0in;
+	margin-bottom:13.0pt;
+	margin-left:0in;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.Table, li.Table, div.Table
+	{mso-style-name:Table;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.HeadingOther, li.HeadingOther, div.HeadingOther
+	{mso-style-name:HeadingOther;
+	margin-top:26.0pt;
+	margin-right:0in;
+	margin-bottom:13.0pt;
+	margin-left:45.0pt;
+	text-indent:-45.0pt;
+	line-height:15.0pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Times New Roman","serif";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.References, li.References, div.References
+	{mso-style-name:References;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:11.9pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.9pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+span.capLabel
+	{mso-style-name:capLabel;
+	font-style:italic;
+	vertical-align:baseline;}
+span.a2
+	{mso-style-name:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8";
+	font-family:"Times New Roman","serif";}
+span.a3
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA \05E2\05DC\05D9\05D5\05E0\05D4 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05E2\05DC\05D9\05D5\05E0\05D4";
+	font-family:"Times New Roman","serif";}
+p.Author, li.Author, div.Author
+	{mso-style-name:Author;
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.a4
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA \05DE\05E9\05E0\05D4 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05DE\05E9\05E0\05D4";
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+span.a5
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA \05EA\05D7\05EA\05D5\05E0\05D4 \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05EA\05D7\05EA\05D5\05E0\05D4";
+	font-family:"Times New Roman","serif";}
+p.CN, li.CN, div.CN
+	{mso-style-name:CN;
+	margin-top:57.0pt;
+	margin-right:0in;
+	margin-bottom:13.0pt;
+	margin-left:0in;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman","serif";}
+p.ChapterNo, li.ChapterNo, div.ChapterNo
+	{mso-style-name:ChapterNo;
+	margin-top:57.0pt;
+	margin-right:0in;
+	margin-bottom:13.0pt;
+	margin-left:0in;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman","serif";}
+p.small, li.small, div.small
+	{mso-style-name:small;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.li, li.li, div.li
+	{mso-style-name:li;
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:17.85pt;
+	text-indent:-17.85pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Book Antiqua","serif";}
+p.Affiliation, li.Affiliation, div.Affiliation
+	{mso-style-name:Affiliation;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:26.0pt;
+	margin-left:0in;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";
+	font-style:italic;}
+p.Abstract, li.Abstract, div.Abstract
+	{mso-style-name:Abstract;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+span.a6
+	{mso-style-name:"\05DB\05D5\05EA\05E8\05EA \05D8\05E7\05E1\05D8 \05EA\05D5\,ttl \05EA\05D5";
+	mso-style-link:"\05DB\05D5\05EA\05E8\05EA \05D8\05E7\05E1\05D8\,ttl";
+	font-family:"Times New Roman","serif";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.BlockQuote, li.BlockQuote, div.BlockQuote
+	{mso-style-name:BlockQuote;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:7.0pt;
+	margin-left:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.LISTnum, li.LISTnum, div.LISTnum
+	{mso-style-name:LISTnum;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.LISTalph, li.LISTalph, div.LISTalph
+	{mso-style-name:LISTalph;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.LISTdash, li.LISTdash, div.LISTdash
+	{mso-style-name:LISTdash;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.Motto, li.Motto, div.Motto
+	{mso-style-name:Motto;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.Appendix, li.Appendix, div.Appendix
+	{mso-style-name:Appendix;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+p.Notes, li.Notes, div.Notes
+	{mso-style-name:Notes;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman","serif";}
+span.a7
+	{mso-style-name:"\05D8\05E7\05E1\05D8 \05DE\05D0\05E7\05E8\05D5 \05EA\05D5";
+	mso-style-link:"\05D8\05E7\05E1\05D8 \05DE\05D0\05E7\05E8\05D5";
+	font-family:"Courier New";}
+span.a8
+	{mso-style-name:"\05D8\05E7\05E1\05D8 \05E8\05D2\05D9\05DC \05EA\05D5";
+	mso-style-link:"\05D8\05E7\05E1\05D8 \05E8\05D2\05D9\05DC";
+	font-family:"Courier New";}
+span.a9
+	{mso-style-name:"\05DE\05E4\05EA \05DE\05E1\05DE\05DA \05EA\05D5";
+	mso-style-link:"\05DE\05E4\05EA \05DE\05E1\05DE\05DA";
+	font-family:"Tahoma","sans-serif";
+	background:navy;}
+span.20
+	{mso-style-name:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 2 \05EA\05D5";
+	mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 2";
+	font-family:"Times New Roman","serif";}
+span.30
+	{mso-style-name:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 3 \05EA\05D5";
+	mso-style-link:"\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 3";
+	font-family:"Times New Roman","serif";}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.Style11, li.Style11, div.Style11
+	{mso-style-name:Style11;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.FigureCaption, li.FigureCaption, div.FigureCaption
+	{mso-style-name:"Figure Caption";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+span.currencyconvertertext
+	{mso-style-name:currency_converter_text;}
+span.currencyconverterlink
+	{mso-style-name:currency_converter_link;}
+span.aa
+	{mso-style-name:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8 \05EA\05D5";
+	mso-style-link:"\05DB\05E0\05D9\05E1\05D4 \05D1\05D2\05D5\05E3 \05D8\05E7\05E1\05D8";
+	font-family:"Times New Roman","serif";}
+span.st
+	{mso-style-name:st;}
+span.fplc
+	{mso-style-name:fplc;}
+span.ab
+	{mso-style-name:"\05DC\05DC\05D0 \05DE\05E8\05D5\05D5\05D7 \05EA\05D5";
+	mso-style-link:"\05DC\05DC\05D0 \05DE\05E8\05D5\05D5\05D7";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.35pt 841.95pt;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoToc1><a name="_Ref409520465"></a><a name="_Ref409520484"></a><a href="#_Toc410909251">Preface<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc410909252">1<span style='font-size:11.0pt;
+font-family:"Calibri","sans-serif";color:windowtext;text-transform:none;
+font-weight:normal;text-decoration:none'>      </span>Advanced image processing
+lab project layout<span style='color:windowtext;display:none;text-decoration:
+none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410909253"><i>1.1</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Matlab GUIDE tool<span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410909254"><i>1.2</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Advanced image processing lab project<span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410909255"><i>1.3</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Main window<span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410909256"><i>1.4</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Tools bar<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410909257"><i>1.5</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Topics list<span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410909258"><i>1.6</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Topic window<span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410909259"><i>1.7</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Experiment program<span style='color:
+windowtext;display:none;text-decoration:none'>... </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410909260"><i>1.8</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Common functions<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410909261"><i>1.9</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Program modification<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410909262"><i>1.10</i><span style='font-size:
+11.0pt;font-family:"Calibri","sans-serif";color:windowtext;font-weight:normal;
+text-decoration:none'>       </span>Algorithmic implementation<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoNormal><br clear=all style='page-break-before:always'>
+ &nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h1><a name="_Toc410909251"></a><a name="_Ref410332626"></a><a
+name="_Ref410326541"></a><a name="_Ref410326498"></a><a name="_Ref410326494"></a><a
+name="_Toc410119717"></a><a name="_Toc410119353">Preface</a></h1>
+
+<p class=MsoBodyText>Advanced image processing lab is an important step on the
+path of a student to become an expert in the field of image processing and
+computer vision.</p>
+
+<p class=MsoBodyText>The lab gives the student the opportunity to link his
+accumulated theoretical knowledge with actual practices using tools which are
+industry standard, such as matlab.</p>
+
+<p class=MsoBodyText>More advantages which the lab provides is the dealing with
+real life problems, the ability to identify problems which may occur in real
+application and the way to fix those problems.</p>
+
+<p class=MsoBodyText>The “Advanced image processing lab project” aims to bring
+all those advantages together, to a single program which will:</p>
+
+<p class=MsoBodyText>Give a single interactive interface to many programs and
+experiments</p>
+
+<p class=MsoBodyText>Allows the student to customize the experiment and
+interactively modify the result</p>
+
+<p class=MsoBodyText>For experiments with graduate behavior, give the student
+and graduate appearance</p>
+
+<p class=MsoBodyText>Familiarize the students with professional notations from
+the field of image processing</p>
+
+<p class=MsoBodyText>Link between the theoretical to the practice</p>
+
+<p class=MsoBodyText>The following chapters will describe the structure of the
+program, each experiment theoretical background experiment description, and
+experiment results.</p>
+
+<p class=MsoBodyText>The project was greatly relied on the lectures and
+articles of Prof. Leonid Yaroslavsky, and most of the theoretical background is
+taken from Prof. Yaroslavsky book: “Theoretical Foundations of Digital Imaging
+Using MATLAB”.<br clear=all style='page-break-before:always'>
+</p>
+
+<h1><a name="_Toc410119719"></a><a name="_Toc410119355"></a><a
+name="_Toc410909252"></a><a name="_Toc410905411"></a><a name="_Toc410119718"></a><a
+name="_Toc410119354">1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Advanced image processing lab project</a> layout</h1>
+
+<h2><a name="_Toc410909253"></a><a name="_Toc410905412"><i><span
+style='font-size:16.0pt;font-weight:normal'>1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><span dir=LTR></span>Matlab GUIDE tool</a></h2>
+
+<p class=MsoBodyText>The advanced image processing lab project is graphical
+user interface for all of advanced image processing lab experiment. It is built
+with matlab infrastructure and with matlab built-in tool ‘GUIDE’, the Open GUI
+Layout Editor tool for gui infrastructures.</p>
+
+<p class=MsoBodyText>Matlabs ‘GUIDE’ stores the GUI in two files:</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>A FIG-file, with extension .fig, that
+contains a complete description of the GUI layout and each UI component, such
+as push buttons, axes, panels, menus, and so on. The FIG-file is a binary file
+and which cannot be modified except by changing the layout in GUIDE. FIG-files
+are specializations of MAT-files. </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>A code file, with extension .m, that
+initially contains initialization code and templates for some callbacks that
+control GUI behavior. The code file contains the call back of the main FIG file
+UI components.</p>
+
+<p class=MsoBodyText>The code file structure is built of:</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><i>Comments</i> - Displayed at the command
+line in response to the help command. </p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><i>Initialization</i> - GUIDE initialization
+tasks. Needed for proper operation of the code.</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><i>Opening function</i> - Performs your
+initialization tasks before the GUI user has access to the GUI.</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><i>Output function</i> - Returns outputs to
+the MATLAB command line after the opening function returns control and before
+control returns to the command line.</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><i>Component and figure callbacks</i> -
+Control the behavior of the GUI figure and of individual components. MATLAB
+software calls a callback in response to a particular event for a component or
+for the figure itself.</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><i>Utility/helper functions</i> - Perform
+miscellaneous functions not directly associated with an event for the figure or
+a component.</p>
+
+<p class=MsoBodyText>All communication and data sharing between the different
+components are done with the ‘guidata’ function, which Store or retrieve GUI
+data.  Once a program, function or callback are finished and needs to save data
+for later use. For example, to save an experiment inputs for other run of the
+experiment, or UIs which may need to be deleted in later time.</p>
+
+<p class=MsoBodyText>The execution of the program is done by either of the
+following options:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+dir=LTR></span> ‘cd’ to the folder which contains the two files (.fig and .m) ,
+and run the program.<span style='font-family:"Courier New"'> </span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-size:11.0pt;font-family:"Calibri","sans-serif"'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+dir=LTR></span>Add to matlab path the<span style='font-family:"Courier New"'> </span>folder
+which contains the program, and run the program.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Run the command ‘run(<i>full_path_of_program</i>\<span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>program_name)’ </span>where<span
+style='font-size:10.0pt;font-family:"Courier New";color:black'> </span><i>full_path_of_program
+</i>is the full path that contains the program, and <span style='font-size:
+10.0pt;font-family:"Courier New";color:black'>program_name </span>is the
+program name.</p>
+
+<p class=MsoBodyText>A normal operation of a program with GUI starts with the
+execution of the main code file which was generated by ‘GUIDE’. This execution
+will first run the <i>Initialization</i> code and <i>Opening function</i>, each
+of which needs to save relevant data via guidata command. </p>
+
+<p class=MsoBodyText>Finally, the <i>Output function</i> run which determines
+the output (usually the handle of the figure). At that point the figure is already
+opened, and ready to be used. Once all the function has finished their tasks,
+the figure UI waits for the user interaction, an according to the specific
+design, callbacks and other functions are used.</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h2><a name="_Toc410909254"></a><a name="_Toc410905413"><i><span
+style='font-size:16.0pt;font-weight:normal'>1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><span dir=LTR></span>Advanced image processing lab project</a>
+</h2>
+
+<h3>1.2.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Advanced image processing lab project file structure</h3>
+
+<p class=MsoBodyText>As described above, the advanced image processing program
+is built from 2 head files ‘<span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>AdvancedImageProcessingLab_mb.m</span>’ and ‘<span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>AdvancedImageProcessingLab_mb.fig’</span>,
+both were created using matlab guide tool. In addition, the program contains:</p>
+
+<p class=MsoBodyText>Twelve folders (one for each topic) – in order to clarify
+each topic, the files are separated into different folders according to the
+relevance. Only experiments of the same topic are in the same folder. Each
+folder contains the experiments and algorithms files relevant to that topic.</p>
+
+<p class=MsoBodyText>Input data folder – contains images and signals to be used
+in the program. The existence of this folder is necessary, since each
+experiment have a default image\signal residing in the ‘data’ folder.</p>
+
+<p class=MsoBodyText>‘utils’ folder -  contains common function and data base
+files. This folder added to the Matlab path when the program is opened. </p>
+
+<p class=MsoBodyText>‘htm’ folder - contains all the documentation. The
+documentation are word documents saved in an html format.</p>
+
+<h4>1.2.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Execution of the program</h4>
+
+<p class=MsoBodyText>When executing <span style='font-size:10.0pt;font-family:
+"Courier New";color:black'>AdvancedImageProcessingLab_mb</span> the <i>Opening
+function</i> performs the following tasks and saves it to GUI data:</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>Check the validity of key folders</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>Saves current Matlab status</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>Load default program parameters</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>Adds the ‘utils’ folder to Matlab path</p>
+
+<p class=MsoBodyText style='margin-left:.5in;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>Load 2 database files: TopiclList.mat and
+Defaults.mat, both stored at ‘utils’ folder. </p>
+
+<p class=MsoBodyText style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span dir=LTR></span>TopiclList.mat contains all the task and
+experiments names, and is used for navigation between the different
+experiments. </p>
+
+<p class=MsoBodyText style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span dir=LTR></span>Defaults.mat defines the default input
+signal\images in each experiment. </p>
+
+<p class=MsoBodyText>After the <i>Opening function</i> finished, <i>Output
+function</i> defines the output of the program (the figure handler), the main
+window appears and the UIs are ready to be used.</p>
+
+<h2><a name="_Toc410909255"></a><a name="_Toc410905414"></a><a
+name="_Ref410675714"><i><span style='font-size:16.0pt;font-weight:normal'>1.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>Main window</a></h2>
+
+<p class=MsoBodyText align=center style='text-align:center'><img width=528
+height=318 id="&#1514;&#1502;&#1493;&#1504;&#1492; 384"
+src="Advanced%20image%20processing%20lab%20project%20layout.files/image001.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>1&#8209;1: Program main window.</p>
+
+<p class=MsoBodyText>The main window is composed of 12 buttons, corresponds to
+the 12 topic which the advanced image processing lab covers, a tool bar to
+control and exam the output of each result, and a center image, with
+information of the program.  </p>
+
+<p class=MsoBodyText>If the mouse pointer hovers a topic button, the list of
+experiments in that topic is displayed (see <i><u>Figure <span
+lang=AR-SA>&#8206;</span>1&#8209;2</u></i>). This behavior is set in the <i>Opening
+function, </i>where the topic list s taken from the file ‘TopicList.mat’ which
+was loaded during the <i>Opening function.</i></p>
+
+<p class=MsoBodyText align=center style='text-align:center'><img width=528
+height=313 id="&#1514;&#1502;&#1493;&#1504;&#1492; 385"
+src="Advanced%20image%20processing%20lab%20project%20layout.files/image002.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410378882">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>1&#8209;2: Program main window, when
+the mouse pointer hovers over the “image quantization” topic button.</p>
+
+<h2><a name="_Toc410909256"></a><a name="_Toc410905416"><i><span
+style='font-size:16.0pt;font-weight:normal'>1.4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><span dir=LTR></span>Tools bar</a></h2>
+
+<p class=MsoBodyText>The tool bar contains tool which helps the user to inquire
+and investigate each experiment results. There is a callback function relating
+to each of those buttons in the ‘<span style='font-size:10.0pt;font-family:
+"Courier New";color:black'>AdvancedImageProcessingLab_mb.m</span>’.</p>
+
+<p class=MsoBodyText>The toolbar consists of 9 buttons:</p>
+
+<p class=MsoBodyText>Data cursor (<img width=22 height=21 id="&#1514;&#1502;&#1493;&#1504;&#1492; 386"
+src="Advanced%20image%20processing%20lab%20project%20layout.files/image003.png">)
+– enables inquiries of pixel or plot values at a certain positions.</p>
+
+<p class=MsoBodyText>Load image\ load auxiliary image \ load 2<sup>nd</sup>
+auxiliary image (<img width=19 height=20 id="&#1514;&#1502;&#1493;&#1504;&#1492; 387"
+src="Advanced%20image%20processing%20lab%20project%20layout.files/image004.png">)
+– allows the user to change the input signal\image used by current experiment.
+For experiments with more than one input, load auxiliary image \ load 2<sup>nd</sup>
+auxiliary image buttons should be used. All experiments have default input
+image \signal, however it is possible to use user’s images \ signals. All image
+formats supported by matlab “imread” function aer supported -   ( 'bmp', 'cur’,
+‘fts’, ‘fits’, ‘gif’, ‘hdf’, ‘ico’, ‘j2c’, ‘j2k’, ‘jp2’, ‘jpf’, ‘jpx’, ‘jpg’,
+‘jpeg’, ‘pbm’, ‘pcx',    'pgm’, ‘png’, ‘pnm’, ‘ppm’, ‘ras’, ‘tif’, ‘tiff’,
+‘xwd’), and raw ‘mat’ gray scale image files, for which the user will be prompt
+to provide the image size. It is possible to load an image of any size, but
+each image is resized to the size of 256x256. If the image is a color image, it
+will transform to gray. If the aspect ratio is not 1x1, the center of the image
+is cropped, to avoid distorting the image.</p>
+
+<p class=MsoBodyText>Zoom in\out (<img width=43 height=22 id="&#1514;&#1502;&#1493;&#1504;&#1492; 388"
+src="Advanced%20image%20processing%20lab%20project%20layout.files/image005.png">) 
+- allows the user to inspect image\signal by zooming in or out.</p>
+
+<p class=MsoBodyText>Pan (<img width=21 height=21 id="&#1514;&#1502;&#1493;&#1504;&#1492; 389"
+src="Advanced%20image%20processing%20lab%20project%20layout.files/image006.png">)
+– allows the user to shift the image/signal right, left up or down.</p>
+
+<p class=MsoBodyText>Help (<img width=23 height=22 id="&#1514;&#1502;&#1493;&#1504;&#1492; 390"
+src="Advanced%20image%20processing%20lab%20project%20layout.files/image007.png">)
+– upon pressing this button while in experiment, a detailed help document will
+be opened, with experiment tasks, questions, theoretical background and
+algorithm descriptions. Upon pressing this button while in main window, this
+chapter will appear.</p>
+
+<p class=MsoBodyText>Interactive\non interactive mode (<img width=25 height=25
+id="&#1514;&#1502;&#1493;&#1504;&#1492; 391"
+src="Advanced%20image%20processing%20lab%20project%20layout.files/image008.png">)
+– This button controls the behavior of the program, when user changes the
+experiment setting. If it is set to ‘off’, then only once the user presses “run
+experiment’ will the experiment will be executed. If it is set to ‘on’, then
+whenever the user changes the experiment settings, immediately, the experiment
+is executed.</p>
+
+<h2><a name="_Toc410909257"></a><a name="_Toc410905415"><i><span
+style='font-size:16.0pt;font-weight:normal'>1.5<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><span dir=LTR></span>Topics list</a></h2>
+
+<p class=MsoBodyText>The twelve topics list is:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image discretization</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image quantization</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image compression: predictive coding</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image compression: transform coding</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image statistics</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image noise models </p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Pattern formation models</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image resampling</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Target location</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image perfection: linear filters</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image perfection: rank filters</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image enhancement</p>
+
+<p class=MsoBodyText>Each of those topics contains several experiments, and
+this book is arranged according to the arrangement of the topics and
+experiments.</p>
+
+<h2><a name="_Toc410909258"></a><a name="_Toc410905417"><i><span
+style='font-size:16.0pt;font-weight:normal'>1.6<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><span dir=LTR></span>Topic window</a></h2>
+
+<p class=MsoBodyText>Upon pressing a topic button, the <span style='font-size:
+10.0pt;font-family:"Courier New";color:black'>pushbutton_Callback </span>located
+at ‘<span style='font-size:10.0pt;font-family:"Courier New";color:black'>AdvancedImageProcessingLab_mb.m</span>’
+is called, and according to the button string (the topic name) finds the
+relevant folder, cd to it, clears the main window, loads the experiment list to
+allow navigation between topic’s experiments,  and the “Back” button which
+returns to the main window.</p>
+
+<p class=MsoBodyText>Then, according to the first experiment in the topic
+experiment list form TopicList.mat file, the first experiment is loaded.</p>
+
+<h2><a name="_Toc410909259"></a><a name="_Toc410905418"><i><span
+style='font-size:16.0pt;font-weight:normal'>1.7<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><span dir=LTR></span>Experiment program</a></h2>
+
+<p class=MsoNormal>Each experiment is built form three sections:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>Experiment interface - the main function,
+which has the name of the experiment, defines the GUI interface of the
+experiment (axes, sliders, and buttons), sets the default parameters of the
+experiment, loads the image\signal if necessary, and place a “Run experiment”
+button. </p>
+
+<p class=MsoListParagraphCxSpMiddle>Once the main function finished its run,
+its returned value is saved to the GUI data.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:10.0pt;font-family:
+"Courier New";color:black'>“process_image”</span> function, which is for
+execution of algorithms, and displaying of the results. Usually runs only once
+the user presses the “Run experiment” button.</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>Other specific per experiment functions for
+setting the interface and running the algorithms</p>
+
+<p class=MsoNormal>An example of standard experiment function structure is:</p>
+
+<p class=MsoCaption><a name="_Ref410892074">Code </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>1&#8209;1: experiment code example
+of LocalAdaptiveFiltering2D experiment</p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;font-family:"Courier New";
+color:forestgreen'>%%%%%%%</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;font-family:"Courier New";
+color:forestgreen'>% Comments</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;font-family:"Courier New";
+color:forestgreen'>%</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>function</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>
+LocalAdaptiveFiltering2D = LocalAdaptiveFiltering2D_mb( handles )</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% loading
+program parameters</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    handles =
+guidata(handles.figure1);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>    %
+setting up axes grid (for this case 2x2 axes)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    axes_hor = 2;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    axes_ver = 2;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>    %
+determine the left bottom corner of available space for displaying the axes</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    button_pos =
+get(handles.pushbutton12, </span><span style='font-size:8.0pt;font-family:"Courier New";
+color:#A020F0'>'position'</span><span style='font-size:8.0pt;font-family:"Courier New";
+color:black'>);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    bottom
+=button_pos(2);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    left =
+button_pos(1)+button_pos(3);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>    %
+deploying the axes</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D = DeployAxes( handles.figure1, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>...</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    [axes_hor, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>...</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    axes_ver], </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>...</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    bottom, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>...</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    left, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>...</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    0.9, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>...</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    0.9);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% setting
+up default experiment values</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% loading
+the image</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D.im = HandleFileList(</span><span style='font-size:
+8.0pt;font-family:"Courier New";color:#A020F0'>'load'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'> ,
+HandleFileList(</span><span style='font-size:8.0pt;font-family:"Courier New";
+color:#A020F0'>'get'</span><span style='font-size:8.0pt;font-family:"Courier New";
+color:black'>, handles.image_index));</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D.p = 0.5;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D.g = 1;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D.WndSz = 5;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D.std = 2;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D.Thr = 5;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D.filter_type = </span><span style='font-size:8.0pt;
+font-family:"Courier New";color:#A020F0'>'Rejecting filter'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% defining
+experiment GUI</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% defining
+the ‘Run experiment’ push button in the control panel, for execution of the
+experiment algorithm</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    k=1;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params(k).style = </span><span style='font-size:8.0pt;font-family:
+"Courier New";color:#A020F0'>'pushbutton'</span><span style='font-size:8.0pt;
+font-family:"Courier New";color:black'>;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params(k).title = </span><span style='font-size:8.0pt;font-family:
+"Courier New";color:#A020F0'>'Run Experiment'</span><span style='font-size:
+8.0pt;font-family:"Courier New";color:black'>;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params(k).callback = @(a,b)run_process_image(a);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% defining
+a radio button in the control panel, to switch between two filter types</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    k=k+1;    </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params(k).style = </span><span style='font-size:8.0pt;font-family:
+"Courier New";color:#A020F0'>'buttongroup'</span><span style='font-size:8.0pt;
+font-family:"Courier New";color:black'>;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params(k).title = </span><span style='font-size:8.0pt;font-family:
+"Courier New";color:#A020F0'>'Choose the filter'</span><span style='font-size:
+8.0pt;font-family:"Courier New";color:black'>;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params(k).selection ={ </span><span style='font-size:8.0pt;
+font-family:"Courier New";color:#A020F0'>'Rejecting filter'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>,</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'Empirical
+Wiener filter'</span><span style='font-size:8.0pt;font-family:"Courier New";
+color:black'>};   </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params(k).value = find(strcmpi(interface_params(k).selection,
+LocalAdaptiveFiltering2D.filter_type));</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params(k).callback = @(a,b)ChooseFilterType(a,b,handles);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    k=k+1;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% defining
+sliders to control experiment parameters</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params =  SetSliderParams(</span><span style='font-size:8.0pt;
+font-family:"Courier New";color:#A020F0'>'Set Power Of Spectral Coefficients'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>, 1, 0,
+LocalAdaptiveFiltering2D.p, 0.1,
+@(a,b)SetParam(a,b,k,handles.current_experiment_name, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'p'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>,@update_sliders),
+interface_params, k);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    k=k+1;    </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params =  SetSliderParams(</span><span style='font-size:8.0pt;
+font-family:"Courier New";color:#A020F0'>'Set Spectral Coefficients
+Amplification'</span><span style='font-size:8.0pt;font-family:"Courier New";
+color:black'>, 5, 1, LocalAdaptiveFiltering2D.g, 0.5,
+@(a,b)SetParam(a,b,k,handles.current_experiment_name, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'g'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>,@update_sliders),
+interface_params, k);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+k=k+1;            </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params =  SetSliderParams(</span><span style='font-size:8.0pt;
+font-family:"Courier New";color:#A020F0'>'Set Comparison Threshold'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>, 50, 0,
+LocalAdaptiveFiltering2D.Thr, 1,
+@(a,b)SetParam(a,b,k,handles.current_experiment_name, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'Thr'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>,@update_sliders),
+interface_params, k);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    k=k+1;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params =  SetSliderParams(</span><span style='font-size:8.0pt;
+font-family:"Courier New";color:#A020F0'>'Set Spectral Domain Window Size'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>, 55, 1,
+LocalAdaptiveFiltering2D.WndSz, 1,
+@(a,b)SetParam(a,b,k,handles.current_experiment_name, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'WndSz'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>,@update_sliders),
+interface_params, k);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+k=k+1;            </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+interface_params =  SetSliderParams(</span><span style='font-size:8.0pt;
+font-family:"Courier New";color:#A020F0'>'Set additive noise StDev'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>, 50, 0,
+LocalAdaptiveFiltering2D.std, 1,
+@(a,b)SetParam(a,b,k,handles.current_experiment_name, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'std'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>,@update_sliders),
+interface_params, k);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'> </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% Creating
+the control panel </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    LocalAdaptiveFiltering2D.buttongroup_handle
+= SetInteractiveInterface(handles, interface_params); </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>%display
+the test image, to avoid repeating it with each experiment run</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+imshow(LocalAdaptiveFiltering2D.im,[0, 255], </span><span style='font-size:
+8.0pt;font-family:"Courier New";color:#A020F0'>'parent'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>, LocalAdaptiveFiltering2D.axes_1);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+DisplayAxesTitle( LocalAdaptiveFiltering2D.axes_1, [</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'Input Image'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>], </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'TM'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>);  </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>end</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% A
+specific for this experiment call back to control the filter type</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'> </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>function</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'> ChooseFilterType
+(a,b,handles)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    handles =
+guidata(handles.figure1);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+handles.(handles.current_experiment_name).filter_type = get(b.NewValue, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'string'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'> </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D = handles.(handles.current_experiment_name);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    guidata(   
+handles.figure1, handles);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+process_image(LocalAdaptiveFiltering2D.im, LocalAdaptiveFiltering2D.WndSz,
+LocalAdaptiveFiltering2D.std, </span><span style='font-size:8.0pt;font-family:
+"Courier New";color:blue'>...</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D.p, LocalAdaptiveFiltering2D.g,
+LocalAdaptiveFiltering2D.Thr , LocalAdaptiveFiltering2D.filter_type, </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>...</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D.axes_1, LocalAdaptiveFiltering2D.axes_2,
+LocalAdaptiveFiltering2D.axes_3, LocalAdaptiveFiltering2D.axes_4);   </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>end</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% An
+experiment function which called by SetParam, the callbacks of the sliders.
+Used to update sliders when there are inter-relations between parameters (for
+example external radius and internal radius.exist in all experiments.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>function</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>
+update_sliders(handles)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>if</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'> (
+~isstruct(handles))</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        handles =
+guidata(handles);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>end</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>if</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'> (
+strcmpi(handles.interactive, </span><span style='font-size:8.0pt;font-family:
+"Courier New";color:#A020F0'>'on'</span><span style='font-size:8.0pt;
+font-family:"Courier New";color:black'>))</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>       
+run_process_image(handles);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>end</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+guidata(handles.figure1,handles );</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>end</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% A
+function which takes the handle structure, and change it to specific
+parameters, to execute the experiment. Exist in all experiments.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>function</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>
+run_process_image(handles)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>if</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'> (
+~isstruct(handles))</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        handles =
+guidata(handles);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>end</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D = handles.(handles.current_experiment_name);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+process_image(LocalAdaptiveFiltering2D.im, LocalAdaptiveFiltering2D.WndSz,
+LocalAdaptiveFiltering2D.std, </span><span style='font-size:8.0pt;font-family:
+"Courier New";color:blue'>...</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>    LocalAdaptiveFiltering2D.p,
+LocalAdaptiveFiltering2D.g, LocalAdaptiveFiltering2D.Thr
+,LocalAdaptiveFiltering2D.filter_type,  </span><span style='font-size:8.0pt;
+font-family:"Courier New";color:blue'>...</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>   
+LocalAdaptiveFiltering2D.axes_1, LocalAdaptiveFiltering2D.axes_2,
+LocalAdaptiveFiltering2D.axes_3, LocalAdaptiveFiltering2D.axes_4);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>end</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:forestgreen'>% The heart
+of the experiment, the function which execute the algorithms and displays the
+result. In some experiments, some of results are not dependet of any of the
+parameters, and its execution is done at the run_process_image function </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>function</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>     process_image(im,
+WndSz, std, p, g, Thr , filter_type, axes_1, axes_2, axes_3, axes_4)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>       
+imshow(im,[0, 255], </span><span style='font-size:8.0pt;font-family:"Courier New";
+color:#A020F0'>'parent'</span><span style='font-size:8.0pt;font-family:"Courier New";
+color:black'>, axes_1);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>       
+DisplayAxesTitle( axes_1, [</span><span style='font-size:8.0pt;font-family:
+"Courier New";color:#A020F0'>'Input Image'</span><span style='font-size:8.0pt;
+font-family:"Courier New";color:black'>], </span><span style='font-size:8.0pt;
+font-family:"Courier New";color:#A020F0'>'TM'</span><span style='font-size:
+8.0pt;font-family:"Courier New";color:black'>);  </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        im  =
+double(im);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        h =
+waitbar(0, </span><span style='font-size:8.0pt;font-family:"Courier New";
+color:#A020F0'>'please wait'</span><span style='font-size:8.0pt;font-family:
+"Courier New";color:black'>);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        noise =
+std*(randn(size(im)));</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        im = im +
+noise;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        sp_mask =
+ones(WndSz, WndSz);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>       
+imshow(im,[0, 255], </span><span style='font-size:8.0pt;font-family:"Courier New";
+color:#A020F0'>'parent'</span><span style='font-size:8.0pt;font-family:"Courier New";
+color:black'>, axes_2);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>       
+DisplayAxesTitle( axes_2, [</span><span style='font-size:8.0pt;font-family:
+"Courier New";color:#A020F0'>'Input Image With Noise'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>], </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'TM'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>);  </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>if</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'> (
+strcmpi(filter_type, </span><span style='font-size:8.0pt;font-family:"Courier New";
+color:#A020F0'>'Rejecting filter'</span><span style='font-size:8.0pt;
+font-family:"Courier New";color:black'>))</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>            k = 1
+;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>else</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>            k =
+0;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>end</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        [OUTIMG1,
+OUTIMG2]=lcdct2_mb(im,sp_mask,p,g,Thr, k, h, axes_3, axes_4);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>       
+imshow(OUTIMG1,[0, 255],  </span><span style='font-size:8.0pt;font-family:"Courier New";
+color:#A020F0'>'parent'</span><span style='font-size:8.0pt;font-family:"Courier New";
+color:black'>, axes_3);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>       
+DisplayAxesTitle( axes_3, [</span><span style='font-size:8.0pt;font-family:
+"Courier New";color:#A020F0'>'Cleaned Result'</span><span style='font-size:
+8.0pt;font-family:"Courier New";color:black'>], </span><span style='font-size:
+8.0pt;font-family:"Courier New";color:#A020F0'>'BM'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>);  </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>       
+imshow(OUTIMG2, [0, 255] ,</span><span style='font-size:8.0pt;font-family:"Courier New";
+color:#A020F0'>'parent'</span><span style='font-size:8.0pt;font-family:"Courier New";
+color:black'>, axes_4);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>       
+DisplayAxesTitle( axes_4, [</span><span style='font-size:8.0pt;font-family:
+"Courier New";color:#A020F0'>'DCT-Domain Mask (Controlled By Threshold]'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>], </span><span
+style='font-size:8.0pt;font-family:"Courier New";color:#A020F0'>'BM'</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>);  </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>       
+waitbar(1,h);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>        close(h);</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New";color:blue'>end</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:8.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>When loading an
+experiment, the main function executes and defines the axes, draws the
+experiment setting control, and saves the defaults parameters to the GUI data.</p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>An example of a
+topic window (created by the code example from above) can be seen at Figure <span lang=AR-SA>&#8206;</span>1&#8209;3 (not including the squares). The
+topic window consists of 4 segments: </p>
+
+<p class=MsoBodyText>Main experiment region (yellow square) – presents the
+inputs and outputs of each experiment.</p>
+
+<p class=MsoBodyText>Experiment control panel (orange square) – gives control
+of the experiment settings to the user. The buttons defined in the main window
+defines the location of the sliders and buttons of the experiment settings
+control. </p>
+
+<p class=MsoBodyText>Experiment list (white square) – allows navigation between
+topic’s experiments. The buttons defined in the main window defines the
+location experiment list.</p>
+
+<p class=MsoBodyText>Back button (red square) – returns to the main window.</p>
+
+<p class=MsoBodyText align=center style='text-align:center'><img width=600
+height=374 id="&#1514;&#1502;&#1493;&#1504;&#1492; 9"
+src="Advanced%20image%20processing%20lab%20project%20layout.files/image009.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410381278">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>1&#8209;3: Topic window example.</p>
+
+<p class=MsoNormal>Once the experiment display setting has been uploaded, the
+user can set the experiment setting as he wishes with the siders and radio
+buttons provided. Each change calls to a callback function, and update the
+specific parameter.</p>
+
+<p class=MsoNormal>The final step, after setting all the axes and control
+buttons and experiment parameters, is to execute the experiment. The experiment
+does not run without the demand of the user, to avoid making the user to wait
+till the process has finished before he could start setting the experiment.</p>
+
+<p class=MsoNormal>To run the experiment with the current settings, the user
+needs to press the “Run experiment” button.</p>
+
+<p class=MsoNormal>A full flow diagram of the program in the general case is
+shown at </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=442 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=690 height=120
+  src="Advanced%20image%20processing%20lab%20project%20layout.files/image010.png"></td>
+ </tr>
+</table>
+
+ &nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<br clear=ALL>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>1&#8209;4: A flow diagram of the advanced image processing lab program, for the general
+case.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><a name="_Toc410909260"></a><a name="_Toc410905419"><i><span
+style='font-size:16.0pt;font-weight:normal'>1.8<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><span dir=LTR></span>Common functions</a></h2>
+
+<p class=MsoNormal>As it can be seen from the code example, there are several
+general functions which repeat themselves through the program.</p>
+
+<p class=MsoNormal>This is a review of some of them:</p>
+
+<h4>1.8.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>DeployAxes</h4>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue'>function</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>  handles =
+DeployAxes( parent, axes_num, bottom, left, width, height, is_outerposition )</span></p>
+
+<p class=MsoNormal>The <span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>DeployAxes function calculates the location of each axes position,
+and create those axes.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>The parameter
+list of this function:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>parent – the figure handle</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>axes_num – an array of cell which describes
+the layout of the axes. For example, if axes_num = [2, 2] the result will be 2
+by 2 axes.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>bottom – lowest point for the location of
+axes</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>left – left most point for the location of
+axes</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>width – fraction of the width available to
+use</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>height - fraction of the height available to
+use</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>is_outerposition (optional) – a binary
+vector the length of number of axes requested, which defines in the axes is
+smaller to give space to titles (if is 1) or not.</p>
+
+<h4>1.8.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>SetSliderParams</h4>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue'>function</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>
+interface_params = SetSliderParams( title, max_val, min_val, curr_val,
+jump_step, call_back, in_interface_params, k) </span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>The
+SetSliderParams function defines a structure which describes a slider for a
+parameter. This structure is the passed to the <span style='font-size:10.0pt;
+font-family:"Courier New";color:black'>SetInteractiveInterface </span>function,
+which sets the<span style='font-size:10.0pt;font-family:"Courier New";
+color:black'> </span>sliders and other UIs. </p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>The parameter
+list of this function:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>Title – slider title</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>max_val – the maximum value</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>min_val – the minimum value</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>curr_val – the current value of the
+parameter</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>jump_step – the resolution of the parameter</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>call_back – the callback function which executes
+when the slider changes</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>in_interface_params – the structure which
+needs to be updated</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>k – the current number of the parameter  </p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>It returns the
+same structure as in_interface_params, with one more element  in the structure
+array.</p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>&nbsp;</p>
+
+<h4>1.8.1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>SetInteractiveInterface</h4>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'><span
+style='font-size:10.0pt;font-family:"Courier New";color:blue'>function</span><span
+style='font-size:10.0pt;font-family:"Courier New";color:black'>
+buttongroup_handle = SetInteractiveInterface(handles,children_params)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>This function
+creates the control panel, and all the UI (sliders, pushbuttons, radio
+buttons).</p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>The parameter
+list of this function:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>handles – the handles of the GUI interface</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;text-indent:-.25in;
+text-autospace:none'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>children_params – A struct containing the
+description of each UI.</p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>It returns a
+button group handler, to all of the UIs.</p>
+
+<p class=MsoNormal style='margin-top:0in;text-autospace:none'>&nbsp;</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>1.9<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span> <a name="_Toc410909261"></a><a name="_Toc410905420">Program
+modification</a></h2>
+
+<h3><a name="_Ref410892157">1.9.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Change default parameters of an experiment</a></h3>
+
+<p class=MsoNormal>Each experiment have a set of default values such as window
+size, thresholds etc.</p>
+
+<p class=MsoNormal>The default values are defined at the beginning of a
+function with same name as the experiment (without spaces and special
+characters such as ‘-‘), in a file with same name as the experiment (without
+spaces and special characters such as ‘-‘).</p>
+
+<p class=MsoNormal>In addition to the default parameters values, there are
+others properties which defined by default, such as parameters range, step size
+etc.</p>
+
+<p class=MsoNormal>In order to change an experiment default parameter, one
+should simply change the code line corresponds to that parameter. For example: <span
+style='font-size:8.0pt;font-family:"Courier New";color:black'>LocalAdaptiveFiltering2D.Thr
+= 5;</span></p>
+
+<p class=MsoNormal>In order to change this parameter range, as described by the
+slider in the control panel, or to change the resolution (step size), one
+simply change the <span style='font-size:10.0pt;font-family:"Courier New";
+color:black'>SetSliderParams </span>function call<span style='font-size:10.0pt;
+font-family:"Courier New";color:black'> </span>for that parameter.</p>
+
+<p class=MsoNormal>Important: in some experiments, the control panel changes
+according to the selection of experiment parameters. For example, in experiment
+“Localization Accuracy and Reliability” under the “Target Location” topic, the
+noise type determines the appearance of the control panel (for correlated noise
+2 more sliders which determines the internal and external radiuses are added).
+This done in the callback function of the radio button which controls the
+noise.</p>
+
+<p class=MsoNormal>In such cases, where a parameter controls the appearance of
+the control panel, a change done to the control panel in the main function
+should also be implemented in the definition of the control panel in the
+callback function.</p>
+
+<h3>1.9.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Change default images\signals of an experiment</h3>
+
+<p class=MsoNormal>The default image\signal list is stored in the Defaults.mat file
+located in the ‘utils’ folder.</p>
+
+<p class=MsoNormal>Defaults.mat contains a structure with 49 fields (one for
+each experiment). Each of the field name is the name of an experiment, where
+special characters and spaces are replaced by a ‘_’ character.</p>
+
+<p class=MsoNormal>Each field contains up-to 3 fields: im_1, im_2, im_3. Most
+only one – im_1, some have also im_2, and one experiment have the im_3 field.
+The field im_x is a struct which contains 6 fields: filename, height, width,
+index, type and title.</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>filename – the file name with respect to the
+‘utils’ folder,  i.e., for the lenna image in the data folder, file name should
+be ‘../data/lenna_256x256.img’</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>height, width – the height and width of the
+image. Relevant for raw image formats files with no header (img files)</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>index – internal parameter. Can be any
+number</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>type – ‘signal’ or ‘image’</p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span>title – the image title </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>A descriptive example of the default structure can be seen
+at Figure <span lang=AR-SA>&#8206;</span>1&#8209;5.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=19 height=11></td>
+  <td width=314></td>
+  <td width=207></td>
+  <td width=317></td>
+ </tr>
+ <tr>
+  <td height=309></td>
+  <td></td>
+  <td colspan=2 align=left valign=top><img width=524 height=309
+  src="Advanced%20image%20processing%20lab%20project%20layout.files/image011.png"></td>
+ </tr>
+ <tr>
+  <td height=10></td>
+ </tr>
+ <tr>
+  <td height=26></td>
+  <td colspan=2 align=left valign=top><img width=521 height=26
+  src="Advanced%20image%20processing%20lab%20project%20layout.files/image012.png"
+  alt="Figure &#8206;1 5: default structure example"></td>
+ </tr>
+</table>
+
+<b>&nbsp;</b></p>
+
+<br clear=ALL>
+
+<p class=MsoNormal>                                                          </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>In order to change the default image\signal
+for an experiment, one should update the corresponding fields of that
+experiment in the default structure and save the default struct to the
+‘Defaults.mat’ file under the ‘utils’ folder, i.e.:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Change cutrrent directory to the ‘utils’ folder: </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>cd </span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'./utils/'</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Load the ‘default’ structure: </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>load(</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'Defaults.mat'</span><span style='font-size:8.0pt;
+line-height:115%;font-family:"Courier New";color:black;background:lightgrey'>);</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>update the image file name, height, width, title, index:</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-size:8.0pt;line-height:115%;font-family:Symbol;color:black;
+background:lightgrey'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>default.Discrete_Representation.im_1.title
+= 'Lenna';</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-size:8.0pt;line-height:115%;font-family:Symbol;color:black;
+background:lightgrey'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>default.Discrete_Representation.im_1.filename
+= '../Data/Lenna_256x256.IMG';</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-size:8.0pt;line-height:115%;font-family:Symbol;color:black;
+background:lightgrey'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>default.Discrete_Representation.im_1.height
+= 256;</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-size:8.0pt;line-height:115%;font-family:Symbol;color:black;
+background:lightgrey'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>default.Discrete_Representation.im_1.width
+= 256;</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-size:8.0pt;line-height:115%;font-family:Symbol;color:black;
+background:lightgrey'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>default.Discrete_Representation.im_1.index
+= 1;</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Save the struct in the ‘utils’ folder: </p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>save(</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'Defaults.mat'</span><span style='font-size:8.0pt;
+line-height:115%;font-family:"Courier New";background:lightgrey'>,<span
+style='color:#A020F0'> 'default'</span><span style='color:black'>);</span></span></p>
+
+<h3>1.9.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Add/remove an experiment</h3>
+
+<p class=MsoNormal>In order to add/remove an experiment to an existing topic,
+the following steps should be completed:</p>
+
+<p class=MsoNormal>To add an experiment:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Create a Matlab function which implement the experiment in a
+file structure similar to the code example in Code <span lang=AR-SA>&#8206;</span>1&#8209;1.
+File name and function name should be the same, and composed of a single word,
+with a ‘_mb’ suffix. The file should be located in the folder corresponding to
+the topic which the experiment belongs to.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Define a default test image\signal to the experiment as
+described at <span lang=AR-SA>&#8206;</span>1.9.1. Add the relevant fields in
+the default structure.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Add the experiment name to the experiment list at the
+TopicList.mat file, as described in the following chapter.</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>To remove an experiment:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Delete the Matlab function which implement the experiment. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Remove the experiment field in the ‘default’ struct saved in
+‘Defaults.mat’ data base file under the ‘utils’ folder.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Remove the experiment name from the experiment list at the
+TopicList.mat file, as described in <span lang=AR-SA>&#8206;</span>1.9.3.1.</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<h4><a name="_Ref410899678">1.9.3.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Updating the ‘TopicList.mat’ file</a></h4>
+
+<p class=MsoNormal>The TopicList.mat file is a Matlab data base file for the
+program which located in the ‘utils’ folder, and describe the list of
+experiments for each topic. The TopicList.mat file contains a struct variable
+called ‘TopicList’ with 12 fields (one for each topic). Each field name is a
+topic name where special characters and spaces are replaced by a ‘_’ character.
+The fields contains a list of strings cells, one for each experiment of the
+topic, which contains the name of the experiment, with spaces and special
+characters.</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>An example of such struct can be seen at Figure <span lang=AR-SA>&#8206;</span>1&#8209;6.</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=22 height=4></td>
+  <td width=375></td>
+  <td width=93></td>
+  <td width=460></td>
+ </tr>
+ <tr>
+  <td height=215></td>
+  <td></td>
+  <td colspan=2 align=left valign=top><img width=553 height=215
+  src="Advanced%20image%20processing%20lab%20project%20layout.files/image013.png"></td>
+ </tr>
+ <tr>
+  <td height=11></td>
+ </tr>
+ <tr>
+  <td height=26></td>
+  <td colspan=2 align=left valign=top><img width=468 height=26
+  src="Advanced%20image%20processing%20lab%20project%20layout.files/image014.png"
+  alt="Figure &#8206;1 6: TopicList struct exmaple"></td>
+ </tr>
+</table>
+
+ &nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+<br clear=ALL>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>In order to add or remove an experiment form
+a topic, one should add\remove the experiment name from the topic field in the
+TopicList struct, and afterwards, the structure needs to be saved to the
+‘utils’ folder using Matlab function save i.e.:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Change cutrrent directory to the ‘utils’ folder: </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>cd </span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'./utils/'</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Load the ‘TopicList’ structure: </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>load(</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'TopicList.mat'</span><span style='font-size:8.0pt;
+line-height:115%;font-family:"Courier New";color:black;background:lightgrey'>);</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Add\remove the experiment name:</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%;
+text-autospace:none'><span style='font-size:8.0pt;line-height:115%;font-family:
+Symbol;color:black'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>TopicList.Image_discretization{end+1}
+= </span><span style='font-size:8.0pt;line-height:115%;font-family:"Courier New";
+color:#A020F0;background:lightgrey'>‘new experiment’</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:black;
+background:lightgrey'>;</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Save the struct in the ‘utils’ folder: </p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>save(</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'TopicList.mat'</span><span style='font-size:8.0pt;
+line-height:115%;font-family:"Courier New";background:lightgrey'>,<span
+style='color:#A020F0'> 'TopicList'</span><span style='color:black'>);</span></span></p>
+
+<h3>1.9.4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span> Add\Remove a topic</h3>
+
+<p class=MsoNormal>In order to add/remove a topic, the following steps should
+be completed:</p>
+
+<p class=MsoNormal>To add a topic:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Add a pushbutton to the GUI using Matlab ‘guide’ tool
+(preferable), or by direct coding in the main function (‘AdvancedImageProcessingLab_mb.m’).
+The handle to the pushbutton should be held in the handles of the GUI, under
+‘pushbutton_<b><i>x</i></b>’ field name, where <b><i>x</i></b> is the
+pushbutton number. This is done automatically when using the ‘guide’ Matlab
+tool for creating the button. If using a direct coding, then it should be added
+to the opening function. For example, if ‘pb_handle’ is the pushbutton handle,
+then the line <span style='font-size:8.0pt;font-family:"Courier New";
+color:black;background:lightgrey'>’handles.pushbutton_13 = pb_handle’</span><span
+style='font-size:8.0pt;font-family:"Courier New";color:black'> </span>should be
+added to the<span style='font-size:8.0pt;font-family:"Courier New";color:black'>
+</span><span style='font-size:10.0pt;font-family:"Courier New";color:black'>AdvancedImageProcessingLab_mb_OpeningFcn.
+</span>The pushbutton string should be the topic name.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Add the topic and its experiments to the ‘TopicList’ structure
+described at <span lang=AR-SA>&#8206;</span>1.9.3.1. in the following way:</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.75in;text-indent:-.25in;line-height:115%'>a.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Change current directory to the ‘utils’ folder: </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:1.0in;text-indent:-.25in;line-height:115%'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>cd </span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'./utils/'</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.75in;text-indent:-.25in;line-height:115%'>b.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Load the ‘TopicList’ structure: </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:1.0in;text-indent:-.25in;line-height:115%'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>load(</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'TopicList.mat'</span><span style='font-size:8.0pt;
+line-height:115%;font-family:"Courier New";color:black;background:lightgrey'>);</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.75in;text-indent:-.25in;line-height:115%'>c.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Add the experiment names to a new field with name of the topic (without
+spaces and special characters) :</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:1.0in;text-indent:-.25in;line-height:115%;
+text-autospace:none'><span style='font-size:8.0pt;line-height:115%;font-family:
+"Courier New";color:black'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>TopicList.NewTopic{1}
+= </span><span style='font-size:8.0pt;line-height:115%;font-family:"Courier New";
+color:#A020F0;background:lightgrey'>‘New Topic Experiment1’</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:black;
+background:lightgrey'>;</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:1.0in;text-indent:-.25in;line-height:115%;
+text-autospace:none'><span style='font-size:8.0pt;line-height:115%;font-family:
+"Courier New";color:black'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>TopicList.NewTopic{2}
+= </span><span style='font-size:8.0pt;line-height:115%;font-family:"Courier New";
+color:#A020F0;background:lightgrey'>‘New Topic Experiment2’</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:black;
+background:lightgrey'>;</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:1.0in;text-indent:-.25in;line-height:115%;
+text-autospace:none'><span style='font-size:8.0pt;line-height:115%;font-family:
+"Courier New";color:black'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black'>.......</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.75in;text-indent:-.25in;line-height:115%'>d.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Save the struct in the ‘utils’ folder: </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:1.0in;text-indent:-.25in;line-height:115%'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>save(</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'TopicList.mat'</span><span style='font-size:8.0pt;
+line-height:115%;font-family:"Courier New";background:lightgrey'>,<span
+style='color:#A020F0'> 'TopicList'</span><span style='color:black'>);</span></span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Create a folder with the topic name, which will contains all the
+experiments files and experiments related files.</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>To remove a topic:</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>(Necessary) Remove the pushbutton of the topic from the GUI
+using Matlab ‘guide’ tool.  </p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>(optional) Remove fileld from the ‘TopicList’ structure
+described at <span lang=AR-SA>&#8206;</span>1.9.3.1. in the following way:</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.75in;text-indent:-.25in;line-height:115%'>a.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Change current directory to the ‘utils’ folder: </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:1.0in;text-indent:-.25in;line-height:115%'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>cd </span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'./utils/'</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.75in;text-indent:-.25in;line-height:115%'>b.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Load the ‘TopicList’ structure: </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:1.0in;text-indent:-.25in;line-height:115%'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>load(</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'TopicList.mat'</span><span style='font-size:8.0pt;
+line-height:115%;font-family:"Courier New";color:black;background:lightgrey'>);</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.75in;text-indent:-.25in;line-height:115%'>c.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Add the experiment names to a new field with name of the topic
+(without spaces and special characters) :</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:1.0in;text-indent:-.25in;line-height:115%;
+text-autospace:none'><span style='font-size:8.0pt;line-height:115%;font-family:
+"Courier New";color:black'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>TopicList =
+rmfield(TopicList, </span><span style='font-size:8.0pt;line-height:115%;
+font-family:"Courier New";color:#A020F0;background:lightgrey'>‘Old_Topic’</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";background:
+lightgrey'>);</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.75in;text-indent:-.25in;line-height:115%'>d.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Save the struct in the ‘utils’ folder: </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:1.0in;text-indent:-.25in;line-height:115%'><span
+style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span><span dir=LTR></span><span style='font-size:8.0pt;line-height:
+115%;font-family:"Courier New";color:black;background:lightgrey'>save(</span><span
+style='font-size:8.0pt;line-height:115%;font-family:"Courier New";color:#A020F0;
+background:lightgrey'>'TopicList.mat'</span><span style='font-size:8.0pt;
+line-height:115%;font-family:"Courier New";background:lightgrey'>,<span
+style='color:#A020F0'> 'TopicList'</span><span style='color:black'>);</span></span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;margin-right:0in;
+margin-bottom:10.0pt;margin-left:.5in;text-indent:-.25in;line-height:115%'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>(optional) Remove the folder with the topic name.</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>1.10<span
+style='font:7.0pt "Times New Roman"'> </span></span></i><span dir=LTR></span> <a
+name="_Toc410909262"></a><a name="_Toc410905421">Algorithmic implementation</a></h2>
+
+<p class=MsoNormal>The Matlab program language, while very versatile and
+convenient, is aimed at vector and matrix processing, and has a major drawback
+in the form of execution time of loops. Loops over an image happened mainly
+when performing local operation.</p>
+
+<p class=MsoNormal>In order make the advanced image processing lab project
+faster and interactive, there is a need to transform many of the loop
+implementation into matrix operation. This can be exemplified by the local
+histogram operation. </p>
+
+<p class=MsoNormal>The standard local histogram operation would have to, for
+each pixel in the image, calculate the histogram of the window surrounding it.
+Experiment shows it can takes up to several seconds. A different approach can
+solve this issue buy the use of im2col function in maltab.</p>
+
+<p class=MsoNormal>Im2col(im, [WndY, WndX]) function takes an image with size
+WxH, and creates a new matrix with size of  (WndY* WndX)x(W*H). Which means
+that for 5x5 window, this function creates 24 more replicas of the image. But
+this cost in memory benefits in execution time. Empirical result shows
+improvement of over 50 times. </p>
+
+<p class=MsoNormal>In conclusion, many local image operation were implemented
+using im2col operation, however, in some cases for memory and educational
+purposes, a loop implementation was used. </p>
+
+<span style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman","serif"'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:10.0pt;
+margin-left:0in;line-height:115%'>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

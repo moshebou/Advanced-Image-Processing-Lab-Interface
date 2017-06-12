@@ -1,0 +1,2160 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>Advanced Image Processing lab</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-21.6pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:28.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-28.8pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-36.0pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:43.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-43.2pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{mso-style-link:"Heading 5 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:50.4pt;
+	margin-bottom:.0001pt;
+	text-indent:-50.4pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-weight:normal;}
+h6
+	{mso-style-link:"Heading 6 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:57.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-57.6pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Heading 7 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:64.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-64.8pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"Heading 8 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:72.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-72.0pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"Heading 9 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:79.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-79.2pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:44.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:55.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:66.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:77.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Footnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-indent:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoEndnoteReference
+	{vertical-align:super;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"Endnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
+	{mso-style-link:"Macro Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:9.0pt;
+	font-family:"Courier New";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-name:"Title\,ttl";
+	mso-style-link:"Title Char\,ttl Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpFirst, li.MsoBodyTextIndentCxSpFirst, div.MsoBodyTextIndentCxSpFirst
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpMiddle, li.MsoBodyTextIndentCxSpMiddle, div.MsoBodyTextIndentCxSpMiddle
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpLast, li.MsoBodyTextIndentCxSpLast, div.MsoBodyTextIndentCxSpLast
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"Subtitle Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:15.0pt;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"Body Text 2 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Body Text 3 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-link:"Document Map Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.0pt;
+	line-height:200%;
+	background:navy;
+	font-size:12.0pt;
+	font-family:"Tahoma",sans-serif;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"Plain Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;}
+span.MsoPlaceholderText
+	{color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.MsoSubtleReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	text-decoration:underline;}
+span.MsoIntenseReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+p.MsoBibliography, li.MsoBibliography, div.MsoBibliography
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:right;
+	page-break-after:avoid;
+	direction:rtl;
+	unicode-bidi:embed;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-link:"Heading 4";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading5Char
+	{mso-style-name:"Heading 5 Char";
+	mso-style-link:"Heading 5";
+	font-family:"Cambria",serif;
+	color:#243F60;}
+span.Heading6Char
+	{mso-style-name:"Heading 6 Char";
+	mso-style-link:"Heading 6";
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-style:italic;}
+span.Heading7Char
+	{mso-style-name:"Heading 7 Char";
+	mso-style-link:"Heading 7";
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+span.Heading8Char
+	{mso-style-name:"Heading 8 Char";
+	mso-style-link:"Heading 8";
+	font-family:"Cambria",serif;
+	color:#404040;}
+span.Heading9Char
+	{mso-style-name:"Heading 9 Char";
+	mso-style-link:"Heading 9";
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.StyleFirstline0cmLinespacingDouble, li.StyleFirstline0cmLinespacingDouble, div.StyleFirstline0cmLinespacingDouble
+	{mso-style-name:"Style First line\:  0 cm Line spacing\:  Double";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EquationChar
+	{mso-style-name:"Equation Char";
+	mso-style-link:Equation;
+	color:#4F81BD;
+	font-weight:bold;}
+p.Equation, li.Equation, div.Equation
+	{mso-style-name:Equation;
+	mso-style-link:"Equation Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma",sans-serif;}
+span.EndnoteTextChar
+	{mso-style-name:"Endnote Text Char";
+	mso-style-link:"Endnote Text";}
+span.FootnoteTextChar
+	{mso-style-name:"Footnote Text Char";
+	mso-style-link:"Footnote Text";}
+p.HeadingMath, li.HeadingMath, div.HeadingMath
+	{mso-style-name:HeadingMath;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-variant:small-caps;}
+p.Figure, li.Figure, div.Figure
+	{mso-style-name:Figure;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Table, li.Table, div.Table
+	{mso-style-name:Table;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.HeadingOther, li.HeadingOther, div.HeadingOther
+	{mso-style-name:HeadingOther;
+	margin-top:26.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:45.0pt;
+	text-indent:-45.0pt;
+	line-height:15.0pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.References, li.References, div.References
+	{mso-style-name:References;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.9pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.9pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.capLabel
+	{mso-style-name:capLabel;
+	font-style:italic;
+	vertical-align:baseline;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman",serif;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman",serif;}
+p.Author, li.Author, div.Author
+	{mso-style-name:Author;
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.SubtitleChar
+	{mso-style-name:"Subtitle Char";
+	mso-style-link:Subtitle;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;
+	font-family:"Times New Roman",serif;}
+p.CN, li.CN, div.CN
+	{mso-style-name:CN;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;}
+p.ChapterNo, li.ChapterNo, div.ChapterNo
+	{mso-style-name:ChapterNo;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;}
+p.small, li.small, div.small
+	{mso-style-name:small;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.li, li.li, div.li
+	{mso-style-name:li;
+	margin-top:3.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:17.85pt;
+	text-indent:-17.85pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Book Antiqua",serif;}
+p.Affiliation, li.Affiliation, div.Affiliation
+	{mso-style-name:Affiliation;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:26.0pt;
+	margin-left:0cm;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+p.Abstract, li.Abstract, div.Abstract
+	{mso-style-name:Abstract;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.TitleChar
+	{mso-style-name:"Title Char\,ttl Char";
+	mso-style-link:"Title\,ttl";
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.BlockQuote, li.BlockQuote, div.BlockQuote
+	{mso-style-name:BlockQuote;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:7.0pt;
+	margin-left:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTnum, li.LISTnum, div.LISTnum
+	{mso-style-name:LISTnum;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTalph, li.LISTalph, div.LISTalph
+	{mso-style-name:LISTalph;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTdash, li.LISTdash, div.LISTdash
+	{mso-style-name:LISTdash;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Motto, li.Motto, div.Motto
+	{mso-style-name:Motto;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.Appendix, li.Appendix, div.Appendix
+	{mso-style-name:Appendix;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.Notes, li.Notes, div.Notes
+	{mso-style-name:Notes;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.MacroTextChar
+	{mso-style-name:"Macro Text Char";
+	mso-style-link:"Macro Text";
+	font-family:"Courier New";}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-link:"Plain Text";
+	font-family:"Courier New";}
+span.DocumentMapChar
+	{mso-style-name:"Document Map Char";
+	mso-style-link:"Document Map";
+	font-family:"Tahoma",sans-serif;
+	background:navy;}
+span.BodyText2Char
+	{mso-style-name:"Body Text 2 Char";
+	mso-style-link:"Body Text 2";
+	font-family:"Times New Roman",serif;}
+span.BodyText3Char
+	{mso-style-name:"Body Text 3 Char";
+	mso-style-link:"Body Text 3";
+	font-family:"Times New Roman",serif;}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Style11, li.Style11, div.Style11
+	{mso-style-name:Style11;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.FigureCaption, li.FigureCaption, div.FigureCaption
+	{mso-style-name:"Figure Caption";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.currencyconvertertext
+	{mso-style-name:currency_converter_text;}
+span.currencyconverterlink
+	{mso-style-name:currency_converter_link;}
+span.BodyTextIndentChar
+	{mso-style-name:"Body Text Indent Char";
+	mso-style-link:"Body Text Indent";
+	font-family:"Times New Roman",serif;}
+span.st
+	{mso-style-name:st;}
+span.fplc
+	{mso-style-name:fplc;}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:21.0cm 841.95pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoToc1><a name="_Ref409520465"></a><a name="_Ref409520484"></a><a href="#_Toc410734114">9<span style='font-size:11.0pt;font-family:"Calibri",sans-serif;
+color:windowtext;text-transform:none;font-weight:normal;text-decoration:none'>      </span>Target
+location<span style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410734115"><i>9.1</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Localization Accuracy and Reliability<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410734116"><i>9.2</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Image Registration<span style='color:
+windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>7</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410734117"><i>9.3</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Target Location in Clutter<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>8</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410734118"><i>9.4</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Detection of Very Small Objects<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>19</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410734119"><i>9.5</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Impulse Noise Filtering<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>19</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc410734120">Bibliography<span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>23</span></a></p>
+
+<p class=MsoNormal><br clear=all style='page-break-before:always'>
+ &nbsp;</p>
+
+<h1><a name="_Toc410734114"></a><a name="_Toc410119757"></a><a
+name="_Toc410119481">9<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Target location</a></h1>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>9.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410734115"></a><a name="_Toc410119758"></a><a
+name="_Toc410119482"></a><a name="_Ref409257749"></a><a name="_Ref409257719"></a><a
+name="_Ref409257714">Localization Accuracy and Reliability</a></h2>
+
+<h3><a name="_Toc410119483">9.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a> [1]</h3>
+
+<p class=MsoNormal>The target location in noise problem can be formulated as
+target object located at coordinates <span style='position:relative;top:6.0pt'><img
+width=49 height=25 src="Target%20location_files/image001.png"></span> of an
+image plane <span style='position:relative;top:5.0pt'><img width=39 height=20
+src="Target%20location_files/image002.png"></span> specified by its <span
+style='position:relative;top:7.0pt'><img width=57 height=24
+src="Target%20location_files/image003.png"></span>samples<span
+style='position:relative;top:7.0pt'><img width=79 height=19
+src="Target%20location_files/image004.png"></span>,<span style='position:relative;
+top:6.0pt'><img width=109 height=23 src="Target%20location_files/image005.png"></span>,
+<span style='position:relative;top:7.0pt'><img width=108 height=24
+src="Target%20location_files/image006.png"></span>. The samples <span
+style='position:relative;top:7.0pt'><img width=30 height=24
+src="Target%20location_files/image007.png"></span> of an observed input image
+that contains a target object are the samples of the target object signal and
+samples of a random process <img width=39 height=19
+src="Target%20location_files/image008.png"> that represents imaging system
+sensor noise: </p>
+
+<p class=MsoBodyText><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.0pt'><img width=160 height=28 src="Target%20location_files/image009.png"></span> </p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;1                                                                                                                             </p>
+
+<p class=MsoBodyText>Two types of <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.5pt'><img width=36 height=30 src="Target%20location_files/image010.png"></span>are
+considered, one where <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.5pt'><img width=36 height=30 src="Target%20location_files/image010.png"></span> is
+non correlate Gaussian noise, and the other where <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.5pt'><img width=36 height=30 src="Target%20location_files/image010.png"></span> is
+correlated Gaussian noise.</p>
+
+<p class=MsoBodyText><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=29 height=27 src="Target%20location_files/image011.png"></span> is
+considered zeros mean and statistically independent on the signal <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.0pt'><img width=86 height=28 src="Target%20location_files/image012.png"></span>.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h4><a name="_Ref410231473"></a><a name="_Toc410119486"></a><a
+name="_Toc321080139"></a><a name="_Toc320550510"></a><a name="_Toc319782829"></a><a
+name="_Toc319782232"></a><a name="_Toc309299810"></a><a name="_Toc308799558"></a><a
+name="_Toc308435700"></a><a name="_Toc308287480"></a><a name="_Toc308287076"></a><a
+name="_Toc50109559">9.1.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Target localization in non-correlated Gaussian
+noise</a></h4>
+
+<p class=MsoNormal>For the non-correlated Gaussian noise model, in addition to
+the assumption that noise samples <span style='position:relative;top:6.0pt'><img
+width=30 height=25 src="Target%20location_files/image013.png"></span> are
+statistically independent on the signal<span style='position:relative;
+top:7.0pt'><img width=76 height=24 src="Target%20location_files/image014.png"></span>,
+<span style='position:relative;top:6.0pt'><img width=30 height=23
+src="Target%20location_files/image015.png"></span> is considered to be
+uncorrelated and have a Gaussian probability distribution density with zero
+mean and variance<span style='position:relative;top:6.0pt'><img width=20
+height=30 src="Target%20location_files/image016.png"></span>. </p>
+
+<p class=MsoNormal>The optimal MAP estimates of object coordinates are
+solutions of equation:</p>
+
+<p class=MsoNormal><img width=384 height=57
+src="Target%20location_files/image017.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;2</p>
+
+<p class=MsoNormal>Correspondingly, ML-estimate of target coordinates can be
+obtained as</p>
+
+<p class=MsoNormal><img width=268 height=57
+src="Target%20location_files/image018.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;3</p>
+
+<p class=MsoNormal>This indicates that the target location algorithm will be
+comprised two units: correlator unit, which computes mutual correlation
+function <span style='position:relative;top:14.0pt'><img width=135 height=48
+src="Target%20location_files/image019.png"></span> of the observed signal  <span
+style='position:relative;top:7.0pt'><img width=30 height=30
+src="Target%20location_files/image020.png"></span> and the target object
+signal  <span style='position:relative;top:7.0pt'><img width=76 height=30
+src="Target%20location_files/image021.png"></span> , or <b><i>template</i></b>, in all possible range of its coordinates, and a unit for locating position of
+the highest signal peak at the correlator output (Figure <span lang=AR-SA>&#8206;</span>9&#8209;1).</p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=11 height=4></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=495 height=144 src="Target%20location_files/image022.png"></td>
+ </tr>
+</table>
+
+ &nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<br clear=ALL>
+
+<p class=MsoCaption><a name="_Ref410225030">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;1</a>: Flow diagram of the
+ML optimal localization device</p>
+
+<p class=MsoNormal>Optimal MAP-estimator also consists of a correlator and a
+decision-making device locating the maximum in the correlation pattern.  The
+only difference between ML- and MAP-estimators is that, in the MAP-estimator,
+the correlation pattern is biased by the appropriately normalized logarithm of
+the object coordinates’ a priori probability distribution.</p>
+
+<p class=MsoNormal>The digital correlation can be implemented in DFT domain:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif'><img width=440
+height=42 src="Target%20location_files/image023.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;4</p>
+
+<p class=MsoNormal> Where <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.5pt'><img width=68 height=30 src="Target%20location_files/image024.png"></span> is
+input signal DFT spectrum, <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:7.0pt'><img width=130 height=37 src="Target%20location_files/image025.png"></span> is
+the complex conjugate of the target object DFT spectrum. Such an implementation
+is called <b><i>matched filtering</i></b>. Correspondingly,
+the filter that implements this operation is called <b><i>matched filter</i></b>.</p>
+
+<h4><a name="_Toc50109565"></a><a name="_Ref410332642"></a><a
+name="_Ref410332638"></a><a name="_Toc410119487"></a><a name="_Toc321080141"></a><a
+name="_Toc320550512"></a><a name="_Toc319782831"></a><a name="_Toc319782234"></a><a
+name="_Toc309299812"></a><a name="_Toc308799560"></a><a name="_Toc308435702"></a><a
+name="_Toc308287482"></a><a name="_Toc308287078"></a><a name="_Toc50109568">9.1.1.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Target object localization in the presence of non-white
+(correlated) additive Gaussian noise</a>  </h4>
+
+<p class=MsoNormal>For the correlated Gaussian noise model, in addition to the
+assumption that noise samples <span style='position:relative;top:6.0pt'><img
+width=30 height=30 src="Target%20location_files/image026.png"></span> are
+statistically independent on the signal<span style='position:relative;
+top:7.0pt'><img width=76 height=30 src="Target%20location_files/image021.png"></span>,
+<span style='position:relative;top:6.0pt'><img width=30 height=30
+src="Target%20location_files/image026.png"></span> is considered to be
+correlated and have a Gaussian probability distribution density with zero mean
+and noise DFT power spectrum of <span style='position:relative;top:8.0pt'><img
+width=65 height=30 src="Target%20location_files/image027.png"></span>where <span
+style='position:relative;top:8.0pt'><img width=39 height=30
+src="Target%20location_files/image028.png"></span> is a normalized spectrum
+shaping function such that</p>
+
+<p class=MsoNormal><img width=107 height=48
+src="Target%20location_files/image029.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;5</p>
+
+<p class=MsoNormal>Applying the observed signal plus noise mixture, with a
+filter with frequency response</p>
+
+<p class=MsoNormal><img width=87 height=48
+src="Target%20location_files/image030.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;6</p>
+
+<p class=MsoNormal>Which is also known as a <b><i>whitening filter</i></b>,
+will result in noise power spectrum become uniform with spectral density<span
+style='position:relative;top:6.0pt'><img width=20 height=30
+src="Target%20location_files/image016.png"></span>, while the target object
+signal spectrum is modified to<span style='position:relative;top:8.0pt'><img
+width=66 height=30 src="Target%20location_files/image031.png"></span>. This
+means that by using the whitening filter, the target with correlated noise
+became a target with white, uncorrelated noise.</p>
+
+<p class=MsoNormal>Therefore for the case of additive correlated noise
+ML-optimal localization device should consist of the whitening filter followed
+by a filter matched to the modified target object signal and by a device for
+localizing the signal maximum. This is the optimal localization device shown in
+a flow diagram of <i><u>Figure <span lang=AR-SA>&#8206;</span>10&#8209;2</u></i>.
+that provide maximum likelihood (ML) estimation of the target object
+coordinates.</p>
+
+<p class=MsoNormal>The whitening filters and the filter matched to the modified
+target object can be combined into one filter with discrete frequency response </p>
+
+<p class=MsoNormal><img width=89 height=58
+src="Target%20location_files/image032.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;7</p>
+
+<p class=MsoNormal>The above reasoning implies also that, for a target signal
+observed in a mixture with additive correlated Gaussian noise, filter defined
+by Equation <span lang=AR-SA>&#8206;</span>9&#8209;38 generates a signal which
+is monotonically related with a posteriori probability of
+target coordinates.</p>
+
+<p class=Figure><span style='position:relative;z-index:251658240;left:-31px;
+top:20px;width:680px;height:292px'>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=0 height=0></td>
+  <td width=25></td>
+  <td width=640></td>
+  <td width=15></td>
+ </tr>
+ <tr>
+  <td height=231></td>
+  <td colspan=2 align=left valign=top><img width=665 height=231
+  src="Target%20location_files/image033.png"></td>
+ </tr>
+ <tr>
+  <td height=15></td>
+ </tr>
+ <tr>
+  <td height=26></td>
+  <td></td>
+  <td colspan=2 align=left valign=top><img width=655 height=26
+  src="Target%20location_files/image034.png"
+  alt="Figure &#8206;10-2 Flow diagram of the ML optimal localization device for the case of correlated Gaussian noise"></td>
+ </tr>
+</table>
+
+</span>&nbsp;</p>
+
+<p class=MsoCaption><span class=capLabel><span style='font-size:12.0pt'>&nbsp;</span></span></p>
+
+<p class=MsoCaption><span class=capLabel><span style='font-size:12.0pt'>&nbsp;</span></span></p>
+
+<p class=MsoCaption><span class=capLabel><span style='font-size:12.0pt'>&nbsp;</span></span></p>
+
+<p class=MsoCaption><span class=capLabel><span style='font-size:12.0pt'>&nbsp;</span></span></p>
+
+<p class=MsoCaption><span class=capLabel><span style='font-size:12.0pt'>&nbsp;</span></span></p>
+
+<p class=MsoCaption><span class=capLabel><span style='font-size:12.0pt'>&nbsp;</span></span></p>
+
+<p class=MsoCaption><span class=capLabel><span style='font-size:12.0pt'>&nbsp;</span></span></p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<br clear=ALL>
+
+<p class=MsoNormal>                                                                                                                </p>
+
+<p class=MsoNormal>The filter defined by Equation <span lang=AR-SA>&#8206;</span>9&#8209;38
+has yet another important feature. It provides the highest possible, for all
+linear filters, ratio of its response to the target object signal to standard
+deviation of noise at its output (signal-to-noise ratio).</p>
+
+<p class=MsoNormal> For that reason it is referred as the <b><i>SNR</i></b>-<b><i>optimal
+filter</i></b>. </p>
+
+<p class=MsoNormal><a name="_Toc321080140"></a><a name="_Toc320550511"></a><a
+name="_Toc319782830"></a><a name="_Toc319782233"></a><a name="_Toc309299811"></a><a
+name="_Toc308799559"></a><a name="_Toc308435701"></a><a name="_Toc308287481"></a><a
+name="_Toc308287077"></a><a name="_Toc50109561"><img width=204 height=58
+src="Target%20location_files/image035.png"></a></p>
+
+<p class=MsoCaption><a name="_Ref410231433">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;8</a></p>
+
+<h4><a name="_Ref410495116">9.1.1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Performance of ML-optimal estimators: normal and
+anomalous localization errors</a></h4>
+
+<p class=MsoNormal>There are two essentially different types of possible
+localization errors. One type of the errors occurs when noise intensity is
+relatively low with respect to that of the target object signal. In such cases,
+correlator output maxima are located in a close vicinity of the target
+location, and, therefore, localization errors are relatively small. The second
+type of the errors is represented by large errors, which occur, when correlator
+output maxima are found very far away from the actual position of the target
+object. Small localization errors are caused by distortion of the target
+autocorrelation peak shape by the noise. Large errors are a result of prominent
+large noise outbursts occurring outside the area occupied by the object. </p>
+
+<p class=MsoNormal>We call the first type of error <b><i>normal errors</i></b> because their probability distribution density can be approximated by a Gaussian
+(normal) distribution. </p>
+
+<p class=MsoNormal>The errors of the second type are called <b><i>anomalous
+errors</i></b>, and its probability distribution density can be approximated
+uniform distribution density. The uniform distribution density of anomalous
+errors has quite an obvious explanation. Outside the area occupied by the
+object only noise component is present. Because it is a stationary random
+process, extremely large noise outbursts, which cause anomalous localization
+errors, are equally probable everywhere in this area.</p>
+
+<h4><a name="_Toc410119488"></a><a name="_Toc321080142"></a><a
+name="_Toc320550513"></a><a name="_Toc319782832"></a><a name="_Toc319782235"></a><a
+name="_Toc309299813"></a><a name="_Toc308799561"></a><a name="_Toc308435703"></a><a
+name="_Toc308287483"></a><a name="_Toc308287079"></a><a name="_Toc50109569">9.1.1.4<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Localization accuracy for the SNR-optimal filter</a></h4>
+
+<p class=MsoNormal>Because the SNR-optimal filter is
+the matched filter for the target object signal modified by the whitening
+operation, the potential localization accuracy of the optimal filter can be
+derived from error in localization accuracy in the presence of white noise in
+which target object DFT spectrum <span style='position:relative;top:7.0pt'><img
+width=39 height=30 src="Target%20location_files/image036.png"></span> is
+replaced by its whitened spectrum<span style='position:relative;top:8.0pt'><img
+width=69 height=30 src="Target%20location_files/image037.png"></span>.</p>
+
+<p class=MsoNormal>A key feature of correlated noise is that the potential
+localization accuracy in the presence of non-white noise is always better than
+that for white noise with the same variance. </p>
+
+<p class=MsoNormal> This conclusion is well intuitively understood. Consider,
+for instance, a trivial special case, when noise is band limited and its
+bandwidth is less than that of the signal. SNR-optimal filter is
+in this case a band pass filter, which lets through all input signal
+frequencies, where noise spectrum vanishes to zero and blocks all other
+frequency, where noise spectrum is non-zero. The resulting signal is therefore
+noise free and the potential localization error variance is equal to zero. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119484">9.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoBodyText>The “Localization Accuracy and Reliability” experiment
+introduce target image localization algorithms in two noise environments,
+correlated and non-correlated Gaussian noise, with two different versions of
+target – smooth target and sharp target. </p>
+
+<p class=MsoNormal>The 15x15 target image (sharp or smooth) is planted randomly
+in a noisy image. Using the proper correlator (depending on the noise type),
+the target location is estimated.</p>
+
+<p class=MsoNormal>This process is repeated for <span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;top:3.0pt'><img
+width=12 height=27 src="Target%20location_files/image038.png"></span> times,
+where <span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+position:relative;top:3.0pt'><img width=12 height=27
+src="Target%20location_files/image038.png"></span> is a parameter provided by
+the user. An error histograms is constructed and updated with each iteration.
+The error is set to be the <span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+position:relative;top:3.0pt'><img width=17 height=27
+src="Target%20location_files/image039.png"></span> norm between actual location
+and found location.</p>
+
+<h3><a name="_Toc410119485">9.1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=547
+height=394 id="Picture 399" src="Target%20location_files/image040.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410494813">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;3</a>: &quot;Localization
+Accuracy and Reliability&quot;. Top left is the sharp target image. Bottom left
+is the smooth target image. Top middle is the sharp image located in a noisy
+image, with white Gaussian noise. Bottom middle is the smooth image located in
+a noisy image, with white Gaussian noise. Top right is the location error
+histogram of localization of the sharp image built from 10000 iterations.
+Bottom right is the location error histogram of localization of the smooth
+image built from 10000 iterations.  The SNR used was 0.025. </p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=244
+height=270 id="Picture 403" src="Target%20location_files/image041.jpg"><img
+width=245 height=270 id="Picture 404" src="Target%20location_files/image042.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410494805">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;4</a>: Location error histograms,
+zoomed in. Left is the sharp target location error histogram. Right is the
+smooth target location error histogram.</p>
+
+<p class=MsoBodyText>Figure <span lang=AR-SA style='font-size:11.0pt'>&#8206;</span>9&#8209;3
+and Figure <span lang=AR-SA style='font-size:11.0pt'>&#8206;</span>9&#8209;4
+shows an important issue with respect to the task of object localization.</p>
+
+<p class=MsoBodyText>There are two sources of localization error are indicated
+by the error histogram. In the error histogram there are two sections – near
+zero error, and far from zero errors. The near zero errors can be models with a
+Gaussian, and are related to normal errors described at <span
+lang=AR-SA style='font-size:11.0pt'>&#8206;</span>9.1.1.3. The far from zero
+errors can be modeled as uniform distribution, and are related to anomalous
+errors, also described at <span lang=AR-SA style='font-size:11.0pt'>&#8206;</span>9.1.1.3.</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>9.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410734116"></a><a name="_Toc410119759"></a><a
+name="_Toc410119489">Image Registration</a></h2>
+
+<h3><a name="_Toc410119490">9.2.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoNormal>Image registration is the problem of aligning two image of
+the same scene, taken from different locations. In the case of a translation
+motion (a shift in the x-y coordinates) between the two images, the task of
+finding the shift can be considered as target localization, where the target is
+the entire image. </p>
+
+<p class=MsoNormal>Given two images <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=30 height=27 src="Target%20location_files/image043.png"></span> which
+are a shifted version of one another, the translation shift can be found by:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.5pt'><img width=159 height=30 src="Target%20location_files/image044.png"></span> </p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;9</p>
+
+<p class=MsoNormal>Where their correlation function is:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.5pt'><img width=321 height=30 src="Target%20location_files/image045.png"></span> </p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;10</p>
+
+<h3><a name="_Toc410119491">9.2.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoNormal>Three versions of the same image (for example, the 3 color
+component of an RGB image) are coordinate shifted from one another. The
+correlation function is calculated between the first image and the second one,
+and between the first image and the third one. The images are then shifted back
+according to the found shift.</p>
+
+<h3><a name="_Toc410119492">9.2.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=464
+height=490 id="&#1514;&#1502;&#1493;&#1504;&#1492; 352"
+src="Target%20location_files/image046.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;5:
+“Image Registration”. Top left is the three shifted images. Top right is the
+calculated cross correlation between the first image and the second image.
+Bottom left is calculated cross correlation between the first image and the
+third image. Bottom right is the image after alignment of source images.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>9.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410734117"></a><a name="_Toc410119760"></a><a
+name="_Toc410119493">Target Location in Clutter</a></h2>
+
+<h3><a name="_Toc410119494">9.3.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a> [1]</h3>
+
+<p class=MsoNormal>The problem described in <span
+lang=AR-SA>&#8206;</span>9.1 Localization Accuracy and Reliability of locating
+a single target in a noisy image does not take into account other objects in
+the image, which are not the target, and may result in higher correlation then
+the target. “Target Location in Clutter” is focused on the solution for this
+problem in the form of linear filters. The formulation of the problem is as
+follows:</p>
+
+<p class=MsoNormal>Let <span style='position:relative;top:7.0pt'><img width=37
+height=30 src="Target%20location_files/image047.png"></span> , <span
+style='position:relative;top:7.0pt'><img width=202 height=30
+src="Target%20location_files/image048.png"></span>, be samples  of an input
+image that contains , in coordinates <span style='position:relative;top:6.0pt'><img
+width=53 height=30 src="Target%20location_files/image049.png"></span>, a target
+image defined by its samples <span style='position:relative;top:7.0pt'><img
+width=82 height=30 src="Target%20location_files/image050.png"></span> .
+Position of the target object has to be found as a position of the highest
+signal peak at the output of a linear filter. Let also <span style='position:
+relative;top:7.0pt'><img width=34 height=30
+src="Target%20location_files/image051.png"></span> be discrete frequency
+response of the linear filter, <span style='position:relative;top:7.0pt'><img
+width=39 height=30 src="Target%20location_files/image052.png"></span> and <span
+style='position:relative;top:7.0pt'><img width=39 height=30
+src="Target%20location_files/image053.png"></span> be DFT spectral coefficients
+of the target object and of the input image, respectively (<span
+style='position:relative;top:7.0pt'><img width=200 height=30
+src="Target%20location_files/image054.png"></span>). </p>
+
+<p class=MsoNormal>Then filter output at the location of the target object is:</p>
+
+<p class=MsoNormal><img width=634 height=66
+src="Target%20location_files/image055.png"></p>
+
+<p class=MsoCaption><a name="_Ref410230937">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;11</a></p>
+
+<p class=MsoNormal>and filter response to the entire input image is</p>
+
+<p class=MsoNormal><img width=328 height=57
+src="Target%20location_files/image056.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;12</p>
+
+<p class=MsoBodyText>The rate of target object false detections is determined
+by the number of possible target positions within filter output image <span
+style='position:relative;top:7.0pt'><img width=30 height=30
+src="Target%20location_files/image057.png"></span>, in which <span
+style='position:relative;top:7.0pt'><img width=72 height=30
+src="Target%20location_files/image058.png"></span>. One can try to minimize
+this number by an appropriate selection of the filter frequency response  <span
+style='position:relative;top:7.0pt'><img width=34 height=30
+src="Target%20location_files/image051.png"></span>. No analytical solution of
+this minimization problem is feasible, because there is no analytical
+relationship between frequency response of the filter and probability density
+of its output signal. The only statistical parameters of the filter output
+signal that can be determined given the filter frequency response are signal
+mean value:</p>
+
+<p class=MsoNormal><img width=183 height=57
+src="Target%20location_files/image059.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;13</p>
+
+<p class=MsoBodyText>and variance:</p>
+
+<p class=MsoNormal><img width=187 height=48
+src="Target%20location_files/image060.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;14</p>
+
+<p class=MsoNormal>The latter follows from Parseval relationship. Therefore,
+for optimization of the localization device filter we will rely upon the
+Tchebyshev’s inequality, which establishes a relationship between probability
+that a random variable <span style='position:relative;top:3.0pt'><img width=18
+height=20 src="Target%20location_files/image061.png"></span> exceeds some
+threshold <span style='position:relative;top:6.0pt'><img width=27 height=30
+src="Target%20location_files/image062.png"></span> and the variable’s mean
+value <span style='position:relative;top:3.0pt'><img width=20 height=20
+src="Target%20location_files/image063.png"></span> and standard deviation <span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;top:3.0pt'><img
+width=10 height=27 src="Target%20location_files/image064.png"></span>:</p>
+
+<p class=MsoNormal><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:7.0pt'><img width=236 height=39 src="Target%20location_files/image065.png"></span> </p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;15</p>
+
+<p class=MsoNormal>Using this inequality, obtain for the probability of false
+identification of the target object located in coordinates <span
+style='position:relative;top:6.0pt'><img width=47 height=30
+src="Target%20location_files/image066.png"></span> with one of non-target
+(background) objects:</p>
+
+<p class=MsoNormal><span style='position:relative;top:17.0pt'><img width=403
+height=58 src="Target%20location_files/image067.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;16</p>
+
+<p class=MsoNormal>where <span style='position:relative;top:7.0pt'><img
+width=65 height=29 src="Target%20location_files/image068.png"></span> are
+filter output values at points outside the target location, <span
+style='position:relative;top:7.0pt'><img width=56 height=29
+src="Target%20location_files/image069.png"></span> and <span style='position:
+relative;top:7.0pt'><img width=65 height=30
+src="Target%20location_files/image070.png"></span> are their mean value and
+variance, <span style='position:relative;top:7.0pt'><img width=35 height=30
+src="Target%20location_files/image071.png"></span>is filter output value,
+defined by Equation <span lang=AR-SA>&#8206;</span>9&#8209;11, at the target
+location. Optimal design of the filter requires minimization of <span
+style='position:relative;top:6.0pt'><img width=71 height=30
+src="Target%20location_files/image072.png"></span> on average over all range of
+possible target object coordinates:</p>
+
+<p class=MsoNormal><img width=218 height=39
+src="Target%20location_files/image073.png"></p>
+
+<p class=MsoCaption><a name="_Ref410230978">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;17</a></p>
+
+<p class=MsoNormal>According to Equation <span lang=AR-SA>&#8206;</span>9&#8209;17,
+this is equivalent to:</p>
+
+<p class=MsoNormal><img width=397 height=57
+src="Target%20location_files/image074.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;18</p>
+
+<p class=MsoNormal>We call the ratio</p>
+
+<p class=MsoNormal><img width=162 height=56
+src="Target%20location_files/image075.png"></p>
+
+<p class=MsoCaption><a name="_Ref410231128">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;19</a></p>
+
+<p class=MsoNormal> “signal-to-clutter ratio”.
+</p>
+
+<p class=MsoNormal>Equation <span lang=AR-SA>&#8206;</span>9&#8209;19 implies
+that, for minimizing<span style='position:relative;top:6.0pt'><img width=28
+height=30 src="Target%20location_files/image076.png"></span>, one should
+maximize <span style='position:relative;top:5.0pt'><img width=36 height=20
+src="Target%20location_files/image077.png"></span>. If DFT power spectrum<span
+style='position:relative;top:8.0pt'><img width=66 height=30
+src="Target%20location_files/image078.png"></span> of the input image
+background component is known, <span style='position:relative;top:7.0pt'><img
+width=66 height=30 src="Target%20location_files/image079.png"></span> can be
+found using Parseval relationship:</p>
+
+<p class=MsoNormal><img width=261 height=48
+src="Target%20location_files/image080.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;20</p>
+
+<p class=MsoNormal>and therefore</p>
+
+<p class=MsoNormal><img width=368 height=48
+src="Target%20location_files/image081.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;21</p>
+
+<p class=MsoNormal>Substitute this equation and Equation <span lang=AR-SA>&#8206;</span>9&#8209;11
+in Equation <span lang=AR-SA>&#8206;</span>9&#8209;19, obtain:</p>
+
+<p class=MsoNormal><span style='position:relative;top:32.0pt'><img width=247
+height=102 src="Target%20location_files/image082.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;22</p>
+
+<p class=MsoNormal>By virtue of Cauchy–Bunyakovsky–Schwarz inequality <span
+style='position:relative;top:3.0pt'><img width=38 height=20
+src="Target%20location_files/image083.png"></span> defined by this equation has
+an upper bound:</p>
+
+<p class=MsoNormal><img width=499 height=211
+src="Target%20location_files/image084.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;23</p>
+
+<p class=MsoNormal>that is reached when</p>
+
+<p class=MsoNormal><span style='position:relative;top:26.0pt'><img width=319
+height=67 src="Target%20location_files/image085.png"></span></p>
+
+<p class=MsoCaption><a name="_Ref410231357">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;24</a></p>
+
+<p class=MsoNormal>where asterisk * denotes complex conjugation. </p>
+
+<p class=MsoNormal>One can see that filter defined by Equation <span
+lang=AR-SA>&#8206;</span>9&#8209;24 is analogous to the SNR-optimal filter (Equation <span lang=AR-SA>&#8206;</span>9&#8209;8) introduced in <span lang=AR-SA>&#8206;</span>9.1.1.1 for object localization in the presence of
+correlated Gaussian noise. The numerator of its frequency response is the
+frequency response of the filter matched to the target object, just as in the
+SNR-optimal filter for target locating on the background of additive white
+Gaussian noise. The denominator of its frequency response is image background
+component power spectrum <span style='position:relative;top:12.0pt'><img
+width=127 height=39 src="Target%20location_files/image086.png"></span> averaged
+over all possible positions of the target object. It replaces the additive
+Gaussian noise power spectrum in the filter of Equation <span lang=AR-SA>&#8206;</span>9&#8209;8. 
+This makes optimal filter defined by Equation <span lang=AR-SA>&#8206;</span>9&#8209;24
+to be adaptive to the input image. We will call this filter <b><i>SCR</i></b>-<b><i>optimal
+adaptive correlator</i></b>.</p>
+
+<h4>9.3.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Estimation of input image power spectrum</h4>
+
+<p class=MsoNormal>In order to be implement SCR-optimal adaptive correlator,
+one needs knowledge of the averaged power spectrum <span style='position:relative;
+top:12.0pt'><img width=129 height=39 src="Target%20location_files/image087.png"></span>of
+the background component of the image. It has to be estimated from power
+spectrum of the input image. For this one has to specify in which way target
+and background components are combined in the input image.</p>
+
+<p class=MsoNormal>Consider following two models for this relationship:
+additive model and implant model. For the additive model, target image and
+background components are summed up to form the input image:</p>
+
+<p class=MsoNormal><img width=174 height=29
+src="Target%20location_files/image088.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;25</p>
+
+<p class=MsoNormal>The additive model seems to be adequate to the cases of
+“transmissive” imaging, such as, for instance X-ray imaging.</p>
+
+<p class=MsoNormal>For the implant model, target object and background image
+component complement each other and the latter is a part of the input image </p>
+
+<p class=MsoNormal><img width=165 height=29
+src="Target%20location_files/image089.png"></p>
+
+<p class=MsoCaption><a name="_Ref410236890">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;26</a></p>
+
+<p class=MsoNormal>selected by a certain target window function <span
+style='position:relative;top:7.0pt'><img width=103 height=28
+src="Target%20location_files/image090.png"></span> equal to one in points that
+belong to the target object and to zero in not target object points. The
+implant model is more adequate to “reflective” imaging, such as, for instance,
+conventional photography.</p>
+
+<p class=MsoNormal>For the additive model, spectrum of the background image
+component can be found as:</p>
+
+<p class=MsoNormal><img width=276 height=57
+src="Target%20location_files/image091.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;27</p>
+
+<p class=MsoNormal>In this case its averaged power spectrum can be evaluated
+as: </p>
+
+<p class=MsoNormal><img width=237 height=39
+src="Target%20location_files/image092.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;28</p>
+
+<p class=MsoNormal>For the implant model (Equation <span lang=AR-SA>&#8206;</span>9&#8209;26),
+it can be shown that</p>
+
+<p class=MsoNormal><img width=482 height=60
+src="Target%20location_files/image093.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;29</p>
+
+<p class=MsoNormal>where  <span style='position:relative;top:7.0pt'><img
+width=56 height=30 src="Target%20location_files/image094.png"></span> are DFT
+spectral coefficients of the target object window function <span
+style='position:relative;top:7.0pt'><img width=56 height=30
+src="Target%20location_files/image095.png"></span> for target located in the
+origin of coordinates:</p>
+
+<p class=MsoNormal><img width=353 height=57
+src="Target%20location_files/image096.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;30</p>
+
+<p class=MsoNormal>In a special case when the target window function is a
+rectangle of <span style='position:relative;top:5.0pt'><img width=102
+height=20 src="Target%20location_files/image097.png"></span> pixels, averaged
+over unknown target object coordinates power spectrum of the background image
+component can be, for the implant model, evaluated as:</p>
+
+<p class=MsoBodyText><span style='position:relative;top:12.0pt'><img width=139
+height=39 src="Target%20location_files/image098.png"></span><img width=422
+height=48 src="Target%20location_files/image099.png"><img width=519 height=57
+src="Target%20location_files/image100.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;31</p>
+
+<p class=MsoNormal>As target objects usually occupy only a relatively small
+part of the input image area (the largest relative area of the target is 1/9
+for the case, when are 3x3 possible positions of the target), contribution of
+the target object into power spectrum of the input image is relatively small.
+In view of this, both additive and implant models imply that one can use, as a
+zero-order approximation to the averaged power spectrum of the image background
+component, either power spectrum of the input image:</p>
+
+<p class=MsoNormal><img width=174 height=39
+src="Target%20location_files/image101.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;32</p>
+
+<p class=MsoNormal>or input image power spectrum <span style='position:relative;
+top:8.0pt'><img width=39 height=30 src="Target%20location_files/image102.png"></span>smoothed
+by a certain smoothing window function <span style='position:relative;
+top:7.0pt'><img width=38 height=30 src="Target%20location_files/image103.png"></span>:</p>
+
+<p class=MsoNormal><img width=288 height=48
+src="Target%20location_files/image104.png"> <img width=101 height=48
+src="Target%20location_files/image105.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;33</p>
+
+<p class=MsoNormal>This smoothing corresponds to windowing input image by an <b><i>“apodization”
+function</i></b>,
+which is equal to unity in the center of the image and gradually decays to zero
+to the image borders. Such a windowing, known in optics as “<b><i>apodization</i></b>”, is a useful method for reducing border effects in evaluating image DFT 
+spectra, caused by cyclicity of DFT. </p>
+
+<h4><a name="_Toc321080148"></a><a name="_Toc320550519"></a><a
+name="_Toc319782838"></a><a name="_Toc319782241"></a><a name="_Toc309299819"></a><a
+name="_Toc308799567"></a><a name="_Toc308435709"></a><a name="_Toc308287489"></a><a
+name="_Toc308287085"></a><a name="_Toc50110331">9.3.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Local adaptive </a>SCR-optimal correlators</h4>
+
+<p class=MsoNormal>The described SCR-optimal adaptive correlator minimizes the
+probability of anomalous errors of target localization in images by means of
+adaptation of its filter frequency response to the power spectrum of the
+background image component. This approach is justified if images are spatially
+homogeneous in terms of their spectra, i.e. power spectra of arbitrary image
+fragments do not differ much from the power spectrum of the entire image. While
+this is true for many images, which belong to the class of so-called texture
+images, this spectral homogeneity is an exemption rather than a rule. 
+Generally, images are non-homogeneous and their local power spectra may vary
+very substantially </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>A natural extension of the above developed SCR-optimal
+adaptive correlators to non-homogeneous images is designing and applying the
+correlator filter locally in sliding window of the size commensurable with size
+of image fragments that can be regarded as being homogeneous in terms of their power
+spectra. In such an implementation, in each position <span style='position:
+relative;top:5.0pt'><img width=33 height=23
+src="Target%20location_files/image106.png"></span> (<span style='position:relative;
+top:7.0pt'><img width=147 height=25 src="Target%20location_files/image107.png"></span>)
+of the window SCR-adaptive filter is applied to the image within the window and
+signal-to-clutter ratio is computed as ratio of the squared filter output
+signal <span style='position:relative;top:7.0pt'><img width=23 height=28
+src="Target%20location_files/image108.png"></span>to the variance <span
+style='position:relative;top:7.0pt'><img width=25 height=32
+src="Target%20location_files/image109.png"></span> of the filter output signal
+within the window (local variance):</p>
+
+<p class=MsoNormal><span style='position:relative;top:19.0pt'><img width=84
+height=56 src="Target%20location_files/image110.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;34</p>
+
+<p class=MsoNormal>Estimate of the target coordinates is then found as a
+position of the global maximum over the <span style='position:relative;
+top:7.0pt'><img width=44 height=25 src="Target%20location_files/image111.png"></span>map.
+We will refer to sliding window SCR-optimal adaptive correlators with frequency
+response </p>
+
+<p class=MsoNormal><span style='position:relative;top:28.0pt'><img width=133
+height=67 src="Target%20location_files/image112.png"></span></p>
+
+<p class=MsoCaption><a name="_Ref410243628">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;35</a></p>
+
+<p class=MsoNormal>where <span style='position:relative;top:8.0pt'><img
+width=69 height=43 src="Target%20location_files/image113.png"></span>is an
+estimate (obtained as it is described in the previous section) of the image
+background component within the window in its <span style='position:relative;
+top:5.0pt'><img width=33 height=23 src="Target%20location_files/image114.png"></span>-th
+position, as to <b><i>SCR-optimal</i></b> <b><i>local adaptive correlators</i></b>.</p>
+
+<p class=MsoNormal>SCR-optimal local adaptive correlators do
+substantially outperform global optimal adaptive correlators in terms of
+signal-to-cluster ration they provide in real-life images.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119495">9.3.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoNormal>The “Target Location in Clutter” experiment compares 4
+different localization method: matched filter, <span class=BodyTextChar>normalized
+cross correlation (NCC), SCR-optimal filter and SCR-optimal local adaptive
+correlators</span><span
+class=BodyTextChar>.</span></p>
+
+<p class=MsoNormal>Unlike the other correlators, the <span class=BodyTextChar>normalized
+cross correlation is not a linear function of the image, and it is used in the </span>“Target
+Location in Clutter” experiment as reference. The <span class=BodyTextChar>normalized
+cross correlation localization algorithm is performed in a sliding window on
+the searched image. For each window in the searched image with same size as the
+fragment searched the normalized cross correlation is calculated:</span></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:18.0pt'><img width=384 height=57 src="Target%20location_files/image115.png"></span> </p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;36</p>
+
+<p class=MsoNormal>Where <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=12 height=27 src="Target%20location_files/image116.png"></span>is
+the current window in the searched image and <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=12 height=27 src="Target%20location_files/image117.png"></span>is
+its mean value, <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=12 height=27 src="Target%20location_files/image118.png"></span>is
+the fragment image and <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=12 height=27 src="Target%20location_files/image119.png"></span>is
+the fragment mean value. [2]</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119496">9.3.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=623
+height=606 id="Picture 405" src="Target%20location_files/image120.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410497415">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;6</a>:&quot;Target Location
+in Clutter&quot;. Top left is the test image. The selected target is marked
+with black square. Top right are the localization results  - match filter
+(red), SCR (blue), NCC (yellow). Bottom left is the homogonized SCR result.
+Searched fragmetn was 32x32 size. Additive model is used for background
+spectrum estimation.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=624
+height=632 id="Picture 413" src="Target%20location_files/image121.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410497419">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;7</a>:&quot;Target Location
+in Clutter&quot;. Top left is the test image. The selected target is marked
+with black square. Top right are the localization results  - match filter
+(red), SCR (blue), NCC (yellow). Bottom left is the homogonized SCR result. Searched
+fragmetn was 3x3 size. Additive model is used for background spectrum
+estimation.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=624
+height=636 id="&#1514;&#1502;&#1493;&#1504;&#1492; 171"
+src="Target%20location_files/image122.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410499486">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;8</a>:&quot;Target Location
+in Clutter&quot;. Top left is the test image. The selected target is marked
+with black square. Top right are the localization results  - match filter
+(red), SCR (blue), NCC (yellow). Bottom left is the homogonized SCR result. Searched
+fragmetn was 3x3 size. Window smoothing model is used for background spectrum
+estimation.</p>
+
+<p class=MsoNormal>Figure <span lang=AR-SA>&#8206;</span>9&#8209;6 ,Figure <span lang=AR-SA>&#8206;</span>9&#8209;7 and Figure <span lang=AR-SA>&#8206;</span>9&#8209;8
+illustrates the importance of homogenization. Although not always the case,
+matched filter with homogenized input will result in good localization result.
+A similar argument can be claimed about proper background spectrum estimation.
+Comparing the results of Figure <span lang=AR-SA>&#8206;</span>9&#8209;7 and Figure <span lang=AR-SA>&#8206;</span>9&#8209;8, it can be seen that by switching the
+method of spectrum estimation, the failure in detection of SCR changed to a
+success.</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>9.4<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410734118"></a><a name="_Toc410119761"></a><a
+name="_Toc410119497">Detection of Very Small Objects</a></h2>
+
+<h3><a name="_Toc410119499">9.4.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoNormal>The “Detection of Very Small Objects” experiment detects and
+emphasis small object in a target image using SCR-optimal local adaptive
+correlators described at Equation <span lang=AR-SA>&#8206;</span>9&#8209;35,
+with local spectrum calculated as 3x3 averaging filter of the entire image
+spectrum. The correlation with the target is done by convolution with mask of
+ones with size given by user.</p>
+
+<h3><a name="_Toc410119500">9.4.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=662
+height=340 id="Picture 414" src="Target%20location_files/image123.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;9:
+&quot;Detection of Very Small Object&quot;. Left is the test image. Right image
+is an image with small object highlighted, using correlation filter. Small
+object is 3x3 matrix of ones.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>9.5<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410734119"></a><a name="_Toc410119762"></a><a
+name="_Toc410119501">Impulse Noise Filtering</a></h2>
+
+<h3><a name="_Ref410241839"></a><a name="_Toc410119502">9.5.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoNormal>For Impulse noise filtering problem when the location of distorted
+pixels are not known, their detection represents the main problem.  The Impulse
+noise characteristics are described on chapter <b>Error! Reference source not
+found.</b> <b>Error! Reference source not found.</b>. The task of locating the
+location of distorted pixels can be treated as a special case of object localization
+in clutter images.</p>
+
+<p class=MsoNormal>For localization of impulse noise samples, individual pixels
+replaced by noise are the localization target. Hence, target spectrum in Equation <span lang=AR-SA>&#8206;</span>9&#8209;24 that determines SCR-optimal
+adaptive correlator is uniform, and the correlator filter frequency response
+will be in this case determined solely by an estimate</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>When positions <span style='position:relative;top:8.0pt'><img
+width=72 height=39 src="Target%20location_files/image124.png"></span> of power
+spectrum of the image background component:</p>
+
+<p class=MsoNormal><img width=327 height=66
+src="Target%20location_files/image125.png"></p>
+
+<p class=MsoCaption><a name="_Ref410240031">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;37</a></p>
+
+<p class=MsoNormal>Equation <span lang=AR-SA>&#8206;</span>9&#8209;37 implies
+that image filtering using this filter is double whitening.  Double whitening
+can be approximated by two convolution of the image with <b><i>Laplacian</i></b> (the double Laplacian). Detection of impulse noise samples can be then
+implemented by comparing of the output of such a filter in every pixel with a
+certain threshold. As the threshold, the filter output standard deviation
+multiplied by a certain constant can be taken, the constant been selected so as
+maximize the probability of correct detection, given the probability of false
+alarms that may occur due to contrast small details and object edges in the
+image.  At the correction stage, image samples that have been detected as distorted,
+can be replaced by “predicted” values found by a one or another smoothing
+operation over those samples in their vicinity that are not marked as
+distorted. As the smoothing operation, arithmetic mean or its robust non-linear
+versions can be used.  This algorithm can mathematically be formalized as</p>
+
+<p class=MsoNormal><img width=240 height=57
+src="Target%20location_files/image126.png"></p>
+
+<p class=MsoCaption><a name="_Ref410225314">Equation <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;38</a></p>
+
+<p class=MsoNormal>where  <span style='position:relative;top:7.0pt'><img
+width=38 height=30 src="Target%20location_files/image127.png"></span> are
+filtered image samples, <span style='position:relative;top:7.0pt'><img
+width=38 height=30 src="Target%20location_files/image128.png"></span> are
+samples of the initial distorted image, <span style='position:relative;
+top:7.0pt'><img width=47 height=30 src="Target%20location_files/image129.png"></span> are
+samples of the result of applying to image <span style='position:relative;
+top:7.0pt'><img width=37 height=30 src="Target%20location_files/image130.png"></span> the
+double Laplacian operator, <span style='position:relative;top:2.0pt'><img
+width=20 height=20 src="Target%20location_files/image131.png"></span>is a
+detection threshold constant multiplier to the standard deviation <span
+style='position:relative;top:8.0pt'><img width=38 height=30
+src="Target%20location_files/image132.png"></span>  of <span style='position:
+relative;top:7.0pt'><img width=48 height=30
+src="Target%20location_files/image133.png"></span>, <span style='position:relative;
+top:7.0pt'><img width=39 height=30 src="Target%20location_files/image134.png"></span> are
+the “predicted” values. <span style='position:relative;top:2.0pt'><img
+width=20 height=20 src="Target%20location_files/image131.png"></span> is a free
+parameter of the algorithm that depends on the probability of pixel distortion:
+the lager the probability the lower must be <span style='position:relative;
+top:2.0pt'><img width=20 height=20 src="Target%20location_files/image131.png"></span>.</p>
+
+<h4>9.5.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Iterative filter</h4>
+
+<p class=MsoNormal>In case when the probability of pixel distortion is
+sufficiently large, many clusters of two of more adjacent distorted pixels may
+occur, which hampers detection of individual distorted pixels by the filter
+aimed at detection of individual distorted pixels. The reliability of the
+detection of distorted pixels can be increased if denoising is implemented in
+an iterative fashion, using as input image, at each iteration, the image
+obtained on the previous iteration and with decreasing, from iteration to
+iteration, of the impulse noise detection threshold in order to remove and
+correct at earlier stages of iterations the most intensive impulse noise
+outbursts.  This algorithm can mathematically be formulated by the equation</p>
+
+<p class=MsoNormal><span style='position:relative;top:20.0pt'><img width=256
+height=58 src="Target%20location_files/image135.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;39</p>
+
+<p class=MsoBodyText>where  <span style='position:relative;top:7.0pt'><img
+width=36 height=30 src="Target%20location_files/image136.png"></span> are
+filtered image samples at <span style='position:relative;top:5.0pt'><img
+width=37 height=20 src="Target%20location_files/image137.png"></span>-th
+iteration (<span style='position:relative;top:7.0pt'><img width=72 height=30
+src="Target%20location_files/image138.png"></span>),<span style='position:relative;
+top:7.0pt'><img width=48 height=30 src="Target%20location_files/image139.png"></span> are
+samples of the result of applying to image <span style='position:relative;
+top:7.0pt'><img width=46 height=30 src="Target%20location_files/image140.png"></span> at
+<span style='position:relative;top:5.0pt'><img width=37 height=20
+src="Target%20location_files/image137.png"></span>-th iteration the double
+Laplacian operator, <span style='position:relative;top:2.0pt'><img width=38
+height=20 src="Target%20location_files/image141.png"></span> is the detection
+threshold constant multiplier to the standard deviation <span style='position:
+relative;top:10.0pt'><img width=38 height=30
+src="Target%20location_files/image142.png"></span>  of <span style='position:
+relative;top:7.0pt'><img width=44 height=30
+src="Target%20location_files/image143.png"></span>, <span style='position:relative;
+top:7.0pt'><img width=45 height=30 src="Target%20location_files/image144.png"></span> are
+the “predicted” values found.</p>
+
+<h4>9.5.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Recursive filter</h4>
+
+<p class=MsoBodyText> A simple and fast modification of this denoising
+filtering is recursive filtering in a sliding window, in which detection and
+estimation for each pixel are carried out in the process of image
+row-wise/column-wise scanning using, for detection, comparison of prediction
+error, found in the same way as in DPCM-coding   (see 4.2), with a certain
+detection threshold: </p>
+
+<p class=MsoNormal> <img width=226 height=53
+src="Target%20location_files/image145.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;40</p>
+
+<p class=MsoNormal><span class=BodyTextChar>where “predicted” values <img
+width=30 height=18 src="Target%20location_files/image146.png"> of <img
+width=36 height=16 src="Target%20location_files/image147.png">-th pixel for
+image scanning in the direction of index <img width=10 height=18
+src="Target%20location_files/image148.png"> are computed, in the same way as in
+DPCM coding, by weighted summation of pixels <img width=168 height=19
+src="Target%20location_files/image149.png"> on the preceding and the given row,
+which have been already processed, and </span><span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;top:3.0pt'><img
+width=52 height=27 src="Target%20location_files/image150.png"></span><span
+class=BodyTextChar> is a detection threshold. In order to lower the probability
+of missing distorted pixels </span><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=52 height=27 src="Target%20location_files/image150.png"></span><span
+class=BodyTextChar> should be lower, which increases the probability of false
+detection. This may result in blurring of image edges. In order to reduce the
+damage, it was found useful to modify the filter in the following </span>way:</p>
+
+<p class=MsoNormal><img width=279 height=53
+src="Target%20location_files/image151.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>9&#8209;41</p>
+
+<p class=MsoBodyText>where <span style='position:relative;top:3.0pt'><img
+width=18 height=16 src="Target%20location_files/image152.png"></span> is a
+certain correcting constant, which is smaller than the visual detection
+threshold for small targets of the size of one pixel and larger than visual
+detection threshold for large targets. Practical values of  <span
+style='position:relative;top:3.0pt'><img width=18 height=17
+src="Target%20location_files/image153.png"></span> are roughly in the range of
+10 to20 gray levels (in the 0-255 scale). </p>
+
+<p class=MsoBodyText> Described impulse noise filtering algorithms belong to
+the family of non-linear filters because they contain detection components,
+which are substantially non-linear. </p>
+
+<h3><a name="_Toc410119503">9.5.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment Description</a></h3>
+
+<p class=MsoNormal>“Impulse noise filtering” experiment examines two different
+impulse noise reduction algorithms:</p>
+
+<p class=MsoNormal>Iterative filter and recursive filter, described at <span lang=AR-SA>&#8206;</span>9.5.1.</p>
+
+<h3><a name="_Toc410119504">9.5.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=593
+height=593 id="Picture 415" src="Target%20location_files/image154.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410501357">Figure <b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>9&#8209;10</a>: &quot;Impulse Noise
+Filtering&quot;. Top left is the test image. Top right is the test image
+tampered with impulse noise. Bottom left is the iterative algorithm result.
+Bottom right is the recursive algorithm result.</p>
+
+<p class=MsoBodyText>As can be seen at Figure <span lang=AR-SA>&#8206;</span>9&#8209;10,
+although both filters produces good results, the iterative version seems with
+better final result.<br clear=all style='page-break-before:always'>
+</p>
+
+<h1><a name="_Toc410734120"></a><a name="_Toc410119784"></a><a
+name="_Toc410119568">Bibliography</a></h1>
+
+<p class=MsoNormal></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="100%"
+ style='width:100.0%'>
+ <tr>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[1] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;Image Parameter Estimation:
+  Case Study—Localization of Objects in Images,&quot; in <i>Theoretical
+  Foundations of Digital Imaging Using MATLAB</i>, CRC Press, 2012, p. 343.</p>
+  </td>
+ </tr>
+ <tr xmlns="">
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[2] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>P. Fua, &quot;A parallel stereo algorithm that
+  produces dense depth maps and preserves image features,&quot; [Research
+  Report] RR-1369,, 1991.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=AR-SA dir=RTL>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

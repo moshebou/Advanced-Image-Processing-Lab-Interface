@@ -1,0 +1,1916 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>Advanced Image Processing lab</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;}
+@font-face
+	{font-family:CMSY10;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:CMR8;
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-21.6pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:28.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-28.8pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-36.0pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:43.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-43.2pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{mso-style-link:"Heading 5 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:50.4pt;
+	margin-bottom:.0001pt;
+	text-indent:-50.4pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-weight:normal;}
+h6
+	{mso-style-link:"Heading 6 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:57.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-57.6pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Heading 7 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:64.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-64.8pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"Heading 8 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:72.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-72.0pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"Heading 9 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:79.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-79.2pt;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:44.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:55.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:66.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:77.0pt;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Footnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-indent:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoEndnoteReference
+	{vertical-align:super;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"Endnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
+	{mso-style-link:"Macro Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	font-size:9.0pt;
+	font-family:"Courier New";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-name:"Title\,ttl";
+	mso-style-link:"Title Char\,ttl Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpFirst, li.MsoBodyTextIndentCxSpFirst, div.MsoBodyTextIndentCxSpFirst
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpMiddle, li.MsoBodyTextIndentCxSpMiddle, div.MsoBodyTextIndentCxSpMiddle
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndentCxSpLast, li.MsoBodyTextIndentCxSpLast, div.MsoBodyTextIndentCxSpLast
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"Subtitle Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:15.0pt;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"Body Text 2 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Body Text 3 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-link:"Document Map Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.0pt;
+	line-height:200%;
+	background:navy;
+	font-size:12.0pt;
+	font-family:"Tahoma",sans-serif;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"Plain Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;}
+span.MsoPlaceholderText
+	{color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"No Spacing Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.MsoSubtleReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	text-decoration:underline;}
+span.MsoIntenseReference
+	{font-variant:small-caps;
+	color:#C0504D;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+p.MsoBibliography, li.MsoBibliography, div.MsoBibliography
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:right;
+	page-break-after:avoid;
+	direction:rtl;
+	unicode-bidi:embed;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Cambria",serif;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-link:"Heading 4";
+	font-family:"Cambria",serif;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading5Char
+	{mso-style-name:"Heading 5 Char";
+	mso-style-link:"Heading 5";
+	font-family:"Cambria",serif;
+	color:#243F60;}
+span.Heading6Char
+	{mso-style-name:"Heading 6 Char";
+	mso-style-link:"Heading 6";
+	font-family:"Cambria",serif;
+	color:#243F60;
+	font-style:italic;}
+span.Heading7Char
+	{mso-style-name:"Heading 7 Char";
+	mso-style-link:"Heading 7";
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+span.Heading8Char
+	{mso-style-name:"Heading 8 Char";
+	mso-style-link:"Heading 8";
+	font-family:"Cambria",serif;
+	color:#404040;}
+span.Heading9Char
+	{mso-style-name:"Heading 9 Char";
+	mso-style-link:"Heading 9";
+	font-family:"Cambria",serif;
+	color:#404040;
+	font-style:italic;}
+p.StyleFirstline0cmLinespacingDouble, li.StyleFirstline0cmLinespacingDouble, div.StyleFirstline0cmLinespacingDouble
+	{mso-style-name:"Style First line\:  0 cm Line spacing\:  Double";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.EquationChar
+	{mso-style-name:"Equation Char";
+	mso-style-link:Equation;
+	color:#4F81BD;
+	font-weight:bold;}
+p.Equation, li.Equation, div.Equation
+	{mso-style-name:Equation;
+	mso-style-link:"Equation Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:#4F81BD;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma",sans-serif;}
+span.EndnoteTextChar
+	{mso-style-name:"Endnote Text Char";
+	mso-style-link:"Endnote Text";}
+span.FootnoteTextChar
+	{mso-style-name:"Footnote Text Char";
+	mso-style-link:"Footnote Text";}
+p.HeadingMath, li.HeadingMath, div.HeadingMath
+	{mso-style-name:HeadingMath;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	font-variant:small-caps;}
+p.Figure, li.Figure, div.Figure
+	{mso-style-name:Figure;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:center;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Table, li.Table, div.Table
+	{mso-style-name:Table;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.HeadingOther, li.HeadingOther, div.HeadingOther
+	{mso-style-name:HeadingOther;
+	margin-top:26.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:45.0pt;
+	text-indent:-45.0pt;
+	line-height:15.0pt;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.References, li.References, div.References
+	{mso-style-name:References;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.9pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.9pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.capLabel
+	{mso-style-name:capLabel;
+	font-style:italic;
+	vertical-align:baseline;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman",serif;}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman",serif;}
+p.Author, li.Author, div.Author
+	{mso-style-name:Author;
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.SubtitleChar
+	{mso-style-name:"Subtitle Char";
+	mso-style-link:Subtitle;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;
+	font-family:"Times New Roman",serif;}
+p.CN, li.CN, div.CN
+	{mso-style-name:CN;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;}
+p.ChapterNo, li.ChapterNo, div.ChapterNo
+	{mso-style-name:ChapterNo;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;}
+p.small, li.small, div.small
+	{mso-style-name:small;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.li, li.li, div.li
+	{mso-style-name:li;
+	margin-top:3.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:17.85pt;
+	text-indent:-17.85pt;
+	line-height:200%;
+	font-size:10.0pt;
+	font-family:"Book Antiqua",serif;}
+p.Affiliation, li.Affiliation, div.Affiliation
+	{mso-style-name:Affiliation;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:26.0pt;
+	margin-left:0cm;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	font-style:italic;}
+p.Abstract, li.Abstract, div.Abstract
+	{mso-style-name:Abstract;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.TitleChar
+	{mso-style-name:"Title Char\,ttl Char";
+	mso-style-link:"Title\,ttl";
+	font-family:"Times New Roman",serif;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.BlockQuote, li.BlockQuote, div.BlockQuote
+	{mso-style-name:BlockQuote;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:7.0pt;
+	margin-left:15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTnum, li.LISTnum, div.LISTnum
+	{mso-style-name:LISTnum;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTalph, li.LISTalph, div.LISTalph
+	{mso-style-name:LISTalph;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.LISTdash, li.LISTdash, div.LISTdash
+	{mso-style-name:LISTdash;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Motto, li.Motto, div.Motto
+	{mso-style-name:Motto;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.Appendix, li.Appendix, div.Appendix
+	{mso-style-name:Appendix;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+p.Notes, li.Notes, div.Notes
+	{mso-style-name:Notes;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;}
+span.MacroTextChar
+	{mso-style-name:"Macro Text Char";
+	mso-style-link:"Macro Text";
+	font-family:"Courier New";}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-link:"Plain Text";
+	font-family:"Courier New";}
+span.DocumentMapChar
+	{mso-style-name:"Document Map Char";
+	mso-style-link:"Document Map";
+	font-family:"Tahoma",sans-serif;
+	background:navy;}
+span.BodyText2Char
+	{mso-style-name:"Body Text 2 Char";
+	mso-style-link:"Body Text 2";
+	font-family:"Times New Roman",serif;}
+span.BodyText3Char
+	{mso-style-name:"Body Text 3 Char";
+	mso-style-link:"Body Text 3";
+	font-family:"Times New Roman",serif;}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.Style11, li.Style11, div.Style11
+	{mso-style-name:Style11;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.FigureCaption, li.FigureCaption, div.FigureCaption
+	{mso-style-name:"Figure Caption";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.currencyconvertertext
+	{mso-style-name:currency_converter_text;}
+span.currencyconverterlink
+	{mso-style-name:currency_converter_link;}
+span.BodyTextIndentChar
+	{mso-style-name:"Body Text Indent Char";
+	mso-style-link:"Body Text Indent";
+	font-family:"Times New Roman",serif;}
+span.st
+	{mso-style-name:st;}
+span.fplc
+	{mso-style-name:fplc;}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-link:"No Spacing";}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:21.0cm 841.95pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoToc1><a name="_Ref409520465"></a><a name="_Ref409520484"></a><a href="#_Toc410739828">2<span style='font-size:11.0pt;font-family:"Calibri",sans-serif;
+color:windowtext;text-transform:none;font-weight:normal;text-decoration:none'>      </span>Image
+quantization<span style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410739829"><i>2.1</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Vision Contrast Sensitivity<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410739830"><i>2.2</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Signal Quantization<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410739831"><i>2.3</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Image Quantization<span style='color:
+windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>14</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410739832"><i>2.4</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>         </span>Image Spectral Quantization<span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc410739833"><span dir=RTL></span><span
+lang=AR-SA dir=RTL style='font-family:"Times New Roman",serif'><span dir=RTL></span>3</span><span
+style='font-size:11.0pt;font-family:"Calibri",sans-serif;color:windowtext;
+text-transform:none;font-weight:normal;text-decoration:none'>       </span>Bibliography<span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>19</span></a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<span style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:10.0pt;
+margin-left:0cm;line-height:115%'>&nbsp;</p>
+
+<h1><a name="_Toc410739828"></a><a name="_Toc410119724"></a><a
+name="_Toc410119372"></a><a name="_Ref409457732"></a><a name="_Ref409457722">2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Image quantization</a></h1>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>2.1<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410739829"></a><a name="_Toc410119725"></a><a
+name="_Toc410119373"></a><a name="_Ref410071849"></a><a name="_Ref410071827">Vision
+Contrast Sensitivity</a></h2>
+
+<h3><a name="_Toc410119374">2.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoNormal>A natural primary requirement for quantization of image gray
+levels is to secure invisibility of false contours in displayed digital images.
+The threshold of visibility of patches of constant gray level depends on their
+contrast with respect to their background and of size of patches. Quantitative
+estimates can be made using Weber-Fechner’s law illustrated in <span
+class=MsoSubtleReference><span style='font-variant:normal !important;
+color:windowtext;text-decoration:none'>Figure <span lang=AR-SA>&#8206;</span>2&#8209;1</span></span>
+. </p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse'>
+ <tr>
+  <td width=590 valign=top style='width:442.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=Equation><img width=448 height=226 id="&#1514;&#1502;&#1493;&#1504;&#1492; 252"
+  src="Image%20quantization_files/image001.jpg" alt=WeberFechnerLaw></p>
+  <p class=MsoCaption><a name="_Ref409875584">Figure </a><b><span lang=AR-SA
+  style='font-size:12.0pt'>&#8206;</span></b>2&#8209;1:
+  The Weber-Fechner law on the threshold visibility of a stimulus on a uniform
+  background</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoBodyText>As one can see from the figure, the ratio of brightness
+contrast <span style='position:relative;top:6.0pt'><img width=39 height=30
+src="Image%20quantization_files/image002.png"></span>of a stimulus on the
+threshold of its visibility to background of brightness <img width=11
+height=20 src="Image%20quantization_files/image003.png"> is constant for a wide
+range of the brightness:</p>
+
+<p class=MsoNormal><img width=126 height=39
+src="Image%20quantization_files/image004.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;1                                                                                                                             </p>
+
+<p class=MsoBodyText>The threshold contrast <span style='position:relative;
+top:6.0pt'><img width=28 height=30 src="Image%20quantization_files/image005.png"></span> depends
+of the stimulus size. Its lowest value of 1% - 3% corresponds to stimuli of
+angular size of the order of 10 or more angular resolution elements.</p>
+
+<h3><a name="_Toc410119375">2.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment description</a></h3>
+
+<p class=MsoBodyText>The “Vision Contrast Sensitivity” illustrated the Weber-Fechner’s
+law using an interactive experiment.</p>
+
+<p class=MsoBodyText>The user required to detect the stimulus on a uniform
+background, using the mouse courser. If the user misses the stimulus, it
+relocates to a new random location and the contrast <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=16 height=27 src="Image%20quantization_files/image006.png"></span>increses
+in one. If the user succeeds in locating the stimulus, the stimulus size
+increases by two pixels in all axes. After 7 successful detections of stimulus
+location, the background changes to the next one.</p>
+
+<p class=MsoBodyText>All values are in 8 bits. Contrast is in the range of
+1-35, the backgrounds are [16, 128, 220], and stimulus size is
+1,3,5,7,9,11,13,15.</p>
+
+<h3><a name="_Toc410119376">2.1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=624
+height=522 id="&#1514;&#1502;&#1493;&#1504;&#1492; 253"
+src="Image%20quantization_files/image007.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410470509">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;2: “Vision Contrast
+Sensitivity”. Top image is the uniform backgrounds; lower plot is the result of
+stimulus detection contrast as a function of stimulus size. Blue line is for
+background of 16, red line is for background of 128, yellow line is for
+background of 220.</p>
+
+<p class=MsoNormal>Figure <span lang=AR-SA>&#8206;</span>2&#8209;2 support the Weber-Fechner
+law – for smaller value of the background it is easier to notice small change
+in contrast, while with high value of bakcground, it is harder to locate the
+stimilus. This experiment is usfull for both quantization method (quantization
+which uses more quantizationvalues in more notiablee ange) and in noise
+subtrucation (for example impulse noise, which may not even be noitcable for
+high value background).</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>2.2<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410739830"></a><a name="_Toc410119726"></a><a
+name="_Toc410119377">Signal Quantization</a></h2>
+
+<h3><a name="_Toc410119378">2.2.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a></h3>
+
+<h4>2.2.1.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Scalar (element-wise) quantization definition</h4>
+
+<p class=MsoNormal>Scalar (element-wise) quantization is the second stage of
+signal digitization. It is applied to coefficients of signal discrete
+representation obtained as the result of signal discretization.
+Scalar quantization implies that a dynamic range of a finite length has first
+to be specified in the entire range of the signal representation coefficient
+values <span style='position:relative;top:3.0pt'><img width=20 height=11
+src="Image%20quantization_files/image008.png"></span> by defining their minimum
+<span style='position:relative;top:5.0pt'><img width=30 height=20
+src="Image%20quantization_files/image009.png"></span> and maximum <span
+style='position:relative;top:6.0pt'><img width=30 height=30
+src="Image%20quantization_files/image010.png"></span> and then interval <span
+style='position:relative;top:6.0pt'><img width=76 height=30
+src="Image%20quantization_files/image011.png"></span> is split into a certain
+number <span style='position:relative;top:5.0pt'><img width=20 height=20
+src="Image%20quantization_files/image012.png"></span> of <b><i>quantization
+intervals</i></b> by defining their border values <span style='position:relative;
+top:5.0pt'><img width=39 height=30 src="Image%20quantization_files/image013.png"></span>,
+<span style='position:relative;top:5.0pt'><img width=96 height=20
+src="Image%20quantization_files/image014.png"></span>. Quantization intervals
+are indexed by an integer index and for each particular <span style='position:
+relative;top:5.0pt'><img width=11 height=20
+src="Image%20quantization_files/image015.png"></span>-th interval its
+representative value, or <b><i>quantization level<span style='position:relative;
+top:3.0pt'><img width=30 height=20 src="Image%20quantization_files/image016.png"></span></i></b>,
+is chosen. In signal reconstruction, all values within a particular
+quantization interval are replaced with its representative quantization level. Figure <span lang=AR-SA>&#8206;</span>2&#8209;3 illustrates these notions.  </p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse'>
+ <tr>
+  <td width=590 valign=top style='width:442.8pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><img width=576 height=205 id="&#1514;&#1502;&#1493;&#1504;&#1492; 36"
+  src="Image%20quantization_files/image017.jpg" alt=QuantizationDiagram></p>
+  <p class=MsoCaption><a name="_Ref410514085">Figure </a><b><span lang=AR-SA
+  style='font-size:12.0pt'>&#8206;</span></b>2&#8209;3
+  Signal values probability density and arrangement of signal quantization
+  intervals and quantization levels.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>Quantization error<span dir=RTL></span><span dir=RTL><span
+dir=RTL></span> </span>is defined by:</p>
+
+<p class=MsoCaption><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=69 height=24 src="Image%20quantization_files/image018.png"></span><span
+class=BodyTextChar><span style='color:windowtext'>, </span></span><span
+class=BodyTextChar>          </span><span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=81 height=24 src="Image%20quantization_files/image019.png"></span>  
+                                                       <span style='position:
+relative;top:5.0pt'><img width=87 height=16
+src="Image%20quantization_files/image020.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;2</p>
+
+<p class=MsoNormal>And those outside boundaries of the dynamic range:</p>
+
+<p class=MsoCaption><img width=96 height=20
+src="Image%20quantization_files/image021.png">                                                                                                  <span
+style='position:relative;top:5.0pt'><img width=58 height=20
+src="Image%20quantization_files/image022.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;3</p>
+
+<p class=MsoCaption><img width=116 height=20
+src="Image%20quantization_files/image023.png">                                                                                          <span
+style='position:relative;top:6.0pt'><img width=60 height=21
+src="Image%20quantization_files/image024.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;4</p>
+
+<p class=MsoBodyText>Loss functions<span style='position:relative;top:6.0pt'><img
+width=57 height=30 src="Image%20quantization_files/image025.png"></span>,<span
+style='position:relative;top:6.0pt'><img width=66 height=30
+src="Image%20quantization_files/image026.png"></span> <span style='position:
+relative;top:5.0pt'><img width=66 height=30
+src="Image%20quantization_files/image027.png"></span> are introduced that
+measure losses owing to the quantization errors. He loss function is evaluated
+over all possible coefficient values on average according to their probability
+density: </p>
+
+<p class=MsoCaption><img width=164 height=48
+src="Image%20quantization_files/image028.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;5</p>
+
+<p class=MsoCaption><img width=162 height=48
+src="Image%20quantization_files/image029.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;6</p>
+
+<p class=Equation>And</p>
+
+<p class=MsoCaption><span style='position:relative;top:16.0pt'><img width=183
+height=48 src="Image%20quantization_files/image030.png"></span> <span
+style='position:relative;top:5.0pt'><img width=76 height=30
+src="Image%20quantization_files/image031.png"></span> <span style='position:
+relative;top:6.0pt'><img width=87 height=30
+src="Image%20quantization_files/image032.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;7</p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<p class=MsoBodyText>Where <span style='position:relative;top:5.0pt'><img
+width=39 height=20 src="Image%20quantization_files/image033.png"></span> is the
+probability density of the values under quantization.</p>
+
+<p class=MsoBodyText>Quantizes designed to minimize the average quantization
+error measure given the number of quantization levels are called <b><i>optimal
+scalar quantizers</i></b>.
+</p>
+
+<p class=MsoBodyText>There are two approaches to the design of optimal
+quantizers, a direct optimization approach and a <b><i>compressor-expander
+(compander)</i></b> one.
+</p>
+
+<h4><a name="_Ref410072416">2.2.1.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Max-Lloyd quantization-</a> </h4>
+
+<p class=MsoNormal>The Max Lloyd quantizer design as a direct optimization
+approach assumes solving the optimization equation:</p>
+
+<p class=MsoCaption><img width=316 height=57
+src="Image%20quantization_files/image034.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;8</p>
+
+<p class=MsoNormal>For the case of <span style='position:relative;top:6.0pt'><img
+width=76 height=30 src="Image%20quantization_files/image035.png"></span> </p>
+
+<p class=MsoCaption><img width=563 height=57
+src="Image%20quantization_files/image036.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;9</p>
+
+<p class=MsoNormal>it follows that optimal boundaries of the quantization
+intervals should be placed halfway between the corresponding quantized values: </p>
+
+<p class=MsoCaption><img width=144 height=30
+src="Image%20quantization_files/image037.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;10</p>
+
+<p class=MsoBodyText>For the quadratic loss function <span style='position:
+relative;top:6.0pt'><img width=107 height=30
+src="Image%20quantization_files/image038.png"></span> a further simplification
+of the optimization search is possible. From </p>
+
+<p class=MsoCaption><img width=554 height=51
+src="Image%20quantization_files/image039.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;11</p>
+
+<p class=MsoNormal>It follows in this case that optimal quantization levels are
+centers of mass of the probability density within the quantization intervals:</p>
+
+<p class=Equation><img width=211 height=48
+src="Image%20quantization_files/image040.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;12</p>
+
+<p class=MsoBodyText>This suggests an iterative algorithm:</p>
+
+<p class=MsoBodyText>Start with initial guess of quantization values <span
+style='position:relative;top:7.0pt'><img width=30 height=30
+src="Image%20quantization_files/image041.png"></span>, <span style='position:
+relative;top:5.0pt'><img width=87 height=20
+src="Image%20quantization_files/image042.png"></span></p>
+
+<p class=MsoBodyText>Calculate quantization intervals according to <span
+style='position:relative;top:16.0pt'><img width=211 height=48
+src="Image%20quantization_files/image040.png"></span></p>
+
+<p class=MsoBodyText>Update quantization values according to <span
+style='position:relative;top:7.0pt'><img width=144 height=30
+src="Image%20quantization_files/image037.png"></span></p>
+
+<p class=MsoBodyText>Repeat step 2-3 till convergence</p>
+
+<p class=MsoNormal>Such a solution of the quantization optimization problem for
+the quadratic loss function is called <b><i>Max-Lloyd quantization</i></b><b><i>.</i></b> </p>
+
+<h4>2.2.1.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Compressor-expander (compander) approach</h4>
+
+<p class=MsoNormal>Compressor-expander quantization was suggested as a method
+for hardware implementation of non-uniform optimal quantization using readily
+available uniform quantizers in which signal dynamic range is split into
+quantization intervals of equal size, and centers of the intervals are used as
+quantization levels. In order to implement a non-uniform quantization with
+uniform quantizers, signal, before being sent to the uniform quantizer is
+subjected to a nonlinear point wise transformation. Correspondingly, at the
+signal reconstruction stage, uniformly quantized values have to be subjected to
+a nonlinear transformation inverse to the one used for quantization. Usually,
+the required non-linear pre-quantization transformation compresses the signal
+dynamic range, thus the name “compressor-expander quantization”. Flow diagram
+of compressor-expander quantization and reconstruction is presented in Figure <span lang=AR-SA>&#8206;</span>2&#8209;4.   </p>
+
+<p class=MsoNormal>
+
+<table cellpadding=0 cellspacing=0 align=left>
+ <tr>
+  <td width=0 height=21></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=617 height=275 src="Image%20quantization_files/image043.png"></td>
+ </tr>
+</table>
+
+ &nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<br clear=ALL>
+
+<p class=MsoCaption><a name="_Ref410514155">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;4 Schematic diagram of the
+compressor/expander quantization and reconstruction</p>
+
+<p class=MsoNormal>Optimization of the compressor-expander quantization is
+achieved by an appropriate selection of the compressive nonlinear point wise
+transformation.  The optimal transformation function can be found in the
+following way. Let <span style='position:relative;top:5.0pt'><img width=30
+height=20 src="Image%20quantization_files/image044.png"></span> be a
+compression transformation function and<span style='position:relative;
+top:6.0pt'><img width=20 height=30 src="Image%20quantization_files/image045.png"></span> be
+a uniform quantization interval. Then, for a particular value <span
+style='position:relative;top:3.0pt'><img width=20 height=11
+src="Image%20quantization_files/image008.png"></span> to be quantized,
+quantization interval <span style='position:relative;top:2.0pt'><img width=30
+height=20 src="Image%20quantization_files/image046.png"></span> that corresponds
+to uniform quantization of values of function <span style='position:relative;
+top:5.0pt'><img width=39 height=20 src="Image%20quantization_files/image047.png"></span> will
+be equal to </p>
+
+<p class=Equation><img width=172 height=57
+src="Image%20quantization_files/image048.png">, <span style='position:relative;
+top:3.0pt'><img width=107 height=20
+src="Image%20quantization_files/image049.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;13</p>
+
+<p class=MsoNormal>Introduce a virtual quantization interval</p>
+
+<p class=Equation><img width=116 height=48
+src="Image%20quantization_files/image050.png"> <span style='position:relative;
+top:3.0pt'><img width=116 height=20
+src="Image%20quantization_files/image051.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;14</p>
+
+<p class=MsoNormal>and a quantization loss function <span style='position:relative;
+top:6.0pt'><img width=48 height=30 src="Image%20quantization_files/image052.png"></span> as
+measure of losses due quantization error in the range of  <span
+style='position:relative;top:6.0pt'><img width=20 height=30
+src="Image%20quantization_files/image053.png"></span>. Then the optimal
+function <span style='position:relative;top:5.0pt'><img width=39 height=20
+src="Image%20quantization_files/image047.png"></span> is a solution of
+equation:</p>
+
+<p class=Equation><img width=308 height=57
+src="Image%20quantization_files/image054.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;15</p>
+
+<p class=Figure align=left style='text-align:left'>The solution can be found
+from the Euler-Lagrange equation, which in this case takes the form:</p>
+
+<p class=Equation><img width=203 height=48
+src="Image%20quantization_files/image055.png"></p>
+
+<p class=MsoCaption><a name="_Ref410072315">Equation </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;16</p>
+
+<p class=MsoNormal>where <img width=104 height=30
+src="Image%20quantization_files/image056.png">.</p>
+
+<p class=MsoNormal>From the <b><i>Compressor-expander (compander)</i></b><b><i> approach</i></b> several known quantization method can be derived such as
+uniform quantization, P-law quantization, and histogram equalization.</p>
+
+<h4><a name="_Ref410072395">2.2.1.4<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Uniform quantization</a></h4>
+
+<p class=MsoNormal>Uniform threshold criterion for Absolute value of
+Quantization error:</p>
+
+<p class=Equation><img width=153 height=48
+src="Image%20quantization_files/image057.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;17</p>
+
+<p class=MsoNormal>From Eqs. 3.5.12 and 3.5.16 it follows that, for monotonic
+functions <span style='position:relative;top:5.0pt'><img width=39 height=20
+src="Image%20quantization_files/image047.png"></span>, <span style='position:
+relative;top:6.0pt'><img width=48 height=30
+src="Image%20quantization_files/image058.png"></span> if</p>
+
+<p class=Equation><img width=76 height=30
+src="Image%20quantization_files/image059.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;18</p>
+
+<p class=MsoNormal>and, therefore, <span style='position:relative;top:7.0pt'><img
+width=48 height=30 src="Image%20quantization_files/image060.png"></span> is a
+linear function</p>
+
+<p class=Equation><img width=240 height=48
+src="Image%20quantization_files/image061.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;19</p>
+
+<p class=MsoBodyText>This implies that optimal is the standard uniform
+quantization with quantization interval and the number of quantization levels
+equal to, correspondingly,</p>
+
+<p class=Equation><img width=203 height=48
+src="Image%20quantization_files/image062.png"> , <img width=105 height=48
+src="Image%20quantization_files/image063.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;20</p>
+
+<h4>2.2.1.5<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Weber-Fechner law quantization</h4>
+
+<p class=MsoNormal>Uniform threshold criterion of Relative Quantization error:</p>
+
+<p class=Equation><img width=203 height=48
+src="Image%20quantization_files/image064.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;21</p>
+
+<p class=MsoNormal>In this case, <span style='position:relative;top:6.0pt'><img
+width=48 height=24 src="Image%20quantization_files/image065.png"></span> if</p>
+
+<p class=Equation><img width=85 height=30
+src="Image%20quantization_files/image066.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;22</p>
+
+<p class=MsoNormal>and, therefore, uniform quantization in a logarithmic scale
+is optimal:</p>
+
+<p class=Equation><img width=249 height=48
+src="Image%20quantization_files/image067.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;23</p>
+
+<p class=MsoNormal>The number of quantization levels in this case can be found
+as </p>
+
+<p class=Equation><img width=345 height=57
+src="Image%20quantization_files/image068.png"><span style='position:relative;
+top:16.0pt'><img width=414 height=48
+src="Image%20quantization_files/image069.png"></span></p>
+
+<p class=MsoCaption><a name="_Ref410071656">Equation </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;24</p>
+
+<p class=MsoNormal>This particular case is of a special interest in image
+processing. In images, artifacts of quantization of image pixel gray levels
+exhibit themselves in appearance of what is called as “<b><i>false contours</i></b>“, visible boundaries between image patches quantized to different quantization
+levels. This phenomenon is illustrated in Figure <span lang=AR-SA>&#8206;</span>2&#8209;5.
+</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=576
+height=289 id="&#1514;&#1502;&#1493;&#1504;&#1492; 35"
+src="Image%20quantization_files/image070.jpg" alt=ChestQuantiz16></p>
+
+<p class=MsoCaption><a name="_Ref409984114">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;5: False contours in image
+quantization. Initial test image (left) and same image quantized uniformly to
+16 quantization levels (right)</p>
+
+<p class=MsoNormal>As seen at <i><span lang=AR-SA>&#8206;</span>2.1</i><i> </i><i>Vision Contrast Sensitivity</i> the ratio of brightness contrast <span
+style='position:relative;top:6.0pt'><img width=39 height=30
+src="Image%20quantization_files/image071.png"></span>of a stimulus on the
+threshold of its visibility to background of brightness <span style='position:
+relative;top:2.0pt'><img width=11 height=20
+src="Image%20quantization_files/image003.png"></span> is constant for a wide
+range of the brightness:</p>
+
+<p class=Equation><img width=126 height=39
+src="Image%20quantization_files/image004.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;25</p>
+
+<p class=MsoNormal>The threshold contrast <span style='position:relative;
+top:6.0pt'><img width=30 height=30 src="Image%20quantization_files/image072.png"></span> depends
+of the stimulus size. Its lowest value of 1% - 3% corresponds to stimuli of
+angular size of the order of 10 or more angular resolution elements. Therefore
+it follows from Weber-Fechner’s law that
+optimal, for digital image display, quantization of image samples should be
+uniform in the logarithmic scale. The number <b><i>Q</i></b> of required
+quantization levels for logarithmic quantization can be found from Equation <span lang=AR-SA>&#8206;</span>2&#8209;24. For good quality photographic, TV
+and computer displays, dynamic range <span style='position:relative;top:6.0pt'><img
+width=66 height=30 src="Image%20quantization_files/image073.png"></span> of
+displayed image brightness is about 100. Using this estimation of the dynamic
+range and taking visual sensitivity threshold equal to 2%, obtain from Equation <span lang=AR-SA>&#8206;</span>2&#8209;24 that the required number of
+quantization levels <span style='position:relative;top:5.0pt'><img width=20
+height=20 src="Image%20quantization_files/image012.png"></span> for which false
+contours are under visibility threshold is of the order <span style='position:
+relative;top:5.0pt'><img width=212 height=20
+src="Image%20quantization_files/image074.png"></span>. Similar figures are
+characteristic also for human audio sensibility. This was the main reason why
+256 quantization levels (8 bits) were chosen as a standard for image, sound and
+other analog signal representation and why 8 bits (byte) had become a basic
+unit in the computer industry.</p>
+
+<h4><a name="_Ref410326531">2.2.1.6<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Histogram equalization</a></h4>
+
+<p class=MsoNormal>Exponential Criterion of Absolute Quantization error:</p>
+
+<p class=Equation><img width=162 height=48
+src="Image%20quantization_files/image075.png"></p>
+
+<p class=MsoCaption><a name="_Ref410072299">Equation </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;26</p>
+
+<p class=MsoNormal>Substituting (3.5.25) into (3.5.15) and solving the
+resulting differential equation, obtain in this case:</p>
+
+<p class=Equation><img width=279 height=105
+src="Image%20quantization_files/image076.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;27</p>
+
+<p class=MsoNormal>Thus, the required nonlinear pre-quantization transformation
+depends solely on the probability distribution of the quantized values. The
+meaning of this relationship becomes evident from the expression:</p>
+
+<p class=Equation><img width=203 height=30
+src="Image%20quantization_files/image077.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;28</p>
+
+<p class=MsoNormal>which implies that the  width of quantization intervals for
+the  various  values  of  <span style='position:relative;top:3.0pt'><img
+width=20 height=11 src="Image%20quantization_files/image008.png"></span> are
+inversely proportional to their probability  densities  raised to  the 
+corresponding  power.  For the widely used mean squared quantization error
+criterion (<span style='position:relative;top:3.0pt'><img width=39 height=20
+src="Image%20quantization_files/image078.png"></span>),</p>
+
+<p class=Equation><img width=222 height=105
+src="Image%20quantization_files/image079.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;29</p>
+
+<p class=MsoNormal>Note that an interesting special case takes place when <span
+style='position:relative;top:3.0pt'><img width=39 height=20
+src="Image%20quantization_files/image080.png"></span>, for which</p>
+
+<p class=Equation><img width=201 height=105
+src="Image%20quantization_files/image081.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;30</p>
+
+<p class=MsoNormal>Such a transformation is known as <b><i>histogram
+equalization</i></b> because it converts signal probability density, or, for
+quantized signals, signal histogram into uniform one. Histogram
+equalization is a popular image enhancement transformation. For image
+quantization, this transformation assumes that quantization errors are equally
+important whatever they values are, and makes quantization intervals inversely
+proportional to the probability density for the level to be quantized </p>
+
+<h4><a name="_Ref410072406">2.2.1.7<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>P-th law quantization</a> </h4>
+
+<p class=MsoNormal>Exponential Criterion of Relative Quantization error:</p>
+
+<p class=Equation><img width=222 height=48
+src="Image%20quantization_files/image082.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;31</p>
+
+<p class=MsoNormal>In this case, solution of the Euler-Lagrange equation (Equation <span lang=AR-SA>&#8206;</span>2&#8209;16) yields: </p>
+
+<p class=Equation><img width=316 height=105
+src="Image%20quantization_files/image083.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;32</p>
+
+<p class=MsoNormal>If quantized values <span style='position:relative;
+top:3.0pt'><img width=11 height=11 src="Image%20quantization_files/image084.png"></span> are
+distributed uniformly in the dynamic range <span style='position:relative;
+top:6.0pt'><img width=76 height=30 src="Image%20quantization_files/image011.png"></span>,
+the optimal compression function is</p>
+
+<p class=Equation><img width=250 height=48
+src="Image%20quantization_files/image085.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;33</p>
+
+<p class=MsoNormal>We will refer to such type of nonlinear transformations of
+as to <b><i>“P-th law quantization</i></b>“:</p>
+
+<p class=Equation><img width=212 height=48
+src="Image%20quantization_files/image086.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;34</p>
+
+<p class=MsoNormal>where exponent <span style='position:relative;top:2.0pt'><img
+width=20 height=20 src="Image%20quantization_files/image087.png"></span> is a
+transformation parameter. For the mean square relative quantization error
+criterion (Equation <span lang=AR-SA>&#8206;</span>2&#8209;26,<span
+style='position:relative;top:3.0pt'><img width=39 height=20
+src="Image%20quantization_files/image078.png"></span>), optimal is <span
+style='position:relative;top:5.0pt'><img width=48 height=20
+src="Image%20quantization_files/image088.png"></span>: </p>
+
+<p class=Equation><img width=240 height=48
+src="Image%20quantization_files/image089.png"></p>
+
+<p class=MsoCaption>Equation <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;35</p>
+
+<h3><a name="_Toc410119379">2.2.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment description</a></h3>
+
+<p class=MsoBodyText>The “Signal Quantization” experiment displays 3
+quantization methods performed on a test signal: Uniform
+quantization (<span lang=AR-SA>&#8206;</span><i><u>2.2.1.4</u></i>), P-th law quantization (<span lang=AR-SA>&#8206;</span><i><u>2.2.1.7</u></i>) and Max-Lloyd quantization- (<span lang=AR-SA>&#8206;</span>2.2.1.2), which were
+described above. The quantization level and P value of the P-law quantization
+are determined by the user.</p>
+
+<h3><a name="_Ref410476178"></a><a name="_Toc410119380">2.2.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+dir=LTR></span>Results</a></h3>
+
+<p class=MsoBodyText align=center style='text-align:center'><img width=623
+height=474 id="&#1514;&#1502;&#1493;&#1504;&#1492; 254"
+src="Image%20quantization_files/image090.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410471479">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;6: “Signal quantization”.
+Top left is the test signal. Top right is a quantized version of the signal,
+using max Lloyd quantization. Middle left plot is a quantized version of the
+signal, using uniform quantization. Middle right plot is a quantized version of
+the signal using p-law quantization. Bottom plot is the signal histogram, and
+the luts used for quantization. Test signal was originally 8-bit, and all
+quantization methods used 7-bit quantization.</p>
+
+<p class=MsoNormal>Figure <span lang=AR-SA>&#8206;</span>2&#8209;6 shows that
+for the given signal, Lloyd max quantization is the best quantization method in
+the RMS sense. The worst is the uniform quantization. This result is very
+intuitive – the Lloyd max quantization was designed to minimize the RMS error,
+and it is very signal adaptive, i.e. it take into consideration the signal
+characteristics (it’s psf), while the uniform quantization considers only the
+minimum and maximum values of the signal (and for some implementation, not even
+that), which makes it suitable for uniformly distributed signals. </p>
+
+<p class=MsoNormal>The P-law quantization (for P smaller then 1) allocates more
+quantization levels to small amplitude value (can be seen at lut of the P-law
+quantization at Figure <span lang=AR-SA>&#8206;</span>2&#8209;6, notice that
+the signal have both positive and negative values), and it is more suitable for
+signals with higher probability to smaller absolute value. The P-law
+quantization can be further optimized by calculating for each input signal its
+optimal P value.</p>
+
+<p class=MsoNormal>Although the Max-Lloyd seems to give the optimal result, it
+is not guaranteed, for two main reasons.</p>
+
+<p class=MsoNormal>The first reason is a technical reason. If the signal is
+corrupted by noise, and then quantized, the Max-Lloyd quantization will produce
+an optimal quantization for the corrupted signal, and not for the original
+signal, which result in high RMS error.</p>
+
+<p class=MsoNormal>The second reason is the face that Max Lloyd quantization
+does not guarantees conversion to the global minimum, only to the local
+minimum.</p>
+
+<p class=MsoNormal>Consider the following example illustrated at Figure <span lang=AR-SA>&#8206;</span>2&#8209;7:</p>
+
+<p class=MsoNormal>Signal <span style='font-size:12.0pt;font-family:"Times New Roman",serif;
+position:relative;top:3.0pt'><img width=11 height=27
+src="Image%20quantization_files/image091.png"></span> with pdf <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=38 height=27 src="Image%20quantization_files/image092.png"></span> where
+<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=38 height=27 src="Image%20quantization_files/image093.png"></span> has
+3 peaks, quantized with 2 quantization levels.  </p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=530 height=258 id="&#1514;&#1502;&#1493;&#1504;&#1492; 251"
+src="Image%20quantization_files/image094.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410474148">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;7: Example of regions and
+representation points that satisfy Lloyd-Max conditions without minimizing
+mean-squared distortion</p>
+
+<p class=MsoBodyText>It can be seen that one region must cover two of the
+peaks, yielding quite a bit of distortion,<br>
+while the other will represent the remaining peak, yielding little distortion.
+In the figure, the<br>
+two rightmost peaks are both covered by quantization interval <i><span
+style='font-family:"CMSY10",serif'>R</span></i><span style='font-size:8.0pt;
+font-family:"CMR8",serif'>2</span>, with the point <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=15 height=27 src="Image%20quantization_files/image095.png"></span><span
+style='font-size:8.0pt'> </span>as quantization value. Both the points and the
+regions satisfy the necessary conditions and cannot be locally improved.
+However, it can be seen in the figure that the rightmost peak is more probable
+than the other peaks. It<br>
+follows that the MSE would be lower if quantization interval <i><span
+style='font-family:"CMSY10",serif'>R</span></i><span style='font-size:8.0pt;
+font-family:"CMR8",serif'>1 </span>covered the two leftmost peaks. The
+Lloyd-Max algorithm is a type of valley-descending algorithm; starting with an
+arbitrary set of<br>
+values, these values are modified until reaching the bottom of the valley where
+no more local improvements are possible. [1]</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>2.3<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410739831"></a><a name="_Toc410119727"></a><a
+name="_Toc410119381">Image Quantization</a></h2>
+
+<h3><a name="_Toc410119382">2.3.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment description</a></h3>
+
+<p class=MsoBodyText>The “Image Quantization” experiment displays 3
+quantization methods performed on a test Image tampered with noise: Uniform quantization (<span lang=AR-SA>&#8206;</span><i><u>2.2.1.4</u></i>), P-th law quantization (<span lang=AR-SA>&#8206;</span><i><u>2.2.1.7</u></i>) and Max-Lloyd quantization- (<span lang=AR-SA>&#8206;</span><i><u>2.2.1.2</u></i>), which
+were described above. The quantization level, Gaussian noise standard deviation
+and P value of the P-law quantization are determined by the user.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119383">2.3.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=624
+height=460 id="&#1514;&#1502;&#1493;&#1504;&#1492; 355"
+src="Image%20quantization_files/image096.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410475706">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;8: “Image quantization”. Top
+left is the test Image. Middle top is a quantized version of the test image,
+using max Lloyd quantization. Bottom left image is a quantized version of the test
+image, using uniform quantization. Middle bottom image is a quantized version
+of the signal using p-law quantization. Top right plot are the calculated luts
+along with original image histogram. Bottom right plot are the test image
+histogram with quantized images histograms. Test image was originally 8-bit,
+and all quantization methods used 5-bit quantization, noise standard deviation
+was set to 17, P for P-law quantization was 0.35.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><img width=623
+height=452 id="&#1514;&#1502;&#1493;&#1504;&#1492; 362"
+src="Image%20quantization_files/image097.jpg"></p>
+
+<p class=MsoCaption><a name="_Ref410475714">Figure </a><b><span lang=AR-SA
+style='font-size:12.0pt'>&#8206;</span></b>2&#8209;9: “Image quantization”. Top
+left is the test Image. Middle top is a quantized version of the test image,
+using max Lloyd quantization. Bottom left image is a quantized version of the
+test image, using uniform quantization. Middle bottom image is a quantized
+version of the signal using p-law quantization. Top right plot are the
+calculated luts along with original image histogram. Bottom right plot are the
+test image histogram with quantized images histograms. Test image was
+originally 8-bit, and all quantization methods used 4-bit quantization, noise
+standard deviation was set to 0, optimal P for P-law quantization was 0.95.</p>
+
+<p class=MsoNormal>Figure <span lang=AR-SA>&#8206;</span>2&#8209;8 and Figure <span lang=AR-SA>&#8206;</span>2&#8209;9 illustrates the different
+capabilities of the three quantizers.  Figure <span lang=AR-SA>&#8206;</span>2&#8209;8
+illustrates the first reason for which the Max-Lloyd quantizer does not produce
+the optimal RMS quantization (mentioned at <i><u><span
+lang=AR-SA>&#8206;</span>2.2.3</u></i>) – the high noise standard deviation
+makes the uniform quantization to be the optimal RMS quantizer for that image. Figure <span lang=AR-SA>&#8206;</span>2&#8209;9, on the other hand shows the visual
+contours caused by the low number of quantization levels used, and the almost
+unnoticeable quantization contours in the Max-Lloyd quantization.</p>
+
+<p class=MsoNormal>Figure <span lang=AR-SA>&#8206;</span>2&#8209;8 and Figure <span lang=AR-SA>&#8206;</span>2&#8209;9 also illustrates that for the test
+image in those figures, the P-law quantization result is very similar to the
+uniform quantization, due to the statistical properties of the image.</p>
+
+<h2><i><span style='font-size:16.0pt;font-weight:normal'>2.4<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></i><span
+dir=LTR></span>   <a name="_Toc410739832"></a><a name="_Toc410119728"></a><a
+name="_Toc410119384">Image Spectral Quantization</a></h2>
+
+<h3><a name="_Toc410119385">2.4.1<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Theoretical background</a></h3>
+
+<p class=MsoBodyText><i>The<b> P</b></i>-th law compression transformation, thanks to its simple parameterization through a single parameter proved to be a
+useful approximation to optimal compression transformation, in particular, for
+quantizing Discrete Fourier Transform (DFT) and Discrete Cosine Transform (DCT)
+coefficients of images in transform image coding. Optimal values of the
+nonlinearity index <b><i>P</i></b> for which standard deviation of errors in
+reconstructed images because of quantization of their spectra is minimal are
+usually about 0.2-0.3. [2]</p>
+
+<h3><a name="_Toc410119386">2.4.2<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Experiment description</a></h3>
+
+<p class=MsoBodyText>The “Image Spectral Quantization” experiment displays 2
+quantization methods performed on a test Image in the spectral domain: </p>
+
+<p class=MsoBodyText>DFT orthogonal components quantization – P-law
+quantization is performed separately on the <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=33 height=27 src="Image%20quantization_files/image098.png"></span> and
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:
+relative;top:3.0pt'><img width=78 height=27
+src="Image%20quantization_files/image099.png"></span> component of the DFT
+transform of the test image.</p>
+
+<p class=MsoBodyText>DFT orthogonal components quantization – P-law
+quantization is performed separately on the<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=83 height=27 src="Image%20quantization_files/image100.png"></span> and
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif;position:
+relative;top:3.0pt'><img width=42 height=27
+src="Image%20quantization_files/image101.png"></span> component of the DFT of
+the test image:  P-law quantization for the <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=79 height=27 src="Image%20quantization_files/image102.png"></span> and
+uniform quantization for the<span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:3.0pt'><img width=46 height=27 src="Image%20quantization_files/image103.png"></span> .</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h3><a name="_Toc410119387">2.4.3<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span dir=LTR></span>Results</a></h3>
+
+<p class=MsoBodyText align=center style='text-align:center'><img width=621
+height=439 id="&#1514;&#1502;&#1493;&#1504;&#1492; 363"
+src="Image%20quantization_files/image104.jpg"></p>
+
+<p class=MsoCaption>Figure <b><span lang=AR-SA style='font-size:12.0pt'>&#8206;</span></b>2&#8209;10: “Image Spectral Quantization”. Top left is the test image. Bottom left is the
+test image spectrum. Middle top is the DFT orthogonal components quantization.
+Middle bottom is the spectrum of the DFT orthogonal components quantization
+result. Right top is the DFT Phase-amplitude components quantization. Right
+bottom is the spectrum of the DFT Phase-amplitude components quantization
+result. Orthogonal component quantization level is <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=45 height=24 src="Image%20quantization_files/image105.png"></span>,
+amplitude component quantization level is <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=45 height=24 src="Image%20quantization_files/image105.png"></span>,
+phase component quantization level is <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:2.5pt'><img width=45 height=24 src="Image%20quantization_files/image105.png"></span>.
+Optimal P for amplitude component quantization is  <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.0pt'><img width=62 height=25 src="Image%20quantization_files/image106.png"></span>,
+Optimal P for amplitude component quantization is <span
+style='font-size:12.0pt;font-family:"Times New Roman",serif;position:relative;
+top:4.0pt'><img width=69 height=25 src="Image%20quantization_files/image107.png"></span>.</p>
+
+<p class=MsoNormal>The comparison between quantization in the special domain
+and quantization in the frequency domain revels that there is an advantage to
+the quantization in the special domain, both in term of RMS and in terms of
+visual quality of the image. Quantization problems in the frequency domain
+cause very noticeable corruption of the image.</p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<p class=MsoCaption>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h1><a name="_Toc410119568"></a><a name="_Toc410119784"></a><a
+name="_Toc410739833">Bibliography</a></h1>
+
+<p class=MsoNormal></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="100%"
+ style='width:100.0%'>
+ <tr>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[1] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>R. Gallager, &quot;course materials for 6.450
+  Principles of Digital Communications I,&quot; MIT OpenCourseWare, Fall 2006.</p>
+  </td>
+ </tr>
+ <tr>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[2] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky<span dir=RTL></span><span
+  lang=AR-SA dir=RTL><span dir=RTL></span>&#8207;</span><span dir=LTR></span><span
+  dir=LTR></span>, &quot;Design of optimal quantizers,&quot; in <i>Theoretical
+  Foundations of Digital Imaging Using MATLAB</i>, CRC Press, 2012, p. 110.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span lang=AR-SA dir=RTL>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

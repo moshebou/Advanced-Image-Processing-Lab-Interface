@@ -1,0 +1,3384 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 15">
+<meta name=Originator content="Microsoft Word 15">
+<link rel=File-List href="Image%20enhancement_files/filelist.xml">
+<link rel=Edit-Time-Data href="Image%20enhancement_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Advanced Image Processing lab</title>
+<link rel=themeData href="Image%20enhancement_files/themedata.thmx">
+<link rel=colorSchemeMapping
+href="Image%20enhancement_files/colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>30</w:Zoom>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SplitPgBreakAndParaMark/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="false"
+  DefSemiHidden="false" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="371">
+  <w:LsdException Locked="false" Priority="0" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index 9"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" SemiHidden="true"
+   UnhideWhenUsed="true" Name="toc 9"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="header"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footer"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="index heading"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of figures"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="envelope return"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="footnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="line number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="page number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote reference"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="endnote text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="table of authorities"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="macro"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="toa heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Bullet 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Number 5"/>
+  <w:LsdException Locked="false" Priority="10" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Closing"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Signature"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="List Continue 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Message Header"/>
+  <w:LsdException Locked="false" Priority="11" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Salutation"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Date"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text First Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Note Heading"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Body Text Indent 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Block Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Hyperlink"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="FollowedHyperlink"/>
+  <w:LsdException Locked="false" Priority="22" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Document Map"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Plain Text"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="E-mail Signature"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Top of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Bottom of Form"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal (Web)"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Acronym"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Address"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Cite"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Code"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Definition"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Keyboard"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Preformatted"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Sample"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Typewriter"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="HTML Variable"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Normal Table"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="annotation subject"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="No List"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Outline List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Simple 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Classic 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Colorful 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Columns 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Grid 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 4"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 5"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 6"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 7"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table List 8"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table 3D effects 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Contemporary"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Elegant"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Professional"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Subtle 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 2"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Web 3"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Balloon Text"/>
+  <w:LsdException Locked="false" Priority="39" Name="Table Grid"/>
+  <w:LsdException Locked="false" SemiHidden="true" UnhideWhenUsed="true"
+   Name="Table Theme"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" SemiHidden="true" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" QFormat="true"
+   Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" QFormat="true"
+   Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" QFormat="true"
+   Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" QFormat="true"
+   Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" QFormat="true"
+   Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" QFormat="true"
+   Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" SemiHidden="true"
+   UnhideWhenUsed="true" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+  <w:LsdException Locked="false" Priority="41" Name="Plain Table 1"/>
+  <w:LsdException Locked="false" Priority="42" Name="Plain Table 2"/>
+  <w:LsdException Locked="false" Priority="43" Name="Plain Table 3"/>
+  <w:LsdException Locked="false" Priority="44" Name="Plain Table 4"/>
+  <w:LsdException Locked="false" Priority="45" Name="Plain Table 5"/>
+  <w:LsdException Locked="false" Priority="40" Name="Grid Table Light"/>
+  <w:LsdException Locked="false" Priority="46" Name="Grid Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="Grid Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="Grid Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="Grid Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="Grid Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="Grid Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="Grid Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="Grid Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="Grid Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="Grid Table 7 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="46" Name="List Table 1 Light"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark"/>
+  <w:LsdException Locked="false" Priority="51" Name="List Table 6 Colorful"/>
+  <w:LsdException Locked="false" Priority="52" Name="List Table 7 Colorful"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 1"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 1"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 1"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 1"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 2"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 2"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 2"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 2"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 3"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 3"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 3"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 3"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 4"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 4"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 4"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 4"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 5"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 5"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 5"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 5"/>
+  <w:LsdException Locked="false" Priority="46"
+   Name="List Table 1 Light Accent 6"/>
+  <w:LsdException Locked="false" Priority="47" Name="List Table 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="48" Name="List Table 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="49" Name="List Table 4 Accent 6"/>
+  <w:LsdException Locked="false" Priority="50" Name="List Table 5 Dark Accent 6"/>
+  <w:LsdException Locked="false" Priority="51"
+   Name="List Table 6 Colorful Accent 6"/>
+  <w:LsdException Locked="false" Priority="52"
+   Name="List Table 7 Colorful Accent 6"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1107305727 0 0 415 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1073786111 1 0 415 0;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-536870145 1073743103 0 0 415 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-520081665 -1073717157 41 0 66047 0;}
+@font-face
+	{font-family:"Book Antiqua";
+	panose-1:2 4 6 2 5 3 5 3 3 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:647 0 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+h1
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:21.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-21.6pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:#365F91;
+	font-weight:bold;}
+h2
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 2 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:28.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-28.8pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:13.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:#4F81BD;
+	font-weight:bold;}
+h3
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 3 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-36.0pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:#4F81BD;
+	font-weight:bold;}
+h4
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 4 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:43.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-43.2pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 5 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:50.4pt;
+	margin-bottom:.0001pt;
+	text-indent:-50.4pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:5;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:#243F60;
+	font-weight:normal;}
+h6
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 6 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:57.6pt;
+	margin-bottom:.0001pt;
+	text-indent:-57.6pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:6;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:#243F60;
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 7 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:64.8pt;
+	margin-bottom:.0001pt;
+	text-indent:-64.8pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:7;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";
+	color:#404040;
+	font-style:italic;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 8 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:72.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-72.0pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:8;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";
+	color:#404040;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 9 Char";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:79.2pt;
+	margin-bottom:.0001pt;
+	text-indent:-79.2pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:9;
+	font-size:10.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";
+	color:#404040;
+	font-style:italic;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.0pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-priority:39;
+	margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-priority:39;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-priority:39;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-priority:39;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:22.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-priority:39;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:33.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-priority:39;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:44.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-priority:39;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:55.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-priority:39;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:66.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-priority:39;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:77.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Footnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Header Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Footer Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-indent:15.0pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{mso-style-priority:35;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:#4F81BD;}
+span.MsoFootnoteReference
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	vertical-align:super;}
+span.MsoEndnoteReference
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	vertical-align:super;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Endnote Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoMacroText, li.MsoMacroText, div.MsoMacroText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Macro Text Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	line-height:12.0pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-name:"Title\,ttl";
+	mso-style-priority:10;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Title Char\,ttl Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:17.0pt;
+	mso-pagination:widow-orphan;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Body Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-priority:11;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Subtitle Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:15.0pt;
+	mso-pagination:widow-orphan;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	font-style:italic;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Body Text 2 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Body Text 3 Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+a:link, span.MsoHyperlink
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Document Map Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.0pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:12.0pt;
+	font-family:"Tahoma",sans-serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Plain Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.MsoPlaceholderText
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-priority:1;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"No Spacing Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.MsoSubtleReference
+	{mso-style-priority:31;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	font-variant:small-caps;
+	color:#C0504D;
+	text-decoration:underline;
+	text-underline:single;}
+span.MsoIntenseReference
+	{mso-style-priority:32;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	font-variant:small-caps;
+	color:#C0504D;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoBibliography, li.MsoBibliography, div.MsoBibliography
+	{mso-style-noshow:yes;
+	mso-style-priority:37;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{mso-style-priority:39;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:right;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	direction:rtl;
+	unicode-bidi:embed;
+	font-size:14.0pt;
+	font-family:"Cambria",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";
+	color:#365F91;
+	font-weight:bold;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	font-family:"Cambria",serif;
+	mso-ascii-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	color:#365F91;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	font-family:"Cambria",serif;
+	mso-ascii-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 3";
+	font-family:"Cambria",serif;
+	mso-ascii-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	color:#4F81BD;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 4";
+	font-family:"Cambria",serif;
+	mso-ascii-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	color:#4F81BD;
+	font-weight:bold;
+	font-style:italic;}
+span.Heading5Char
+	{mso-style-name:"Heading 5 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 5";
+	font-family:"Cambria",serif;
+	mso-ascii-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	color:#243F60;}
+span.Heading6Char
+	{mso-style-name:"Heading 6 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 6";
+	font-family:"Cambria",serif;
+	mso-ascii-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	color:#243F60;
+	font-style:italic;}
+span.Heading7Char
+	{mso-style-name:"Heading 7 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 7";
+	font-family:"Cambria",serif;
+	mso-ascii-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	color:#404040;
+	font-style:italic;}
+span.Heading8Char
+	{mso-style-name:"Heading 8 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 8";
+	font-family:"Cambria",serif;
+	mso-ascii-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	color:#404040;}
+span.Heading9Char
+	{mso-style-name:"Heading 9 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 9";
+	font-family:"Cambria",serif;
+	mso-ascii-font-family:Cambria;
+	mso-hansi-font-family:Cambria;
+	color:#404040;
+	font-style:italic;}
+span.FootnoteTextChar
+	{mso-style-name:"Footnote Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Footnote Text";}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:Header;
+	font-family:"Times New Roman",serif;
+	mso-ascii-font-family:"Times New Roman";
+	mso-hansi-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:Footer;
+	font-family:"Times New Roman",serif;
+	mso-ascii-font-family:"Times New Roman";
+	mso-hansi-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+span.EndnoteTextChar
+	{mso-style-name:"Endnote Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Endnote Text";}
+span.MacroTextChar
+	{mso-style-name:"Macro Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Macro Text";
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+span.TitleChar
+	{mso-style-name:"Title Char\,ttl Char";
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Title\,ttl";
+	font-family:"Times New Roman",serif;
+	mso-ascii-font-family:"Times New Roman";
+	mso-hansi-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	text-transform:uppercase;
+	font-weight:bold;}
+span.TitleChar1
+	{mso-style-name:"Title Char1\,ttl Char1";
+	mso-style-priority:10;
+	mso-style-unhide:no;
+	mso-ansi-font-size:28.0pt;
+	mso-bidi-font-size:28.0pt;
+	font-family:"Calibri Light",sans-serif;
+	mso-ascii-font-family:"Calibri Light";
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:"Calibri Light";
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	letter-spacing:-.5pt;
+	mso-font-kerning:14.0pt;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman",serif;
+	mso-ascii-font-family:"Times New Roman";
+	mso-hansi-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+span.BodyTextIndentChar
+	{mso-style-name:"Body Text Indent Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Body Text Indent";
+	font-family:"Times New Roman",serif;
+	mso-ascii-font-family:"Times New Roman";
+	mso-hansi-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+p.msobodytextindentcxspfirst, li.msobodytextindentcxspfirst, div.msobodytextindentcxspfirst
+	{mso-style-name:msobodytextindentcxspfirst;
+	mso-style-unhide:no;
+	mso-style-link:"Body Text Indent Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.msobodytextindentcxspmiddle, li.msobodytextindentcxspmiddle, div.msobodytextindentcxspmiddle
+	{mso-style-name:msobodytextindentcxspmiddle;
+	mso-style-unhide:no;
+	mso-style-link:"Body Text Indent Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.msobodytextindentcxsplast, li.msobodytextindentcxsplast, div.msobodytextindentcxsplast
+	{mso-style-name:msobodytextindentcxsplast;
+	mso-style-unhide:no;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:18.0pt;
+	margin-bottom:.0001pt;
+	text-indent:15.1pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.SubtitleChar
+	{mso-style-name:"Subtitle Char";
+	mso-style-priority:11;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:Subtitle;
+	font-family:"Times New Roman",serif;
+	mso-ascii-font-family:"Times New Roman";
+	mso-hansi-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";
+	font-style:italic;}
+span.BodyText2Char
+	{mso-style-name:"Body Text 2 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Body Text 2";
+	font-family:"Times New Roman",serif;
+	mso-ascii-font-family:"Times New Roman";
+	mso-hansi-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+span.BodyText3Char
+	{mso-style-name:"Body Text 3 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Body Text 3";
+	font-family:"Times New Roman",serif;
+	mso-ascii-font-family:"Times New Roman";
+	mso-hansi-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+span.DocumentMapChar
+	{mso-style-name:"Document Map Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Document Map";
+	font-family:"Tahoma",sans-serif;
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;
+	background:navy;}
+span.PlainTextChar
+	{mso-style-name:"Plain Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Plain Text";
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma",sans-serif;
+	mso-ascii-font-family:Tahoma;
+	mso-hansi-font-family:Tahoma;
+	mso-bidi-font-family:Tahoma;}
+span.NoSpacingChar
+	{mso-style-name:"No Spacing Char";
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"No Spacing";}
+p.msolistparagraphcxspfirst, li.msolistparagraphcxspfirst, div.msolistparagraphcxspfirst
+	{mso-style-name:msolistparagraphcxspfirst;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.msolistparagraphcxspmiddle, li.msolistparagraphcxspmiddle, div.msolistparagraphcxspmiddle
+	{mso-style-name:msolistparagraphcxspmiddle;
+	mso-style-unhide:no;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.msolistparagraphcxsplast, li.msolistparagraphcxsplast, div.msolistparagraphcxsplast
+	{mso-style-name:msolistparagraphcxsplast;
+	mso-style-unhide:no;
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.StyleFirstline0cmLinespacingDouble, li.StyleFirstline0cmLinespacingDouble, div.StyleFirstline0cmLinespacingDouble
+	{mso-style-name:"Style First line\:  0 cm Line spacing\:  Double";
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.EquationChar
+	{mso-style-name:"Equation Char";
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:Equation;
+	color:#4F81BD;
+	font-weight:bold;}
+p.Equation, li.Equation, div.Equation
+	{mso-style-name:Equation;
+	mso-style-unhide:no;
+	mso-style-link:"Equation Char";
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	color:#4F81BD;}
+p.HeadingMath, li.HeadingMath, div.HeadingMath
+	{mso-style-name:HeadingMath;
+	mso-style-unhide:no;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	font-variant:small-caps;}
+p.Figure, li.Figure, div.Figure
+	{mso-style-name:Figure;
+	mso-style-unhide:no;
+	margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.Table, li.Table, div.Table
+	{mso-style-name:Table;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.HeadingOther, li.HeadingOther, div.HeadingOther
+	{mso-style-name:HeadingOther;
+	mso-style-unhide:no;
+	margin-top:26.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:45.0pt;
+	text-indent:-45.0pt;
+	line-height:15.0pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	text-transform:uppercase;
+	font-weight:bold;}
+p.References, li.References, div.References
+	{mso-style-name:References;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:11.9pt;
+	margin-bottom:.0001pt;
+	text-indent:-11.9pt;
+	line-height:11.0pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.Author, li.Author, div.Author
+	{mso-style-name:Author;
+	mso-style-unhide:no;
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.CN, li.CN, div.CN
+	{mso-style-name:CN;
+	mso-style-unhide:no;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	mso-pagination:widow-orphan;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.ChapterNo, li.ChapterNo, div.ChapterNo
+	{mso-style-name:ChapterNo;
+	mso-style-unhide:no;
+	margin-top:57.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:17.0pt;
+	mso-pagination:widow-orphan;
+	font-size:15.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.small, li.small, div.small
+	{mso-style-name:small;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.li, li.li, div.li
+	{mso-style-name:li;
+	mso-style-unhide:no;
+	margin-top:3.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:17.85pt;
+	text-indent:-17.85pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Book Antiqua",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";}
+p.Affiliation, li.Affiliation, div.Affiliation
+	{mso-style-name:Affiliation;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:26.0pt;
+	margin-left:0cm;
+	line-height:11.0pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	font-style:italic;}
+p.Abstract, li.Abstract, div.Abstract
+	{mso-style-name:Abstract;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.BlockQuote, li.BlockQuote, div.BlockQuote
+	{mso-style-name:BlockQuote;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:7.0pt;
+	margin-left:15.0pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.LISTnum, li.LISTnum, div.LISTnum
+	{mso-style-name:LISTnum;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.LISTalph, li.LISTalph, div.LISTalph
+	{mso-style-name:LISTalph;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.LISTdash, li.LISTdash, div.LISTdash
+	{mso-style-name:LISTdash;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:15.0pt;
+	margin-bottom:.0001pt;
+	text-indent:-15.0pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.Motto, li.Motto, div.Motto
+	{mso-style-name:Motto;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.Appendix, li.Appendix, div.Appendix
+	{mso-style-name:Appendix;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.Notes, li.Notes, div.Notes
+	{mso-style-name:Notes;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	line-height:11.0pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.Style1, li.Style1, div.Style1
+	{mso-style-name:Style1;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.Style11, li.Style11, div.Style11
+	{mso-style-name:Style11;
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-indent:15.05pt;
+	line-height:200%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.FigureCaption, li.FigureCaption, div.FigureCaption
+	{mso-style-name:"Figure Caption";
+	mso-style-unhide:no;
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+p.msochpdefault, li.msochpdefault, div.msochpdefault
+	{mso-style-name:msochpdefault;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";}
+p.msopapdefault, li.msopapdefault, div.msopapdefault
+	{mso-style-name:msopapdefault;
+	mso-style-unhide:no;
+	mso-margin-top-alt:auto;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.capLabel
+	{mso-style-name:capLabel;
+	mso-style-unhide:no;
+	font-style:italic;
+	vertical-align:baseline;}
+span.currencyconvertertext
+	{mso-style-name:currency_converter_text;
+	mso-style-unhide:no;}
+span.currencyconverterlink
+	{mso-style-name:currency_converter_link;
+	mso-style-unhide:no;}
+span.st
+	{mso-style-name:st;
+	mso-style-unhide:no;}
+span.fplc
+	{mso-style-name:fplc;
+	mso-style-unhide:no;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-hansi-font-family:Calibri;}
+.MsoPapDefault
+	{mso-style-type:export-only;
+	margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:21.0cm 841.95pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin-top:0cm;
+	mso-para-margin-right:0cm;
+	mso-para-margin-bottom:10.0pt;
+	mso-para-margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:36.0pt'>
+
+<div class=WordSection1>
+
+<p class=MsoToc1><a name="_Ref409520484"></a><a name="_Ref409520465"></a><a
+href="#_Toc410730325">12<span style='font-size:11.0pt;font-family:"Calibri",sans-serif;
+color:windowtext;text-transform:none;font-weight:normal;text-decoration:none;
+text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Image
+enhancement<span style='color:windowtext;display:none;mso-hide:all;text-decoration:
+none;text-underline:none'>.. 3</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410730326"><i>12.1</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Image
+Dynamic Range Calibration<span style='color:windowtext;display:none;mso-hide:
+all;text-decoration:none;text-underline:none'>. 3</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410730327"><i>12.2</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Calibration
+of Imaging System PSF<span style='color:windowtext;display:none;mso-hide:all;
+text-decoration:none;text-underline:none'>.. 6</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410730328"><i>12.3</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>High
+Frequency Component Amplification<span style='color:windowtext;display:none;
+mso-hide:all;text-decoration:none;text-underline:none'>. 10</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410730329"><i>12.4</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Local
+Contrast Enhancement by Means Of Un-sharp Masking<span style='color:windowtext;
+display:none;mso-hide:all;text-decoration:none;text-underline:none'>. 12</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410730330"><i>12.5</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Local
+Contrast Enhancement by Means Local Range Homogenization<span style='color:
+windowtext;display:none;mso-hide:all;text-decoration:none;text-underline:none'>.
+14</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc410730331"><i>12.6</i><span style='font-size:
+11.0pt;font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Histogram
+Modification<span style='color:windowtext;display:none;mso-hide:all;text-decoration:
+none;text-underline:none'>. 16</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc410730332">Bibliography<span style='color:windowtext;
+display:none;mso-hide:all;text-decoration:none;text-underline:none'>.. 18</span></a></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:HE'><br clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h1><a name="_Toc410119543"></a><a name="_Toc410730325"></a><a
+name="_Toc410119777"></a><span style='mso-bookmark:_Toc410119543'><span
+style='mso-fareast-font-family:"Times New Roman"'>12</span></span><span
+style='mso-bookmark:_Toc410119543'><span style='font-size:7.0pt;font-family:
+"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span><span style='mso-bookmark:_Toc410119543'><span style='mso-fareast-font-family:
+"Times New Roman"'>Image enhancement</span></span><span style='mso-fareast-font-family:
+"Times New Roman"'><o:p></o:p></span></h1>
+
+<p class=MsoNormal>The goal of image enhancement is producing, out of raw or
+corrected (“restored”) images, enhanced images, which better fit the needs and
+capabilities of human operators in image analysis and decision making. </p>
+
+<h2><i><span style='font-size:16.0pt;mso-fareast-font-family:"Times New Roman";
+font-weight:normal'>12.1</span></i><i><span style='font-size:7.0pt;font-family:
+"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";font-weight:
+normal'> </span></i><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;<a
+name="_Toc410119544"></a><a name="_Toc410730326"></a><a name="_Toc410119778"></a><span
+style='mso-bookmark:_Toc410119544'>Image Dynamic Range Calibration</span><o:p></o:p></span></h2>
+
+<h3><a name="_Toc410119545"><span style='mso-fareast-font-family:"Times New Roman"'>12.1.1Theoretical
+background</span></a><span style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<h4><a name="_Toc49569527"></a><a name="_Toc321080510"></a><a
+name="_Toc321045930"></a><a name="_Toc321045835"></a><a name="_Toc317330378"></a><a
+name="_Toc317005520"></a><a name="_Toc317004875"></a><a name="_Toc316330085"></a><a
+name="_Toc316329914"></a><a name="_Toc316329425"></a><a name="_Toc316329273"></a><a
+name="_Toc316329168"></a><a name="_Toc316328946"></a><a name="_Toc316328690"></a><a
+name="_Toc316328523"></a><span style='mso-bookmark:_Toc49569527'><span
+style='mso-fareast-font-family:"Times New Roman"'>12.1.1.1</span></span><span
+style='mso-bookmark:_Toc49569527'><span style='font-size:7.0pt;font-family:
+"Times New Roman",serif;mso-fareast-font-family:"Times New Roman"'> </span></span><span
+style='mso-bookmark:_Toc49569527'><span style='mso-fareast-font-family:"Times New Roman"'>CORRECTING
+IMAGE GRAY SCALE NONLINEAR DISTORTIONS</span></span><span style='mso-fareast-font-family:
+"Times New Roman"'> [1]<o:p></o:p></span></h4>
+
+<p class=MsoBodyText>Image gray scale reproduction is characterized by the
+imaging system transfer function. Normally it should be a linear function in
+the image intensity dynamic range from its minimum to its maximum. Deviations
+from linearity cause image gray scale distortions that need to be corrected. </p>
+
+<p class=MsoBodyText>Correcting gray scale distortions is obviously a special
+case of inverse problems. However, in applications, it very frequently happens
+that the imaging system transfer function that has to be corrected is not
+known. In some cases it can be determined directly from an analysis of
+distorted images or calibrated using as a reference a certain standard image. </p>
+
+<p class=MsoBodyText>Nonlinear point-wise distortion transfer function can be,
+for quantized signals, parameterized as a look-up table with the number of
+parameters (look-up table entries) equal to the number of signal quantization
+levels. It affects all pixels in the same way. Therefore, having enough many pixels,
+one can, in principle, estimate those parameters from statistical
+characteristics of distorted images quite well. Specifically, distribution
+histograms of images, which are directly affected by the point-wise
+transformation, can be used for this purpose if normal histogram is known for
+the type of images, to which the image to be corrected belongs.&nbsp; </p>
+
+<p class=MsoBodyText>If the probability distribution function of a desired
+image is known, the correcting nonlinear transformation can be found as a
+transformation that converts the histogram of the distorted image into the
+histogram defined by the known probability distribution function of the desired
+image. Generally, correcting non-linear transformation is the one that converts
+the histogram of the distorted image into a normal histogram for the given type
+of images. We will refer to such a transformation as to histogram matching. </p>
+
+<p class=MsoBodyText>Algorithmically, the histogram matching&nbsp;can be
+implemented through the histogram equalization, a nonlinear transformation that
+converts image histograms to uniform histograms. For the histogram matching, it
+is sufficient to find histogram equalization transformation for image to be
+transformed and that for the image with the reference histogram. The required
+histogram matching transformation can then be obtained by combining histogram
+equalization transformation for the image to be transformed and the
+transformation inverse to the histogram equalization transformation for the
+reference histogram. </p>
+
+<p class=MsoBodyText>Histogram equalization is a special case of a large class
+of non-linear filtering algorithms. </p>
+
+<h3><a name="_Toc410119546"><span style='mso-fareast-font-family:"Times New Roman"'>12.1.2Experiment
+Description</span></a><span style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal>&nbsp;“Image Dynamic Range Calibration” experiment present a
+correction of a test image according to an auxiliary image using histogram match
+algorithm, by matching the test image histogram to the auxiliary image
+histogram.</p>
+
+<p class=MsoNormal>Histogram matching algorithm:</p>
+
+<p class=MsoBodyText>Calculation of test and auxiliary images histograms,
+stored at <span style='position:relative;top:3pt'><span style='mso-no-proof:
+yes'><img border=0 width=100 height=27 id="_x0000_i1148"
+src="Image%20enhancement_files/image001.png"></span>&nbsp;respectively:<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:4.5pt'><span
+style='mso-no-proof:yes'><img border=0 width=242 height=29 id="_x0000_i1147"
+src="Image%20enhancement_files/image002.png"></span>,&nbsp; <span
+style='position:relative;top:4.5pt'><span style='mso-no-proof:yes'><img
+border=0 width=241 height=29 id="_x0000_i1146"
+src="Image%20enhancement_files/image003.png"></span>&nbsp;</p>
+
+<p class=MsoBodyText>Where <span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=62 height=27 id="_x0000_i1145"
+src="Image%20enhancement_files/image004.png"></span>is the test image pixel
+value at coordinate<span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=22 height=27 id="_x0000_i1144"
+src="Image%20enhancement_files/image005.png"></span><span class=GramE>,</span> <o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=60 height=27 id="_x0000_i1143"
+src="Image%20enhancement_files/image006.png"></span>&nbsp;<span class=GramE>is</span>
+the auxiliary image pixel value at coordinate <span style='position:relative;
+top:3pt'><span style='mso-no-proof:yes'><img border=0 width=22 height=27
+id="_x0000_i1142" src="Image%20enhancement_files/image005.png"></span>&nbsp;and<span
+style='position:relative;top:8.5pt'><span style='mso-no-proof:yes'><img
+border=0 width=118 height=40 id="_x0000_i1141"
+src="Image%20enhancement_files/image007.png"></span>&nbsp;</p>
+
+<p class=MsoBodyText>Calculation of cumulative sum of the histograms:<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:6pt'><span
+style='mso-no-proof:yes'><img border=0 width=224 height=34 id="_x0000_i1140"
+src="Image%20enhancement_files/image008.png"></span>&nbsp;<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:6pt'><span
+style='mso-no-proof:yes'><img border=0 width=221 height=34 id="_x0000_i1139"
+src="Image%20enhancement_files/image009.png"></span>&nbsp;</p>
+
+<p class=MsoBodyText>Normalization to quantization level:<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:8.5pt'><span
+style='mso-no-proof:yes'><img border=0 width=287 height=39 id="_x0000_i1138"
+src="Image%20enhancement_files/image010.png"></span>&nbsp;<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:8.5pt'><span
+style='mso-no-proof:yes'><img border=0 width=285 height=39 id="_x0000_i1137"
+src="Image%20enhancement_files/image011.png"></span>&nbsp;</p>
+
+<p class=MsoBodyText>Where:<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=61 height=27 id="_x0000_i1136"
+src="Image%20enhancement_files/image012.png"></span>&nbsp;<span class=GramE>is</span>
+the test image width<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=65 height=27 id="_x0000_i1135"
+src="Image%20enhancement_files/image013.png"></span>&nbsp;<span class=GramE>is</span>
+the test image height<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=60 height=27 id="_x0000_i1134"
+src="Image%20enhancement_files/image014.png"></span>&nbsp;<span class=GramE>is</span>
+the auxiliary image width<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=64 height=27 id="_x0000_i1133"
+src="Image%20enhancement_files/image015.png"></span>&nbsp;<span class=GramE>is</span>
+the auxiliary image height</p>
+
+<p class=MsoBodyText><span class=GramE>lookup</span> table creation:<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=401 height=29 id="_x0000_i1132"
+src="Image%20enhancement_files/image016.png"></span>&nbsp;</p>
+
+<p class=MsoBodyText>Where <span style='position:relative;top:8.5pt'><span
+style='mso-no-proof:yes'><img border=0 width=136 height=40 id="_x0000_i1131"
+src="Image%20enhancement_files/image017.png"></span></p>
+
+<p class=MsoBodyText>Apply the lut on the test image<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:4.5pt'><span
+style='mso-no-proof:yes'><img border=0 width=173 height=30 id="_x0000_i1130"
+src="Image%20enhancement_files/image018.png"></span>&nbsp;</p>
+
+<p class=MsoListParagraph>&nbsp;</p>
+
+<p class=MsoNormal>For comparison, global mean and variance calibration are
+presented, which is a method of adjusting image appearance by changing the
+image global mean and standard deviation values to desired values. Given
+desired standard deviation (<span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=28 height=27 id="_x0000_i1129"
+src="Image%20enhancement_files/image019.png"></span>) and mean values (<span
+style='position:relative;top:3pt'><span style='mso-no-proof:yes'><img border=0
+width=29 height=27 id="_x0000_i1128"
+src="Image%20enhancement_files/image020.png"></span>), and calculated mean and
+standard deviation:<o:p></o:p></p>
+
+<p class=MsoNormal><span style='position:relative;top:8.5pt'><span
+style='mso-no-proof:yes'><img border=0 width=300 height=37 id="_x0000_i1127"
+src="Image%20enhancement_files/image021.png"></span>&nbsp;</p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;1<o:p></o:p></p>
+
+<p class=MsoNormal><span style='position:relative;top:10.5pt'><span
+style='mso-no-proof:yes'><img border=0 width=476 height=47 id="_x0000_i1126"
+src="Image%20enhancement_files/image022.png"></span>&nbsp;</p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;2</p>
+
+<p class=MsoNormal>The global mean and variance calibration is performed by the
+following formula:<o:p></o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span style='position:relative;
+top:8.5pt'><span style='mso-no-proof:yes'><img border=0 width=310 height=36
+id="_x0000_i1125" src="Image%20enhancement_files/image023.png"></span>&nbsp;</p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;3</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119547"><span style='mso-fareast-font-family:"Times New Roman"'>12.1.3Results</span></a><span
+style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal>Figure <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;1
+shows an illustration of histogram matching algorithm and global mean and
+variance setting.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><span
+style='mso-no-proof:yes'><img border=0 width=624 height=335 id="_x0000_i1124"
+src="Image%20enhancement_files/image024.jpg"></span></p>
+
+<p class=MsoCaption><a name="_Ref410551892">Figure </a><span style='mso-bookmark:
+_Ref410551892'><b><span style='font-size:12.0pt;mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;1</span>:
+&quot;Image Dynamic Range Calibration&quot;. Top left is the test image. Bottom
+left is the test image histogram. Second from the left top is the test image
+after calibration of mean (set to<span style='position:relative;top:2.5pt'><span
+style='font-size:12.0pt;mso-no-proof:yes'><img border=0 width=43 height=24
+id="_x0000_i1123" src="Image%20enhancement_files/image025.png"></span>) and
+standard deviation (set to<span style='position:relative;top:2.5pt'><span
+style='font-size:12.0pt;mso-no-proof:yes'><img border=0 width=53 height=24
+id="_x0000_i1122" src="Image%20enhancement_files/image026.png"></span>). Second
+from the left bottom is the test image after calibration histogram. Top right
+is the auxiliary image. Bottom right is the auxiliary image histogram. Second
+from the right top is the test image after histogram matching operation to the
+auxiliary image <span class=GramE>histogram.</span> Second from the right
+bottom is the histogram of the test image after histogram <span class=GramE>matching.</span></p>
+
+<h2><i><span style='font-size:16.0pt;mso-fareast-font-family:"Times New Roman";
+font-weight:normal'>12.2</span></i><i><span style='font-size:7.0pt;font-family:
+"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";font-weight:
+normal'> </span></i><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;<a
+name="_Toc410119548"></a><a name="_Toc410730327"></a><a name="_Toc410119779"></a><span
+style='mso-bookmark:_Toc410119548'>Calibration of Imaging System PSF</span><o:p></o:p></span></h2>
+
+<h3><a name="_Toc410119549"><span style='mso-fareast-font-family:"Times New Roman"'>12.2.1Theoretical
+background</span></a><span style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<h4><span style='mso-fareast-font-family:"Times New Roman"'>12.2.1.1</span><span
+style='font-size:7.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+"Times New Roman"'> </span><span style='mso-fareast-font-family:"Times New Roman"'>Wiener
+filtering for aperture correction [2]<o:p></o:p></span></h4>
+
+<p class=MsoNormal>One of the most immediate applications of Wiener filtering
+is correcting distortions caused by finite size of apertures of image sensors,
+image sampling devices and image displays. We will refer to this processing as
+to <b><i>aperture correction</i></b>.</p>
+
+<p class=MsoNormal>Let an image sensor and sampling device is an array of light
+sensitive elements with a square aperture of size <span style='position:relative;
+top:5pt'><span style='mso-no-proof:yes'><img border=0 width=89 height=24
+id="_x0000_i1121" src="Image%20enhancement_files/image027.png"></span>&nbsp;arranged
+over square sampling grid with sampling <span class=GramE>interval <span
+style='position:relative;top:3pt'><span style='mso-no-proof:yes'><img border=0
+width=23 height=19 id="_x0000_i1120"
+src="Image%20enhancement_files/image028.png"></span></span>.&nbsp; Then
+frequency response of the individual sensor elements is</p>
+
+<p class=Equation><span style='mso-no-proof:yes'><img border=0 width=310
+height=53 id="_x0000_i1119" src="Image%20enhancement_files/image029.png"></span><o:p></o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span style='position:relative;
+top:16pt'><span style='mso-no-proof:yes'><img border=0 width=339 height=51
+id="_x0000_i1118" src="Image%20enhancement_files/image030.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;4</p>
+
+<p class=MsoNormal><span class=GramE>or</span> <o:p></o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span style='position:relative;
+top:7pt'><span style='mso-no-proof:yes'><img border=0 width=268 height=26
+id="_x0000_i1117" src="Image%20enhancement_files/image031.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;5</p>
+
+<p class=MsoNormal><span class=GramE>where</span> <span style='position:relative;
+top:3pt'><span style='mso-no-proof:yes'><img border=0 width=96 height=21
+id="_x0000_i1116" src="Image%20enhancement_files/image032.png"></span>is
+sensor’s fill factor. The discrete frequency response <span style='position:
+relative;top:7pt'><span style='mso-no-proof:yes'><img border=0 width=36
+height=25 id="_x0000_i1115" src="Image%20enhancement_files/image033.png"></span>&nbsp;of
+the sensor can be obtained as samples of <span style='position:relative;
+top:7pt'><span style='mso-no-proof:yes'><img border=0 width=64 height=25
+id="_x0000_i1114" src="Image%20enhancement_files/image034.png"></span>&nbsp;taken
+in frequency domain sampling points <span style='position:relative;top:7pt'><span
+style='mso-no-proof:yes'><img border=0 width=131 height=25 id="_x0000_i1113"
+src="Image%20enhancement_files/image035.png"></span>&nbsp;with sampling interval<span
+style='position:relative;top:5pt'><span style='mso-no-proof:yes'><img border=0
+width=23 height=21 id="_x0000_i1112"
+src="Image%20enhancement_files/image036.png"></span>:<o:p></o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span style='position:relative;
+top:7pt'><span style='mso-no-proof:yes'><img border=0 width=283 height=26
+id="_x0000_i1111" src="Image%20enhancement_files/image037.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;6</p>
+
+<p class=MsoNormal><span class=GramE>where</span> <span style='position:relative;
+top:5pt'><span style='mso-no-proof:yes'><img border=0 width=80 height=23
+id="_x0000_i1110" src="Image%20enhancement_files/image038.png"></span>is the
+number of samples in both coordinates (assuming cardinal sampling). </p>
+
+<p class=MsoNormal>If the image display device has also a square aperture of <span
+class=GramE>size <span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=62 height=22 id="_x0000_i1109"
+src="Image%20enhancement_files/image039.png"></span></span>, the entire imaging
+system discrete frequency response is:<o:p></o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span style='position:relative;
+top:7pt'><span style='mso-no-proof:yes'><img border=0 width=502 height=27
+id="_x0000_i1108" src="Image%20enhancement_files/image040.png"></span></p>
+
+<p class=MsoCaption><a name="_Ref410334688">Equation </a><span
+style='mso-bookmark:_Ref410334688'><b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;7</span></p>
+
+<p class=MsoNormal><span class=GramE>Parameters <span style='position:relative;
+top:3pt'><span style='mso-no-proof:yes'><img border=0 width=27 height=22
+id="_x0000_i1107" src="Image%20enhancement_files/image041.png"></span></span>, <span
+style='position:relative;top:3pt'><span style='mso-no-proof:yes'><img border=0
+width=27 height=22 id="_x0000_i1106"
+src="Image%20enhancement_files/image042.png"></span>and <span style='position:
+relative;top:3pt'><span style='mso-no-proof:yes'><img border=0 width=23
+height=18 id="_x0000_i1105" src="Image%20enhancement_files/image043.png"></span>are
+imaging system design parameters that usually are specified in imaging system
+certificates. </p>
+
+<h4><span style='mso-fareast-font-family:"Times New Roman"'>12.2.1.2</span><span
+style='font-size:7.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+"Times New Roman"'> </span><span style='mso-fareast-font-family:"Times New Roman"'>Aperture
+correction using un-sharp masking<o:p></o:p></span></h4>
+
+<p class=MsoNormal>For cases where the aperture kernel is unknown, considering
+that aperture PSF mostly result in blur in the final image, aperture correction
+can be regarded as local contrast enhancement\ high frequency component
+amplification task. This can be achieved using a Laplacian operator. </p>
+
+<p class=MsoNormal>Laplacian operator can be considered as an empirical
+approximation to adaptive whitening operators, which mentioned at <i><u><span
+style='mso-bidi-language:AR-SA'>&#8206;</span>10.1.1.2 Target object
+localization in the presence of non-white (correlated) additive Gaussian noise</u></i>.
+The whitening filter usually results in emphasizing high frequency image
+components with respect to its low frequency components, due to the fact that
+power spectra of images usually (though not always) tend to decay on high
+frequencies. Experiment show that for many natural images, the whitening filter
+can be estimated as the Laplacian operator.</p>
+
+<p class=MsoNormal>Three of the most common versions of the Laplacian operator:<o:p></o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span style='position:relative;
+top:25pt'><span style='mso-no-proof:yes'><img border=0 width=199 height=75
+id="_x0000_i1104" src="Image%20enhancement_files/image044.png"></span>; <span
+style='position:relative;top:25pt'><span style='mso-no-proof:yes'><img
+border=0 width=195 height=74 id="_x0000_i1103"
+src="Image%20enhancement_files/image045.png"></span>;<span style='position:
+relative;top:25pt'><span style='mso-no-proof:yes'><img border=0 width=201
+height=75 id="_x0000_i1102" src="Image%20enhancement_files/image046.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;8</p>
+
+<p class=MsoNormal>To enhance local contrast using the Laplacian operator, the
+result of the Laplacian operator multiplied by a weight should be added to the
+original image.</p>
+
+<h3><a name="_Toc410119550"><span style='mso-fareast-font-family:"Times New Roman"'>12.2.2Experiment
+Description</span></a><span style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoBodyText>The “Calibration of Imaging System PSF” experiment
+illustrated to methods for image PSF correction - Wiener filtering for aperture
+correction and Aperture correction un-sharp masking.</p>
+
+<h4><span style='mso-fareast-font-family:"Times New Roman"'>12.2.2.1</span><span
+style='font-size:7.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+"Times New Roman"'> </span><span style='mso-fareast-font-family:"Times New Roman"'>Wiener
+filtering for aperture correction<o:p></o:p></span></h4>
+
+<p class=MsoBodyText>A given test image is blurred and Gaussian noise is added
+to it, resulting <span class=GramE>in <span style='position:relative;
+top:4pt'><span style='mso-no-proof:yes'><img border=0 width=23 height=28
+id="_x0000_i1101" src="Image%20enhancement_files/image047.png"></span></span>.</p>
+
+<p class=MsoBodyText>The wiener filter described at Equation <span
+style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;7 is calculated <span
+class=GramE>where <span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=91 height=22 id="_x0000_i1100"
+src="Image%20enhancement_files/image048.png"></span></span>.</span></p>
+
+<p class=MsoBodyText>The filter then applied on the image in the frequency
+domain:<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:9pt'><span
+style='mso-no-proof:yes'><img border=0 width=65 height=39 id="_x0000_i1099"
+src="Image%20enhancement_files/image049.png"></span>&nbsp;</p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;9</p>
+
+<p class=MsoBodyText><span class=GramE>where</span> <span style='position:relative;
+top:4pt'><span style='mso-no-proof:yes'><img border=0 width=25 height=28
+id="_x0000_i1098" src="Image%20enhancement_files/image050.png"></span>is the
+Fourier transform of <span style='position:relative;top:4pt'><span
+style='mso-no-proof:yes'><img border=0 width=23 height=28 id="_x0000_i1097"
+src="Image%20enhancement_files/image047.png"></span>.</p>
+
+<p class=MsoBodyText>The final result is given by:<o:p></o:p></p>
+
+<p class=MsoBodyText><span style='position:relative;top:4pt'><span
+style='mso-no-proof:yes'><img border=0 width=130 height=28 id="_x0000_i1096"
+src="Image%20enhancement_files/image051.png"></span>&nbsp;</p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;10</p>
+
+<p class=MsoNormal><span class=GramE>Where <span style='position:relative;
+top:12pt'><span style='mso-no-proof:yes'><img border=0 width=251 height=51
+id="_x0000_i1095" src="Image%20enhancement_files/image052.png"></span></span>&nbsp;,
+<span style='position:relative;top:3pt'><span style='mso-no-proof:yes'><img
+border=0 width=23 height=27 id="_x0000_i1094"
+src="Image%20enhancement_files/image053.png"></span>&nbsp;is a restriction
+parameter on the correction, and <span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=10 height=27 id="_x0000_i1093"
+src="Image%20enhancement_files/image054.png"></span>&nbsp;is the correction
+weight.</p>
+
+<h4><span style='mso-fareast-font-family:"Times New Roman"'>12.2.2.2</span><span
+style='font-size:7.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+"Times New Roman"'> </span><span style='mso-fareast-font-family:"Times New Roman"'>Aperture
+correction using un-sharp masking<o:p></o:p></span></h4>
+
+<p class=MsoBodyText>A given test image is blurred and Gaussian noise is added
+to it, resulting <span class=GramE>in <span style='position:relative;
+top:4pt'><span style='mso-no-proof:yes'><img border=0 width=23 height=28
+id="_x0000_i1092" src="Image%20enhancement_files/image047.png"></span></span>.</p>
+
+<p class=MsoNormal>The un-sharp masking for aperture correction operation is</p>
+
+<p class=MsoBodyText><span style='mso-no-proof:yes'><img border=0 width=164
+height=25 id="_x0000_i1091" src="Image%20enhancement_files/image055.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;11</p>
+
+<p class=MsoBodyText>Where <span style='position:relative;top:2pt'><span
+style='mso-no-proof:yes'><img border=0 width=15 height=17 id="_x0000_i1090"
+src="Image%20enhancement_files/image056.png"></span>&nbsp;is the Laplacian
+operator, <span style='position:relative;top:7pt'><span style='mso-no-proof:
+yes'><img border=0 width=24 height=25 id="_x0000_i1089"
+src="Image%20enhancement_files/image057.png"></span>&nbsp;is the input image, <span
+style='position:relative;top:15pt'><span style='mso-no-proof:yes'><img
+border=0 width=216 height=48 id="_x0000_i1088"
+src="Image%20enhancement_files/image058.png"></span>&nbsp;</p>
+
+<p class=MsoBodyText>Where <span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=17 height=19 id="_x0000_i1087"
+src="Image%20enhancement_files/image059.png"></span>is a predefined weight
+parameter, and <span style='position:relative;top:3pt'><span style='mso-no-proof:
+yes'><img border=0 width=26 height=27 id="_x0000_i1086"
+src="Image%20enhancement_files/image060.png"></span>&nbsp;is a restriction
+parameter of edge enhancement operation.</p>
+
+<p class=MsoNormal style='page-break-after:avoid'>&nbsp;</p>
+
+<h3><a name="_Toc410119551"><span style='mso-fareast-font-family:"Times New Roman"'>12.2.3Results</span></a><span
+style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><img border=0 width=501 height=527 id="_x0000_i1085"
+src="Image%20enhancement_files/image061.jpg"></span></p>
+
+<p class=MsoCaption><a name="_Ref410556780">Figure </a><span style='mso-bookmark:
+_Ref410556780'><b><span style='font-size:12.0pt;mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;2</span>:
+&nbsp;“Calibration of Imaging System PSF”. Top left is the test image. Top
+right is the test image blurred and with additive Gaussian noise. Bottom left
+is the Aperture correction using un-sharp algorithm result. Bottom right is the
+Wiener filtering for aperture correction algorithm result. The blur kernel is
+Gaussian, size 5x5, variance<span style='position:relative;top:3pt'><span
+style='font-size:12.0pt;mso-no-proof:yes'><img border=0 width=103 height=24
+id="_x0000_i1084" src="Image%20enhancement_files/image062.png"></span>, noise
+standard deviation <span class=GramE>is <span style='position:relative;
+top:2.5pt'><span style='font-size:12.0pt;mso-no-proof:yes'><img border=0
+width=39 height=24 id="_x0000_i1083"
+src="Image%20enhancement_files/image063.png"></span></span>, <span
+style='position:relative;top:2.5pt'><span style='font-size:12.0pt;mso-no-proof:
+yes'><img border=0 width=54 height=24 id="_x0000_i1082"
+src="Image%20enhancement_files/image064.png"></span>, <span style='position:
+relative;top:2.5pt'><span style='font-size:12.0pt;mso-no-proof:yes'><img
+border=0 width=34 height=24 id="_x0000_i1081"
+src="Image%20enhancement_files/image065.png"></span>.</p>
+
+<p class=MsoNormal>As we can see from the results displayed at Figure <span
+style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;2, the un-sharp
+algorithm performs better than the Wiener filter for aperture correction. This
+is due to the adaptive feature of the unsharp masking algorithm, whereas the
+Wiener filter for aperture correction algorithm assumes certain characteristics
+of the image display \ scanned psf, and therefore, not adaptive.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><i><span style='font-size:16.0pt;mso-fareast-font-family:"Times New Roman";
+font-weight:normal'>12.3</span></i><i><span style='font-size:7.0pt;font-family:
+"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";font-weight:
+normal'> </span></i><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;<a
+name="_Toc410119552"></a><a name="_Toc410730328"></a><a name="_Toc410119780"></a><span
+style='mso-bookmark:_Toc410119552'>High Frequency Component Amplification</span><o:p></o:p></span></h2>
+
+<h3><a name="_Toc410119553"></a><a name="_Ref410428207"></a><span
+style='mso-bookmark:_Toc410119553'><span style='mso-fareast-font-family:"Times New Roman"'>12.3.1Theoretical
+background</span></span><span style='mso-fareast-font-family:"Times New Roman"'>
+[3]<o:p></o:p></span></h3>
+
+<p class=MsoNormal><a name="_Ref315533774">The filters are classified in two
+groups: <b><i>local contrast enhancement filters</i></b></a>&nbsp;and <b><i>edge
+extraction filters</i></b>. Local contrast enhancement filters are intended to
+make visible objects that might not be visible in initial images because their
+contrast with respect to their background is lower than the contrast
+sensitivity of vision. There are at least two ways to achieve this goal. The
+first one is <b><i>“unsharp” masking</i></b>. With unsharp masking, difference
+is amplified between initial images and their smoothed copies, which are used
+as estimates of objects’ background. For the smoothing, one of smoothing
+filters such as <span style='position:relative;top:3pt'><span style='mso-no-proof:
+yes'><img border=0 width=115 height=27 id="_x0000_i1080"
+src="Image%20enhancement_files/image066.png"></span>&nbsp;etc can be
+used.&nbsp; Typical image enhancement non-linear filters are listed in <i><u>Table
+</u></i><i><u><span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;1:
+Image enhancement filters</u></i>.</p>
+
+<p class=MsoCaption><a name="_Ref410342803">Table </a><span style='mso-bookmark:
+_Ref410342803'><b><span style='font-size:12.0pt;mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;1:
+Image enhancement filters</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
+ style='margin-left:6.45pt;border-collapse:collapse;mso-yfti-tbllook:1184;
+ mso-padding-alt:0cm 0cm 0cm 0cm'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;page-break-inside:avoid'>
+  <td width=605 colspan=2 valign=top style='width:453.45pt;border:solid windowtext 1.5pt;
+  border-bottom:solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoBodyText2><span lang=EN-AU style='mso-ansi-language:EN-AU'>Local
+  contrast enhancement filter</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;page-break-inside:avoid'>
+  <td width=131 valign=top style='width:97.95pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoBodyText>“Unsharp masking” </p>
+  </td>
+  <td width=474 valign=top style='width:355.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoBodyText><span style='mso-no-proof:yes'><img border=0 width=284
+  height=25 id="_x0000_i1079" src="Image%20enhancement_files/image067.png"></span></p>
+  <p class=MsoCaption><a name="_Ref410341624">Equation </a><span
+  style='mso-bookmark:_Ref410341624'><b><span style='font-size:12.0pt;
+  mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;12</span><o:p></o:p></p>
+  <p class=MsoBodyText><span style='position:relative;top:5pt'><span
+  style='mso-no-proof:yes'><img border=0 width=15 height=17 id="_x0000_i1078"
+  src="Image%20enhancement_files/image068.png"></span><span style='layout-grid-mode:
+  line'>&nbsp;is user defined local contrast amplification parameter</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;page-break-inside:avoid;height:3.5pt'>
+  <td width=131 valign=top style='width:97.95pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText>Local histogram equalization</p>
+  </td>
+  <td width=474 valign=top style='width:355.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText><span style='mso-no-proof:yes'><img border=0 width=252
+  height=44 id="_x0000_i1077" src="Image%20enhancement_files/image069.png"></span></p>
+  <p class=MsoCaption><a name="_Ref410428335">Equation </a><span
+  style='mso-bookmark:_Ref410428335'><b><span style='font-size:12.0pt;
+  mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;13</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;page-break-inside:avoid;height:3.5pt'>
+  <td width=131 valign=top style='width:97.95pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText>Weighted local histogram equalization</p>
+  </td>
+  <td width=474 valign=top style='width:355.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText><span style='mso-no-proof:yes'><img border=0 width=326
+  height=44 id="_x0000_i1076" src="Image%20enhancement_files/image070.png"></span></p>
+  <p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+  AR-SA'>&#8206;</span></b>13&#8209;14</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;page-break-inside:avoid;height:3.5pt'>
+  <td width=131 valign=top style='width:97.95pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.5pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText>Local p-histogram equalization</p>
+  </td>
+  <td width=474 valign=top style='width:355.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.5pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText><span style='mso-no-proof:yes'><img border=0 width=248
+  height=44 id="_x0000_i1075" src="Image%20enhancement_files/image071.png"></span></p>
+  <p class=MsoCaption><a name="_Ref410428352">Equation </a><span
+  style='mso-bookmark:_Ref410428352'><b><span style='font-size:12.0pt;
+  mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;15</span></p>
+  <p class=MsoBodyText>, where <span style='mso-no-proof:yes'><img border=0
+  width=216 height=48 id="_x0000_i1074"
+  src="Image%20enhancement_files/image072.png"></span>; <span style='mso-no-proof:
+  yes'><img border=0 width=131 height=49 id="_x0000_i1073"
+  src="Image%20enhancement_files/image073.png"></span>; <o:p></o:p></p>
+  <p class=MsoBodyText><span style='position:relative;top:5pt'><span
+  style='mso-no-proof:yes'><img border=0 width=16 height=17 id="_x0000_i1072"
+  src="Image%20enhancement_files/image074.png"></span><span class=GramE><span
+  style='layout-grid-mode:line'>is</span></span><span style='layout-grid-mode:
+  line'> a user defined enhancement parameter</span> (<span style='position:
+  relative;top:5pt'><span style='mso-no-proof:yes'><img border=0 width=60
+  height=21 id="_x0000_i1071" src="Image%20enhancement_files/image075.png"></span><span
+  style='layout-grid-mode:line'>).</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;page-break-inside:avoid;height:3.5pt'>
+  <td width=605 colspan=2 valign=top style='width:453.45pt;border-top:none;
+  border-left:solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;
+  border-right:solid windowtext 1.5pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText>Edge extraction filters</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;page-break-inside:avoid;height:3.5pt'>
+  <td width=131 valign=top style='width:97.95pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText>Local variance filter</p>
+  </td>
+  <td width=474 valign=top style='width:355.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText><span style='mso-no-proof:yes'><img border=0 width=135
+  height=24 id="_x0000_i1070" src="Image%20enhancement_files/image076.png"></span></p>
+  <p class=MsoCaption><a name="_Ref410430717">Equation </a><span
+  style='mso-bookmark:_Ref410430717'><b><span style='font-size:12.0pt;
+  mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;16</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7;page-break-inside:avoid;height:3.5pt'>
+  <td width=131 valign=top style='width:97.95pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText>Quasi-range filter;</p>
+  <p class=MsoBodyText>Max-min filter.</p>
+  </td>
+  <td width=474 valign=top style='width:355.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText><span style='mso-no-proof:yes'><img border=0 width=155
+  height=25 id="_x0000_i1069" src="Image%20enhancement_files/image077.png"></span><span
+  style='mso-no-proof:yes'><img border=0 width=207 height=21 id="_x0000_i1068"
+  src="Image%20enhancement_files/image078.png"></span></p>
+  <p class=MsoCaption><a name="_Ref410430980">Equation </a><span
+  style='mso-bookmark:_Ref410430980'><b><span style='font-size:12.0pt;
+  mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;17</span></p>
+  <p class=MsoBodyText><span style='mso-no-proof:yes'><img border=0 width=208
+  height=24 id="_x0000_i1067" src="Image%20enhancement_files/image079.png"></span></p>
+  <p class=MsoCaption><a name="_Ref410431044">Equation </a><span
+  style='mso-bookmark:_Ref410431044'><b><span style='font-size:12.0pt;
+  mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;18</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8;page-break-inside:avoid;height:3.5pt'>
+  <td width=131 valign=top style='width:97.95pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText>Size-EV filter</p>
+  </td>
+  <td width=474 valign=top style='width:355.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText><span style='mso-no-proof:yes'><img border=0 width=241
+  height=27 id="_x0000_i1066" src="Image%20enhancement_files/image080.png"></span></p>
+  <p class=MsoCaption><a name="_Ref410430783">Equation </a><span
+  style='mso-bookmark:_Ref410430783'><b><span style='font-size:12.0pt;
+  mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;19</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9;mso-yfti-lastrow:yes;page-break-inside:avoid;
+  height:3.5pt'>
+  <td width=131 valign=top style='width:97.95pt;border-top:none;border-left:
+  solid windowtext 1.5pt;border-bottom:solid windowtext 1.0pt;border-right:
+  solid windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText>Local cardinality filter</p>
+  </td>
+  <td width=474 valign=top style='width:355.5pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:3.5pt'>
+  <p class=MsoBodyText><span style='mso-no-proof:yes'><img border=0 width=141
+  height=24 id="_x0000_i1065" src="Image%20enhancement_files/image081.png"></span></p>
+  <p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+  AR-SA'>&#8206;</span></b>13&#8209;20</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119554"><span style='mso-fareast-font-family:"Times New Roman"'>12.3.2Experiment
+Description</span></a><span style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal style='page-break-after:avoid'>The “High Frequency Component
+Amplification” experiment is an illustration of un-sharp method for local
+contrast enhancement Equation <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;12-<span
+style='position:relative;top:7pt'><span style='mso-no-proof:yes'><img border=0
+width=284 height=25 id="_x0000_i1064"
+src="Image%20enhancement_files/image067.png"></span><span style='layout-grid-mode:
+line'>, with a small modification of<span class=GramE>:<span style='position:
+relative;top:7pt'><span style='layout-grid-mode:both'><span style='mso-no-proof:
+yes'><img border=0 width=286 height=25 id="_x0000_i1063"
+src="Image%20enhancement_files/image082.png"></span></span>,</span><span
+style='mso-spacerun:yes'> </span>where </span><span style='position:relative;
+top:3pt'><span style='mso-no-proof:yes'><img border=0 width=43 height=27
+id="_x0000_i1062" src="Image%20enhancement_files/image083.png"></span><span
+style='layout-grid-mode:line'>&nbsp;are provided by the user, which enables
+more flexibility in the appearance of the result.</span></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span style='layout-grid-mode:
+line'>The </span><span style='position:relative;top:7pt'><span
+style='mso-no-proof:yes'><img border=0 width=120 height=25 id="_x0000_i1061"
+src="Image%20enhancement_files/image084.png"></span>&nbsp;operation is an
+averaging filter of <span class=GramE>size <span style='position:relative;
+top:3pt'><span style='mso-no-proof:yes'><img border=0 width=9 height=27
+id="_x0000_i1060" src="Image%20enhancement_files/image085.png"></span></span>,
+where <span style='position:relative;top:3pt'><span style='mso-no-proof:yes'><img
+border=0 width=9 height=27 id="_x0000_i1059"
+src="Image%20enhancement_files/image085.png"></span>&nbsp;is provided by the
+user.</p>
+
+<h3><a name="_Toc410119555"><span style='mso-fareast-font-family:"Times New Roman"'>12.3.3Results</span></a><span
+style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><img border=0 width=624 height=339 id="_x0000_i1058"
+src="Image%20enhancement_files/image086.jpg"></span></p>
+
+<p class=MsoCaption><a name="_Ref410556826">Figure </a><span style='mso-bookmark:
+_Ref410556826'><b><span style='font-size:12.0pt;mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;3</span>:
+“High Frequency Component Amplification”. Left image is the test image. Right
+image is the local contrast enhancement result <span class=GramE>using <span
+style='position:relative;top:2.5pt'><span style='font-size:12.0pt;mso-no-proof:
+yes'><img border=0 width=58 height=24 id="_x0000_i1057"
+src="Image%20enhancement_files/image087.png"></span></span>, <span
+style='position:relative;top:2.5pt'><span style='font-size:12.0pt;mso-no-proof:
+yes'><img border=0 width=58 height=24 id="_x0000_i1056"
+src="Image%20enhancement_files/image088.png"></span>, <span style='position:
+relative;top:2.5pt'><span style='font-size:12.0pt;mso-no-proof:yes'><img
+border=0 width=35 height=24 id="_x0000_i1055"
+src="Image%20enhancement_files/image089.png"></span>.</p>
+
+<p class=MsoNormal>Figure <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;3
+illustrates how the simple notion of un-sharp masking for high frequency
+amplification, overcome problem of blur and enhance edges in the image.</p>
+
+<h2><i><span style='font-size:16.0pt;mso-fareast-font-family:"Times New Roman";
+font-weight:normal'>12.4</span></i><i><span style='font-size:7.0pt;font-family:
+"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";font-weight:
+normal'> </span></i><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;<a
+name="_Toc410119556"></a><a name="_Toc410730329"></a><a name="_Toc410119781"></a><span
+style='mso-bookmark:_Toc410119556'>Local Contrast Enhancement by Means Of
+Un-sharp Masking</span><o:p></o:p></span></h2>
+
+<h3><a name="_Toc410119558"><span style='mso-fareast-font-family:"Times New Roman"'>12.4.1Experiment
+Description</span></a><span style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal>The “Local Contrast Enhancement by Means Of Un-sharp
+Masking” gives illustrated both Edge extraction filters and unsharp masking
+methods for local contrast enhancement, described at <i><u>Table </u></i><i><u><span
+style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;1: Image enhancement
+filters.</u></i></p>
+
+<h4><span style='mso-fareast-font-family:"Times New Roman"'>12.4.1.1</span><span
+style='font-size:7.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+"Times New Roman"'> </span><span style='mso-fareast-font-family:"Times New Roman"'>Edge
+extraction filters<o:p></o:p></span></h4>
+
+<p class=MsoBodyText>Four edge extraction filters are displayed: Local variance
+filter (Equation <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;16),
+Size-EV filter (Equation <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;19),
+Quasi-range filter (Equation <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;17)
+and Max-min filter over EV-neighborhood (Equation <span style='mso-bidi-language:
+AR-SA'>&#8206;</span>13&#8209;18).</p>
+
+<h4><span style='mso-fareast-font-family:"Times New Roman"'>12.4.1.2</span><span
+style='font-size:7.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+"Times New Roman"'> </span><span style='mso-fareast-font-family:"Times New Roman"'>Un-sharp
+Masking<o:p></o:p></span></h4>
+
+<p class=MsoBodyText>Four un-sharp masking implementation are introduced
+(Equation <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;12, for
+g=1), where the difference between each of those filters comes from the
+smoothing operation only: The four smoothing operation Mean smoothing operation
+- <span style='position:relative;top:4.5pt'><span style='mso-no-proof:yes'><img
+border=0 width=296 height=30 id="_x0000_i1054"
+src="Image%20enhancement_files/image090.png"></span></p>
+
+<p class=MsoBodyText>Median smoothing operation – <span style='position:relative;
+top:4.5pt'><span style='mso-no-proof:yes'><img border=0 width=310 height=30
+id="_x0000_i1053" src="Image%20enhancement_files/image091.png"></span></p>
+
+<p class=MsoBodyText>Mean over EV-neighborhood – <span style='position:relative;
+top:4.5pt'><span style='mso-no-proof:yes'><img border=0 width=312 height=30
+id="_x0000_i1052" src="Image%20enhancement_files/image092.png"></span></p>
+
+<p class=MsoBodyText>Median over EV neighborhood – <span style='position:relative;
+top:4.5pt'><span style='mso-no-proof:yes'><img border=0 width=312 height=30
+id="_x0000_i1051" src="Image%20enhancement_files/image092.png"></span></p>
+
+<p class=MsoBodyText>Where <span style='position:relative;top:4.5pt'><span
+style='mso-no-proof:yes'><img border=0 width=104 height=30 id="_x0000_i1050"
+src="Image%20enhancement_files/image093.png"></span>&nbsp;is a window
+surrounding <span style='position:relative;top:3pt'><span style='mso-no-proof:
+yes'><img border=0 width=24 height=27 id="_x0000_i1049"
+src="Image%20enhancement_files/image094.png"></span>&nbsp;coordinate.</p>
+
+<p class=MsoBodyText>Where <span style='position:relative;top:4.5pt'><span
+style='mso-no-proof:yes'><img border=0 width=107 height=30 id="_x0000_i1048"
+src="Image%20enhancement_files/image095.png"></span>&nbsp;is the EV
+neighborhood surrounding <span style='position:relative;top:3pt'><span
+style='mso-no-proof:yes'><img border=0 width=24 height=27 id="_x0000_i1047"
+src="Image%20enhancement_files/image094.png"></span>&nbsp;coordinate.</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<h3><a name="_Toc410119559"><span style='mso-fareast-font-family:"Times New Roman"'>12.4.2Results</span></a><span
+style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><span
+style='mso-no-proof:yes'><img border=0 width=623 height=434 id="_x0000_i1046"
+src="Image%20enhancement_files/image096.jpg"></span></p>
+
+<p class=MsoCaption><a name="_Ref410558910">Figure </a><span style='mso-bookmark:
+_Ref410558910'><b><span style='font-size:12.0pt;mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;4</span>:
+“Edge extraction filters”. Top left is the input image. Top middle is the local
+variance filter result. Top right is the Max-min filter over EV-neighborhood
+result. Bottom middle is the Quasi-range filter result. Bottom right is the EV
+neighborhood size result.</p>
+
+<p class=MsoNormal>At Figure <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;4
+the 4 edge extraction filter are presented. Figure <span style='mso-bidi-language:
+AR-SA'>&#8206;</span>13&#8209;5 displays four un-sharp methods for edge
+extraction.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><img border=0 width=624 height=437 id="_x0000_i1045"
+src="Image%20enhancement_files/image097.jpg"></span></p>
+
+<p class=MsoCaption><a name="_Ref410466081">Figure </a><span style='mso-bookmark:
+_Ref410466081'><b><span style='font-size:12.0pt;mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;5</span>:
+“Un-sharp Masking”. Top left is the input image. Top middle is test image minus
+local mean result. Top right is the test image minus local median result.
+Bottom middle is the test image minus local mean over EV neighborhood result.
+Bottom right is the test image minus local median over EV neighborhood result.
+Window size is 7x7. <span style='position:relative;top:4pt'><span
+style='font-size:12.0pt;mso-no-proof:yes'><img border=0 width=135 height=25
+id="_x0000_i1044" src="Image%20enhancement_files/image098.png"></span>.</p>
+
+<p class=MsoNormal>It can be seen from Figure <span style='mso-bidi-language:
+AR-SA'>&#8206;</span>13&#8209;5 that the unsharp masking uses median filter
+result with les distinguished edges then unsharp masking uses mean filter. The
+reason for that is the fact the median is edge preserving filter, more than the
+mean filter, and after the subtraction of the median filter result from the
+original image, the result is with less noticeable edges.</p>
+
+<h2><i><span style='font-size:16.0pt;mso-fareast-font-family:"Times New Roman";
+font-weight:normal'>12.5</span></i><i><span style='font-size:7.0pt;font-family:
+"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";font-weight:
+normal'> </span></i><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;<a
+name="_Toc410119560"></a><a name="_Toc410730330"></a><a name="_Toc410119782"></a><span
+style='mso-bookmark:_Toc410119560'>Local Contrast Enhancement by Means Local
+Range Homogenization</span><o:p></o:p></span></h2>
+
+<h3><a name="_Toc410119562"><span style='mso-fareast-font-family:"Times New Roman"'>12.5.1Experiment
+Description</span></a><span style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal>The “Local Contrast Enhancement by Means Local Range
+Homogenization” experiment illustrates two method of local contrast
+enhancement: Max-Min filter and local STD standardization. </p>
+
+<h4><span style='mso-fareast-font-family:"Times New Roman"'>12.5.1.1</span><span
+style='font-size:7.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+"Times New Roman"'> </span><span style='mso-fareast-font-family:"Times New Roman"'>Max-Min
+filter<o:p></o:p></span></h4>
+
+<p class=MsoNormal>The max-min filter operates in a sliding window method,
+where for each window, the minimum and maximum values are found, and the
+current pixel value is set to:<o:p></o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span style='position:relative;
+top:12pt'><span style='mso-no-proof:yes'><img border=0 width=292 height=51
+id="_x0000_i1043" src="Image%20enhancement_files/image099.png"></span>&nbsp;</p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;21</p>
+
+<p class=MsoNormal>Where <span style='position:relative;top:4.5pt'><span
+style='mso-no-proof:yes'><img border=0 width=72 height=30 id="_x0000_i1042"
+src="Image%20enhancement_files/image100.png"></span>&nbsp;is the neighborhood
+of <span class=GramE>pixel <span style='position:relative;top:4pt'><span
+style='mso-no-proof:yes'><img border=0 width=23 height=28 id="_x0000_i1041"
+src="Image%20enhancement_files/image047.png"></span></span>, <span
+style='position:relative;top:3pt'><span style='mso-no-proof:yes'><img border=0
+width=11 height=27 id="_x0000_i1040"
+src="Image%20enhancement_files/image101.png"></span>&nbsp;is the quantization
+number for the result image, usually 256.</p>
+
+<h4><span style='mso-fareast-font-family:"Times New Roman"'>12.5.1.2</span><span
+style='font-size:7.0pt;font-family:"Times New Roman",serif;mso-fareast-font-family:
+"Times New Roman"'> </span><span style='mso-fareast-font-family:"Times New Roman"'>STD
+standardization<o:p></o:p></span></h4>
+
+<p class=MsoNormal>The STD standardization operates in a sliding window method,
+where for each window, the local standard deviation is set to a predefined
+value:<o:p></o:p></p>
+
+<p class=MsoNormal style='page-break-after:avoid'><span style='position:relative;
+top:9pt'><span style='mso-no-proof:yes'><img border=0 width=99 height=37
+id="_x0000_i1039" src="Image%20enhancement_files/image102.png"></span>&nbsp;</p>
+
+<p class=MsoNormal style='page-break-after:avoid'>Where<span style='position:
+relative;top:3pt'><span style='mso-no-proof:yes'><img border=0 width=13
+height=27 id="_x0000_i1038" src="Image%20enhancement_files/image103.png"></span>&nbsp;is
+the desired standard deviation (provided by the user)<span class=GramE>, <span
+style='position:relative;top:7pt'><span style='mso-no-proof:yes'><img border=0
+width=266 height=37 id="_x0000_i1037"
+src="Image%20enhancement_files/image104.png"></span></span>&nbsp;, <span
+style='position:relative;top:4.5pt'><span style='mso-no-proof:yes'><img
+border=0 width=72 height=30 id="_x0000_i1036"
+src="Image%20enhancement_files/image100.png"></span>&nbsp;is the neighborhood
+of pixel <span style='position:relative;top:4pt'><span style='mso-no-proof:
+yes'><img border=0 width=23 height=28 id="_x0000_i1035"
+src="Image%20enhancement_files/image047.png"></span>,and <span
+style='position:relative;top:3pt'><span style='mso-no-proof:yes'><img border=0
+width=128 height=27 id="_x0000_i1034"
+src="Image%20enhancement_files/image105.png"></span>&nbsp;is an standard
+deviation calculation operator.</p>
+
+<h3><a name="_Toc410119563"><span style='mso-fareast-font-family:"Times New Roman"'>12.5.2Results</span></a><span
+style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal>Figure <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;6
+illustrated the effect of the STD and min-max standardizations.</p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><img border=0 width=664 height=454 id="_x0000_i1033"
+src="Image%20enhancement_files/image106.jpg"></span></p>
+
+<p class=MsoCaption><a name="_Ref410560667">Figure </a><span style='mso-bookmark:
+_Ref410560667'><b><span style='font-size:12.0pt;mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;6</span>:
+&nbsp;“Local Contrast Enhancement by Means Local Range Homogenization”. Top
+left is the test image. Bottom left is the test image histogram. The second
+from the left at the top image is the test image after local standardization by
+local max and min. The second from the left at the bottom plot is the histogram
+of local standardization by local max and min result. The third image from the
+left at the top is local standardization by standard deviation result. The
+third image from the left at the bottom is the histogram local standardization
+by standard deviation result. Window size is 5x5, and local variance is 43.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2><i><span style='font-size:16.0pt;mso-fareast-font-family:"Times New Roman";
+font-weight:normal'>12.6</span></i><i><span style='font-size:7.0pt;font-family:
+"Times New Roman",serif;mso-fareast-font-family:"Times New Roman";font-weight:
+normal'> </span></i><span style='mso-fareast-font-family:"Times New Roman"'>&nbsp;&nbsp;&nbsp;<a
+name="_Toc410119564"></a><a name="_Toc410730331"></a><a name="_Toc410119783"></a><span
+style='mso-bookmark:_Toc410119564'>Histogram Modification</span><o:p></o:p></span></h2>
+
+<h3><a name="_Toc410119565"></a><a name="_Ref410428167"></a><span
+style='mso-bookmark:_Toc410119565'><span style='mso-fareast-font-family:"Times New Roman"'>12.6.1Theoretical
+background</span></span><span style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal>The second group of methods for local contrast enhancement
+form methods in which image gray levels are subjected to a point-wise
+transformation with a transfer function, whose slope, for a given gray level,
+is proportional to a certain <span style='position:relative;top:5pt'><span
+style='mso-no-proof:yes'><img border=0 width=20 height=20 id="_x0000_i1032"
+src="Image%20enhancement_files/image107.png"></span>-<span class=GramE>th</span>
+power of the image histogram.&nbsp; In this way the greater gray level rate in
+the image the greater is amplification of local gray level contrasts for these
+gray levels. We call this group of methods <b><i><span style='layout-grid-mode:
+line'>p-histogram equalization</span></i></b><span style='layout-grid-mode:
+line'>. They can be applied both globally to the entire image frame and locally
+in sliding window. In the latter case we call them <b><i>local p-histogram
+equalization</i></b>. The term “equalization” stems from the fact that when </span><span
+style='position:relative;top:5pt'><span style='mso-no-proof:yes'><img border=0
+width=39 height=20 id="_x0000_i1031"
+src="Image%20enhancement_files/image108.png"></span><span style='layout-grid-mode:
+line'>&nbsp;such transformation converts images with an arbitrary histogram to
+images with the uniform histogram (in fact, almost uniform due to effects of
+quantization). This particular transformation of image grey levels is called
+histogram equalization.&nbsp; One of the immediate applications of histogram
+equalization&nbsp;is image dynamic range blind calibration. The histogram equalization
+can be treated as converting image gray level contrasts into contrast in terms
+of pixel ranks. As we indicated in </span><i><u><span style='mso-bidi-language:
+AR-SA;layout-grid-mode:line'>&#8206;</span><span style='layout-grid-mode:line'>3.2.1.6
+</span>Histogram equalization</u></i><span style='layout-grid-mode:line'>,
+histogram <b><i>p</i></b>-equalization and, in particular, histogram
+equalization can also be interpreted in terms of signal optimal quantization. </span></p>
+
+<p class=MsoNormal><span style='layout-grid-mode:line'>In the <span
+class=GramE>case <span style='layout-grid-mode:both'><span style='position:
+relative;top:5pt'><span style='mso-no-proof:yes'><img border=0 width=38
+height=20 id="_x0000_i1030" src="Image%20enhancement_files/image109.png"></span></span></span></span>,
+the transformation stretches linearly the dynamic range of the image to the
+entire dynamic range&nbsp; available for image display:&nbsp; </p>
+
+<p class=MsoNormal><span style='mso-no-proof:yes'><img border=0 width=244
+height=38 id="_x0000_i1029" src="Image%20enhancement_files/image110.png"></span></p>
+
+<p class=MsoCaption>Equation <b><span style='font-size:12.0pt;mso-bidi-language:
+AR-SA'>&#8206;</span></b>13&#8209;22</p>
+
+<p class=MsoNormal><span class=GramE><span style='layout-grid-mode:line'>where</span></span><span
+style='layout-grid-mode:line'> </span><span style='position:relative;
+top:6pt'><span style='mso-no-proof:yes'><img border=0 width=72 height=30
+id="_x0000_i1028" src="Image%20enhancement_files/image111.png"></span>&nbsp;are
+maximal and minimal gray levels for image display (usually 0 and 255) and <span
+style='position:relative;top:5pt'><span style='mso-no-proof:yes'><img border=0
+width=88 height=20 id="_x0000_i1027"
+src="Image%20enhancement_files/image112.png"></span>&nbsp;are maximal and
+minimal gray levels of the input image, or, correspondingly, image fragment in
+the filter window if the filter is applied locally in a sliding window. <span
+style='layout-grid-mode:line'>Intermediate values of </span><span
+style='position:relative;top:5pt'><span style='mso-no-proof:yes'><img border=0
+width=20 height=20 id="_x0000_i1026"
+src="Image%20enhancement_files/image107.png"></span><span style='layout-grid-mode:
+line'>&nbsp;enable flexible, using only one parameter, control of image local
+contrast enhancement. </span></p>
+
+<h3><a name="_Toc410119566"><span style='mso-fareast-font-family:"Times New Roman"'>12.6.2Experiment
+Description</span></a><span style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal>The “Histogram Modification” experiment illustrates and
+compares global <span style='layout-grid-mode:line'>histogram <b><i>p</i></b>-equalization
+(similar to local P-histogram equalization only it operated over the entire
+image histogram), local histogram equalization (</span>Equation <span
+style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;13<span
+style='layout-grid-mode:line'>) and local histogram <b><i>p</i></b>-equalization
+(</span>Equation <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;15<span
+style='layout-grid-mode:line'>), as described at </span><span style='mso-bidi-language:
+AR-SA;layout-grid-mode:line'>&#8206;</span><span style='layout-grid-mode:line'>13.6.1
+and </span><span style='mso-bidi-language:AR-SA;layout-grid-mode:line'>&#8206;</span><span
+style='layout-grid-mode:line'>13.3.1.</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h3><a name="_Toc410119567"><span style='mso-fareast-font-family:"Times New Roman"'>12.6.3Results</span></a><span
+style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h3>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='mso-no-proof:yes'><img border=0 width=770 height=391 id="_x0000_i1025"
+src="Image%20enhancement_files/image113.jpg"></span></p>
+
+<p class=MsoCaption><a name="_Ref410910404">Figure </a><span style='mso-bookmark:
+_Ref410910404'></span><b><span style='font-size:12.0pt;mso-bidi-language:AR-SA'>&#8206;</span></b>13&#8209;7:
+&nbsp;“Histogram Modification”. Top left is the test image. Bottom left is the
+test image histogram. The second from the left at the top image is the Test
+image after global P histogram equalization. The second from the left at the
+bottom plot is the histogram of the global P histogram equalized result. The
+third image from the left at the top is the test image locally histogram
+equalized, and the third image from the left at the bottom is the histogram of
+the test image after local histogram equalization. The top right image is the
+test image locally “P histogram” equalized, and the bottom right image is the
+histogram of the test image after local P histogram equalization. The local
+window is 5x5 size, and P = 0.5.</p>
+
+<p class=MsoNormal>Figure <span style='mso-bidi-language:AR-SA'>&#8206;</span>13&#8209;7
+indicates that although all three algorithms (global P equalization, local P
+equalization, and local histogram equalization) result with higher local
+contrast images, the local algorithms are much more suitable for application of
+locating small fluctuation in the image, and locating small features which are
+not visible without it. The global method is more visually pleasing, and more
+suited for DRC application. <span style='layout-grid-mode:line'><br clear=all
+style='mso-special-character:line-break;page-break-before:always'>
+</span></p>
+
+<h1><a name="_Toc410730332"></a><a name="_Toc410119784"></a><a
+name="_Toc410119568"></a><span style='mso-bookmark:_Toc410730332'><span
+style='mso-fareast-font-family:"Times New Roman"'>Bibliography</span></span><span
+style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></h1>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 0cm 0cm 0cm'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[1] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;CORRECTING IMAGE GRAY SCALE
+  NONLINEAR DISTORTIONS,&quot; in <i>Theoretical Foundations of Digital Imaging
+  Using MATLAB</i>, CRC Press, 2012, p. 440.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[2] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky<span dir=RTL></span><span
+  lang=AR-SA dir=RTL style='mso-bidi-language:AR-SA'><span dir=RTL></span>&#8207;</span><span
+  dir=LTR></span><span dir=LTR></span>, &quot;Empirical Wiener filters for
+  image denoising,&quot; in <i>Theoretical Foundations of Digital Imaging Using
+  MATLAB</i>, CRC Press, 2012, p. 408.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2;mso-yfti-lastrow:yes'>
+  <td width="1%" valign=top style='width:1.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>[3] </p>
+  </td>
+  <td valign=top style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoBibliography>L. P. Yaroslavsky, &quot;NONLINEAR FILTERS FOR IMAGE
+  PERFECTING,&quot; in <i>Theoretical Foundations of Digital Imaging Using
+  MATLAB</i>, CRC Press, 2012, p. 443.</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal><span dir=RTL></span><span lang=AR-SA dir=RTL
+style='mso-bidi-language:AR-SA'><span dir=RTL></span>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
